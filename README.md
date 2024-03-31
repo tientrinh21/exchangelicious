@@ -40,9 +40,10 @@ https://mothergeo-py.readthedocs.io/en/latest/development/how-to/venv-win.html
 - Create your own virtual environment (venv):
 `python -m venv .venv`
 
-
 - Activate the venv (windows):
 `.\venv\Scripts\activate`
+(mac):
+'source venv/bin/activate'
 
 - Install all necessary packages:
 `pip install -r requirements.txt`
