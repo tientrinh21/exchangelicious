@@ -48,13 +48,13 @@ https://mothergeo-py.readthedocs.io/en/latest/development/how-to/venv-win.html
 - Install all necessary packages:
 `pip install -r requirements.txt`
 
-## Database connection
-The current database connection is inspired by this video: https://www.youtube.com/watch?v=yBDHkveJUf4&ab_channel=freeCodeCamp.org (2:36:51)
-We are using Microsoft Azure cloud & MySQL. 
-
 - Update the requirements file (important when you install a package to the venv, that we all need):
 
 `pip freeze > requirements.txt`
 
 - Deactivate the venv:
 `deactivate`
+
+## Database connection
+The current database connection is inspired by this video: https://www.youtube.com/watch?v=yBDHkveJUf4&ab_channel=freeCodeCamp.org (2:36:51)
+We are using Microsoft Azure cloud & MySQL. 
