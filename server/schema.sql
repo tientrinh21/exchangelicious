@@ -3,23 +3,24 @@ create database exchangeDB;
 use exchangeDB;
 
 CREATE TABLE University (
-    universityID INTEGER PRIMARY KEY,
+    university_id varchar(40) default (uuid()) PRIMARY KEY,
     -- countryCode VARCHAR(3), 
-    longName VARCHAR(255),
-    infoPageID TEXT
+    long_name VARCHAR(255),
+    info_page_id TEXT
     -- FOREIGN KEY (infoPageID) REFERENCES InfoPage(infoPageID), 
     -- FOREIGN KEY (countryCode) REFERENCES Country(countryCode) 
 );
 
 CREATE TABLE User
 (
-    -- userID INTEGER PRIMARY KEY,
-    username VARCHAR(30) PRIMARY KEY,
+	user_id varchar(40) default (uuid()) PRIMARY KEY,
+    username varchar(40) unique,
+    password varchar(30),
     -- nationality VARCHAR(3),
-    homeUniversity INTEGER,
+    home_university varchar(40),
     -- exchangeUniversity INTEGER, 
-    UNIQUE(username),
-    FOREIGN KEY (homeUniversity) REFERENCES University(UniversityID)
+    -- UNIQUE(username),
+    FOREIGN KEY (home_university) REFERENCES University(university_id)
     -- FOREIGN KEY (exchangeUniversity) REFERENCES University(UniversityID), 
     -- FOREIGN KEY (nationality) REFERENCES Country(countryCode)
 );
@@ -54,15 +55,16 @@ CREATE TABLE InfoPage (
     PRIMARY KEY (infoPageID)
 );
 */
-insert into University(universityID, longName, infoPageID) values
-('1', 'NTNU', 'Trondheim is best'),
-('2', 'Uio', 'Oslo is best'),
-('3', 'Uib', 'Bergens is best');
+insert into University(university_id, long_name, info_page_id) values
+('ntnu', 'NTNU', 'Trondheim is best'),
+('uio', 'Uio', 'Oslo is best'),
+('uib', 'Uib', 'Bergens is best');
 
-insert into User(username, homeUniversity) values
-('bob', '1'),
-('Ola', '2'),
-('Kari', '2');
+insert into User(user_id, username, password, home_university) values
+('kk', 'kari', '123', 'ntnu'),
+('oo', 'ola', '123456', 'uio' ),
+('pp', 'per', '123', 'ntnu');
+
 
 
 

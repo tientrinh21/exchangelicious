@@ -1,4 +1,5 @@
 from sqlalchemy import URL, create_engine, text
+from flask import current_app, g
 
 # mysql://username:password@host:port/database_name
 
@@ -29,3 +30,4 @@ for row in result:
 
 
 # engine = create_engine(db_conn_str)
+
