@@ -1,33 +1,68 @@
 "use client";
 import React, { useEffect, useState } from 'react'
+import ConsumeApiDemo from './components/consumeApiDemo';
+
+// Datafetching
+// https://www.youtube.com/watch?v=00lxm_doFYw
+// interface User {
+//   // user_id: string;
+//   username: string;
+//   password: string
+// }
+
+// interface Users {
+//   user: User[];
+// }
 
 function page() {
 
   const [message, setMessage] = useState("Loading");
   const [people, setPeople] = useState([]);
+  const [user, setUser] = useState("Loading user")
+  const [data, setData] = useState(null);
 
-  useEffect(() => {
-    fetch("http://127.0.0.1:8080/api/home")
-      .then((response) => response.json())
-      .then((data) => {
-        console.log(data)
-        setMessage(data.message)
-        setPeople(data.people);
-      });
-  }, []);
 
+  // useEffect(() => {
+  //   fetch("http://127.0.0.1:8080/api/home")
+  //     .then((response) => response.json())
+  //     .then((data) => {
+  //       console.log(data)
+  //       setMessage(data.message)
+  //       setPeople(data.people);
+  //     });
+  // }, []);
+
+  // useEffect(() => {
+  //   fetch("http://127.0.0.1:8080/api/users/kk")
+  //   .then(response => response.json())
+  //   .then(json => setData(json))
+  //   .catch(error => console.error(error));
+  // }, []);
+
+  // return (
+  //   <div>
+  //     {data ? <pre>{JSON.stringify(data, null, 2)}</pre> : 'Loading...'}
+  //   </div>
+  // );
 
   return (
     <div>
-      <div>{message}</div>
-      {
-        people.map((person, index) => (
-          <div key={index}>
-            {person}
-          </div>
-        ))}
+      <ConsumeApiDemo></ConsumeApiDemo>
     </div>
-  );
+  )
+  
+  // return (
+  //   <div>
+  //     <div>{message}</div>
+  //     <div>{user}</div>
+  //     {
+  //       people.map((person, index) => (
+  //         <div key={index}>
+  //           {person}
+  //         </div>
+  //       ))}
+  //   </div>
+  // );
 }
 
 export default page

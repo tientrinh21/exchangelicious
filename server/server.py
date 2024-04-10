@@ -34,30 +34,6 @@ db = SQLAlchemy(app)
 engine = create_engine(url_object)
 
 
-class User(db.Model):
-    id = db.Column(db.Integer, primary_key=True)
-    username = db.Column(db.string, unique=True)
-    password = db.Column(db.string)
-
-    # to string
-    def __repr__(self):
-        return f'<User {self.username}>'
-    
-
-class User: 
-    def __init__(self, id, username, password) -> None:
-        self.id = id
-        self.username = username
-        self.password = password
-    
-    # deserialization
-    @staticmethod
-    def from_dict(data):
-        return User(data.get('id'), data.get('username'), data.get('email'))
-
-    # serialization
-    def to_dict(self):
-        return {"id": self.id, 'username': self.username, 'email': self.email}
 
 
 @app.route('/api/home', methods=['GET'])
