@@ -20,6 +20,7 @@ function ConsumeApiDemo() {
                 // Call the api and cast the response via json
                 const response = await fetch(`${BASE_URL}/users`);
                 const users = await response.json() as User[];
+                console.log(response)
                 setUsers(users)
             // We should probably handle this better 
             } catch (error: any) {
@@ -52,7 +53,7 @@ function ConsumeApiDemo() {
             {!isLoading && (
                 <ul>
                 {users.map((user) => {
-                    return <li key={user.username}>{user.username} + {user.password}</li>
+                    return <li key={user.user_id}>{user.username} + {user.pwd} + {user.nationality} + {user.home_university}</li>
                 })}
             </ul>
             )}

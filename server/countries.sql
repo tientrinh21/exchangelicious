@@ -1,21 +1,23 @@
-
+use exchangeDB;
+drop table if exists `CountryTable`;
 --
 -- Source: https://dyclassroom.com/reference-database/mysql-country-name-and-country-code-list
 -- Table structure for table `country`
 --
 
-CREATE TABLE IF NOT EXISTS `Country` (
-  `countrycode` char(3) NOT NULL,
-  `countryname` varchar(200) NOT NULL,
+CREATE TABLE IF NOT EXISTS `CountryTable` (
+  `country_code` char(3) NOT NULL,
+  `country_name` varchar(200) NOT NULL,
   `code` char(2) DEFAULT NULL,
-  PRIMARY KEY (`countrycode`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+  PRIMARY KEY (`country_code`)
+) ;
+-- ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
 -- Dumping data for table `country`
 --
 
-INSERT INTO `Country` (`countrycode`, `countryname`, `code`)
+INSERT INTO `CountryTable` (`country_code`, `country_name`, `code`)
 VALUES
 ('AFG','Afghanistan','AF'),
 ('ALA','Åland','AX'),
