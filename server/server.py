@@ -1,16 +1,18 @@
-from flask import Flask, jsonify, request
+from flask import Flask
+from flask_restful import Api, Resource, fields, marshal_with
 from flask_cors import CORS
 from flask_sqlalchemy import SQLAlchemy
-from sqlalchemy import URL, create_engine, text
 from dotenv import load_dotenv
-from db_helper_functions import INSERT_USER
 import os
+from sqlalchemy import URL, create_engine
 
 # loads the variables in the .env file so we can access them
 load_dotenv()
 # app instance
 app = Flask(__name__)
 CORS(app)
+# we are gonna build a api
+api = Api(app)
 
 DB_USERNAME = os.getenv("DB_USERNAME")
 DB_PASSWORD = os.getenv("DB_PASSWORD")
@@ -30,43 +32,104 @@ url_object = URL.create(
 app.config['SQLALCHEMY_DATABASE_URI'] = url_object
 db = SQLAlchemy(app)
 
-# docs: https://docs.sqlalchemy.org/en/20/core/connections.html#basic-usage
-engine = create_engine(url_object)
+# inspo: https://www.youtube.com/watch?v=GMppyAPbLYk
+
+# Here we are just reflecting the database
+# Should maybe be changed at a later date,
+# when the database schema is mostly decided on
+db.Model.metadata.reflect(bind=create_engine(url_object),schema=DB_NAME)
+class CountryTable(db.Model):
+    '''deal with an existing table'''
+    __table__ = db.Model.metadata.tables[f'{DB_NAME}.countrytable']
+
+class InfoPageTable(db.Model):
+    '''deal with an existing table'''
+    __table__ = db.Model.metadata.tables[f'{DB_NAME}.infopagetable']
+
+class UniversityTable(db.Model):
+    '''deal with an existing table'''
+    __table__ = db.Model.metadata.tables[f'{DB_NAME}.universitytable']
+
+class PartnerUniversitiesTable(db.Model):
+    '''deal with an existing table'''
+    __table__ = db.Model.metadata.tables[f'{DB_NAME}.partneruniversitiestable']
+
+class UserTable(db.Model):
+    '''deal with an existing table'''
+    __table__ = db.Model.metadata.tables[f'{DB_NAME}.usertable']
+
+class ExchangeUniversityTable(db.Model):
+    '''deal with an existing table'''
+    __table__ = db.Model.metadata.tables[f'{DB_NAME}.exchangeuniversitytable']
+
+# The above code should be changed to this 
+# Basically is the schema in a data base
+# class User(db.Model):
+#     user_id = db.Column(db.String(40), primary_key=True)
+#     username = db.Column(db.String, unique=True)
+#     # TODO: Handle password security
+#     password = db.Column(db.String, nullable=False)
+#     home_university = db.Column(db.String)
+
+#     # to string
+#     def __repr__(self):
+#         return f'<User {self.username}>'
+    
+# handle serialization
+info_page_resource_fields = {
+    'info_page_id': fields.String,
+    'intro_text': fields.String,
+    'intro_source': fields.String
+}
+
+university_resource_fields = {
+    'university_id': fields.String,
+    'country_code': fields.String,
+    'region': fields.String,
+    'long_name': fields.String,
+    'info_page_id': fields.String,
+}
+
+user_resource_fields = {
+    'user_id': fields.String, 
+    'username': fields.String,
+    'pwd': fields.String,
+    'nationality': fields.String,
+    'home_university': fields.String
+}
 
 
+# How to query with SQLAlchemy
+# https://flask-sqlalchemy.palletsprojects.com/en/3.1.x/queries/
 
+class UserRes(Resource):
+    @marshal_with(user_resource_fields)
+    def get(self, user_id):
+        return db.get_or_404(UserTable, user_id)
 
-@app.route('/api/home', methods=['GET'])
-def return_home():
-    return jsonify({
-        'message': "hello world from the flask server!",
-        'people': ['Jack', 'Harry', 'Barry']
-    })
+class UsersAllRes(Resource):
+    @marshal_with(user_resource_fields)
+    def get(self):
+        users = UserTable.query.order_by(UserTable.username).all()
+        return [user for user in users], 200
 
+class UniversityRes(Resource):
+    @marshal_with(university_resource_fields)
+    def get(self, university_id):
+        return db.get_or_404(UniversityTable, university_id)
 
+class UniversityAllRes(Resource):
+    @marshal_with(university_resource_fields)
+    def get(self):
+        unis = UniversityTable.query.order_by(UniversityTable.long_name).all()
+        return [uni for uni in unis], 200
+    
+# register the resource at a certain route
+api.add_resource(UserRes, '/api/users/<string:user_id>')
+api.add_resource(UsersAllRes, '/api/users')
+api.add_resource(UniversityRes, '/api/university/<string:university_id>')
+api.add_resource(UniversityAllRes, '/api/university')
+# beware. The address should not end with a slash
 
-@app.route('/api/universities', methods=['GET'])
-def get_all_universities():
-    # closes the connection automatically when using the with block
-    with engine.connect() as connection:
-        result = connection.execute(text("SELECT * FROM University;"))
-
-    return jsonify([(dict(row)) for row in result])
-    # return {"id": 232, "message": f"Universities viewed created."}, 201
-
-@app.post("/api/create/user")
-def create_user():
-    data = request.get_json()
-    username = data["username"]
-    homeUniID = data["homeUniID"]
-    with connection:
-        with connection.cursor() as cursor:
-            cursor.execute(INSERT_USER, (username, homeUniID))
-            user_id = cursor.fetchone()[0]
-    return {"id": user_id, "message": f"User {username} created."}, 201
-
-
-
-if __name__ == '__main__':
+if __name__ == "__main__":
     app.run(debug=True, port=8080)
-

@@ -33,11 +33,6 @@ function ConsumeApiDemo() {
         fetchUsers();
     }, [])
 
-    // // What to display when we are awaiting data
-    // if (isLoading) {
-    //     return <div>Loading ...</div>
-    // }
-
     // display error
     if (error) {
         return (
@@ -60,24 +55,5 @@ function ConsumeApiDemo() {
         </div>
     )
 }
-
-
-// function RegisterUserDemo() {
-//     const saveGames = () => {
-//         fetch('http://localhost:3000/user/', {
-//           method: 'POST',
-//           headers: {
-//             'Content-Type': 'application/json',
-//           },
-//           body: JSON.stringify({
-//             name: formData, // Use your own property name / key
-//           }),
-//         })
-//           .then((res) => res.json())
-//           .then((result) => setData(result.rows))
-//           .catch((err) => console.log('error'))
-//       }
-    
-// }
 
 export default ConsumeApiDemo
