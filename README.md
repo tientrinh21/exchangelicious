@@ -74,7 +74,7 @@ DB_USERNAME = 'root (or whatever you called your db user)'
 DB_PASSWORD = 'the password of the user you created'
 DB_SERVER = 'localhost'
 DB_PORT = '3306'
-DB_NAME = 'exchangedb'
+DB_NAME = 'exchangeDB'
 ```
 
 ## Database connection
