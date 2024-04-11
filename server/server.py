@@ -4,7 +4,7 @@ from flask_cors import CORS
 from flask_sqlalchemy import SQLAlchemy
 from dotenv import load_dotenv
 import os
-from sqlalchemy import URL, create_engine
+from sqlalchemy import URL, create_engine, select, text
 
 # loads the variables in the .env file so we can access them
 load_dotenv()
@@ -90,12 +90,35 @@ university_resource_fields = {
     'info_page_id': fields.String,
 }
 
+university_with_info_resource_fields = {
+    'university_id': fields.String,
+    'country_code': fields.String,
+    'region': fields.String,
+    'long_name': fields.String,
+    'info_page_id': fields.String,
+    'info_page_id': fields.String,
+    'intro_text': fields.String,
+    'intro_source': fields.String
+}
+
 user_resource_fields = {
     'user_id': fields.String, 
     'username': fields.String,
     'pwd': fields.String,
     'nationality': fields.String,
     'home_university': fields.String
+}
+
+user_with_university_resource_fields = {
+    'user_id': fields.String, 
+    'username': fields.String,
+    'pwd': fields.String,
+    'nationality': fields.String,
+    'university_id': fields.String,
+    'country_code': fields.String,
+    'region': fields.String,
+    'long_name': fields.String,
+    'info_page_id': fields.String,
 }
 
 
@@ -117,7 +140,22 @@ class UniversityRes(Resource):
     @marshal_with(university_resource_fields)
     def get(self, university_id):
         return db.get_or_404(UniversityTable, university_id)
+    
+class UniversityWithInfoRes(Resource):
+    @marshal_with(university_with_info_resource_fields)
+    def get(self, university_id):
+        sql_raw = 'SELECT * FROM universitytable JOIN infopagetable ON universitytable.info_page_id = infopagetable.info_page_id WHERE universitytable.university_id = :val'
+        res =  db.session.execute(text(sql_raw), {"val": university_id}).first()
+        print(res)
+        return res
 
+class UserWithUniversityRed(Resource):
+    @marshal_with(user_with_university_resource_fields)
+    def get(self, user_id):
+        sql_raw = 'SELECT * FROM usertable JOIN universitytable ON usertable.home_university = universitytable.university_id WHERE usertable.user_id = :val'
+        res =  db.session.execute(text(sql_raw), {"val": user_id}).first()
+        print(res)
+        return res
 class UniversityAllRes(Resource):
     @marshal_with(university_resource_fields)
     def get(self):
@@ -128,7 +166,9 @@ class UniversityAllRes(Resource):
 api.add_resource(UserRes, '/api/users/<string:user_id>')
 api.add_resource(UsersAllRes, '/api/users')
 api.add_resource(UniversityRes, '/api/university/<string:university_id>')
+api.add_resource(UniversityWithInfoRes, '/api/university/<string:university_id>/info')
 api.add_resource(UniversityAllRes, '/api/university')
+api.add_resource(UserWithUniversityRed, '/api/users/<string:user_id>/uni')
 # beware. The address should not end with a slash
 
 if __name__ == "__main__":
