@@ -157,7 +157,6 @@ user_with_university_resource_fields = {
     "info_page_id": fields.String,
 }
 
-
 # How to query with SQLAlchemy
 # https://flask-sqlalchemy.palletsprojects.com/en/3.1.x/queries/
 
@@ -165,7 +164,7 @@ user_with_university_resource_fields = {
 class UserRes(Resource):
     @marshal_with(user_resource_fields)
     def get(self, user_id):
-        return db.get_or_404(UserTable, user_id)
+        return db.get_or_404(UserTable, user_id, description=f"No user with the ID '{user_id}'.")
 
 class UsersAllRes(Resource):
     @marshal_with(user_resource_fields)
@@ -173,12 +172,11 @@ class UsersAllRes(Resource):
         users = UserTable.query.order_by(UserTable.username).all()
         return [user for user in users], 200
 
-
 class UniversityRes(Resource):
     @marshal_with(university_resource_fields)
     def get(self, university_id):
-        return db.get_or_404(UniversityTable, university_id)
-
+        return db.get_or_404(UniversityTable, university_id,  description=f"No university with the ID '{university_id}'.")
+    
 class UniversityWithInfoRes(Resource):
     @marshal_with(university_with_info_resource_fields)
     def get(self, university_id):
@@ -205,9 +203,9 @@ class UniversityAllRes(Resource):
 # register the resource at a certain route
 api.add_resource(UserRes, "/api/users/<string:user_id>")
 api.add_resource(UsersAllRes, "/api/users")
-api.add_resource(UniversityRes, "/api/university/<string:university_id>")
-api.add_resource(UniversityWithInfoRes, "/api/university/<string:university_id>/info")
-api.add_resource(UniversityAllRes, "/api/university")
+api.add_resource(UniversityRes, "/api/universities/<string:university_id>")
+api.add_resource(UniversityWithInfoRes, "/api/universities/<string:university_id>/info")
+api.add_resource(UniversityAllRes, "/api/universities")
 api.add_resource(UserWithUniversityRed, "/api/users/<string:user_id>/uni")
 # beware. The address should not end with a slash
 

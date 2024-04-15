@@ -2,7 +2,7 @@
   "openapi": "3.0.3",
   "info": {
     "title": "EduVenture API Documentation",
-    "description": "Some useful links:\n- [The Pet Store repository](https://github.com/swagger-api/swagger-petstore)\n- [The source API definition for the Pet Store](https://github.com/swagger-api/swagger-petstore/blob/master/src/main/resources/openapi.yaml)",
+    "description": "Some useful links:\n- [Swagger Editor](https://editor.swagger.io/)\n- [Swagger Documentation](https://swagger.io/docs/specification/data-models/)",
     "version": "1.0.0"
   },
   "tags": [
@@ -11,12 +11,38 @@
       "description": "Everything about the universities"
     },
     {
-      "name": "user",
+      "name": "User",
       "description": "Operations about user"
     }
   ],
   "paths": {
-    "/api/university/{university_id}": {
+    "/api/universities": {
+      "get": {
+        "tags": [
+          "University"
+        ],
+        "summary": "Returns a list of all universities",
+        "responses": {
+          "200": {
+            "description": "successful operation",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/University"
+                  }
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "ID not found"
+          }
+        }
+      }
+    },
+    "/api/universities/{university_id}": {
       "get": {
         "tags": [
           "University"
@@ -43,18 +69,147 @@
                 "schema": {
                   "$ref": "#/components/schemas/University"
                 }
-              },
-              "application/xml": {
+              }
+            }
+          },
+          "404": {
+            "description": "ID not found"
+          }
+        }
+      }
+    },
+    "/api/universities/{university_id}/info": {
+      "get": {
+        "tags": [
+          "University"
+        ],
+        "summary": "Find university by ID with info page",
+        "description": "Returns a single university with info",
+        "parameters": [
+          {
+            "name": "university_id",
+            "in": "path",
+            "description": "ID of University to return",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "maxLength": 36
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "successful operation",
+            "content": {
+              "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/University"
+                  "$ref": "#/components/schemas/UniversityWithInfo"
                 }
               }
             }
           },
           "404": {
-            "description": {
-              "message": "The requested URL was not found on the server. If you entered the URL manually please check your spelling and try again."
+            "description": "ID not found"
+          }
+        }
+      }
+    },
+    "/api/users": {
+      "get": {
+        "tags": [
+          "User"
+        ],
+        "summary": "Get a list of users",
+        "description": "Returns a list of users with their details including user_id, username, password, nationality, and home_university.\n",
+        "responses": {
+          "200": {
+            "description": "A list of users.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/User"
+                  }
+                }
+              }
             }
+          }
+        }
+      }
+    },
+    "/api/users/{user_id}": {
+      "get": {
+        "tags": [
+          "User"
+        ],
+        "summary": "Get a single user by ID",
+        "parameters": [
+          {
+            "name": "user_id",
+            "in": "path",
+            "description": "ID of the user to return",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "maxLength": 36
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "A list of users.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/User"
+                  }
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "ID not found"
+          }
+        }
+      }
+    },
+    "/api/users/{user_id}/uni": {
+      "get": {
+        "tags": [
+          "User"
+        ],
+        "summary": "Get a single user by ID with uni-info",
+        "parameters": [
+          {
+            "name": "user_id",
+            "in": "path",
+            "description": "ID of the user to return",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "maxLength": 36
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "A list of users.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/UserWithUni"
+                  }
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "ID not found"
           }
         }
       }
@@ -91,6 +246,73 @@
             "example": "2f1e5333-5600-4a0b-bccb-df6a9d295c43"
           }
         }
+      },
+      "InfoPage": {
+        "type": "object",
+        "properties": {
+          "info_page_id": {
+            "type": "string",
+            "maxLength": 36,
+            "example": "2f1e5333-5600-4a0b-bccb-"
+          },
+          "intro_text": {
+            "type": "string"
+          },
+          "intro_source": {
+            "type": "string"
+          }
+        }
+      },
+      "UniversityWithInfo": {
+        "allOf": [
+          {
+            "$ref": "#/components/schemas/University"
+          },
+          {
+            "$ref": "#/components/schemas/InfoPage"
+          }
+        ]
+      },
+      "User": {
+        "type": "object",
+        "properties": {
+          "user_id": {
+            "type": "string",
+            "maxLength": 36,
+            "description": "The unique identifier for the user.",
+            "example": "ea6ac0be-29e1-4da2-8e69-bf784d9c8859"
+          },
+          "username": {
+            "type": "string",
+            "description": "The username of the user.",
+            "example": "bobson"
+          },
+          "pwd": {
+            "type": "string",
+            "description": "The password of the user.",
+            "example": "topsecret"
+          },
+          "nationality": {
+            "type": "string",
+            "description": "The nationality of the user."
+          },
+          "home_university": {
+            "type": "string",
+            "maxLength": 36,
+            "description": "The home university of the user.",
+            "example": "2f1e5333-5600-4a0b-bccb-df6a9d295c43"
+          }
+        }
+      },
+      "UserWithUni": {
+        "allOf": [
+          {
+            "$ref": "#/components/schemas/User"
+          },
+          {
+            "$ref": "#/components/schemas/University"
+          }
+        ]
       }
     }
   }
