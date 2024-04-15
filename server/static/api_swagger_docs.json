@@ -1,0 +1,97 @@
+{
+  "openapi": "3.0.3",
+  "info": {
+    "title": "EduVenture API Documentation",
+    "description": "Some useful links:\n- [The Pet Store repository](https://github.com/swagger-api/swagger-petstore)\n- [The source API definition for the Pet Store](https://github.com/swagger-api/swagger-petstore/blob/master/src/main/resources/openapi.yaml)",
+    "version": "1.0.0"
+  },
+  "tags": [
+    {
+      "name": "University",
+      "description": "Everything about the universities"
+    },
+    {
+      "name": "user",
+      "description": "Operations about user"
+    }
+  ],
+  "paths": {
+    "/api/university/{university_id}": {
+      "get": {
+        "tags": [
+          "University"
+        ],
+        "summary": "Find university by ID",
+        "description": "Returns a single university (with out info)",
+        "parameters": [
+          {
+            "name": "university_id",
+            "in": "path",
+            "description": "ID of University to return",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "maxLength": 36
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "successful operation",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/University"
+                }
+              },
+              "application/xml": {
+                "schema": {
+                  "$ref": "#/components/schemas/University"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": {
+              "message": "The requested URL was not found on the server. If you entered the URL manually please check your spelling and try again."
+            }
+          }
+        }
+      }
+    }
+  },
+  "components": {
+    "schemas": {
+      "University": {
+        "type": "object",
+        "properties": {
+          "university_id": {
+            "type": "string",
+            "maxLength": 36,
+            "example": "ea6ac0be-29e1-4da2-8e69-bf784d9c8859"
+          },
+          "country_code": {
+            "type": "string",
+            "maxLength": 3,
+            "example": "KOR"
+          },
+          "region": {
+            "type": "string",
+            "maxLength": 40,
+            "example": "Seoul, Suwon"
+          },
+          "long_name": {
+            "type": "string",
+            "maxLength": 36,
+            "example": "Sungkyunkwan university"
+          },
+          "info_page_id": {
+            "type": "string",
+            "maxLength": 36,
+            "example": "2f1e5333-5600-4a0b-bccb-df6a9d295c43"
+          }
+        }
+      }
+    }
+  }
+}
