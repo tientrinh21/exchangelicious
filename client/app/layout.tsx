@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import { Inter } from "next/font/google";
 import "./globals.css";
 import { SiteHeader } from "./components/site-header";
+import { cn } from "./lib/utils";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -17,7 +18,7 @@ interface RootLayoutProps {
 export default function RootLayout({ children }: RootLayoutProps) {
   return (
     <html lang="en">
-      <body className={inter.className}>
+      <body className={cn("min-h-screen bg-background antialiased", inter.className)}>
         <SiteHeader />
         <main className="flex-1">{children}</main>
         {/* TODO: Implement site footer */}
