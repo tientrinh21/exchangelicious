@@ -1,11 +1,13 @@
+drop database if exists exchangeDB;
+create database exchangeDB;
 use exchangeDB;
-drop table if exists `CountryTable`;
+drop table if exists `country_table`;
 --
 -- Source: https://dyclassroom.com/reference-database/mysql-country-name-and-country-code-list
 -- Table structure for table `country`
 --
 
-CREATE TABLE IF NOT EXISTS `CountryTable` (
+CREATE TABLE IF NOT EXISTS `country_table` (
   `country_code` char(3) NOT NULL,
   `country_name` varchar(200) NOT NULL,
   `code` char(2) DEFAULT NULL,
@@ -17,7 +19,7 @@ CREATE TABLE IF NOT EXISTS `CountryTable` (
 -- Dumping data for table `country`
 --
 
-INSERT INTO `CountryTable` (`country_code`, `country_name`, `code`)
+INSERT INTO `country_table` (`country_code`, `country_name`, `code`)
 VALUES
 ('AFG','Afghanistan','AF'),
 ('ALA','Åland','AX'),
