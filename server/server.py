@@ -169,38 +169,15 @@ class UniversityRes(Resource):
 class UniversityWithInfoRes(Resource):
     @marshal_with(university_with_info_resource_fields)
     def get(self, university_id):
-
-        # statement = (
-        #     select(UniversityTable, InfoPageTable)
-        #     .where(UniversityTable.university_id == university_id)
-        #     .join(InfoPageTable, UniversityTable.info_page_id == InfoPageTable.info_page_id)
-        # )
-        # print(statement)
-
-        # res = db.session.execute(statement)
-        # res = UniversityTable.query\
-        # .join(InfoPageTable)\
-        # .filter(UniversityTable.university_id == university_id)\
-        # .first()
-
-        res = db.session.query(UniversityTable, InfoPageTable)\
-        .filter(UniversityTable.university_id == university_id)\
-        .join(InfoPageTable, UniversityTable.info_page_id == InfoPageTable.info_page_id)\
-        .first()
-
-        # res = db.session.query(UniversityTable).get(university_id)
+        sql_raw = "SELECT * FROM university_table JOIN info_page_table ON university_table.info_page_id = info_page_table.info_page_id WHERE university_table.university_id = :val"
+        res = db.session.execute(text(sql_raw), {"val": university_id}).first()
         print(res)
-
-        if res == None:
-            abort(404, 'ID not found')
-
         return res
-
 
 class UserWithUniversityRed(Resource):
     @marshal_with(user_with_university_resource_fields)
     def get(self, user_id):
-        sql_raw = "SELECT * FROM usertable JOIN university_table ON usertable.home_university = university_table.university_id WHERE usertable.user_id = :val"
+        sql_raw = "SELECT * FROM user_table JOIN university_table ON user_table.home_university = university_table.university_id WHERE user_table.user_id = :val"
         res = db.session.execute(text(sql_raw), {"val": user_id}).first()
         print(res)
         return res
