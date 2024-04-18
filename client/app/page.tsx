@@ -2,7 +2,7 @@
 import React from 'react'
 import ConsumeApiDemo from '@/components/consumeApiDemo';
 
-function page() {
+export default function HomePage() {
 
   return (
     <div>
@@ -10,5 +10,3 @@ function page() {
     </div>
   )
 }
-
-export default page

@@ -12,6 +12,8 @@ import Link from "next/link";
 import { usePathname } from "next/navigation";
 
 export function MobileNav() {
+  const pathname = usePathname()
+
   return (
     <DropdownMenu>
       <DropdownMenuTrigger asChild>
@@ -22,31 +24,21 @@ export function MobileNav() {
       </DropdownMenuTrigger>
       <DropdownMenuContent align="end" className="space-y-2 py-4 rounded-lg px-2 shadow-xl">
         <DropdownMenuItem>
-          <NavLink href="/">
+          <Link href="/" className={`w-full font-medium text-accent-foreground text-base text-center ${pathname === '/' ? 'opacity-100' : 'opacity-40'}`}>
             Home
-          </NavLink>
+          </Link>
         </DropdownMenuItem>
         <DropdownMenuItem>
-          <NavLink href="/exchange">
+          <Link href="/exchange" className={`w-full font-medium text-accent-foreground text-base text-center ${pathname.includes("/exchange") ? 'opacity-100' : 'opacity-40'}`}>
             Exchange
-          </NavLink>
+          </Link>
         </DropdownMenuItem>
         <DropdownMenuItem>
-          <NavLink href="/my-page">
+          <Link href="/my-page" className={`w-full font-medium text-accent-foreground text-base text-center ${pathname === '/my-page' ? 'opacity-100' : 'opacity-40'}`}>
             My Page
-          </NavLink>
+          </Link>
         </DropdownMenuItem>
       </DropdownMenuContent>
     </DropdownMenu>
-  )
-}
-
-function NavLink(props: { href: string, children: React.ReactNode }) {
-  const pathname = usePathname()
-
-  return (
-    <Link href={props.href} className={`w-full font-medium text-accent-foreground text-base text-center ${pathname === props.href ? 'opacity-100' : 'opacity-40'}`}>
-      {props.children}
-    </Link>
   )
 }
