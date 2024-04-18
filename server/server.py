@@ -65,42 +65,49 @@ db.Model.metadata.reflect(bind=create_engine(url_object), schema=DB_NAME)
 class CountryTable(db.Model):
     """deal with an existing table"""
 
-    __table__ = db.Model.metadata.tables[f"{DB_NAME}.countrytable"]
+    __table__ = db.Model.metadata.tables[f"{DB_NAME}.country_table"]
 
 
 class InfoPageTable(db.Model):
     """deal with an existing table"""
 
-    __table__ = db.Model.metadata.tables[f"{DB_NAME}.infopagetable"]
+    __table__ = db.Model.metadata.tables[f"{DB_NAME}.info_page_table"]
 
 
 class UniversityTable(db.Model):
     """deal with an existing table"""
 
-    __table__ = db.Model.metadata.tables[f"{DB_NAME}.universitytable"]
+    __table__ = db.Model.metadata.tables[f"{DB_NAME}.university_table"]
+
+    def __repr__(self):
+        return f'<University {self.university_id} + {self.long_name}>'
 
 
 class PartnerUniversitiesTable(db.Model):
     """deal with an existing table"""
 
-    __table__ = db.Model.metadata.tables[f"{DB_NAME}.partneruniversitiestable"]
+    __table__ = db.Model.metadata.tables[f"{DB_NAME}.partner_universities_table"]
 
 
 class UserTable(db.Model):
     """deal with an existing table"""
 
-    __table__ = db.Model.metadata.tables[f"{DB_NAME}.usertable"]
+    __table__ = db.Model.metadata.tables[f"{DB_NAME}.user_table"]
+
+    def __repr__(self):
+        return f'<User {self.username}>'
 
 
 class ExchangeUniversityTable(db.Model):
     """deal with an existing table"""
 
-    __table__ = db.Model.metadata.tables[f"{DB_NAME}.exchangeuniversitytable"]
+    __table__ = db.Model.metadata.tables[f"{DB_NAME}.exchange_university_table"]
 
 
 # The above code should be changed to this
 # Basically is the schema in a data base
 # class User(db.Model):
+#     __tablename__ = f"{DB_NAME}.user_table"
 #     user_id = db.Column(db.String(40), primary_key=True)
 #     username = db.Column(db.String, unique=True)
 #     # TODO: Handle password security
@@ -197,7 +204,7 @@ class UniversityRes(Resource):
 class UniversityWithInfoRes(Resource):
     @marshal_with(university_with_info_resource_fields)
     def get(self, university_id):
-        sql_raw = "SELECT * FROM universitytable JOIN infopagetable ON universitytable.info_page_id = infopagetable.info_page_id WHERE universitytable.university_id = :val"
+        sql_raw = "SELECT * FROM university_table JOIN info_page_table ON university_table.info_page_id = info_page_table.info_page_id WHERE university_table.university_id = :val"
         res = db.session.execute(text(sql_raw), {"val": university_id}).first()
         print(res)
         return res
@@ -205,7 +212,7 @@ class UniversityWithInfoRes(Resource):
 class UserWithUniversityRed(Resource):
     @marshal_with(user_with_university_resource_fields)
     def get(self, user_id):
-        sql_raw = "SELECT * FROM usertable JOIN universitytable ON usertable.home_university = universitytable.university_id WHERE usertable.user_id = :val"
+        sql_raw = "SELECT * FROM user_table JOIN university_table ON user_table.home_university = university_table.university_id WHERE user_table.user_id = :val"
         res = db.session.execute(text(sql_raw), {"val": user_id}).first()
         print(res)
         return res
