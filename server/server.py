@@ -1,5 +1,5 @@
 from flask import Flask, url_for
-from flask_restful import Api, Resource, fields, marshal_with
+from flask_restful import Api, Resource, fields, marshal_with, reqparse
 from flask_cors import CORS
 from flask_sqlalchemy import SQLAlchemy
 from dotenv import load_dotenv
@@ -166,11 +166,28 @@ class UserRes(Resource):
     def get(self, user_id):
         return db.get_or_404(UserTable, user_id, description=f"No user with the ID '{user_id}'.")
 
+
+
 class UsersAllRes(Resource):
     @marshal_with(user_resource_fields)
     def get(self):
         users = UserTable.query.order_by(UserTable.username).all()
         return [user for user in users], 200
+    
+    @marshal_with(user_resource_fields)
+    def put(self):
+        try:
+            user_put_args = reqparse.RequestParser()
+            user_put_args.add_argument('user_id', type=str, help='User ID to create user')
+            user_put_args.add_argument('username', type=str, help='User name to create user')
+            user_put_args.add_argument('pwd', type=str, help='Password to create user')
+            user_put_args.add_argument('nationality', type=str, help='Natioinality of user')
+            user_put_args.add_argument('home_university', type=str, help='Home university of user')
+
+            return {'User ID': args['user_id'], 'Username': args['username'], 'Password': args['pwd'], 'Nationality': args['nationality'], 'Home university': args['home_university']}
+        except Exception as e:
+            return {'Error' : str(e)}
+        
 
 class UniversityRes(Resource):
     @marshal_with(university_resource_fields)
