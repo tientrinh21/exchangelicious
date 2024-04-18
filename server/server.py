@@ -205,7 +205,13 @@ class UniversityAllRes(Resource):
     def get(self):
         unis = UniversityTable.query.order_by(UniversityTable.long_name).all()
         return [uni for uni in unis], 200
-
+    
+class UniversityPagination(Resource):
+    # pagination: https://www.youtube.com/watch?v=hkL9pgCJPNk
+    @marshal_with(university_resource_fields)
+    def get(self, page_num):
+        res = UniversityTable.query.paginate(per_page=2, page=page_num, error_out=True)
+        return [r for r in res], 200
 
 # register the resource at a certain route
 api.add_resource(UserRes, "/api/users/<string:user_id>")
@@ -214,6 +220,7 @@ api.add_resource(UniversityRes, "/api/universities/<string:university_id>")
 api.add_resource(UniversityWithInfoRes, "/api/universities/<string:university_id>/info")
 api.add_resource(UniversityAllRes, "/api/universities")
 api.add_resource(UserWithUniversityRed, "/api/users/<string:user_id>/uni")
+api.add_resource(UniversityPagination, "/api/universities/<int:page_num>")
 # beware. The address should not end with a slash
 
 if __name__ == "__main__":
