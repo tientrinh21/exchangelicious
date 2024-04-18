@@ -1,10 +1,11 @@
-import Link from "next/link";
 import { HamburgerMenuIcon } from "@radix-ui/react-icons";
+import { Button } from "./ui/button";
 
 export function MobileNav() {
   return (
-    <button className="inline-flex items-center justify-center md:hidden bg-foreground text-background w-8 h-8 rounded-lg">
+    <Button size="icon" variant="secondary" className="md:hidden">
       <HamburgerMenuIcon />
-    </button>
+      <span className="sr-only">Toggle Menu</span>
+    </Button>
   )
 }
