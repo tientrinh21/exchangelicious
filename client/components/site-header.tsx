@@ -6,7 +6,7 @@ import { Button } from "./ui/button"
 export function SiteHeader() {
   return (
     <header className="sticky top-0 z-50 w-full">
-      <div className="container flex h-16 max-w-screen-xl items-center justify-between">
+      <div className="container px-6 sm:px-8 flex h-16 max-w-screen-xl items-center justify-between">
         <SiteLogo />
 
         <div className="flex space-x-1 md:space-x-6 items-center">
