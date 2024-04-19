@@ -21,7 +21,7 @@ function InfoReviewsLink(props: { href: string; children: React.ReactNode }) {
     <Link
       href={props.href}
       className={cn(
-        'bg-accent p-5 text-base font-semibold text-accent-foreground md:text-lg',
+        'p-3 text-base font-semibold text-accent-foreground md:text-lg w-40 text-center border-b-4 border-b-accent-foreground',
         pathname === props.href ? 'opacity-100' : 'opacity-40',
       )}
     >
