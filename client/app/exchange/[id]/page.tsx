@@ -1,14 +1,8 @@
-// import Image from 'next/image'
-// import { AspectRatio } from '@/components/ui/aspect-ratio'
-
 import React from 'react'
 
 export default function ExchangePage() {
   return (
-    <div className="flex h-48 w-screen items-end justify-center bg-[linear-gradient(to_right_bottom,rgba(49,84,44,0.8),rgba(16,71,52,0.8)),url('/skku.jpeg')] bg-cover sm:h-72 md:h-96">
-      {/* <AspectRatio ratio={16 / 9} className="relative top-0">
-        <Image src="/skku.jpeg" alt="Hero img" fill className="object-cover" />
-      </AspectRatio> */}
+    <div className="flex h-48 w-screen items-end justify-center bg-[linear-gradient(to_right_bottom,rgba(0,0,0,0.3),rgba(0,0,0,0.3)),url('/skku.jpeg')] bg-cover sm:h-72 md:h-96">
       <div className="container flex w-full max-w-screen-lg flex-col pb-6">
         <UniName name="Sungkuynkwan University" />
         <UniMetaInfo info="Seoul, Suwon Campus" />
