@@ -28,7 +28,7 @@ export function toRomanNumerals(decimalNumber: number): string {
     'V',
     'VI',
     'VII',
-    'VII',
+    'VIII',
     'IX',
     'X',
     'XI',
