@@ -30,7 +30,7 @@ export default function ExchangeLayout({ children }: ExchangeLayoutProps) {
         </UniInfoContainer>
       </UniInfoImgWrapper>
 
-      <div className="container flex max-w-screen-lg flex-col items-center gap-8 md:gap-10 lg:items-baseline">
+      <div className="container flex max-w-screen-lg flex-col items-center gap-6 lg:items-baseline lg:gap-10">
         <InfoReviewsNav />
 
         {children}

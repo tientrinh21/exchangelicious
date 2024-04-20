@@ -1,20 +1,29 @@
-"use client"
+'use client'
 
-import Link from "next/link"
-import { usePathname } from "next/navigation"
+import Link from 'next/link'
+import { usePathname } from 'next/navigation'
 
 export function MainNav() {
   const pathname = usePathname()
 
   return (
-    <nav className="hidden md:flex items-center gap-4 md:gap-6">
-      <Link href="/" className={`font-medium text-accent-foreground ${pathname === "/" ? 'opacity-100' : 'opacity-40'}`}>
+    <nav className="hidden items-center md:flex">
+      <Link
+        href="/"
+        className={`rounded-md px-4 py-2 font-medium hover:bg-secondary ${pathname === '/' ? 'text-accent-foreground' : 'text-accent-foreground/40'}`}
+      >
         Home
       </Link>
-      <Link href="/exchange" className={`font-medium text-accent-foreground ${pathname.includes("/exchange") ? 'opacity-100' : 'opacity-40'}`}>
+      <Link
+        href="/exchange"
+        className={`rounded-md px-4 py-2 font-medium hover:bg-secondary ${pathname.includes('/exchange') ? 'text-accent-foreground' : 'text-accent-foreground/40'}`}
+      >
         Exchange
       </Link>
-      <Link href="/my-page" className={`font-medium text-accent-foreground ${pathname === "/my-page" ? 'opacity-100' : 'opacity-40'}`}>
+      <Link
+        href="/my-page"
+        className={`rounded-md px-4 py-2 font-medium hover:bg-secondary ${pathname === '/my-page' ? 'text-accent-foreground' : 'text-accent-foreground/40'}`}
+      >
         My Page
       </Link>
     </nav>

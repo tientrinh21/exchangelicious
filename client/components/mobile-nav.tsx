@@ -24,7 +24,7 @@ export function MobileNav() {
       </DropdownMenuTrigger>
       <DropdownMenuContent
         align="end"
-        className="space-y-2 rounded-lg px-2 py-4 shadow-xl"
+        className="mt-1 space-y-2 rounded-lg px-2 py-4 shadow-xl"
       >
         <DropdownMenuItem>
           <Link

@@ -9,7 +9,7 @@ export function SiteHeader() {
       <div className="container flex h-16 max-w-screen-xl items-center justify-between px-6 sm:px-8">
         <SiteLogo />
 
-        <div className="flex items-center space-x-1 md:space-x-6">
+        <div className="flex items-center space-x-1 md:space-x-4">
           <MainNav />
           <MobileNav />
           <Button className="order-1 rounded-lg text-base">Sign up</Button>
