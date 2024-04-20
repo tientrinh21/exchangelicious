@@ -11,8 +11,8 @@ export function SiteHeader() {
 
         <div className="flex items-center space-x-1 md:space-x-6">
           <MainNav />
-          <Button className="rounded-lg text-base">Sign up</Button>
           <MobileNav />
+          <Button className="order-1 rounded-lg text-base">Sign up</Button>
         </div>
       </div>
     </header>
