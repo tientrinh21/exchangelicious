@@ -25,7 +25,7 @@ export default function InfoPage() {
                 <a
                   href={value}
                   target="_blank"
-                  className="text-secondary-foreground underline underline-offset-2 hover:text-muted-foreground"
+                  className="text-secondary-foreground underline underline-offset-2 hover:text-muted-foreground active:text-muted-foreground"
                 >
                   {value}
                 </a>
