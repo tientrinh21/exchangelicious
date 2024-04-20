@@ -1,6 +1,14 @@
-import React from 'react'
-import Link from 'next/link'
+import { Button } from '@/components/ui/button'
+import {
+  DropdownMenu,
+  DropdownMenuContent,
+  DropdownMenuItem,
+  DropdownMenuTrigger,
+} from '@/components/ui/dropdown-menu'
+import { DotsHorizontalIcon } from '@radix-ui/react-icons'
 import { toRomanNumerals } from '@/lib/utils'
+import Link from 'next/link'
+import React from 'react'
 
 function UniInfoName(props: { name: string }) {
   return (
@@ -82,8 +90,8 @@ function UniInfoContent(props: { data: Object }) {
 
 function UniInfoNav(props: { data: Object }) {
   return (
-    <div className="w-[30%] min-w-44 lg:order-2 lg:min-w-52">
-      <div className="sticky top-20">
+    <div className="hidden w-[30%] min-w-44 lg:order-2 lg:block lg:min-w-52">
+      <div className="sticky top-20 z-40">
         {Object.entries(props.data).map(([key, _], index) => {
           if (key === 'webpage') return
           return (
@@ -106,11 +114,49 @@ function UniInfoNav(props: { data: Object }) {
   )
 }
 
+function UniInfoMobileMenu(props: { data: Object }) {
+  return (
+    <DropdownMenu>
+      <DropdownMenuTrigger asChild>
+        <div className="sticky top-20 mx-auto flex w-1/3 justify-center rounded-lg bg-background lg:hidden">
+          <Button
+            variant="outline"
+            className="w-full bg-muted-foreground/15 text-foreground/65"
+          >
+            <DotsHorizontalIcon className="h-6 w-6 sm:h-8 sm:w-8" />
+            <span className="sr-only">Dots Menu</span>
+          </Button>
+        </div>
+      </DropdownMenuTrigger>
+      <DropdownMenuContent
+        align="center"
+        className="w-[65vw] space-y-2 rounded-lg px-2 py-4 shadow-xl sm:w-[40vw]"
+      >
+        {Object.entries(props.data).map(([key, _], index) => {
+          if (key === 'webpage') return
+          return (
+            <DropdownMenuItem key={index}>
+              <Link
+                href={`#${key}`}
+                className={`mx-auto w-2/3 text-base font-medium text-accent-foreground`}
+              >
+                <span className="mr-1 inline-block w-8">{`${toRomanNumerals(index)}.`}</span>
+                <span>{`${key[0].toUpperCase()}${key.substring(1)}`}</span>
+              </Link>
+            </DropdownMenuItem>
+          )
+        })}
+      </DropdownMenuContent>
+    </DropdownMenu>
+  )
+}
+
 export {
-  UniInfoName,
-  UniInfoMeta,
   UniInfoContainer,
-  UniInfoImgWrapper,
   UniInfoContent,
+  UniInfoImgWrapper,
+  UniInfoMeta,
+  UniInfoName,
   UniInfoNav,
+  UniInfoMobileMenu,
 }
