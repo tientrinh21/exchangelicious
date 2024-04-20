@@ -1,4 +1,4 @@
-"use client"
+'use client'
 
 import {
   UniInfoName,
@@ -15,11 +15,13 @@ interface ExchangeLayoutProps {
 
 export default function ExchangeLayout({ children }: ExchangeLayoutProps) {
   // TODO: Depends on how we store images
-  const imgName = usePathname().replace("/reviews", "").replace("/exchange/", "")
+  const uniName = usePathname()
+    .replace('/reviews', '')
+    .replace('/exchange/', '')
 
   return (
-    <div className='flex flex-col gap-4 md:gap-8'>
-      <UniInfoImgWrapper imgSrc={`/${imgName}.jpg`}>
+    <div className="flex flex-col gap-4 md:gap-8">
+      <UniInfoImgWrapper imgSrc={`/${uniName}.jpg`}>
         <UniInfoContainer>
           <UniInfoName name="Sungkyunkwan University" />
           <UniInfoMeta meta="Seoul, Suwon Campus" />
@@ -28,7 +30,7 @@ export default function ExchangeLayout({ children }: ExchangeLayoutProps) {
         </UniInfoContainer>
       </UniInfoImgWrapper>
 
-      <div className='container max-w-screen-lg flex flex-col gap-6 md:gap-8 items-center lg:items-baseline'>
+      <div className="container flex max-w-screen-lg flex-col items-center gap-8 md:gap-10 lg:items-baseline">
         <InfoReviewsNav />
 
         {children}
