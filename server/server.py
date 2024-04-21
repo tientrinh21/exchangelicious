@@ -173,7 +173,12 @@ class UserRes(Resource):
     def get(self, user_id):
         return db.get_or_404(UserTable, user_id, description=f"No user with the ID '{user_id}'.")
 
-
+user_put_args = reqparse.RequestParser()
+user_put_args.add_argument('user_id', type=str, help='User ID to create user')
+user_put_args.add_argument('username', type=str, help='User name to create user')
+user_put_args.add_argument('pwd', type=str, help='Password to create user')
+user_put_args.add_argument('nationality', type=str, help='Natioinality of user')
+user_put_args.add_argument('home_university', type=str, help='Home university of user')
 
 class UsersAllRes(Resource):
     @marshal_with(user_resource_fields)
@@ -184,14 +189,18 @@ class UsersAllRes(Resource):
     @marshal_with(user_resource_fields)
     def put(self):
         try:
-            user_put_args = reqparse.RequestParser()
-            user_put_args.add_argument('user_id', type=str, help='User ID to create user')
-            user_put_args.add_argument('username', type=str, help='User name to create user')
-            user_put_args.add_argument('pwd', type=str, help='Password to create user')
-            user_put_args.add_argument('nationality', type=str, help='Natioinality of user')
-            user_put_args.add_argument('home_university', type=str, help='Home university of user')
-
-            return {'User ID': args['user_id'], 'Username': args['username'], 'Password': args['pwd'], 'Nationality': args['nationality'], 'Home university': args['home_university']}
+            args = user_put_args.parse_args()
+            # Create a new UserTable object and assign values from args
+            new_user = UserTable(
+                user_id=args['user_id'],
+                username=args['username'],
+                password=args['pwd'],
+                nationality=args['nationality'],
+                home_university=args['home_university']
+            )
+            db.session.add(new_user)
+            db.session.commit()
+            return new_user, 201
         except Exception as e:
             return {'Error' : str(e)}
         
