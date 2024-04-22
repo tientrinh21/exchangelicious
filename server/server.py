@@ -6,6 +6,7 @@ from dotenv import load_dotenv
 import os
 from sqlalchemy import URL, create_engine, select, text
 from flask_swagger_ui import get_swaggerui_blueprint
+import requests
 
 # loads the variables in the .env file so we can access them
 load_dotenv()
@@ -49,9 +50,6 @@ url_object = URL.create(
 
 app.config["SQLALCHEMY_DATABASE_URI"] = url_object
 db = SQLAlchemy(app)
-
-
-
 
 
 # inspo: https://www.youtube.com/watch?v=GMppyAPbLYk
@@ -180,6 +178,13 @@ user_put_args.add_argument('pwd', type=str, help='Password to create user')
 user_put_args.add_argument('nationality', type=str, help='Natioinality of user')
 user_put_args.add_argument('home_university', type=str, help='Home university of user')
 
+user_update_args = reqparse.RequestParser()
+user_update_args.add_argument('user_id', type=str, help='User ID to update user')
+user_update_args.add_argument('username', type=str, help='User name to update user')
+user_update_args.add_argument('pwd', type=str, help='Password to update user')
+user_update_args.add_argument('nationality', type=str, help='Natioinality of user')
+user_update_args.add_argument('home_university', type=str, help='Home university of user')
+
 class UsersAllRes(Resource):
     @marshal_with(user_resource_fields)
     def get(self):
@@ -189,7 +194,7 @@ class UsersAllRes(Resource):
     @marshal_with(user_resource_fields)
     def put(self):
         try:
-            args = user_put_args.parse_args()
+            args = user_put_args.parse_args(req=request)
             # Create a new UserTable object and assign values from args
             new_user = UserTable(
                 user_id=args['user_id'],
@@ -200,10 +205,33 @@ class UsersAllRes(Resource):
             )
             db.session.add(new_user)
             db.session.commit()
-            return new_user, 201
+            return new_user, 200
         except Exception as e:
             return {'Error' : str(e)}
         
+    @marshal_with(user_resource_fields)
+    def patch(self):
+        try:
+            args = user_update_args.parse_args()
+            user_id = args['user_id']
+            user = UserTable.query.get(user_id)
+            if not user:
+                return {'error': 'User not found'}, 404
+            # Update the user attributes if they are present in the args
+            if 'username' in args:
+                user.username = args['username']
+            if 'pwd' in args:
+                user.password = args['pwd']
+            if 'nationality' in args:
+                user.nationality = args['nationality']
+            if 'home_university' in args:
+                user.home_university = args['home_university']
+            db.session.commit()
+            return user, 200
+        except Exception as e:
+            return {'Error' : str(e)}        
+        
+    # def delete(self):
 
 class UniversityRes(Resource):
     @marshal_with(university_resource_fields)
@@ -231,7 +259,6 @@ class UniversityAllRes(Resource):
     def get(self):
         unis = UniversityTable.query.order_by(UniversityTable.long_name).all()
         return [uni for uni in unis], 200
-
 
 # register the resource at a certain route
 api.add_resource(UserRes, "/api/users/<string:user_id>")
