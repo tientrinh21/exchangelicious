@@ -6,11 +6,10 @@ import {
   UniInfoNav,
 } from '@/components/uni-info'
 import data from '@/lib/seed.json'
-import { toRomanNumerals } from '@/lib/utils'
-import Link from 'next/link'
 import { usePathname } from 'next/navigation'
 
 export default function InfoPage() {
+  // TODO: To be change soon
   const uniName: string = usePathname()
     .replace('/reviews', '')
     .replace('/exchange/', '')
