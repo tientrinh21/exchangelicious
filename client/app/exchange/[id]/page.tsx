@@ -1,5 +1,6 @@
 'use client'
 
+import { InfoReviewsNav } from '@/components/info-reviews-nav'
 import {
   UniInfoContent,
   UniInfoMobileMenu,
@@ -7,6 +8,7 @@ import {
 } from '@/components/uni-info'
 import data from '@/lib/seed.json'
 import { usePathname } from 'next/navigation'
+import { EditInfoButton } from '@/components/edit-button'
 
 export default function InfoPage() {
   // TODO: To be change soon
@@ -17,10 +19,15 @@ export default function InfoPage() {
   const uniData = data[uniName as keyof Object]
 
   return (
-    <div className="flex flex-col gap-3 lg:flex-row lg:gap-14">
-      <UniInfoNav data={uniData} />
-      <UniInfoMobileMenu data={uniData} />
-      <UniInfoContent data={uniData} />
-    </div>
+    <>
+      <InfoReviewsNav />
+
+      <div className="flex flex-col gap-3 lg:flex-row lg:gap-14">
+        <UniInfoNav data={uniData} />
+        <UniInfoMobileMenu data={uniData} />
+        <UniInfoContent data={uniData} />
+        <EditInfoButton />
+      </div>
+    </>
   )
 }

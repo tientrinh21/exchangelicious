@@ -1,12 +1,11 @@
 'use client'
 
 import {
-  UniInfoName,
-  UniInfoMeta,
   UniInfoContainer,
   UniInfoImgWrapper,
+  UniInfoMeta,
+  UniInfoName,
 } from '@/components/uni-info'
-import { InfoReviewsNav } from '@/components/info-reviews-nav'
 import { usePathname } from 'next/navigation'
 
 interface ExchangeLayoutProps {
@@ -16,6 +15,7 @@ interface ExchangeLayoutProps {
 export default function ExchangeLayout({ children }: ExchangeLayoutProps) {
   // TODO: Depends on how we store images
   const uniName = usePathname()
+    .replace('/edit', '')
     .replace('/reviews', '')
     .replace('/exchange/', '')
 
@@ -31,8 +31,6 @@ export default function ExchangeLayout({ children }: ExchangeLayoutProps) {
       </UniInfoImgWrapper>
 
       <div className="container flex max-w-screen-lg flex-col items-center gap-6 lg:items-baseline lg:gap-10">
-        <InfoReviewsNav />
-
         {children}
       </div>
     </div>
