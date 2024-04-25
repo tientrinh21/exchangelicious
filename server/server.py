@@ -1,5 +1,5 @@
 from flask import Flask, url_for
-from flask_restful import Api, Resource, fields, marshal_with, reqparse
+from flask_restful import Api, Resource, fields, marshal_with, reqparse, abort
 from flask_cors import CORS
 from flask_sqlalchemy import SQLAlchemy
 from dotenv import load_dotenv
@@ -208,9 +208,10 @@ class UsersAllRes(Resource):
             print(new_user)
             return new_user, 200
         except Exception as e:
-            return str(e), 405
+            print(e)
+            abort(message=str(e), http_status_code=405)
         
-    @marshal_with(user_resource_fields)
+    @marshal_with(user_resource_fields, 200)
     def patch(self):
         try:
             args = user_update_args.parse_args()
@@ -222,15 +223,15 @@ class UsersAllRes(Resource):
             if 'username' in args:
                 user.username = args['username']
             if 'pwd' in args:
-                user.password = args['pwd']
+                user.pwd = args['pwd']
             if 'nationality' in args:
                 user.nationality = args['nationality']
             if 'home_university' in args:
                 user.home_university = args['home_university']
             db.session.commit()
             return user, 200
-        except Exception as e:
-            return {'Error' : str(e)}        
+        except Exception as e:   
+            abort(message=str(e), http_status_code=405)
         
     # def delete(self):
 
