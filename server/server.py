@@ -209,8 +209,15 @@ class UniversityAllRes(Resource):
 class UniversityPagination(Resource):
     # pagination: https://www.youtube.com/watch?v=hkL9pgCJPNk
     @marshal_with(university_resource_fields)
-    def get(self, page_num):
-        res = UniversityTable.query.paginate(per_page=2, page=page_num, error_out=True)
+    def get(self, page_num, query="hidden_code"):
+        print(f"query: [{query}]")
+        if query == "#00":
+            res = db.paginate(select(UniversityTable), per_page=2, page=page_num)
+        else:
+            res = db.paginate(select(UniversityTable).where(UniversityTable.long_name.contains(query)), per_page=2, page=page_num)
+        
+        # res = UniversityTable.query.paginate(per_page=2, page=page_num, error_out=False)
+        print(res.has_next)
         return [r for r in res], 200
 
 # register the resource at a certain route
@@ -220,7 +227,7 @@ api.add_resource(UniversityRes, "/api/universities/<string:university_id>")
 api.add_resource(UniversityWithInfoRes, "/api/universities/<string:university_id>/info")
 api.add_resource(UniversityAllRes, "/api/universities")
 api.add_resource(UserWithUniversityRed, "/api/users/<string:user_id>/uni")
-api.add_resource(UniversityPagination, "/api/universities/<int:page_num>")
+api.add_resource(UniversityPagination, "/api/universities/<int:page_num>/<string:query>")
 # beware. The address should not end with a slash
 
 if __name__ == "__main__":
