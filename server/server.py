@@ -185,6 +185,13 @@ user_update_args.add_argument('pwd', type=str, help='Password to update user')
 user_update_args.add_argument('nationality', type=str, help='Natioinality of user')
 user_update_args.add_argument('home_university', type=str, help='Home university of user')
 
+# user_del_args = reqparse.RequestParser()
+# user_del_args.add_argument('user_id', type=str, help='User ID to update user')
+# user_del_args.add_argument('username', type=str, help='User name to update user')
+# user_del_args.add_argument('pwd', type=str, help='Password to update user')
+# user_del_args.add_argument('nationality', type=str, help='Natioinality of user')
+# user_del_args.add_argument('home_university', type=str, help='Home university of user')
+
 class UsersAllRes(Resource):
     @marshal_with(user_resource_fields)
     def get(self):
@@ -233,6 +240,31 @@ class UsersAllRes(Resource):
             abort(message=str(e), http_status_code=400)
         
     # def delete(self):
+    #     user_id = None
+    #     try:
+    #         print('a')
+    #         args = user_del_args.parse_args()
+    #         print('b')
+    #         user_id = args['user_id']
+    #         print('c')
+    #         user = db.get_or_404(UserTable, user_id, description=f"No user with the ID '{user_id}'.")
+    #         print('d')
+    #         del user
+    #         print('e')
+    #         db.session.commit()
+    #         return user, 200
+    #     except Exception as e:
+    #         abort(message=str(e), http_status_code=400)
+    def delete(self):
+        try:
+            args = user_update_args.parse_args()
+            user_id = args['user_id']
+            user = db.get_or_404(UserTable, user_id, description=f"No user with the ID '{user_id}'.")
+            db.session.delete(user)
+            db.session.commit()
+            return {"message": f"User with ID '{user_id}' deleted successfully"}, 200
+        except Exception as e:
+            abort(message=str(e), http_status_code=400)
 
 class UniversityRes(Resource):
     @marshal_with(university_resource_fields)
