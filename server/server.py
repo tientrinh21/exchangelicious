@@ -194,20 +194,21 @@ class UsersAllRes(Resource):
     @marshal_with(user_resource_fields)
     def put(self):
         try:
-            args = user_put_args.parse_args(req=request)
+            args = user_put_args.parse_args()
             # Create a new UserTable object and assign values from args
             new_user = UserTable(
                 user_id=args['user_id'],
                 username=args['username'],
-                password=args['pwd'],
+                pwd=args['pwd'],
                 nationality=args['nationality'],
                 home_university=args['home_university']
-            )
+            )  
             db.session.add(new_user)
             db.session.commit()
+            print(new_user)
             return new_user, 200
         except Exception as e:
-            return {'Error' : str(e)}
+            return str(e), 405
         
     @marshal_with(user_resource_fields)
     def patch(self):
