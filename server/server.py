@@ -208,17 +208,16 @@ class UsersAllRes(Resource):
             print(new_user)
             return new_user, 200
         except Exception as e:
-            print(e)
-            abort(message=str(e), http_status_code=405)
+            print(str(e))
+            abort(message=str(e), http_status_code=400)
         
     @marshal_with(user_resource_fields, 200)
     def patch(self):
         try:
             args = user_update_args.parse_args()
             user_id = args['user_id']
-            user = UserTable.query.get(user_id)
-            if not user:
-                return {'error': 'User not found'}, 404
+            # user = UserTable.query.get(user_id)
+            user = db.get_or_404(UserTable, user_id, description=f"No user with the ID '{user_id}'.")
             # Update the user attributes if they are present in the args
             if 'username' in args:
                 user.username = args['username']
@@ -231,7 +230,7 @@ class UsersAllRes(Resource):
             db.session.commit()
             return user, 200
         except Exception as e:   
-            abort(message=str(e), http_status_code=405)
+            abort(message=str(e), http_status_code=400)
         
     # def delete(self):
 
