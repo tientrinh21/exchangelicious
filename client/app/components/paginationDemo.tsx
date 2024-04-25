@@ -1,10 +1,44 @@
-import React, {useState} from 'react'
+import React, {useState, useRef, useCallback} from 'react'
 import UniversitySearchBar from "./university-search-bar"
+import { University } from '../types/university'
 
 export default function PaginationDemo() {
     const [query, setQuery] = useState("")
     const [pageNumber, setPageNumber] = useState(1)
-    UniversitySearchBar(query, pageNumber)
+
+    const {
+        isLoading,
+        error,
+        universities,
+        hasMore
+    } =  UniversitySearchBar(query, pageNumber)
+
+    const observer = useRef<any>()
+    const lastUniversityElementRef = useCallback((node: HTMLElement | null)=> {
+        // we are loading - do not do anything
+        if (isLoading) {
+            return
+        }
+        // remove previous observers
+        if (observer.current) {
+            observer.current.disconnect() 
+        } 
+
+        observer.current = new IntersectionObserver(entries => {
+            // if the last university is visible on the page
+            // and we have more universities in the database
+            if (entries[0].isIntersecting && hasMore) {
+                // then update the pagination page number
+                setPageNumber(prevPageNumber => prevPageNumber + 1)
+            }
+        })
+        // Observe the last university
+        if (node) {
+            observer.current.observe(node)
+        }
+        console.log(node)
+    }, [isLoading, hasMore])
+   
 
 
     function handleSearch(e: any ) {
@@ -22,7 +56,10 @@ export default function PaginationDemo() {
                   className="relative m-0 block flex-auto rounded border border-solid border-neutral-300 bg-transparent bg-clip-padding px-3 py-[0.25rem] text-base font-normal leading-[1.6] text-neutral-700 outline-none transition duration-200 ease-in-out focus:z-[3] focus:border-primary focus:text-neutral-700 focus:shadow-[inset_0_0_0_1px_rgb(59,113,202)] focus:outline-none dark:border-neutral-600 dark:text-neutral-200 dark:placeholder:text-neutral-200 dark:focus:border-primary"
                   placeholder="Search"
                   aria-label="Search"
-                  aria-describedby="button-addon2" 
+                  aria-describedby="button-addon2"
+            
+                    // Stuff needed for pagination and querying
+                  value={query}
                   onChange={handleSearch}
                   />
 
@@ -43,6 +80,21 @@ export default function PaginationDemo() {
               </span>
           </div>
       </div>
+      <div>
+      <h1>All the universities in the search</h1>
+      {isLoading && (<div>Loading ...</div>)}
+      {!isLoading && (
+        <ul>
+          {universities.map((university, index) => {
+            if (universities.length === index + 1) {
+                return <li ref={lastUniversityElementRef} key={university.university_id}>{university.long_name} + {university.country_code}</li>
+            } else {
+                return <li key={university.university_id}>{university.long_name} + {university.country_code}</li>
+            }
+          })}
+        </ul>
+      )}
+    </div>
     </div>
   )
 }
