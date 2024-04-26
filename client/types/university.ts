@@ -8,3 +8,11 @@ export interface University {
   long_name: string;
   info_page_id: string;
 }
+
+export interface UniversityInfo {
+  info_page_id: string;
+  webpage: string;
+  introduction: string;
+  location: string;
+  semester: string;
+}

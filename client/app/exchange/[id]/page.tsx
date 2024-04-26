@@ -9,6 +9,11 @@ import {
 import data from '@/lib/seed.json'
 import { usePathname } from 'next/navigation'
 import { EditInfoButton } from '@/components/edit-button'
+import useSWR, { Fetcher } from 'swr'
+
+const BASE_URL = 'http://127.0.0.1:8080/api'
+const fetcher = (pathname: string) =>
+  fetch(`${BASE_URL}${pathname}`).then((res) => res.json())
 
 export default function InfoPage() {
   // TODO: To be change soon

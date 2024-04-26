@@ -16,8 +16,11 @@ drop table if exists review_table;
 -- How to format the text?
 create table info_page_table (
 	info_page_id varchar(36) default (uuid()) primary key,
-	intro_text TEXT,
-    intro_source varchar(255)
+    webpage TEXT,
+	introduction TEXT,
+    location TEXT,
+    semester TEXT
+    -- intro_source varchar(255)
     -- semester_text TEXT,
     -- semester_source varchar(255),
     -- application_text TEXT,
@@ -123,12 +126,35 @@ insert into nfoPage(info_page_id, intro_text, intro_source, semester_text,
 ('ntnuInfo', ''),
 ;
 */
-insert into info_page_table(info_page_id, intro_text, intro_source) values
-('skku_page', 'This is SKKU. ', 'edu.skku.com'),
-('ntnu_page', 'NTNU started a University that focused on STEM, however it has evolved to broaden its study programs. Around half the study-mass studies within the field of science and technology.', 'https://www.ntnu.edu/facts'),
-('uio_page', 'Founded in 1811, UiO is the countrys largest and oldest university, renowned for its world-class research and commitment to scholarly advancement. At UiO, students have access to a wide range of programs across disciplines, including humanities, social sciences, natural sciences, law, and medicine.', 'uio.no'),
-('uib_page', 'The University of Bergen (UiB) stands proudly on Norways picturesque western coast, overlooking the stunning fjords and surrounded by breathtaking natural beauty. The university was established in 1946. ', 'uib.no')
-;
+insert into info_page_table(info_page_id, webpage, introduction, location, semester) values
+(
+    "skku_page",
+    "https://www.skku.edu/eng/",
+    "Sungkyunkwan University is a national university with 625 years of glorious history and shining tradition and is a representative symbol of a leading university which leads the new era. At the same time, the university has led the development of higher education in Korea by challenging and innovating with a mind for sharing and coexistence. We strive to newly form our own brand worthy of our name which actively embraces global social issues through pioneering of global management.",
+    "Seoul, officially Seoul Special City, and formerly known as Hanseong and Keijō, is the capital of the Republic of Korea (ROK), commonly known as South Korea, and the country's most extensive urban center. The broader Seoul Capital Area, encompassing Gyeonggi province and Incheon metropolitan city, emerged as the world's fourth largest metropolitan economy in 2014, trailing only Tokyo, New York City, and Los Angeles, hosting more than half of South Korea's population. Although Seoul's population peaked at slightly over 10 million, it has gradually decreased since 2014, standing at approximately 9.97 million residents as of 2020. Seoul is the seat of the South Korean government.",
+    "The academic year starts in August and ends in June.\nAutumn semester: early/medio August - 19-22 December\nSpring semester: early January - early June"
+),
+(
+    "ntnu_page",
+    "https://www.ntnu.edu/studies/exchange",
+    "NTNU started a University that focused on STEM, however it has evolved to broaden its study programs. Around half the study-mass studies within the field of science and technology. (source: https://www.ntnu.edu/facts)",
+    "Norway is beautiful bla, bla\nTechnology bla, bla\n3 cities bla, bla, bla\nTrondheim is Norway's third largest city with around 200 000 residents. The city is known as a student city and has a active student community with loads of students clubs and sports clubs you are encourage to join.\nAround 37 000 students",
+    "The academic year starts in August and ends in June.\nAutumn semester: early/medio August - 19-22 December\nSpring semester: early January - early June"
+),
+(
+    "uio_page",
+    "https://www.uio.no/english/",
+    "Founded in 1811, UiO is the countrys largest and oldest university, renowned for its world-class research and commitment to scholarly advancement. At UiO, students have access to a wide range of programs across disciplines, including humanities, social sciences, natural sciences, law, and medicine.",
+    "Norway is beautiful bla, bla\nTechnology bla, bla\n3 cities bla, bla, bla\nTrondheim is Norway's third largest city with around 200 000 residents. The city is known as a student city and has a active student community with loads of students clubs and sports clubs you are encourage to join.\nAround 37 000 students",
+    "The academic year starts in August and ends in June.\nAutumn semester: early/medio August - 19-22 December\nSpring semester: early January - early June"
+),
+(
+    "uib_page",
+    "https://www.uib.no/en",
+    "The University of Bergen (UiB) stands proudly on Norways picturesque western coast, overlooking the stunning fjords and surrounded by breathtaking natural beauty. The university was established in 1946.",
+    "Norway is beautiful bla, bla\nTechnology bla, bla\n3 cities bla, bla, bla\nTrondheim is Norway's third largest city with around 200 000 residents. The city is known as a student city and has a active student community with loads of students clubs and sports clubs you are encourage to join.\nAround 37 000 students",
+    "The academic year starts in August and ends in June.\nAutumn semester: early/medio August - 19-22 December\nSpring semester: early January - early June"
+);
 
 insert into university_table(university_id, long_name, country_code, region, info_page_id) values
 ('skku', 'Sungkyunkwan university - SKKU', 'KOR', 'Seoul, Suwon', 'skku_page'),
