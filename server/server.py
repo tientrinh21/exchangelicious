@@ -1,5 +1,5 @@
 from flask import Flask
-from flask_restful import Api, Resource, fields, marshal_with
+from flask_restful import Api, Resource, fields, marshal_with, reqparse
 from flask_cors import CORS
 from flask_sqlalchemy import SQLAlchemy
 from dotenv import load_dotenv
@@ -168,6 +168,20 @@ user_with_university_resource_fields = {
 # https://flask-sqlalchemy.palletsprojects.com/en/3.1.x/queries/
 
 
+# Define parser and request args
+reqparser = reqparse.RequestParser()
+reqparser.add_argument('input', required =False)
+# reqparser.add_argument('type')
+class Search(Resource):
+    def get(self):
+        args = reqparser.parse_args()
+        # s = args['input'].split(',')
+        # types = args['type']
+        return {"hello": "world"}
+         # do your stuff ...#just mention the trailing point
+
+api.add_resource(Search, '/search')
+
 class UserRes(Resource):
     @marshal_with(user_resource_fields)
     def get(self, user_id):
@@ -207,11 +221,21 @@ class UniversityAllRes(Resource):
         return [uni for uni in unis], 200
     
 class UniversityPagination(Resource):
+    def __init__(self) -> None:
+        super().__init__()
+        self.reqparse = reqparse.RequestParser()
+        self.reqparse.add_argument('page_num', type = int, default="1")
+        self.reqparse.add_argument('query', type = str, default='nor')
+
     # pagination: https://www.youtube.com/watch?v=hkL9pgCJPNk
     @marshal_with(university_resource_fields)
-    def get(self, page_num, query="hidden_code"):
-        print(f"query: [{query}]")
-        if query == "#00":
+    def get(self):
+        args = self.reqparse.parse_args()
+        page_num = args["page_num"]
+        query = args["query"]
+        print(query)
+        print(page_num)
+        if query == "":
             res = db.paginate(select(UniversityTable), per_page=2, page=page_num)
         else:
             res = db.paginate(select(UniversityTable).where(UniversityTable.long_name.contains(query)), per_page=2, page=page_num)
@@ -219,6 +243,57 @@ class UniversityPagination(Resource):
         # res = UniversityTable.query.paginate(per_page=2, page=page_num, error_out=False)
         print(res.has_next)
         return [r for r in res], 200
+    
+# class print_stuff(Resource):
+
+#     def __init__(self) -> None:
+#         self.reqparse = reqparse.RequestParser()
+#         self.reqparse.add_argument('page_num', type = int, default=1)
+#         self.reqparse.add_argument('query', type = str, default='nor')
+        
+
+#     # pagination: https://www.youtube.com/watch?v=hkL9pgCJPNk
+#     def get(self):
+#         args = self.reqparse.parse_args()
+#         return {
+#             'your query is':args['query'],
+#             'your page number is': args['page_number'],
+#         }
+
+paginationReq = reqparse.RequestParser()
+paginationReq.add_argument("page_number")
+
+class print_stuff(Resource):
+
+
+    # def __init__(self):
+    #     self.reqparse = reqparse.RequestParser()
+    #     self.reqparse.add_argument('name', type = int, default='')
+    #     # self.reqparse.add_argument('email', type = str, default='')
+    #     # self.reqparse.add_argument('address', type = str, default='')
+    #     # self.reqparse.add_argument('age', type = str, default='')
+    #     super().__init__()
+
+    def get(self):
+
+        args = paginationReq.parse_args()
+        # print(args)
+
+        return {
+            "aaa": "bbbb",
+            "ccc": "ddd"
+        }
+
+
+        # return {
+        #     'your name is':args['name'],
+        #     'your email is': args['email'],
+        #     'your address is': args['address'],
+        #     'your age is': args['age']
+        # }
+
+api.add_resource(print_stuff,'/overflow_test')
+
 
 # register the resource at a certain route
 api.add_resource(UserRes, "/api/users/<string:user_id>")
@@ -227,7 +302,9 @@ api.add_resource(UniversityRes, "/api/universities/<string:university_id>")
 api.add_resource(UniversityWithInfoRes, "/api/universities/<string:university_id>/info")
 api.add_resource(UniversityAllRes, "/api/universities")
 api.add_resource(UserWithUniversityRed, "/api/users/<string:user_id>/uni")
-api.add_resource(UniversityPagination, "/api/universities/<int:page_num>/<string:query>")
+api.add_resource(UniversityPagination, "/api/universities/search")
+# api.add_resource(print_stuff, "/api")
+
 # beware. The address should not end with a slash
 
 if __name__ == "__main__":

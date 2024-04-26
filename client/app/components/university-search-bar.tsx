@@ -13,55 +13,93 @@ export default function UniversitySearchBar(query: string, pageNumber: number) {
     const [universities, setUniversities] = useState<University[]>([])
     const [hasMore, setHasMore] = useState(false)
 
-    // when we change the query, reset the list of universities
-    useEffect(() => {
-      setUniversities([])
-    }, [query])
+    // // when we change the query, reset the list of universities
+    // useEffect(() => {
+    //   setUniversities([])
+    // }, [query])
 
-    // GET request
+    // let data = JSON.stringify({
+    //   "page_num": 1,
+    //   "query": "nor"
+    // });
+
+    // // // GET request
+    // useEffect(() => {
+    //   console.log(hasMore)
+    //   // TODO: Fix stupid workaround
+    //   if (query == "") {
+    //     query = "#00"
+    //   }
+    //   // new request
+    //   setIsLoading(true)
+    //   setError(false)
+    //   let cancel: Canceler
+    //   axios({
+    //     method: "GET",
+    //     // url: `${BASE_URL}/universities/${encodeURIComponent(pageNumber)}/${encodeURIComponent(query)}`,
+    //     url: `${BASE_URL}/universities/search`,
+    //     headers: { 
+    //       'Content-Type': 'application/json'
+    //     },
+    //     data: data,
+    //     // params: {page_num: pageNumber, query: query},
+    //     // data: {page_num: pageNumber, query: query},
+    //     cancelToken: new axios.CancelToken(c => cancel = c)
+    //   }).then(res => {
+    //     setUniversities(previousUniversities => {
+    //       // combine the old and the newfound universities
+    //       // ... is the spread operator
+    //       return [...previousUniversities, ...res.data]
+    //     })
+    //     setIsLoading(false)
+    //     // TODO: Has more does not work as intended 
+    //     // how do we know that we dont have any more universities to load?
+    //     // Do we have more universities to load?
+    //     setHasMore(res != null && res.data.length > 0)
+    //     console.log(res.data)
+    //     // console.log(res.data)
+    //     // console.log(universities)
+    //     console.log(hasMore)
+    //   }).catch(e => {
+    //     console.log(error)
+    //     if (axios.isCancel(e)) {
+    //       return
+    //     } 
+    //     setHasMore(false)
+    //     setError(true)
+    //     setIsLoading(false)
+
+    //   })
+    //   // Stop constant recalls
+    //   return () => cancel()
+    // }, [query, pageNumber])
+
+    const axios = require('axios');
     useEffect(() => {
-      console.log(hasMore)
-      // TODO: Fix stupid workaround
-      if (query == "") {
-        query = "#00"
-      }
-      // new request
-      setIsLoading(true)
-      setError(false)
-      let cancel: Canceler
-      axios({
-        method: "GET",
-        url: `${BASE_URL}/universities/${encodeURIComponent(pageNumber)}/${encodeURIComponent(query)}`,
-        // url: `${BASE_URL}/universities/`,
-        // params: {query: query, page_num: pageNumber},
-        cancelToken: new axios.CancelToken(c => cancel = c)
-      }).then(res => {
-        setUniversities(previousUniversities => {
-          // combine the old and the newfound universities
-          // ... is the spread operator
-          return [...previousUniversities, ...res.data]
-        })
-        setIsLoading(false)
-        // TODO: Has more does not work as intended 
-        // how do we know that we dont have any more universities to load?
-        // Do we have more universities to load?
-        setHasMore(res != null && res.data.length > 0)
-        // console.log(res.data)
-        // console.log(res.data)
-        // console.log(universities)
-        console.log(hasMore)
-      }).catch(e => {
-        if (axios.isCancel(e)) {
-          return
-        } 
-        setHasMore(false)
-        setError(true)
-        setIsLoading(false)
+      let data = JSON.stringify({
+        "page_num": 1,
+        "query": "nor"
       })
-      // Stop constant recalls
-      return () => cancel()
-    }, [query, pageNumber])
   
+      let config = {
+        method: 'get',
+        maxBodyLength: Infinity,
+        url: 'http://127.0.0.1:8080/api/universities/search',
+        headers: { 
+          'Content-Type': 'application/json'
+        },
+        data : data
+      };
+  
+      axios.request(config)
+      .then((response: any) => {
+        console.log(JSON.stringify(response.data));
+      })
+      .catch((error: any) => {
+        console.log(error);
+      });
+    })
+      
     // useEffect(() => {
     // const fetchUsers = async () => {
     //   setIsLoading(true)
