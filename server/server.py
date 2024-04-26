@@ -140,8 +140,12 @@ university_with_info_resource_fields = {
     "long_name": fields.String,
     "info_page_id": fields.String,
     "info_page_id": fields.String,
-    "intro_text": fields.String,
-    "intro_source": fields.String,
+    "webpage": fields.String,
+    "introduction": fields.String,
+    "location": fields.String,
+    "semester": fields.String,
+    # "intro_text": fields.String,
+    # "intro_source": fields.String,
 }
 
 user_resource_fields = {
