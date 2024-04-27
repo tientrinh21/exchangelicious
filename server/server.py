@@ -214,27 +214,20 @@ class UniversityPagination(Resource):
     def __init__(self) -> None:
         super().__init__()
         self.reqparse = reqparse.RequestParser()
-        self.reqparse.add_argument('page_num', type = int, default=1, location = "args")
-        self.reqparse.add_argument('query', type = str, default='nor', location = "args")
+        self.reqparse.add_argument('page_number', type = int, default=1, location = "args")
+        self.reqparse.add_argument('search_word', type = str, default='nor', location = "args")
 
     # pagination: https://www.youtube.com/watch?v=hkL9pgCJPNk
-    @cross_origin()
     @marshal_with(search_universities_resource_fields)
     def get(self):
-        print("a")
         args = self.reqparse.parse_args()
-        print("b")
-        page_num = args["page_num"]
-        query = args["query"]
-        print(query)
-        print(page_num)
-        if query == "":
-            res = db.paginate(select(UniversityTable), per_page=2, page=page_num)
+        page_number = args["page_number"]
+        search_word = args["search_word"]
+
+        if search_word == "":
+            res = db.paginate(select(UniversityTable), per_page=2, page=page_number)
         else:
-            res = db.paginate(select(UniversityTable).where(UniversityTable.long_name.contains(query)), per_page=2, page=page_num)
-        print("c")
-        # res = UniversityTable.query.paginate(per_page=2, page=page_num, error_out=False)
-        print(res.has_next)
+            res = db.paginate(select(UniversityTable).where(UniversityTable.long_name.contains(search_word)), per_page=2, page=page_number)
         return {"hasMore": res.has_next, "items": [r for r in res]}, 200
 
 
@@ -247,8 +240,6 @@ api.add_resource(UniversityWithInfoRes, "/api/universities/<string:university_id
 api.add_resource(UniversityAllRes, "/api/universities")
 api.add_resource(UserWithUniversityRed, "/api/users/<string:user_id>/uni")
 api.add_resource(UniversityPagination, "/api/universities/search")
-# api.add_resource(print_stuff, "/api")
-
 # beware. The address should not end with a slash
 
 if __name__ == "__main__":

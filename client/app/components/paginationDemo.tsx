@@ -36,13 +36,10 @@ export default function PaginationDemo() {
         if (node) {
             observer.current.observe(node)
         }
-        console.log(node)
     }, [isLoading, hasMore])
    
 
-
     function handleSearch(e: any ) {
-        console.log(e.type)
         setQuery(e.target.value)
         setPageNumber(1)
     }
@@ -58,7 +55,7 @@ export default function PaginationDemo() {
                   aria-label="Search"
                   aria-describedby="button-addon2"
             
-                    // Stuff needed for pagination and querying
+                // Stuff needed for pagination and searching
                   value={query}
                   onChange={handleSearch}
                   />
@@ -81,9 +78,13 @@ export default function PaginationDemo() {
           </div>
       </div>
       <div>
+        {/* The ref setup below is needed for searching and pagination */}
       <h1>All the universities in the search</h1>
       {isLoading && (<div>Loading ...</div>)}
-      {!isLoading && (
+      {!isLoading && universities.length ==  0 && (
+        <p>No matching results for the search </p>
+      )}
+      {!isLoading && universities.length > 0 && (
         <ul>
           {universities.map((university, index) => {
             if (universities.length === index + 1) {
@@ -94,6 +95,7 @@ export default function PaginationDemo() {
           })}
         </ul>
       )}
+
     </div>
     </div>
   )
