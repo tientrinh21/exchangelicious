@@ -136,6 +136,228 @@
             }
           }
         }
+      },
+      "put": {
+        "tags": [
+          "User"
+        ],
+        "summary": "Create a user",
+        "description": "Create user with details provided including user_id, username, password, nationality, and home_university.\n",
+        "parameters": [
+          {
+            "name": "user_id",
+            "in": "path",
+            "description": "ID of the user to create",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "maxLength": 36
+            }
+          },
+          {
+            "name": "username",
+            "in": "path",
+            "description": "Username of the user to create",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "maxLength": 36
+            }
+          },
+          {
+            "name": "pwd",
+            "in": "path",
+            "description": "Password of the user to create",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "maxLength": 36
+            }
+          },
+          {
+            "name": "nationality",
+            "in": "path",
+            "description": "Nationality of the user to create",
+            "required": false,
+            "schema": {
+              "type": "string",
+              "maxLength": 36
+            }
+          },
+          {
+            "name": "home_university",
+            "in": "path",
+            "description": "Home university of the user to create",
+            "required": false,
+            "schema": {
+              "type": "string",
+              "maxLength": 36
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Creation of user",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/User"
+                  }
+                }
+              }
+            }
+          }
+        }
+      },
+      "patch": {
+        "tags": [
+          "User"
+        ],
+        "summary": "Update a user",
+        "description": "Update user with details provided including user_id, username, password, nationality, and home_university.\n",
+        "parameters": [
+          {
+            "name": "user_id",
+            "in": "path",
+            "description": "ID of the user to create",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "maxLength": 36
+            }
+          },
+          {
+            "name": "username",
+            "in": "path",
+            "description": "Username of the user to create",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "maxLength": 36
+            }
+          },
+          {
+            "name": "pwd",
+            "in": "path",
+            "description": "Password of the user to create",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "maxLength": 36
+            }
+          },
+          {
+            "name": "nationality",
+            "in": "path",
+            "description": "Nationality of the user to create",
+            "required": false,
+            "schema": {
+              "type": "string",
+              "maxLength": 36
+            }
+          },
+          {
+            "name": "home_university",
+            "in": "path",
+            "description": "Home university of the user to create",
+            "required": false,
+            "schema": {
+              "type": "string",
+              "maxLength": 36
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Update user",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/User"
+                  }
+                }
+              }
+            }
+          }
+        }
+      },
+      "delete": {
+        "tags": [
+          "User"
+        ],
+        "summary": "Delete a user",
+        "description": "Delete user with details provided including user_id, username, password, nationality, and home_university.\n",
+        "parameters": [
+          {
+            "name": "user_id",
+            "in": "path",
+            "description": "ID of the user to create",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "maxLength": 36
+            }
+          },
+          {
+            "name": "username",
+            "in": "path",
+            "description": "Username of the user to create",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "maxLength": 36
+            }
+          },
+          {
+            "name": "pwd",
+            "in": "path",
+            "description": "Password of the user to create",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "maxLength": 36
+            }
+          },
+          {
+            "name": "nationality",
+            "in": "path",
+            "description": "Nationality of the user to create",
+            "required": false,
+            "schema": {
+              "type": "string",
+              "maxLength": 36
+            }
+          },
+          {
+            "name": "home_university",
+            "in": "path",
+            "description": "Home university of the user to create",
+            "required": false,
+            "schema": {
+              "type": "string",
+              "maxLength": 36
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Deletion of user",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/User"
+                  }
+                }
+              }
+            }
+          }
+        }
       }
     },
     "/api/users/{user_id}": {

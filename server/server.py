@@ -239,22 +239,6 @@ class UsersAllRes(Resource):
         except Exception as e:   
             abort(message=str(e), http_status_code=400)
         
-    # def delete(self):
-    #     user_id = None
-    #     try:
-    #         print('a')
-    #         args = user_del_args.parse_args()
-    #         print('b')
-    #         user_id = args['user_id']
-    #         print('c')
-    #         user = db.get_or_404(UserTable, user_id, description=f"No user with the ID '{user_id}'.")
-    #         print('d')
-    #         del user
-    #         print('e')
-    #         db.session.commit()
-    #         return user, 200
-    #     except Exception as e:
-    #         abort(message=str(e), http_status_code=400)
     def delete(self):
         try:
             args = user_update_args.parse_args()
