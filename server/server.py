@@ -1,6 +1,6 @@
 from flask import Flask
 from flask_restful import Api, Resource, fields, marshal_with, reqparse
-from flask_cors import CORS
+from flask_cors import CORS, cross_origin
 from flask_sqlalchemy import SQLAlchemy
 from dotenv import load_dotenv
 import os
@@ -11,9 +11,11 @@ from flask_swagger_ui import get_swaggerui_blueprint
 load_dotenv()
 # app instance
 app = Flask(__name__)
-CORS(app)
+
 # we are gonna build a api
 api = Api(app)
+# cors = CORS(app)
+cors = CORS(app, resources={r"/api/*": {"origins": "*"}})
 
 # Swagger setup - https://pypi.org/project/flask-swagger-ui/
 # https://www.youtube.com/watch?v=AyyX9yM_OZk
@@ -49,9 +51,6 @@ url_object = URL.create(
 
 app.config["SQLALCHEMY_DATABASE_URI"] = url_object
 db = SQLAlchemy(app)
-
-
-
 
 
 # inspo: https://www.youtube.com/watch?v=GMppyAPbLYk
@@ -164,23 +163,14 @@ user_with_university_resource_fields = {
     "info_page_id": fields.String,
 }
 
+search_universities_resource_fields = {
+    "hasMore": fields.Boolean,
+    "items":  fields.List(fields.Nested(university_resource_fields))
+    }
+
+
 # How to query with SQLAlchemy
 # https://flask-sqlalchemy.palletsprojects.com/en/3.1.x/queries/
-
-
-# Define parser and request args
-reqparser = reqparse.RequestParser()
-reqparser.add_argument('input', required =False)
-# reqparser.add_argument('type')
-class Search(Resource):
-    def get(self):
-        args = reqparser.parse_args()
-        # s = args['input'].split(',')
-        # types = args['type']
-        return {"hello": "world"}
-         # do your stuff ...#just mention the trailing point
-
-api.add_resource(Search, '/search')
 
 class UserRes(Resource):
     @marshal_with(user_resource_fields)
@@ -224,13 +214,16 @@ class UniversityPagination(Resource):
     def __init__(self) -> None:
         super().__init__()
         self.reqparse = reqparse.RequestParser()
-        self.reqparse.add_argument('page_num', type = int, default="1")
-        self.reqparse.add_argument('query', type = str, default='nor')
+        self.reqparse.add_argument('page_num', type = int, default=1, location = "args")
+        self.reqparse.add_argument('query', type = str, default='nor', location = "args")
 
     # pagination: https://www.youtube.com/watch?v=hkL9pgCJPNk
-    @marshal_with(university_resource_fields)
+    @cross_origin()
+    @marshal_with(search_universities_resource_fields)
     def get(self):
+        print("a")
         args = self.reqparse.parse_args()
+        print("b")
         page_num = args["page_num"]
         query = args["query"]
         print(query)
@@ -239,60 +232,11 @@ class UniversityPagination(Resource):
             res = db.paginate(select(UniversityTable), per_page=2, page=page_num)
         else:
             res = db.paginate(select(UniversityTable).where(UniversityTable.long_name.contains(query)), per_page=2, page=page_num)
-        
+        print("c")
         # res = UniversityTable.query.paginate(per_page=2, page=page_num, error_out=False)
         print(res.has_next)
-        return [r for r in res], 200
-    
-# class print_stuff(Resource):
+        return {"hasMore": res.has_next, "items": [r for r in res]}, 200
 
-#     def __init__(self) -> None:
-#         self.reqparse = reqparse.RequestParser()
-#         self.reqparse.add_argument('page_num', type = int, default=1)
-#         self.reqparse.add_argument('query', type = str, default='nor')
-        
-
-#     # pagination: https://www.youtube.com/watch?v=hkL9pgCJPNk
-#     def get(self):
-#         args = self.reqparse.parse_args()
-#         return {
-#             'your query is':args['query'],
-#             'your page number is': args['page_number'],
-#         }
-
-paginationReq = reqparse.RequestParser()
-paginationReq.add_argument("page_number")
-
-class print_stuff(Resource):
-
-
-    # def __init__(self):
-    #     self.reqparse = reqparse.RequestParser()
-    #     self.reqparse.add_argument('name', type = int, default='')
-    #     # self.reqparse.add_argument('email', type = str, default='')
-    #     # self.reqparse.add_argument('address', type = str, default='')
-    #     # self.reqparse.add_argument('age', type = str, default='')
-    #     super().__init__()
-
-    def get(self):
-
-        args = paginationReq.parse_args()
-        # print(args)
-
-        return {
-            "aaa": "bbbb",
-            "ccc": "ddd"
-        }
-
-
-        # return {
-        #     'your name is':args['name'],
-        #     'your email is': args['email'],
-        #     'your address is': args['address'],
-        #     'your age is': args['age']
-        # }
-
-api.add_resource(print_stuff,'/overflow_test')
 
 
 # register the resource at a certain route
