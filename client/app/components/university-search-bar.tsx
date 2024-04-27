@@ -1,13 +1,11 @@
 import { useEffect, useState } from "react";
 import { University } from "../types/university";
-import axios, { Axios, CancelToken, Canceler } from "axios";
-import { loadBindings } from "next/dist/build/swc";
-import { log } from "console";
+import axios, { Canceler } from "axios";
 
 const BASE_URL = 'http://127.0.0.1:8080/api'
 
 // inspo: https://www.youtube.com/watch?v=NZKUirTtxcg
-export default function UniversitySearchBar(searchWord: string, pageNumber: number) {
+export default function useUniversitySearchBar(searchWord: string, pageNumber: number) {
     const [error, setError] = useState(false);
     const [isLoading, setIsLoading] = useState(false); // to avoid blank screen when awaiting
     const [universities, setUniversities] = useState<University[]>([])

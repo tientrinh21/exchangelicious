@@ -1,6 +1,5 @@
 import React, {useState, useRef, useCallback} from 'react'
-import UniversitySearchBar from "./university-search-bar"
-import { University } from '../types/university'
+import useUniversitySearchBar from "./university-search-bar"
 
 export default function PaginationDemo() {
     const [query, setQuery] = useState("")
@@ -11,7 +10,7 @@ export default function PaginationDemo() {
         error,
         universities,
         hasMore
-    } =  UniversitySearchBar(query, pageNumber)
+    } =  useUniversitySearchBar(query, pageNumber)
 
     const observer = useRef<any>()
     const lastUniversityElementRef = useCallback((node: HTMLElement | null)=> {
