@@ -146,7 +146,7 @@
         "parameters": [
           {
             "name": "user_id",
-            "in": "path",
+            "in": "query",
             "description": "ID of the user to create",
             "required": true,
             "schema": {
@@ -156,7 +156,7 @@
           },
           {
             "name": "username",
-            "in": "path",
+            "in": "query",
             "description": "Username of the user to create",
             "required": true,
             "schema": {
@@ -166,7 +166,7 @@
           },
           {
             "name": "pwd",
-            "in": "path",
+            "in": "query",
             "description": "Password of the user to create",
             "required": true,
             "schema": {
@@ -176,7 +176,7 @@
           },
           {
             "name": "nationality",
-            "in": "path",
+            "in": "query",
             "description": "Nationality of the user to create",
             "required": false,
             "schema": {
@@ -186,7 +186,7 @@
           },
           {
             "name": "home_university",
-            "in": "path",
+            "in": "query",
             "description": "Home university of the user to create",
             "required": false,
             "schema": {
@@ -220,7 +220,7 @@
         "parameters": [
           {
             "name": "user_id",
-            "in": "path",
+            "in": "query",
             "description": "ID of the user to create",
             "required": true,
             "schema": {
@@ -230,7 +230,7 @@
           },
           {
             "name": "username",
-            "in": "path",
+            "in": "query",
             "description": "Username of the user to create",
             "required": true,
             "schema": {
@@ -240,7 +240,7 @@
           },
           {
             "name": "pwd",
-            "in": "path",
+            "in": "query",
             "description": "Password of the user to create",
             "required": true,
             "schema": {
@@ -250,7 +250,7 @@
           },
           {
             "name": "nationality",
-            "in": "path",
+            "in": "query",
             "description": "Nationality of the user to create",
             "required": false,
             "schema": {
@@ -260,7 +260,7 @@
           },
           {
             "name": "home_university",
-            "in": "path",
+            "in": "query",
             "description": "Home university of the user to create",
             "required": false,
             "schema": {
@@ -294,7 +294,7 @@
         "parameters": [
           {
             "name": "user_id",
-            "in": "path",
+            "in": "query",
             "description": "ID of the user to create",
             "required": true,
             "schema": {
@@ -304,7 +304,7 @@
           },
           {
             "name": "username",
-            "in": "path",
+            "in": "query",
             "description": "Username of the user to create",
             "required": true,
             "schema": {
@@ -314,7 +314,7 @@
           },
           {
             "name": "pwd",
-            "in": "path",
+            "in": "query",
             "description": "Password of the user to create",
             "required": true,
             "schema": {
@@ -324,7 +324,7 @@
           },
           {
             "name": "nationality",
-            "in": "path",
+            "in": "query",
             "description": "Nationality of the user to create",
             "required": false,
             "schema": {
@@ -334,7 +334,7 @@
           },
           {
             "name": "home_university",
-            "in": "path",
+            "in": "query",
             "description": "Home university of the user to create",
             "required": false,
             "schema": {
