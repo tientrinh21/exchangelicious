@@ -214,8 +214,8 @@ class UniversityPagination(Resource):
     def __init__(self) -> None:
         super().__init__()
         self.reqparse = reqparse.RequestParser()
-        self.reqparse.add_argument('page_number', type = int, default=1, location = "args")
-        self.reqparse.add_argument('search_word', type = str, default='nor', location = "args")
+        self.reqparse.add_argument('page_number', type = int, default=1, location = "args", required=True)
+        self.reqparse.add_argument('search_word', type = str, default="", location = "args", required=True)
 
     # pagination: https://www.youtube.com/watch?v=hkL9pgCJPNk
     @marshal_with(search_universities_resource_fields)
