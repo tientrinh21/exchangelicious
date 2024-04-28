@@ -23,7 +23,7 @@ The current setup is inspired by this video: https://www.youtube.com/watch?v=Owx
 
 - `cd server`
 - `python server.py`
-- In web browser, go to  `http://127.0.0.1:8080/api/home`
+- In web browser, go to `http://127.0.0.1:8080/api/home`
 
 ### Run the frontend
 
@@ -38,36 +38,37 @@ https://mothergeo-py.readthedocs.io/en/latest/development/how-to/venv-win.html
 **⚠️ You need to be in the server-folder**.
 
 - Create your own virtual environment (venv):
-`python -m venv .venv`
+  `python -m venv .venv`
 
 - Activate the venv (windows):
-`.\venv\Scripts\activate`
-(mac):
-`source venv/bin/activate`
+  `.\venv\Scripts\activate`
+  (mac):
+  `source venv/bin/activate`
 
 - Install all necessary packages:
-`pip install -r requirements.txt`
+  `pip install -r requirements.txt`
 
 - Update the requirements file (important when you install a package to the venv, that we all need):
 
-`pip freeze > requirements.txt`
+  `pip freeze > requirements.txt`
 
 - Deactivate the venv:
-`deactivate`
+  `deactivate`
 
 ## Local Database setup
 
 1. Download and install the MySQL workbench
 
-    - Windows: https://dev.mysql.com/downloads/windows/installer/8.0.html
-    - mac: https://dev.mysql.com/downloads/workbench/
-    - I followed [this youtube tutorial](https://www.youtube.com/watch?v=wgRwITQHszU). However, this probably install more than we need
+   - Windows: https://dev.mysql.com/downloads/windows/installer/8.0.html
+   - mac: https://dev.mysql.com/downloads/workbench/
+   - I followed [this youtube tutorial](https://www.youtube.com/watch?v=wgRwITQHszU). However, this probably install more than we need
 
 2. Open the workbench and run the following sql-script:
+
    1. [countries.sql](server/database_schemas/countries.sql)
    2. [schema.sql](server/database_schemas/schema.sql)
 
-3. Create your own *.env* file withing the folder called *server*. It should contain the following:
+3. Create your own _.env_ file withing the folder called _server_. It should contain the following:
 
 ```python
 DB_USERNAME = 'root (or whatever you called your db user)'
@@ -77,6 +78,26 @@ DB_PORT = '3306'
 DB_NAME = 'exchangeDB'
 ```
 
+## Github Codespaces setup
+
+Start a codespace on a branch. Then do the following to setup the databse:
+
+- Run a MySQL Docker container with your choice of `[CONTAINER_NAME]` and `[PASSWORD]` for root user.
+
+  `docker run --name [CONTAINER_NAME] -p 3306:3306 -e MYSQL_ROOT_PASSWORD=[PASSWORD] -d mysql:latest`
+
+- Look for **"IPAddress"** after running `docker inspect [CONTAINER_NAME]`.
+- Check if the database is running `docker run -it --rm mysql mysql -h [IP_ADDRESS] -u root -p`.
+- Load SQL scripts to the database.
+
+  `docker exec -i [CONTAINER_NAME] mysql -h [IP_ADDRESS] -u root -p[PASSWORD] < ./server/database_schemas/countries.sql`
+
+  `docker exec -i [CONTAINER_NAME] mysql -h [IP_ADDRESS] -u root -p[PASSWORD] < ./server/database_schemas/schema.sql`
+
+- Run setup as local development.
+
 ## Database connection
-The current database connection is inspired by this video: https://www.youtube.com/watch?v=yBDHkveJUf4&ab_channel=freeCodeCamp.org (2:36:51)
-We are using Microsoft AWS & MySQL. 
+
+The current database connection is inspired by this video: https://www.youtube.com/watch?v=yBDHkveJUf4&ab_channel=freeCodeCamp.org (2:36:51).
+
+We are using Microsoft AWS & MySQL.

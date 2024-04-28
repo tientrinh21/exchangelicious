@@ -1,14 +1,13 @@
-"use client";
+'use client'
+
 import React from 'react'
-import ConsumeApiDemo from '@/components/consumeApiDemo';
+import ConsumeApiDemo from '@/components/consumeApiDemo'
 
-function page() {
-
+export default function HomePage() {
   return (
     <div>
+      hello
       <ConsumeApiDemo></ConsumeApiDemo>
     </div>
   )
 }
-
-export default page
