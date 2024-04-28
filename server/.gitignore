@@ -1,8 +1,17 @@
-/.venv
-/venv
+# Byte-compiled / optimized / DLL files
+__pycache__/
+*.py[cod]
+*$py.class
+
+# Flask stuff:
+instance/
+.webassets-cache
+
+# Environments
 .env
-server/__pycache__/database_setup.cpython-312.pyc
-server/__pycache__/db_helper_functions.cpython-312.pyc
-server/__pycache__/server.cpython-38.pyc
-server/__pycache__/server.cpython-312.pyc
-server/__pycache__/swagger_setup.cpython-312.pyc
+.venv
+env/
+venv/
+ENV/
+env.bak/
+venv.bak/
