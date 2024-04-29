@@ -8,3 +8,12 @@ export interface University {
   long_name: string;
   info_page_id: string;
 }
+
+export interface UniversityObject {
+  code: string;
+  name: string;
+  campus: string;
+  region: string;
+  ranking: number;
+  dorm: boolean;
+}

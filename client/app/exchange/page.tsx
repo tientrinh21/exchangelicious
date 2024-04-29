@@ -1,5 +1,25 @@
 import { SearchBar } from "@/components/search-bar"
-import { SearchResult } from "@/components/search-result";
+import { UniCard } from "@/components/uni-card";
+import type { UniversityObject } from "@/types/university";
+
+const universities: UniversityObject[] = [
+  {
+    code: "skku",
+    name: "Sungkyunkwan University",
+    campus: "Suwon Campus",
+    region: "Suwon, South Korea",
+    ranking: 115,
+    dorm: true,
+  },
+  {
+    code: "ntnu",
+    name: "National Technology Norway University",
+    campus: "Oslo Campus",
+    region: "Oslo, Norway",
+    ranking: 230,
+    dorm: false,
+  }
+]
 
 export default function ExchangePage() {
     return (
@@ -26,8 +46,9 @@ export default function ExchangePage() {
             </div>
               {/* Search Results */}
               <div className="text-secondary-foreground search-content mt-4">
-                <SearchResult />
-                <SearchResult />
+                {
+                  universities.map((university) => <UniCard university={university} />)
+                }
               </div>
             </div>
           </div>
