@@ -1,4 +1,17 @@
-/.venv
-/venv
+# Byte-compiled / optimized / DLL files
+__pycache__/
+*.py[cod]
+*$py.class
+
+# Flask stuff:
+instance/
+.webassets-cache
+
+# Environments
 .env
-test.py
+.venv
+env/
+venv/
+ENV/
+env.bak/
+venv.bak/
