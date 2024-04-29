@@ -69,3 +69,4 @@ class ExchangeUniversityTable(db.Model):
 #     # to string
 #     def __repr__(self):
 #         return f'<User {self.username}>'
+

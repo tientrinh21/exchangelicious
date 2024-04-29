@@ -1,6 +1,6 @@
 "use client";
 import React from 'react'
-import ConsumeApiDemo from './components/consumeApiDemo';
+import ConsumeApiDemo from '@/components/consumeApiDemo';
 
 function page() {
 
