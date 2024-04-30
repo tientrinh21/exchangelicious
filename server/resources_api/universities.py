@@ -1,4 +1,4 @@
-from flask_restful import Resource, marshal_with, reqparse
+from flask_restful import Resource, marshal_with, reqparse, abort
 from resources_api.resource_fields_definitions import (
     university_resource_fields,
     university_with_info_resource_fields,
@@ -25,7 +25,12 @@ class UniversityWithInfoRes(Resource):
         sql_raw = "SELECT * FROM university_table JOIN info_page_table ON university_table.info_page_id = info_page_table.info_page_id WHERE university_table.university_id = :val"
         res = db.session.execute(text(sql_raw), {"val": university_id}).first()
         print(res)
-        return res
+        if res is None:
+            abort(
+                message=f"No university with the ID '{university_id}'.",
+                http_status_code=404,
+            )
+        return res, 200
 
 
 class UniversityAllRes(Resource):

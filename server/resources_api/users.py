@@ -7,6 +7,7 @@ from sqlalchemy import text, exc
 from database.database_setup import db
 from database.models import UserTable
 
+
 class UserRes(Resource):
     @marshal_with(user_resource_fields)
     def get(self, user_id):

@@ -6,9 +6,11 @@ import {
   UniInfoMobileMenu,
   UniInfoNav,
 } from '@/components/uni-info'
-import testData from '@/lib/seed.json'
-import { usePathname } from 'next/navigation'
+// import testData from '@/lib/seed.json'
 import { EditInfoButton } from '@/components/edit-button'
+import { Button } from '@/components/ui/button'
+import Link from 'next/link'
+import { usePathname } from 'next/navigation'
 import useSWR from 'swr'
 
 const BASE_URL = 'http://localhost:8080/api'
@@ -22,7 +24,7 @@ export default function InfoPage() {
     .replace('/reviews', '')
     .replace('/exchange/', '')
 
-  const uniData = testData[uniName as keyof Object]
+  // const uniData = testData[uniName as keyof Object]
   const { data, error, isLoading } = useSWR(
     `${BASE_URL}/universities/${uniName}/info`,
     fetcher,
@@ -48,6 +50,20 @@ export default function InfoPage() {
       </>
     )
 
+  // If id of univeristy not in database
+  if ('message' in data)
+    return (
+      <>
+        <div className="mt-16 flex w-full flex-col items-center justify-center text-center">
+          <h2 className="text-xl font-bold text-destructive">404: Not Found</h2>
+          <p>Could not find information about requested university</p>
+          <Link href="/exchange" className="mt-5">
+            <Button variant="secondary">Back to Exchange</Button>
+          </Link>
+        </div>
+      </>
+    )
+  console.log(data)
   return (
     <>
       <InfoReviewsNav />
