@@ -23,7 +23,7 @@ The current setup is inspired by this video: https://www.youtube.com/watch?v=Owx
 
 - `cd server`
 - `python server.py`
-- In web browser, go to  `http://127.0.0.1:8080/api/home`
+- In web browser, go to  `http://127.0.0.1:8080/`
 
 ### Run the frontend
 
