@@ -160,7 +160,17 @@ insert into university_table(university_id, long_name, country_code, region, inf
 ('skku', 'Sungkyunkwan University - SKKU', 'KOR', 'Seoul, Suwon', 'skku_page'),
 ('ntnu', 'Norwegian University of Science and Technology - NTNU', 'NOR', 'Trondheim, Gjøvik, Ålesund', 'ntnu_page'),
 ('uio', 'University of Oslo - UiO', 'NOR', 'Oslo', 'uio_page'),
-('uib', 'University of Bergen - UiB', 'NOR', 'Bergen', 'uib_page');
+('uib', 'University of Bergen - UiB', 'NOR', 'Bergen', 'uib_page'),
+('uib1', 'University of Bergen - UiB - 1', 'NOR', 'Bergen', 'uib_page'),
+('uib2', 'University of Bergen - UiB - 2', 'NOR', 'Bergen', 'uib_page'),
+('uib3', 'University of Bergen - UiB - 3', 'NOR', 'Bergen', 'uib_page'),
+('uib4', 'University of Bergen - UiB - 4', 'NOR', 'Bergen', 'uib_page'),
+('uib5', 'University of Bergen - UiB - 5', 'NOR', 'Bergen', 'uib_page'),
+('uib6', 'University of Bergen - UiB - 6', 'NOR', 'Bergen', 'uib_page'),
+('uib7', 'University of Bergen - UiB - 7', 'NOR', 'Bergen', 'uib_page'),
+('uib8', 'University of Bergen - UiB - 8', 'NOR', 'Bergen', 'uib_page'),
+('uib9', 'University of Bergen - UiB - 9', 'NOR', 'Bergen', 'uib_page'),
+('uib10', 'University of Bergen - UiB - 10', 'NOR', 'Bergen', 'uib_page');
 
 insert into partner_universities_table(id, from_university_id, to_university_id) values
 ('skku-ntnu', 'skku', 'ntnu'),

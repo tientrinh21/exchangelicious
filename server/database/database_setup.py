@@ -19,4 +19,3 @@ def get_database_uri():
     return uri
 
 db = SQLAlchemy()
-
