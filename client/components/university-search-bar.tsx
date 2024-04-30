@@ -39,6 +39,8 @@ export default function useUniversitySearchBar(searchWord: string, pageNumber: n
           return [...previousUniversities, ...res.data["items"]]
         })
         setIsLoading(false)
+        console.log("End of page reached. We need to load more data:")
+        console.log(res.data)
       }).catch(e => {
         if (axios.isCancel(e)) {
           return
