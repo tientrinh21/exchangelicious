@@ -1,4 +1,5 @@
 from flask_restful import fields
+
 # handle serialization
 info_page_resource_fields = {
     "info_page_id": fields.String,
@@ -20,9 +21,10 @@ university_with_info_resource_fields = {
     "region": fields.String,
     "long_name": fields.String,
     "info_page_id": fields.String,
-    "info_page_id": fields.String,
-    "intro_text": fields.String,
-    "intro_source": fields.String,
+    "webpage": fields.String,
+    "introduction": fields.String,
+    "location": fields.String,
+    "semester": fields.String,
 }
 
 user_resource_fields = {

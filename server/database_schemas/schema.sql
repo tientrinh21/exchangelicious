@@ -16,10 +16,10 @@ drop table if exists review_table;
 -- How to format the text?
 create table info_page_table (
 	info_page_id varchar(36) default (uuid()) primary key,
-    webpage TEXT,
-	introduction TEXT,
-    location TEXT,
-    semester TEXT
+  webpage TEXT,
+  introduction TEXT,
+  location TEXT,
+  semester TEXT
     -- intro_source varchar(255)
     -- semester_text TEXT,
     -- semester_source varchar(255),
@@ -157,7 +157,7 @@ insert into info_page_table(info_page_id, webpage, introduction, location, semes
 );
 
 insert into university_table(university_id, long_name, country_code, region, info_page_id) values
-('skku', 'Sungkyunkwan university - SKKU', 'KOR', 'Seoul, Suwon', 'skku_page'),
+('skku', 'Sungkyunkwan University - SKKU', 'KOR', 'Seoul, Suwon', 'skku_page'),
 ('ntnu', 'Norwegian University of Science and Technology - NTNU', 'NOR', 'Trondheim, Gjøvik, Ålesund', 'ntnu_page'),
 ('uio', 'University of Oslo - UiO', 'NOR', 'Oslo', 'uio_page'),
 ('uib', 'University of Bergen - UiB', 'NOR', 'Bergen', 'uib_page');
