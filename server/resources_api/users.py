@@ -3,7 +3,6 @@ from resources_api.resource_fields_definitions import user_resource_fields, user
 from sqlalchemy import text, exc
 from database.database_setup import db
 from database.models import UserTable
-import requests
 
 class UserRes(Resource):
     @marshal_with(user_resource_fields)
