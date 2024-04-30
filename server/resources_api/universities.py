@@ -63,3 +63,4 @@ class UniversityPagination(Resource):
                 per_page=2,
                 page=page_number,
             )
+        return {"hasMore": res.has_next, "items": [r for r in res]}, 200

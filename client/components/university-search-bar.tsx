@@ -36,6 +36,7 @@ export default function useUniversitySearchBar(
       cancelToken: new axios.CancelToken((c) => (cancel = c)),
     })
       .then((res) => {
+        console.log(res.data)
         setHasMore(res.data['hasMore'])
         setUniversities((previousUniversities) => {
           // combine the old and the newfound universities

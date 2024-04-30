@@ -8,7 +8,7 @@ export default function HomePage() {
   return (
     <div>
       {/* <ConsumeApiDemo></ConsumeApiDemo> */}
-      {/* <PaginationDemo></PaginationDemo> */}
+      <PaginationDemo></PaginationDemo>
     </div>
   )
 }
