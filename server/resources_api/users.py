@@ -1,6 +1,6 @@
 from flask_restful import Resource, marshal_with, reqparse, abort
 from resources_api.resource_fields_definitions import user_resource_fields, user_with_university_resource_fields
-from sqlalchemy import text
+from sqlalchemy import text, exc
 from database.database_setup import db
 from database.models import UserTable
 import requests
@@ -14,15 +14,18 @@ user_put_args = reqparse.RequestParser()
 user_put_args.add_argument('user_id', type=str, location = "args", help='User ID to create user')
 user_put_args.add_argument('username', type=str, location = "args", help='User name to create user')
 user_put_args.add_argument('pwd', type=str, location = "args", help='Password to create user')
-user_put_args.add_argument('nationality', type=str, location = "args", help='Natioinality of user')
+user_put_args.add_argument('nationality', type=str, location = "args", help='Nationality of user')
 user_put_args.add_argument('home_university', type=str, location = "args", help='Home university of user')
 
 user_update_args = reqparse.RequestParser()
 user_update_args.add_argument('user_id', type=str, location = "args", help='User ID to update user')
 user_update_args.add_argument('username', type=str, location = "args", help='User name to update user')
 user_update_args.add_argument('pwd', type=str, location = "args", help='Password to update user')
-user_update_args.add_argument('nationality', type=str, location = "args", help='Natioinality of user')
+user_update_args.add_argument('nationality', type=str, location = "args", help='Nationality of user')
 user_update_args.add_argument('home_university', type=str, location = "args", help='Home university of user')
+
+user_delete_args = reqparse.RequestParser()
+user_delete_args.add_argument('user_id', type=str, location = "args", help='User ID to delete user')
 
 class UsersAllRes(Resource):
     @marshal_with(user_resource_fields)
@@ -46,9 +49,9 @@ class UsersAllRes(Resource):
             db.session.commit()
             print(new_user)
             return new_user, 200
-        except Exception as e:
-            print(str(e))
-            abort(message=str(e), http_status_code=400)
+        except exc.SQLAlchemyError as e:
+            print(e)
+            abort(message=str(e.__dict__.get("orig")), http_status_code=400)
         
     @marshal_with(user_resource_fields, 200)
     def patch(self):
@@ -68,19 +71,21 @@ class UsersAllRes(Resource):
                 user.home_university = args['home_university']
             db.session.commit()
             return user, 200
-        except Exception as e:   
-            abort(message=str(e), http_status_code=400)
+        except exc.SQLAlchemyError as e:
+            print(e)
+            abort(message=str(e.__dict__.get("orig")), http_status_code=400)
         
     def delete(self):
         try:
-            args = user_update_args.parse_args()
+            args = user_delete_args.parse_args()
             user_id = args['user_id']
             user = db.get_or_404(UserTable, user_id, description=f"No user with the ID '{user_id}'.")
             db.session.delete(user)
             db.session.commit()
             return {"message": f"User with ID '{user_id}' deleted successfully"}, 200
-        except Exception as e:
-            abort(message=str(e), http_status_code=400)
+        except exc.SQLAlchemyError as e:
+            print(e)
+            abort(message=str(e.__dict__.get("orig")), http_status_code=400)
 
 class UserWithUniversityRed(Resource):
     @marshal_with(user_with_university_resource_fields)
