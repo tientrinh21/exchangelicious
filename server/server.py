@@ -5,7 +5,7 @@ from database.database_setup import db, get_database_uri
 
 app = Flask(__name__)
 
-CORS(app)
+cors = CORS(app, resources={r"/api/*": {"origins": "*"}})
 # Swagger Docs
 from swagger_setup import swaggerui_blueprint
 app.register_blueprint(swaggerui_blueprint)
@@ -18,7 +18,6 @@ db.init_app(app)
 api = Api(app)
 from resources_api.routes import initialize_routes
 initialize_routes(api)
-
 
 if __name__ == "__main__":
     app.run(debug=True, port=8080)

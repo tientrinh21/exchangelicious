@@ -114,6 +114,59 @@
         }
       }
     },
+    "/api/universities/search": {
+      "get": {
+        "tags": [
+          "University"
+        ],
+        "summary": "Search and paginate universities",
+        "parameters": [
+          {
+            "name": "page_number",
+            "in": "query",
+            "description": "Page number for pagination",
+            "required": true,
+            "schema": {
+              "type": "integer"
+            }
+          },
+          {
+            "name": "search_word",
+            "in": "query",
+            "description": "Search keyword to filter universities",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "hasMore": {
+                      "type": "boolean",
+                      "description": "Indicates whether there are more results available"
+                    },
+                    "items": {
+                      "type": "array",
+                      "description": "List of universities",
+                      "items": {
+                        "$ref": "#/components/schemas/University"
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
     "/api/users": {
       "get": {
         "tags": [

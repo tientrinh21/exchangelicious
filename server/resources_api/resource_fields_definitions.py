@@ -25,6 +25,11 @@ university_with_info_resource_fields = {
     "intro_source": fields.String,
 }
 
+search_universities_resource_fields = {
+    "hasMore": fields.Boolean,
+    "items":  fields.List(fields.Nested(university_resource_fields))
+    }
+
 user_resource_fields = {
     "user_id": fields.String,
     "username": fields.String,
@@ -44,3 +49,5 @@ user_with_university_resource_fields = {
     "long_name": fields.String,
     "info_page_id": fields.String,
 }
+
+
