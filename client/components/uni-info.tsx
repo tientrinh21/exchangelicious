@@ -54,6 +54,10 @@ function UniInfoContent(props: { data: Object }) {
   return (
     <div className="pb-[1000px] lg:order-1">
       {Object.entries(props.data).map(([key, value], index) => {
+        // TODO: Delete this after refactoring the api
+        if (index < 5) return // skipp data before webpage
+        index -= 5
+
         if (key === 'webpage')
           return (
             <div
@@ -93,6 +97,10 @@ function UniInfoNav(props: { data: Object }) {
     <div className="hidden w-[30%] min-w-44 lg:order-2 lg:block lg:min-w-52">
       <div className="sticky top-20 z-40">
         {Object.entries(props.data).map(([key, _], index) => {
+          // TODO: Delete this after refactoring the api
+          if (index < 5) return // skipp data before webpage
+          index -= 5
+
           if (key === 'webpage') return
           return (
             <div
@@ -133,6 +141,10 @@ function UniInfoMobileMenu(props: { data: Object }) {
         className="w-[65vw] space-y-2 rounded-lg px-2 py-4 shadow-xl sm:w-[40vw]"
       >
         {Object.entries(props.data).map(([key, _], index) => {
+          // TODO: Delete this after refactoring the api
+          if (index < 5) return // skipp data before webpage
+          index -= 5
+
           if (key === 'webpage') return
           return (
             <DropdownMenuItem key={index}>
