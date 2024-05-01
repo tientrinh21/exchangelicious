@@ -4,6 +4,7 @@ import { Skeleton } from '@/components/skeleton'
 import {
   UniHeaderContainer,
   UniHeaderImgWrapper,
+  UniHeaderLoading,
   UniHeaderMeta,
   UniHeaderName,
 } from '@/components/uni-header'
@@ -33,19 +34,7 @@ export default function ExchangeLayout({ children }: ExchangeLayoutProps) {
   if (isLoading)
     return (
       <div className="flex flex-col gap-4 md:gap-8">
-        <div
-          className="md:80 flex h-48 w-screen items-end justify-center bg-cover bg-center sm:h-72 lg:h-96"
-          style={{
-            backgroundImage: `linear-gradient(to right, rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5))`,
-          }}
-        >
-          <UniHeaderContainer>
-            <Skeleton className="mb-2 h-10 w-[250px] bg-background sm:mb-3 md:mb-4 lg:mb-6" />
-            <Skeleton className="mb-2 h-4 w-[150px] bg-background" />
-            <Skeleton className="mb-2 h-4 w-[150px] bg-background" />
-            <Skeleton className="mb-2 h-4 w-[150px] bg-background" />
-          </UniHeaderContainer>
-        </div>
+        <UniHeaderLoading />
 
         <div className="container flex max-w-screen-lg flex-col items-center gap-6 lg:items-baseline lg:gap-10">
           {children}
