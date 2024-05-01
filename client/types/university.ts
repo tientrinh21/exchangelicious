@@ -4,6 +4,7 @@
 export interface University {
   university_id: string
   country_name: string
+  country_code: string
   region: string
   long_name: string
   ranking: number
