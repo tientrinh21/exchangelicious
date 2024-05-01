@@ -9,6 +9,7 @@ import { DotsHorizontalIcon } from '@radix-ui/react-icons'
 import { toRomanNumerals } from '@/lib/utils'
 import Link from 'next/link'
 import React from 'react'
+import type { UniversityInfo } from '@/types/university'
 
 function UniInfoName(props: { name: string }) {
   return (
@@ -50,7 +51,9 @@ function UniInfoImgWrapper(props: {
   )
 }
 
-function UniInfoContent(props: { data: Object }) {
+function UniInfoContent(props: { data: UniversityInfo }) {
+  console.log(props.data.location)
+
   return (
     <div className="pb-[1000px] lg:order-1">
       {Object.entries(props.data).map(([key, value], index) => {
@@ -84,7 +87,9 @@ function UniInfoContent(props: { data: Object }) {
             <h3 className="text-xl font-bold text-foreground md:text-2xl">
               {`${toRomanNumerals(index)}. ${key[0].toUpperCase()}${key.substring(1)}`}
             </h3>
-            <p className="font-medium text-secondary-foreground">{value}</p>
+            <p className="whitespace-pre-line font-medium text-secondary-foreground">
+              {value}
+            </p>
           </div>
         )
       })}
@@ -92,7 +97,7 @@ function UniInfoContent(props: { data: Object }) {
   )
 }
 
-function UniInfoNav(props: { data: Object }) {
+function UniInfoNav(props: { data: UniversityInfo }) {
   return (
     <div className="hidden w-[30%] min-w-44 lg:order-2 lg:block lg:min-w-52">
       <div className="sticky top-20 z-40">
@@ -122,7 +127,7 @@ function UniInfoNav(props: { data: Object }) {
   )
 }
 
-function UniInfoMobileMenu(props: { data: Object }) {
+function UniInfoMobileMenu(props: { data: UniversityInfo }) {
   return (
     <DropdownMenu>
       <DropdownMenuTrigger asChild>
