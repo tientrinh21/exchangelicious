@@ -23,7 +23,15 @@ const universities: UniversityObject[] = [
     name: "Sungkyunkwan University",
     campus: "Seoul Campus",
     region: "Seoul, South Korea",
-    ranking: 115,
+    ranking: 130,
+    dorm: true,
+  },
+  {
+    code: "skku3",
+    name: "Sungkyunkwan University",
+    campus: "Seoul Campus",
+    region: "Seoul, South Korea",
+    ranking: 76,
     dorm: true,
   }
 ];
