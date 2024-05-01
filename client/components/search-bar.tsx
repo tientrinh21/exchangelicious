@@ -1,6 +1,6 @@
 export function SearchBar({ searchTerm, setSearchTerm }) {
   const handleFormSubmit = (event) => {
-    event.preventDefault(); // 폼 제출시 새로고침 방지
+    event.preventDefault(); 
   };
 
   return (

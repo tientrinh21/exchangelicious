@@ -1,5 +1,5 @@
-/** @jsxImportSource react */ // Next.js가 JSX를 어떻게 처리해야 할지 지정
-"use client" // 이 컴포넌트를 클라이언트 컴포넌트로 만듭니다.
+/** @jsxImportSource react */ 
+"use client" 
 
 import React, { useState } from 'react';
 import { SearchBar } from "@/components/search-bar"
