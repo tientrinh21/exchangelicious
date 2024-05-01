@@ -13,9 +13,9 @@ export default function InfoEditPage() {
   return (
     <>
       <div>
-          <h3 className="text-xl font-bold text-foreground md:text-2xl">
+        <span className="text-xl font-bold text-foreground md:text-2xl">
           Webpage
-        </h3>
+        </span>
       </div>
     </>
   )

@@ -39,9 +39,9 @@ function UniInfoContent(props: { data: UniversityInfo | undefined }) {
             id={key}
             className="mt-[-6rem] space-y-5 pb-8 pt-[6rem]"
           >
-            <h3 className="text-xl font-bold text-foreground md:text-2xl">
+            <h2 className="text-xl font-bold text-foreground md:text-2xl">
               {`${toRomanNumerals(index)}. ${key[0].toUpperCase()}${key.substring(1)}`}
-            </h3>
+            </h2>
             <p className="whitespace-pre-line font-medium text-secondary-foreground">
               {value}
             </p>
@@ -132,7 +132,7 @@ function UniInfoError(props: { error: Error }) {
   return (
     <>
       <div className="flex w-full flex-col items-center justify-center text-center">
-        <h2 className="text-xl font-bold text-destructive">404: Not Found</h2>
+        <h1 className="text-xl font-bold text-destructive">404: Not Found</h1>
         <p>
           {/* If id of univeristy not in database */}
           {props.error.message.includes('No university with the ID')
