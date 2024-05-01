@@ -19,6 +19,7 @@ export function SearchBar({ searchTerm, setSearchTerm }) {
           placeholder="Search universities by name, region, country, etc :)"
           value={searchTerm}
           onChange={(e) => setSearchTerm(e.target.value)}
+          style={{ textOverflow: 'ellipsis' }}
           required
         />
       </div>
