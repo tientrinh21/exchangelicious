@@ -15,8 +15,7 @@ import type { UniversityInfo } from '@/types/university'
 import { usePathname } from 'next/navigation'
 import useSWR from 'swr'
 
-// const BASE_URL = 'http://localhost:8080/api'
-const BASE_URL = process.env.BASE_URL && 'http://localhost:8080/api'
+const BASE_URL = process.env.BASE_URL || 'http://localhost:8080/api'
 
 export default function InfoPage() {
   // TODO: To be change soon
