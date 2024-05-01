@@ -1,12 +1,10 @@
-'use client'
-
+"use client";
 import React from 'react'
 import ConsumeApiDemo from '@/components/consumeApiDemo';
 import PaginationDemo from '@/components/paginationDemo';
 
 function page() {
 
-export default function HomePage() {
   return (
     <div>
       {/* <ConsumeApiDemo></ConsumeApiDemo> */}
@@ -14,3 +12,5 @@ export default function HomePage() {
     </div>
   )
 }
+
+export default page
