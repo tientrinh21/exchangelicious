@@ -41,6 +41,7 @@ create table university_table (
   region varchar(40), -- Is this the correct way to do this?
   long_name varchar(255),
   info_page_id varchar(36),
+  ranking int unsigned,
   constraint country_code_fk_con
     foreign key (country_code) references country_table (country_code)
     on delete set null on update cascade,
@@ -148,21 +149,21 @@ insert into info_page_table(info_page_id, webpage, introduction, location, semes
   "The academic year starts in August and ends in June.\nAutumn semester: early/medio August - 19-22 December\nSpring semester: early January - early June"
   );
 
-insert into university_table(university_id, long_name, country_code, region, info_page_id) values
-  ('skku', 'Sungkyunkwan University - SKKU', 'KOR', 'Seoul, Suwon', 'skku_page'),
-  ('ntnu', 'Norwegian University of Science and Technology - NTNU', 'NOR', 'Trondheim, Gjøvik, Ålesund', 'ntnu_page'),
-  ('uio', 'University of Oslo - UiO', 'NOR', 'Oslo', 'uio_page'),
-  ('uib', 'University of Bergen - UiB', 'NOR', 'Bergen', 'uib_page'),
-  ('uib1', 'University of Bergen - UiB - 1', 'NOR', 'Bergen', 'uib_page'),
-  ('uib2', 'University of Bergen - UiB - 2', 'NOR', 'Bergen', 'uib_page'),
-  ('uib3', 'University of Bergen - UiB - 3', 'NOR', 'Bergen', 'uib_page'),
-  ('uib4', 'University of Bergen - UiB - 4', 'NOR', 'Bergen', 'uib_page'),
-  ('uib5', 'University of Bergen - UiB - 5', 'NOR', 'Bergen', 'uib_page'),
-  ('uib6', 'University of Bergen - UiB - 6', 'NOR', 'Bergen', 'uib_page'),
-  ('uib7', 'University of Bergen - UiB - 7', 'NOR', 'Bergen', 'uib_page'),
-  ('uib8', 'University of Bergen - UiB - 8', 'NOR', 'Bergen', 'uib_page'),
-  ('uib9', 'University of Bergen - UiB - 9', 'NOR', 'Bergen', 'uib_page'),
-  ('uib10', 'University of Bergen - UiB - 10', 'NOR', 'Bergen', 'uib_page');
+insert into university_table(university_id, long_name, country_code, region, info_page_id, ranking) values
+  ('skku', 'Sungkyunkwan University - SKKU', 'KOR', 'Seoul, Suwon', 'skku_page', 145),
+  ('ntnu', 'Norwegian University of Science and Technology - NTNU', 'NOR', 'Trondheim, Gjøvik, Ålesund', 'ntnu_page', 292),
+  ('uio', 'University of Oslo - UiO', 'NOR', 'Oslo', 'uio_page', 117),
+  ('uib', 'University of Bergen - UiB', 'NOR', 'Bergen', 'uib_page', 281),
+  ('uib1', 'University of Bergen - UiB - 1', 'NOR', 'Bergen', 'uib_page', 281),
+  ('uib2', 'University of Bergen - UiB - 2', 'NOR', 'Bergen', 'uib_page', 281),
+  ('uib3', 'University of Bergen - UiB - 3', 'NOR', 'Bergen', 'uib_page', 281),
+  ('uib4', 'University of Bergen - UiB - 4', 'NOR', 'Bergen', 'uib_page', 281),
+  ('uib5', 'University of Bergen - UiB - 5', 'NOR', 'Bergen', 'uib_page', 281),
+  ('uib6', 'University of Bergen - UiB - 6', 'NOR', 'Bergen', 'uib_page', 281),
+  ('uib7', 'University of Bergen - UiB - 7', 'NOR', 'Bergen', 'uib_page', 281),
+  ('uib8', 'University of Bergen - UiB - 8', 'NOR', 'Bergen', 'uib_page', 281),
+  ('uib9', 'University of Bergen - UiB - 9', 'NOR', 'Bergen', 'uib_page', 281),
+  ('uib10', 'University of Bergen - UiB - 10', 'NOR', 'Bergen', 'uib_page', 281);
 
 insert into partner_universities_table(id, from_university_id, to_university_id) values
   ('skku-ntnu', 'skku', 'ntnu'),

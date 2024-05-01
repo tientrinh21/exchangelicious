@@ -8,19 +8,21 @@ info_page_resource_fields = {
 }
 
 university_resource_fields = {
-    "university_id": fields.String,
-    "country_code": fields.String,
+    # "university_id": fields.String,
+    # "country_code": fields.String,
+    "country_name": fields.String,
     "region": fields.String,
     "long_name": fields.String,
-    "info_page_id": fields.String,
+    "ranking": fields.Integer,
+    # "info_page_id": fields.String,
 }
 
 university_with_info_resource_fields = {
-    "university_id": fields.String,
-    "country_code": fields.String,
-    "region": fields.String,
-    "long_name": fields.String,
-    "info_page_id": fields.String,
+    # "university_id": fields.String,
+    # "country_code": fields.String,
+    # "region": fields.String,
+    # "long_name": fields.String,
+    # "info_page_id": fields.String,
     "webpage": fields.String,
     "introduction": fields.String,
     "location": fields.String,

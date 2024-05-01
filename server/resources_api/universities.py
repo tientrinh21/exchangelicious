@@ -6,23 +6,13 @@ from resources_api.resource_fields_definitions import (
 )
 from sqlalchemy import select, text
 from database.database_setup import db
-from database.models import UniversityTable
+from database.models import InfoPageTable, UniversityTable
 
 
 class UniversityRes(Resource):
     @marshal_with(university_resource_fields)
     def get(self, university_id):
-        return db.get_or_404(
-            UniversityTable,
-            university_id,
-            description=f"No university with the ID '{university_id}'.",
-        )
-
-
-class UniversityWithInfoRes(Resource):
-    @marshal_with(university_with_info_resource_fields)
-    def get(self, university_id):
-        sql_raw = "SELECT * FROM university_table JOIN info_page_table ON university_table.info_page_id = info_page_table.info_page_id WHERE university_table.university_id = :val"
+        sql_raw = "SELECT * FROM university_table JOIN country_table ON university_table.country_code = country_table.country_code WHERE university_table.university_id = :val"
         res = db.session.execute(text(sql_raw), {"val": university_id}).first()
         print(res)
         if res is None:
@@ -31,6 +21,16 @@ class UniversityWithInfoRes(Resource):
                 http_status_code=404,
             )
         return res, 200
+
+
+class UniversityWithInfoRes(Resource):
+    @marshal_with(university_with_info_resource_fields)
+    def get(self, university_id):
+        return db.get_or_404(
+            InfoPageTable,
+            f"{university_id}_page",
+            description=f"No university with the ID '{university_id}'.",
+        )
 
 
 class UniversityAllRes(Resource):
