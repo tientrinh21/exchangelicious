@@ -12,14 +12,14 @@ export function UniCard(props: { university: UniversityObject }) {
         <div className="max-w-full mx-auto p-4 bg-white flex justify-between items-center hover:bg-gray-100 transition-colors duration-150 rounded-lg cursor-pointer">
           {/* Left Section */}
           <div>
-            <h2 className="text-2xl font-bold mb-1.5">{props.university.name}</h2>
-            <p className="text-muted font-semibold">{props.university.region} | {props.university.campus}</p>
+            <h2 className="text-xl-plus text-secondary-foreground font-bold mb-1.5">{props.university.name}</h2>
+            <p className="text-muted font-medium">{props.university.region} | {props.university.campus}</p>
           </div>
 
           {/* Right Section */}
           <div className="text-right">
-            <p className="text-muted font-semibold">QS Ranking: {props.university.ranking}</p>
-            <p className="text-muted font-semibold">Dormitory: {props.university.dorm ? "Available" : "Not Available"}</p>
+            <p className="text-muted font-medium">QS Ranking: {props.university.ranking}</p>
+            <p className="text-muted font-medium">Dormitory: {props.university.dorm ? "Available" : "Not Available"}</p>
           </div>
         </div>
       </div>
