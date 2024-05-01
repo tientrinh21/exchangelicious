@@ -1,3 +1,4 @@
+import { InfoReviewsNav } from '@/components/info-reviews-nav'
 import { Button } from '@/components/ui/button'
 import {
   DropdownMenu,
@@ -5,12 +6,14 @@ import {
   DropdownMenuItem,
   DropdownMenuTrigger,
 } from '@/components/ui/dropdown-menu'
-import { DotsHorizontalIcon } from '@radix-ui/react-icons'
 import { toRomanNumerals } from '@/lib/utils'
+import type { Error } from '@/types/error'
+import type { UniversityInfo } from '@/types/university'
+import { DotsHorizontalIcon, SymbolIcon } from '@radix-ui/react-icons'
 import Link from 'next/link'
 import React from 'react'
-import type { UniversityInfo } from '@/types/university'
 
+/* HEADER */
 function UniInfoName(props: { name: string }) {
   return (
     <h2 className="lg:md-6 mb-2 text-xl font-bold text-primary-foreground sm:mb-3 sm:text-2xl md:mb-4 md:text-3xl lg:text-4xl">
@@ -51,16 +54,11 @@ function UniInfoImgWrapper(props: {
   )
 }
 
-function UniInfoContent(props: { data: UniversityInfo }) {
-  console.log(props.data.location)
-
+/* CONTENT */
+function UniInfoContent(props: { data: UniversityInfo | undefined }) {
   return (
     <div className="pb-[1000px] lg:order-1">
-      {Object.entries(props.data).map(([key, value], index) => {
-        // TODO: Delete this after refactoring the api
-        if (index < 5) return // skipp data before webpage
-        index -= 5
-
+      {Object.entries(props.data!).map(([key, value], index) => {
         if (key === 'webpage')
           return (
             <div
@@ -97,15 +95,11 @@ function UniInfoContent(props: { data: UniversityInfo }) {
   )
 }
 
-function UniInfoNav(props: { data: UniversityInfo }) {
+function UniInfoNav(props: { data: UniversityInfo | undefined }) {
   return (
     <div className="hidden w-[30%] min-w-44 lg:order-2 lg:block lg:min-w-52">
       <div className="sticky top-20 z-40">
-        {Object.entries(props.data).map(([key, _], index) => {
-          // TODO: Delete this after refactoring the api
-          if (index < 5) return // skipp data before webpage
-          index -= 5
-
+        {Object.entries(props.data!).map(([key, _], index) => {
           if (key === 'webpage') return
           return (
             <div
@@ -127,7 +121,7 @@ function UniInfoNav(props: { data: UniversityInfo }) {
   )
 }
 
-function UniInfoMobileMenu(props: { data: UniversityInfo }) {
+function UniInfoMobileMenu(props: { data: UniversityInfo | undefined }) {
   return (
     <DropdownMenu>
       <DropdownMenuTrigger asChild>
@@ -145,11 +139,7 @@ function UniInfoMobileMenu(props: { data: UniversityInfo }) {
         align="center"
         className="w-[65vw] space-y-2 rounded-lg px-2 py-4 shadow-xl sm:w-[40vw]"
       >
-        {Object.entries(props.data).map(([key, _], index) => {
-          // TODO: Delete this after refactoring the api
-          if (index < 5) return // skipp data before webpage
-          index -= 5
-
+        {Object.entries(props.data!).map(([key, _], index) => {
           if (key === 'webpage') return
           return (
             <DropdownMenuItem key={index}>
@@ -168,12 +158,46 @@ function UniInfoMobileMenu(props: { data: UniversityInfo }) {
   )
 }
 
+function UniInfoLoading() {
+  return (
+    <>
+      <div className="mt-4 flex w-full items-center justify-center gap-2 text-center">
+        <SymbolIcon className="h-4 w-4 animate-spin" />
+        <p className="text-xl font-medium text-secondary-foreground">
+          Loading...
+        </p>
+      </div>
+    </>
+  )
+}
+
+function UniInfoError(props: { error: Error }) {
+  return (
+    <>
+      <div className="mt-16 flex w-full flex-col items-center justify-center text-center">
+        <h2 className="text-xl font-bold text-destructive">404: Not Found</h2>
+        <p>
+          {/* If id of univeristy not in database */}
+          {props.error.message.includes('No university with the ID')
+            ? 'Could not find information about requested university'
+            : 'An error occurred while fetching the data.'}
+        </p>
+        <Link href="/exchange" className="mt-5">
+          <Button variant="secondary">Back to Exchange</Button>
+        </Link>
+      </div>
+    </>
+  )
+}
+
 export {
   UniInfoContainer,
   UniInfoContent,
+  UniInfoError,
   UniInfoImgWrapper,
+  UniInfoLoading,
   UniInfoMeta,
+  UniInfoMobileMenu,
   UniInfoName,
   UniInfoNav,
-  UniInfoMobileMenu,
 }

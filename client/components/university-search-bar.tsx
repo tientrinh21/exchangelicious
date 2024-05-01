@@ -1,6 +1,6 @@
-import { useEffect, useState } from 'react'
-import { University } from '../types/university'
+import type { University } from '@/types/university'
 import axios, { Canceler } from 'axios'
+import { useEffect, useState } from 'react'
 
 const BASE_URL = 'http://127.0.0.1:8080/api'
 
