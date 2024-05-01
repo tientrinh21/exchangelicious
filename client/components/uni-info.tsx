@@ -16,7 +16,7 @@ import React from 'react'
 /* HEADER */
 function UniInfoName(props: { name: string }) {
   return (
-    <h2 className="lg:md-6 mb-2 text-xl font-bold text-primary-foreground sm:mb-3 sm:text-2xl md:mb-4 md:text-3xl lg:text-4xl">
+    <h2 className="mb-2 text-xl font-bold text-primary-foreground sm:mb-3 sm:text-2xl md:mb-4 md:text-3xl lg:mb-6 lg:text-4xl">
       {props.name}
     </h2>
   )
@@ -24,7 +24,7 @@ function UniInfoName(props: { name: string }) {
 
 function UniInfoMeta(props: { meta: string }) {
   return (
-    <span className=" text-xs font-medium leading-5 text-primary-foreground sm:text-sm sm:leading-6 md:text-base md:leading-7">
+    <span className="text-xs font-medium leading-5 text-primary-foreground sm:text-sm sm:leading-6 md:text-base md:leading-7">
       {props.meta}
     </span>
   )
@@ -174,7 +174,7 @@ function UniInfoLoading() {
 function UniInfoError(props: { error: Error }) {
   return (
     <>
-      <div className="mt-16 flex w-full flex-col items-center justify-center text-center">
+      <div className="flex w-full flex-col items-center justify-center text-center">
         <h2 className="text-xl font-bold text-destructive">404: Not Found</h2>
         <p>
           {/* If id of univeristy not in database */}

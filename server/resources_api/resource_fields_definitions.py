@@ -8,7 +8,7 @@ info_page_resource_fields = {
 }
 
 university_resource_fields = {
-    # "university_id": fields.String,
+    "university_id": fields.String,
     # "country_code": fields.String,
     "country_name": fields.String,
     "region": fields.String,

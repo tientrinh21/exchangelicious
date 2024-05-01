@@ -2,7 +2,7 @@
 // https://www.youtube.com/watch?v=00lxm_doFYw
 
 export interface University {
-  // university_id: string
+  university_id: string
   country_name: string
   region: string
   long_name: string
