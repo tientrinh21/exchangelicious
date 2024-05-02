@@ -23,11 +23,14 @@
     "react": "^18",
     "react-dom": "^18",
     "react-hook-form": "^7.51.3",
+    "react-markdown": "^9.0.1",
+    "remark-gfm": "^4.0.0",
     "swr": "^2.2.5",
     "tailwind-merge": "^2.2.2",
     "zod": "^3.23.4"
   },
   "devDependencies": {
+    "@tailwindcss/typography": "^0.5.13",
     "@types/node": "^20",
     "@types/react": "^18",
     "@types/react-dom": "^18",
