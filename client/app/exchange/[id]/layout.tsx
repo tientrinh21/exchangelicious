@@ -54,7 +54,7 @@ export default function ExchangeLayout({ children }: ExchangeLayoutProps) {
       <UniHeaderImgWrapper imgSrc={`/${data!.university_id}.jpg`}>
         <UniHeaderContainer>
           <UniHeaderName name={data!.long_name} />
-          <UniHeaderMeta meta={`${data!.region} Campus`} />
+          <UniHeaderMeta meta={`${data!.region}`} />
           <UniHeaderMeta meta={data!.country_name} />
           <UniHeaderMeta meta={`QS Ranking #${data!.ranking}`} />
         </UniHeaderContainer>
