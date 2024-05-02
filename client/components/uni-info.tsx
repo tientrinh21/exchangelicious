@@ -5,7 +5,7 @@ import {
   DropdownMenuItem,
   DropdownMenuTrigger,
 } from '@/components/ui/dropdown-menu'
-import { toRomanNumerals } from '@/lib/utils'
+import { objKeyToText, toRomanNumerals } from '@/lib/utils'
 import type { Error } from '@/types/error'
 import type { UniversityInfo } from '@/types/university'
 import {
@@ -21,7 +21,7 @@ import remarkGfm from 'remark-gfm'
 
 function UniInfoContent(props: { data: UniversityInfo | undefined }) {
   return (
-    <div className="pb-[1000px] lg:order-1">
+    <div className="lg:order-1">
       {Object.entries(props.data!).map(([key, value], index) => {
         if (key === 'webpage')
           return (
@@ -49,7 +49,7 @@ function UniInfoContent(props: { data: UniversityInfo | undefined }) {
             className="mt-[-6rem] space-y-5 pb-8 pt-[6rem]"
           >
             <h2 className="text-xl font-bold text-foreground md:text-2xl">
-              {`${toRomanNumerals(index)}. ${key[0].toUpperCase()}${key.substring(1)}`}
+              {`${toRomanNumerals(index)}. ${objKeyToText(key)}`}
             </h2>
             {/* <p className="whitespace-pre-line font-medium text-secondary-foreground"> */}
             {/*   {value} */}
@@ -93,7 +93,7 @@ function UniInfoNav(props: { data: UniversityInfo | undefined }) {
                 className="font-medium text-accent-foreground/75 hover:text-foreground"
               >
                 <span className="mr-1 inline-block w-8">{`${toRomanNumerals(index)}.`}</span>
-                <span>{`${key[0].toUpperCase()}${key.substring(1)}`}</span>
+                <span>{objKeyToText(key)}</span>
               </Link>
             </div>
           )
@@ -140,7 +140,7 @@ function UniInfoMobileMenu(props: { data: UniversityInfo | undefined }) {
                 className={`mx-auto w-2/3 text-base font-medium text-accent-foreground`}
               >
                 <span className="mr-1 inline-block w-8">{`${toRomanNumerals(index)}.`}</span>
-                <span>{`${key[0].toUpperCase()}${key.substring(1)}`}</span>
+                <span>{objKeyToText(key)}</span>
               </Link>
             </DropdownMenuItem>
           )

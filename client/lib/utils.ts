@@ -55,3 +55,7 @@ export function toRomanNumerals(decimalNumber: number): string {
 
   return romanNums[decimalNumber]
 }
+
+export function objKeyToText(key: string) {
+  return `${key[0].toUpperCase()}${key.substring(1).replaceAll('_', ' ')}`
+}
