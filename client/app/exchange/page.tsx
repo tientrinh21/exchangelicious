@@ -41,14 +41,14 @@ export default function ExchangePage() {
               </h1>
             </div>
 
-            <div className="flex flex-col sm:flex-row justify-between items-start">
-                <div className="w-full sm:w-1/4 mb-4 sm:mb-0 p-4 bg-white rounded-lg border border-gray-200 shadow-md">
+            <div className="flex flex-col lg:flex-row justify-between items-start">
+                <div className="w-full lg:w-1/4 mb-4 lg:mb-0 p-4 bg-white rounded-lg border border-gray-200 shadow-md">
                     <div className="text-center">
                         Filter Container
                     </div>
                 </div>
 
-                <div className="w-full sm:w-3/4 p-4 flex flex-col">
+                <div className="w-full lg:w-3/4 p-4 flex flex-col">
                     <div className="w-full">
                       <SearchBar searchTerm={searchTerm} setSearchTerm={setSearchTerm} />
                       <SortOption sortType={sortType} setSortType={setSortType} />
