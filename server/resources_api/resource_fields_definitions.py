@@ -12,6 +12,9 @@ university_resource_fields = {
     "region": fields.String,
     "long_name": fields.String,
     "info_page_id": fields.String,
+    "campus": fields.String,
+    "ranking": fields.Integer,
+    "housing": fields.Boolean
 }
 
 university_with_info_resource_fields = {
@@ -19,6 +22,9 @@ university_with_info_resource_fields = {
     "country_code": fields.String,
     "region": fields.String,
     "long_name": fields.String,
+    "campus": fields.String,
+    "ranking": fields.Integer,
+    "housing": fields.Boolean,
     "info_page_id": fields.String,
     "info_page_id": fields.String,
     "intro_text": fields.String,
@@ -48,6 +54,9 @@ user_with_university_resource_fields = {
     "region": fields.String,
     "long_name": fields.String,
     "info_page_id": fields.String,
+    "campus": fields.String,
+    "ranking": fields.Integer,
+    "housing": fields.Boolean
 }
 
 

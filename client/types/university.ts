@@ -7,6 +7,9 @@ export interface University {
   region: string;
   long_name: string;
   info_page_id: string;
+  ranking: number;
+  housing: boolean;
+  campus: string
 }
 
 export interface UniversityObject {
