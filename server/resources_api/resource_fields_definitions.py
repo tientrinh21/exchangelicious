@@ -13,7 +13,7 @@ university_resource_fields = {
     "country_name": fields.String,
     "region": fields.String,
     "long_name": fields.String,
-    "ranking": fields.Integer,
+    "ranking": fields.String,
     # "info_page_id": fields.String,
 }
 
