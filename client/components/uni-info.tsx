@@ -86,7 +86,7 @@ function UniInfoNav(props: { data: UniversityInfo | undefined }) {
           return (
             <div
               key={index}
-              className="w-full border-b-2 border-y-accent-foreground/30 py-5 first:border-t-2"
+              className="w-full border-b-2 border-y-accent-foreground/30 py-4 first:border-t-2"
             >
               <Link
                 href={`#${key}`}
@@ -99,7 +99,7 @@ function UniInfoNav(props: { data: UniversityInfo | undefined }) {
           )
         })}
 
-        <div className="w-full border-b-2 border-y-accent-foreground/30 py-5 first:border-t-2">
+        <div className="w-full border-b-2 border-y-accent-foreground/30 py-4 first:border-t-2">
           <Link
             href=""
             className="flex items-center font-medium text-accent-foreground/75 hover:text-foreground"

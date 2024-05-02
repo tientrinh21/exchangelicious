@@ -27,6 +27,13 @@ university_with_info_resource_fields = {
     "introduction": fields.String,
     "location": fields.String,
     "semester": fields.String,
+    "application_deadline": fields.String,
+    "courses": fields.String,
+    "housing": fields.String,
+    "tuition": fields.String,
+    "visa": fields.String,
+    "eligibility": fields.String,
+    "requirements": fields.String,
 }
 
 search_universities_resource_fields = {

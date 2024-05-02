@@ -21,4 +21,10 @@ export interface UniversityInfo {
   introduction: string
   location: string
   semester: string
+  courses: string
+  housing: string
+  tuition: string
+  visa: string
+  eligibility: string
+  requirements: string
 }
