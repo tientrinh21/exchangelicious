@@ -36,7 +36,10 @@ create table university_table (
     university_id varchar(36) default (uuid()) primary key,
     country_code char(3),
     region varchar(40), -- Is this the correct way to do this?
+    campus varchar(255),
     long_name varchar(255),
+    ranking int unsigned,
+    housing boolean,
     info_page_id varchar(36),
 	constraint country_code_fk_con
         foreign key (country_code) references country_table (country_code)
@@ -130,21 +133,21 @@ insert into info_page_table(info_page_id, intro_text, intro_source) values
 ('uib_page', 'The University of Bergen (UiB) stands proudly on Norways picturesque western coast, overlooking the stunning fjords and surrounded by breathtaking natural beauty. The university was established in 1946. ', 'uib.no')
 ;
 
-insert into university_table(university_id, long_name, country_code, region, info_page_id) values
-('skku', 'Sungkyunkwan university - SKKU', 'KOR', 'Seoul, Suwon', 'skku_page'),
-('ntnu', 'Norwegian University of Science and Technology - NTNU', 'NOR', 'Trondheim, Gjøvik, Ålesund', 'ntnu_page'),
-('uio', 'University of Oslo - UiO', 'NOR', 'Oslo', 'uio_page'),
-('uib', 'University of Bergen - UiB', 'NOR', 'Bergen', 'uib_page'),
-('uib1', 'University of Bergen - UiB - 1', 'NOR', 'Bergen', 'uib_page'),
-('uib2', 'University of Bergen - UiB - 2', 'NOR', 'Bergen', 'uib_page'),
-('uib3', 'University of Bergen - UiB - 3', 'NOR', 'Bergen', 'uib_page'),
-('uib4', 'University of Bergen - UiB - 4', 'NOR', 'Bergen', 'uib_page'),
-('uib5', 'University of Bergen - UiB - 5', 'NOR', 'Bergen', 'uib_page'),
-('uib6', 'University of Bergen - UiB - 6', 'NOR', 'Bergen', 'uib_page'),
-('uib7', 'University of Bergen - UiB - 7', 'NOR', 'Bergen', 'uib_page'),
-('uib8', 'University of Bergen - UiB - 8', 'NOR', 'Bergen', 'uib_page'),
-('uib9', 'University of Bergen - UiB - 9', 'NOR', 'Bergen', 'uib_page'),
-('uib10', 'University of Bergen - UiB - 10', 'NOR', 'Bergen', 'uib_page');
+insert into university_table(university_id, long_name, country_code, region, info_page_id, campus, housing, ranking) values
+('skku', 'Sungkyunkwan university - SKKU', 'KOR', 'Seoul, Suwon', 'skku_page', "Suwon Campus" , 1, 115),
+('ntnu', 'Norwegian University of Science and Technology - NTNU', 'NOR', 'Trondheim, Gjøvik, Ålesund', 'ntnu_page', "Oslo Campus", 0, 230),
+('uio', 'University of Oslo - UiO', 'NOR', 'Oslo', 'uio_page', "Bergen Campus", 0, 280),
+('uib', 'University of Bergen - UiB', 'NOR', 'Bergen', 'uib_page', "Bergen Campus", 0, 280),
+('uib1', 'University of Bergen - UiB - 1', 'NOR', 'Bergen', 'uib_page', "Bergen Campus", 0, 280),
+('uib2', 'University of Bergen - UiB - 2', 'NOR', 'Bergen', 'uib_page', "Bergen Campus", 0, 280),
+('uib3', 'University of Bergen - UiB - 3', 'NOR', 'Bergen', 'uib_page', "Bergen Campus", 0, 280),
+('uib4', 'University of Bergen - UiB - 4', 'NOR', 'Bergen', 'uib_page', "Bergen Campus", 0, 280),
+('uib5', 'University of Bergen - UiB - 5', 'NOR', 'Bergen', 'uib_page', "Bergen Campus", 0, 280),
+('uib6', 'University of Bergen - UiB - 6', 'NOR', 'Bergen', 'uib_page', "Bergen Campus", 0, 280),
+('uib7', 'University of Bergen - UiB - 7', 'NOR', 'Bergen', 'uib_page', "Bergen Campus", 0, 280),
+('uib8', 'University of Bergen - UiB - 8', 'NOR', 'Bergen', 'uib_page', "Bergen Campus", 0, 280),
+('uib9', 'University of Bergen - UiB - 9', 'NOR', 'Bergen', 'uib_page', "Bergen Campus", 0, 280),
+('uib10', 'University of Bergen - UiB - 10', 'NOR', 'Bergen', 'uib_page', "Bergen Campus", 0, 280);
 
 insert into partner_universities_table(id, from_university_id, to_university_id) values
 ('skku-ntnu', 'skku', 'ntnu'),
