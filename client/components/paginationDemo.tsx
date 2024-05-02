@@ -42,6 +42,7 @@ export default function PaginationDemo() {
         setQuery(e.target.value)
         setPageNumber(1)
     }
+    
 
   return (
     <div>

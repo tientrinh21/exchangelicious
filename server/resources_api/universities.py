@@ -41,7 +41,7 @@ class UniversityPagination(Resource):
         search_word = args["search_word"]
 
         if search_word == "":
-            res = db.paginate(select(UniversityTable), per_page=2, page=page_number)
+            res = db.paginate(select(UniversityTable), per_page=100, page=page_number)
         else:
-            res = db.paginate(select(UniversityTable).where(UniversityTable.long_name.contains(search_word)), per_page=2, page=page_number)
+            res = db.paginate(select(UniversityTable).where(UniversityTable.long_name.contains(search_word)), per_page=100, page=page_number)
         return {"hasMore": res.has_next, "items": [r for r in res]}, 200

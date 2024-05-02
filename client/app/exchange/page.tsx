@@ -8,7 +8,9 @@ import SortOption from "@/components/sort-option"; // 정렬 필터 컴포넌트
 import universities from "@/types/universityobject";
 import useUniversitySearchBar from '@/components/university-search-bar';
 
+
 export default function ExchangePage() {
+    
     const [query, setQuery] = useState("")
     const [pageNumber, setPageNumber] = useState(1)
 
@@ -20,7 +22,7 @@ export default function ExchangePage() {
     } = useUniversitySearchBar(query, pageNumber)
 
     const observer = useRef<any>()
-    const lastUniversityElementRef = useCallback((node: HTMLElement | null) => {
+    const lastUniversityElementRef = useCallback((node: any) => {
         // we are loading - do not do anything
         if (isLoading) {
             return
@@ -49,8 +51,7 @@ export default function ExchangePage() {
         setQuery(e.target.value)
         setPageNumber(1)
     }
-
-
+    
     // const [searchTerm, setSearchTerm] = useState('');
     // const [sortType, setSortType] = useState('');
 
@@ -126,14 +127,15 @@ export default function ExchangePage() {
                             !isLoading && universities.length > 0 && (
                                 <div>
                                     {universities.map((university, index) => {
-                                    if (universities.length === index + 1) {
-                                        return <div key={university.university_id} ref={lastUniversityElementRef}><UniCard key={university.university_id} university={university} /></div>
-                                    } else {
                                         return <UniCard key={university.university_id} university={university} />
-                                    }
+                                    // Infinite scroll is turned of right now
+                                    // if (universities.length === index + 1) {
+                                    //     return <div key={university.university_id} ref={lastUniversityElementRef}><UniCard key={university.university_id} university={university} /></div>
+                                    // } else {
+                                    //     return <UniCard key={university.university_id} university={university} />
+                                    // }
                                   })}
                                 </div>
- 
                             )
                         }
                     </div>

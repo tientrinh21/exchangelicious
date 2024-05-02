@@ -1,7 +1,7 @@
 import { MagnifyingGlassIcon } from "@radix-ui/react-icons";
 
 export function SearchBar({ searchTerm, setSearchTerm }) {
-  const handleFormSubmit = (event) => {
+  const handleFormSubmit = (event:any) => {
     event.preventDefault(); 
   };
 
