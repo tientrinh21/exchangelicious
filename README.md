@@ -100,4 +100,4 @@ Start a codespace on a branch. Then do the following to setup the databse:
 
 The current database connection is inspired by this video: https://www.youtube.com/watch?v=yBDHkveJUf4&ab_channel=freeCodeCamp.org (2:36:51).
 
-We are using Microsoft AWS & MySQL.
+We are using AWS & MySQL.
