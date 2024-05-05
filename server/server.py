@@ -23,13 +23,23 @@ initialize_routes(api)
 @app.route('/exch')
 def get_exchange_data():
     try:
-        # Read the Excel file
-        exchange_data = pd.read_excel('exchange.xlsx')  # Assuming the file is named exchange.xlsx
+        exchange_data = pd.read_excel('exchange.xlsx', header=0)
 
-        # Convert the data to JSON
-        exchange_data_json = exchange_data.to_json(orient='records')
+        # Group the data by country
+        grouped_data = exchange_data.groupby(exchange_data.columns[0])
 
-        return exchange_data_json
+        # Convert grouped data to JSON
+        json_data = {}
+
+        for country, group_data in grouped_data:
+            country_data = []
+            for index, row in group_data.iterrows():
+                university_name = row[1]  # Assuming university name is in the second column
+                university_info = {university_name: row[2:].to_dict()}
+                country_data.append(university_info)
+            json_data[country] = country_data
+
+        return jsonify(json_data)
 
     except Exception as e:
         return jsonify({'error': str(e)}), 500
