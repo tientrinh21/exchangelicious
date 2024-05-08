@@ -1,3 +1,4 @@
+import Link from 'next/link'
 import { MainNav } from './main-nav'
 import { MobileNav } from './mobile-nav'
 import { SiteLogo } from './site-logo'
@@ -12,7 +13,9 @@ export function SiteHeader() {
         <div className="flex items-center space-x-1 md:space-x-4">
           <MainNav />
           <MobileNav />
-          <Button className="order-1 rounded-lg text-base">Sign up</Button>
+          <Link className="order-1" href="/sign-up">
+            <Button className="rounded-lg text-base">Sign up</Button>
+          </Link>
         </div>
       </div>
     </header>
