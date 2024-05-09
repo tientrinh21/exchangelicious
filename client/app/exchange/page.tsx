@@ -4,9 +4,10 @@
 import React, { useCallback, useEffect, useRef, useState } from 'react';
 import { SearchBar } from "@/components/search-bar";
 import { UniCard } from "@/components/uni-card";
-import SortOption from "@/components/sort-option"; // 정렬 필터 컴포넌트 임포트
+import SortOption from "@/components/sort-option";
 import universities from "@/types/universityobject";
 import useUniversitySearchBar from '@/components/university-search-bar';
+import { MagnifyingGlassIcon } from "@radix-ui/react-icons";
 
 import InfiniteScroll from 'react-infinite-scroll-component';
 import axios from 'axios';
@@ -115,12 +116,12 @@ export default function ExchangePage1() {
                             <label htmlFor="default-search" className="mb-2 text-sm font-medium text-muted-foreground sr-only dark:text-white">Search</label>
                             <div className="relative">
                                 <div className="absolute inset-y-0 start-0 flex items-center ps-3 pointer-events-none">
-                                    {/* Search icon here */}
+                                    <MagnifyingGlassIcon className="h-6 w-6 text-muted" />
                                 </div>
                                 <input
                                     type="search"
                                     id="default-search"
-                                    className="placeholder-custom block w-full p-4 pl-10 text-lg text-secondary-foreground font-medium bg-background border-b-2 border-secondary rounded-t-lg focus:outline-none focus:border-b-3 focus:border-primary focus:ring-0"
+                                    className="placeholder-custom block w-full p-4 pl-14 text-lg text-secondary-foreground font-medium bg-background border-b-2 border-secondary rounded-t-lg focus:outline-none focus:border-b-3 focus:border-primary focus:ring-0"
                                     placeholder="Search universities by name, region, country, etc :)"
                                     // value={searchTerm}
                                     // onChange={(e) => setSearchTerm(e.target.value)}
