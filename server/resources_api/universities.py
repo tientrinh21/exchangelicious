@@ -12,6 +12,7 @@ from database.models import InfoPageTable, UniversityTable
 class UniversityRes(Resource):
     @marshal_with(university_resource_fields)
     def get(self, university_id):
+        # TODO: Rewirte this
         sql_raw = "SELECT * FROM university_table JOIN country_table ON university_table.country_code = country_table.country_code WHERE university_table.university_id = :val"
         res = db.session.execute(text(sql_raw), {"val": university_id}).first()
         print(res)

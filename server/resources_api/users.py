@@ -124,6 +124,7 @@ class UsersAllRes(Resource):
 class UserWithUniversityRed(Resource):
     @marshal_with(user_with_university_resource_fields)
     def get(self, user_id):
+        # TODO: rewrite this
         sql_raw = "SELECT * FROM user_table JOIN university_table ON user_table.home_university = university_table.university_id WHERE user_table.user_id = :val"
         res = db.session.execute(text(sql_raw), {"val": user_id}).first()
         print(res)
