@@ -33,19 +33,19 @@ create table info_page_table (
 );
 
 create table university_table (
-    university_id varchar(36) default (uuid()) primary key,
-    country_code char(3),
-    region varchar(40),
-    campus varchar(255),
-    long_name varchar(255),
-    ranking int unsigned,
-    housing boolean,
-    info_page_id varchar(36),
-	constraint country_code_fk_con
-        foreign key (country_code) references country_table (country_code)
-        on delete set null on update cascade,
-    constraint info_page_id_fk_con
-		foreign key (info_page_id) references info_page_table (info_page_id)
+  university_id varchar(36) default (uuid()) primary key,
+  country_code char(3),
+  region varchar(40), -- Is this the correct way to do this?
+  long_name varchar(255),
+  info_page_id varchar(36),
+  ranking varchar(10),
+  housing boolean,
+  campus varchar(255),
+  constraint country_code_fk_con
+    foreign key (country_code) references country_table (country_code)
+    on delete set null on update cascade,
+  constraint info_page_id_fk_con
+    foreign key (info_page_id) references info_page_table (info_page_id)
 );
 
 -- Many-to-Many relation
@@ -133,21 +133,19 @@ insert into info_page_table(info_page_id, intro_text, intro_source) values
 ('uib_page', 'The University of Bergen (UiB) stands proudly on Norways picturesque western coast, overlooking the stunning fjords and surrounded by breathtaking natural beauty. The university was established in 1946. ', 'uib.no')
 ;
 
+
 insert into university_table(university_id, long_name, country_code, region, info_page_id, campus, housing, ranking) values
-('skku', 'Sungkyunkwan university - SKKU', 'KOR', 'Seoul, Suwon', 'skku_page', "Suwon Campus" , 1, 115),
-('ntnu', 'Norwegian University of Science and Technology - NTNU', 'NOR', 'Trondheim, Gjøvik, Ålesund', 'ntnu_page', "Oslo Campus", 0, 230),
-('uio', 'University of Oslo - UiO', 'NOR', 'Oslo', 'uio_page', "Bergen Campus", 0, 280),
-('uib', 'University of Bergen - UiB', 'NOR', 'Bergen', 'uib_page', "Bergen Campus", 0, 280),
-('uib1', 'University of Bergen - UiB - 1', 'NOR', 'Bergen', 'uib_page', "Bergen Campus", 0, 280),
-('uib2', 'University of Bergen - UiB - 2', 'NOR', 'Bergen', 'uib_page', "Bergen Campus", 0, 280),
-('uib3', 'University of Bergen - UiB - 3', 'NOR', 'Bergen', 'uib_page', "Bergen Campus", 0, 280),
-('uib4', 'University of Bergen - UiB - 4', 'NOR', 'Bergen', 'uib_page', "Bergen Campus", 0, 280),
-('uib5', 'University of Bergen - UiB - 5', 'NOR', 'Bergen', 'uib_page', "Bergen Campus", 0, 280),
-('uib6', 'University of Bergen - UiB - 6', 'NOR', 'Bergen', 'uib_page', "Bergen Campus", 0, 280),
-('uib7', 'University of Bergen - UiB - 7', 'NOR', 'Bergen', 'uib_page', "Bergen Campus", 0, 280),
-('uib8', 'University of Bergen - UiB - 8', 'NOR', 'Bergen', 'uib_page', "Bergen Campus", 0, 280),
-('uib9', 'University of Bergen - UiB - 9', 'NOR', 'Bergen', 'uib_page', "Bergen Campus", 0, 280),
-('uib10', 'University of Bergen - UiB - 10', 'NOR', 'Bergen', 'uib_page', "Bergen Campus", 0, 280);
+  ('skku', 'Sungkyunkwan University', 'KOR', 'Seoul, Suwon', 'skku_page', "Suwon Campus" , 1, "145"),
+  ('ntnu', 'Norwegian University of Science and Technology', 'NOR', 'Trondheim, Gjøvik, Ålesund', 'ntnu_page', "Ålesund Campus", 0, "292"),
+  ('uio', 'University of Oslo', 'NOR', 'Oslo', 'uio_page', "Oslo Campus", 0, "117"),
+  ('uib', 'University of Bergen', 'NOR', 'Bergen', 'uib_page', "Bergen Campus", 0, "281"),
+  ('ut_dallas', 'University of Texas at Dallas', 'USA', 'Richardson, Texas', 'skku_page', "Dallas Campus", 1, "520"),
+  ('umass_boston', 'University of Massachusetts Boston', 'USA', 'Boston, Massachusetts', 'skku_page', "Boston Campus", 1, "801-850"),
+  ('umanitoba', 'University of Manitoba', 'CAN', 'Winnipeg, Manitoba', 'skku_page', "Winnipeg Campus", 0, "671-680"),
+  ('utoronto', 'University of Toronto', 'CAN', 'Toronto, Ontarion', 'skku_page', "Toronto Campus", 0, "21"),
+  ('usask', 'University of Saskatchewan', 'CAN', 'Saskatoon, Saskatchewan', 'skku_page', "Saskatoon Campus", 1, "345"),
+  ('ets', 'Ecole de technolgie superieure', 'CAN', 'Montreal, Quebec', 'skku_page', "Montreal Campus", 1, "671-680"),
+  ('ntu', 'Nanyang Technological University', 'SGP', 'Nanyang Ave', 'skku_page', "Singapore Campus", 1, "26");
 
 insert into partner_universities_table(id, from_university_id, to_university_id) values
 ('skku-ntnu', 'skku', 'ntnu'),

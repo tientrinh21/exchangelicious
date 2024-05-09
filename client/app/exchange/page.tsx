@@ -1,24 +1,17 @@
 /** @jsxImportSource react */
 "use client"
 
-import React, { useCallback, useEffect, useRef, useState } from 'react';
-import { SearchBar } from "@/components/search-bar";
+import { useEffect, useState } from 'react';
 import { UniCard } from "@/components/uni-card";
 import SortOption from "@/components/sort-option";
-import universities from "@/types/universityobject";
-import useUniversitySearchBar from '@/components/university-search-bar';
 import { MagnifyingGlassIcon } from "@radix-ui/react-icons";
-
 import InfiniteScroll from 'react-infinite-scroll-component';
 import axios from 'axios';
 import { University } from '@/types/university';
-import { log } from 'console';
 
 const BASE_URL = 'http://127.0.0.1:8080/api'
 
-
 export default function ExchangePage() {
-    const [error, setError] = useState(false);
     const [universities, setUniversities] = useState<University[]>([])
     const [isLoading, setIsLoading] = useState(true); // to avoid blank screen when awaiting
     const [hasMore, setHasMore] = useState(true)
@@ -111,19 +104,21 @@ export default function ExchangePage() {
 
                     <div className="text-secondary-foreground search-content mt-0">
                         {universities.length > 0 && (
-                                <InfiniteScroll
-                                    dataLength={universities.length}
-                                    next={(fetchMoreData)}
-                                    hasMore={hasMore} // Replace with a condition based on your data source
-                                    loader={<p className="text-center text-lg font-semibold mt-20 text-secondary-foreground">Loading.</p>}
-                                    endMessage={<p className="text-center text-lg font-semibold mt-20 text-secondary-foreground">No more results found.</p>
+                            <InfiniteScroll
+                                dataLength={universities.length}
+                                next={fetchMoreData}
+                                hasMore={hasMore}
+                                loader={<p className="text-center text-lg font-semibold mt-20 text-secondary-foreground">Loading...</p>}
+                                endMessage={<p className="text-center text-lg font-semibold mt-20 text-secondary-foreground">No more results found.</p>
                                 }
-                                >
+                            >
+                                <div className="flex flex-col gap-3">
                                     {universities.map(university => (
                                         <UniCard key={university.university_id} university={university} />
                                     ))}
-                                </InfiniteScroll>
-                            )
+                                </div>
+                            </InfiniteScroll>
+                        )
                         }
                         {!isLoading && universities.length == 0 && (
                             <p className="text-center text-lg font-semibold mt-20 text-secondary-foreground">No matching results found.</p>
