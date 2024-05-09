@@ -35,7 +35,7 @@ create table info_page_table (
 create table university_table (
     university_id varchar(36) default (uuid()) primary key,
     country_code char(3),
-    region varchar(40), -- Is this the correct way to do this?
+    region varchar(40),
     campus varchar(255),
     long_name varchar(255),
     ranking int unsigned,

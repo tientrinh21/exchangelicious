@@ -4,11 +4,7 @@ from sqlalchemy import select, text
 from database.database_setup import db
 from database.models import UniversityTable, InfoPageTable
 
-class UniversityRes(Resource):
-    @marshal_with(university_resource_fields)
-    def get(self, university_id):
-        return db.get_or_404(UniversityTable, university_id,  description=f"No university with the ID '{university_id}'.")
-    
+
 class UniversityWithInfoRes(Resource):
     @marshal_with(university_with_info_resource_fields)
     def get(self, university_id):
@@ -19,7 +15,11 @@ class UniversityWithInfoRes(Resource):
         res = db.session.execute(text(sql_raw), {"val": university_id}).first()
         print(res)
         return res
-
+class UniversityRes(Resource):
+    @marshal_with(university_resource_fields)
+    def get(self, university_id):
+        return db.get_or_404(UniversityTable, university_id,  description=f"No university with the ID '{university_id}'.")
+    
 class UniversityAllRes(Resource):
     @marshal_with(university_resource_fields)
     def get(self):
@@ -40,8 +40,11 @@ class UniversityPagination(Resource):
         page_number = args["page_number"]
         search_word = args["search_word"]
 
+        # TODO: Change per_page=2 to a higher number when we have more entries in our database
+        # In both res = db.paginate.... queries
         if search_word == "":
-            res = db.paginate(select(UniversityTable), per_page=100, page=page_number)
+            res = db.paginate(select(UniversityTable), per_page=2, page=page_number)
         else:
-            res = db.paginate(select(UniversityTable).where(UniversityTable.long_name.contains(search_word)), per_page=100, page=page_number)
+            res = db.paginate(select(UniversityTable).where(UniversityTable.long_name.contains(search_word)), per_page=2, page=page_number)
         return {"hasMore": res.has_next, "items": [r for r in res]}, 200
+
