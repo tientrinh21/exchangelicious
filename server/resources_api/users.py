@@ -3,6 +3,10 @@ from resources_api.resource_fields_definitions import user_resource_fields, user
 from sqlalchemy import text, exc
 from database.database_setup import db
 from database.models import UserTable
+import uuid
+from flask import request
+import hashlib
+import secrets
 
 class UserRes(Resource):
     @marshal_with(user_resource_fields)
@@ -26,21 +30,80 @@ user_update_args.add_argument('home_university', type=str, location = "args", he
 user_delete_args = reqparse.RequestParser()
 user_delete_args.add_argument('user_id', type=str, location = "args", help='User ID to delete user')
 
+# Function to generate a salt
+def generate_salt():
+    return secrets.token_hex(16)
+
+# Function to hash a password
+def hash_password(password, salt):
+    # Concatenate password and salt
+    salted_password = password + salt
+    # Hash the salted password using SHA-256
+    hashed_password = hashlib.sha256(salted_password.encode()).hexdigest()
+    return hashed_password
+
 class UsersAllRes(Resource):
     @marshal_with(user_resource_fields)
     def get(self):
-        users = UserTable.query.order_by(UserTable.username).all()
-        return [user for user in users], 200
+        # # Extract the username from the query parameters
+        # username = request.args.get('username')
+
+        # if username:
+        #     # Query the database for the user with the provided username
+        #     user = UserTable.query.filter_by(username=username).first()
+        #     if user:
+        #         return user, 200
+        #     else:
+        #         abort(message="User not found", http_status_code=404)
+        # else:
+        #     # If no username is provided, return information about all users
+        #     users = UserTable.query.order_by(UserTable.username).all()
+        #     return users, 200
+        try:
+            args = user_put_args.parse_args()
+            username = args['username']
+            password = args['pwd']
+
+            # Retrieve user from the database based on the provided username
+            user = UserTable.query.filter_by(username=username).first()
+
+            if user:
+                # Hash the provided password using the salt stored in the database
+                hashed_password = hash_password(password, user.salt)
+
+                # Check if the hashed password matches the stored hashed password
+                if hashed_password == user.pwd:
+                    # Passwords match, user is authenticated, return user information
+                    return user, 200
+                else:
+                    # Passwords do not match, user authentication failed
+                    abort(message="Invalid credentials", http_status_code=401)
+            else:
+                # User with the provided username not found
+                abort(message="User not found", http_status_code=404)
+        except exc.SQLAlchemyError as e:
+            print(e)
+            abort(message=str(e.__dict__.get("orig")), http_status_code=400)
     
     @marshal_with(user_resource_fields)
     def put(self):
         try:
             args = user_put_args.parse_args()
             # Create a new UserTable object and assign values from args
+            uid = str(uuid.uuid4())
+
+            # Generate a salt
+            salt = generate_salt()
+            # Hash the password
+            hashed_password = hash_password(args['pwd'], salt)
+
             new_user = UserTable(
-                user_id=args['user_id'],
+                user_id = uid,
+                # user_id=args['user_id'],
                 username=args['username'],
-                pwd=args['pwd'],
+                # pwd=args['pwd'],
+                pwd=hashed_password,  # Save the hashed password
+                salt=salt,  # Save the salt
                 nationality=args['nationality'],
                 home_university=args['home_university']
             )  
@@ -56,14 +119,23 @@ class UsersAllRes(Resource):
     def patch(self):
         try:
             args = user_update_args.parse_args()
-            user_id = args['user_id']
+            # user_id should be generated automatically
+            uname = args['username']
+            # user_id = uuid.uuid4()
             # user = UserTable.query.get(user_id)
-            user = db.get_or_404(UserTable, user_id, description=f"No user with the ID '{user_id}'.")
+            user = db.get_or_404(UserTable, uname, description=f"No user with the username '{uname}'.")
             # Update the user attributes if they are present in the args
             if 'username' in args:
                 user.username = args['username']
+            # if 'pwd' in args:
+            #     user.pwd = args['pwd']
             if 'pwd' in args:
-                user.pwd = args['pwd']
+                salt = generate_salt()
+                # Hash the new password with the generated salt
+                hashed_password = hash_password(args['pwd'], salt)
+                # Update the hashed password and salt columns
+                user.pwd = hashed_password
+                user.salt = salt
             if 'nationality' in args:
                 user.nationality = args['nationality']
             if 'home_university' in args:
@@ -75,13 +147,37 @@ class UsersAllRes(Resource):
             abort(message=str(e.__dict__.get("orig")), http_status_code=400)
         
     def delete(self):
+        # try:
+        #     args = user_delete_args.parse_args()
+        #     user_id = args['user_id']
+        #     user = db.get_or_404(UserTable, user_id, description=f"No user with the ID '{user_id}'.")
+        #     db.session.delete(user)
+        #     db.session.commit()
+        #     return {"message": f"User with ID '{user_id}' deleted successfully"}, 200
+        # except exc.SQLAlchemyError as e:
+        #     print(e)
+        #     abort(message=str(e.__dict__.get("orig")), http_status_code=400)
         try:
             args = user_delete_args.parse_args()
-            user_id = args['user_id']
-            user = db.get_or_404(UserTable, user_id, description=f"No user with the ID '{user_id}'.")
-            db.session.delete(user)
-            db.session.commit()
-            return {"message": f"User with ID '{user_id}' deleted successfully"}, 200
+            username = args['username']
+            password = args['pwd']
+
+            # Retrieve user from the database based on the provided username
+            user = UserTable.query.filter_by(username=username).first()
+
+            if user:
+                # Verify the provided password against the hashed password in the database
+                if check_password_hash(user.pwd, password):
+                    # Passwords match, user is authenticated, proceed with deletion
+                    db.session.delete(user)
+                    db.session.commit()
+                    return {"message": f"User '{username}' deleted successfully"}, 200
+                else:
+                    # Passwords do not match, authentication failed
+                    abort(message="Invalid credentials", http_status_code=401)
+            else:
+                # User with the provided username not found
+                abort(message="User not found", http_status_code=404)
         except exc.SQLAlchemyError as e:
             print(e)
             abort(message=str(e.__dict__.get("orig")), http_status_code=400)

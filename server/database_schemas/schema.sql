@@ -67,7 +67,8 @@ CREATE TABLE user_table
 	user_id varchar(36) default (uuid()) PRIMARY KEY,
     username varchar(40) unique,
     -- Need to fix some password security
-    pwd varchar(30),
+    pwd varchar(64), 
+    salt varchar(32),
     nationality char(3),
     home_university varchar(40),
     -- UNIQUE(username),
