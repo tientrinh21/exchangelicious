@@ -47,7 +47,7 @@ class UsersAllRes(Resource):
             db.session.add(new_user)
             db.session.commit()
             print(new_user)
-            return new_user, 200
+            return new_user, 201
         except exc.SQLAlchemyError as e:
             print(e)
             abort(message=str(e.__dict__.get("orig")), http_status_code=400)

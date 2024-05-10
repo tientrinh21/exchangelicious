@@ -98,6 +98,34 @@ create table exchange_university_table (
         on delete cascade on update cascade
 );
 
+
+create table review_table (
+	review_id varchar(36) default (uuid()) primary key,
+	# A university can have many reviews
+    university_id varchar(36) not null,
+	user_id varchar(36) not null,
+    title varchar(100) not null,
+	content text,
+    submit_datetime datetime,
+    last_edit_datetime datetime,
+    mood_score ENUM('very bad', 'bad', 'neutral', 'good', 'very good'),
+    up_vote integer,
+    down_vote integer
+);
+
+# Are we having replies or not? 
+create table reply_table (
+	reply_id int auto_increment primary key,
+    user_id varchar(36) not null,
+    content text,
+    # A review can have many replies
+    parent_review_id int
+);
+
+
+
+
+
 -- Many-to-Many
 -- https://dba.stackexchange.com/questions/74627/difference-between-on-delete-cascade-on-update-cascade-in-mysql
 -- ^ ON DELETE CASCADE ON UPDATE CASCADE

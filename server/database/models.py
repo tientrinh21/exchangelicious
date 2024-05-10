@@ -55,6 +55,17 @@ class ExchangeUniversityTable(db.Model):
 
     __table__ = db.Model.metadata.tables[f"{DB_NAME}.exchange_university_table"]
 
+class ReviewTable(db.Model):
+    """deal with an existing table"""
+
+    __table__ = db.Model.metadata.tables[f"{DB_NAME}.review_table"]
+
+
+class ReplyTable(db.Model):
+    """deal with an existing table"""
+
+    __table__ = db.Model.metadata.tables[f"{DB_NAME}.reply_table"]
+
 
 # The above code should be changed to this
 # Basically is the schema in a data base
