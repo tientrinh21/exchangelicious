@@ -666,6 +666,44 @@
           }
         }
       }
+    },
+    "/api/reviews/{university_id}": {
+      "get": {
+        "tags": [
+          "Reviews Section"
+        ],
+        "summary": "Get all reviews written about a university",
+        "description": "Get all reviews written about a university",
+        "parameters": [
+          {
+            "in": "path",
+            "name": "university_id",
+            "required": true,
+            "description": "ID of the university",
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "All the reviews that belongs to the university",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/Review"
+                  }
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "No review found with the provided ID"
+          }
+        }
+      }
     }
   },
   "components": {

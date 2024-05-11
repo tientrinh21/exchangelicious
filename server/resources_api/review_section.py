@@ -102,6 +102,8 @@ class ReviewRes(Resource):
             abort(message=str(e.__dict__.get("orig")), http_status_code=400)
 
 
+# find all reviews for a university
+# upvote/downvote
 
         
     
