@@ -6,6 +6,8 @@ from sqlalchemy import select, exc
 from datetime import datetime
 import uuid
 
+review_get_args = reqparse.RequestParser()
+review_get_args.add_argument('review_id', type=str, location = "args", required=True, help='ID of the review to be fetched')
 
 review_put_args = reqparse.RequestParser()
 review_put_args.add_argument('user_id', type=str, location = "args", help='The user ID of the author of the review', required=True)
@@ -18,10 +20,13 @@ review_put_args.add_argument('mood_score', type=str, location = "args", help='Th
 #review_put_args.add_argument('down_vote', type=str, location = "args", help='Home university of user')
 
 review_update_args = reqparse.RequestParser()
-review_put_args.add_argument('review_id', type=str, location = "args", required=True, help='ID of the review to be updated')
-review_put_args.add_argument('title', type=str, location = "args", help='The title of the review')
-review_put_args.add_argument('content', type=str, location = "args", help='The text/content of the review')
-review_put_args.add_argument('mood_score', type=str, location = "args", help='The mood score of the review. Should be one of the enum values')
+review_update_args.add_argument('review_id', type=str, location = "args", required=True, help='ID of the review to be updated')
+review_update_args.add_argument('title', type=str, location = "args", help='The title of the review')
+review_update_args.add_argument('content', type=str, location = "args", help='The text/content of the review')
+review_update_args.add_argument('mood_score', type=str, location = "args", help='The mood score of the review. Should be one of the enum values')
+
+review_delete_args = reqparse.RequestParser()
+review_delete_args.add_argument('review_id', type=str, location = "args", required=True, help='ID of the review to be deleted')
 
 
 class ReviewPerUniRes(Resource):
@@ -33,16 +38,18 @@ class ReviewPerUniRes(Resource):
 
 class ReviewRes(Resource):
     @marshal_with(review_resource_fields)
-    def get(self, review_id):
+    def get(self):
+        args = review_get_args.parse_args()
+        review_id = args["review_id"]
         return db.get_or_404(ReviewTable, review_id, description=f"No review with the ID '{review_id}'.")
     
-    @marshal_with(review_put_args)
+    @marshal_with(review_resource_fields)
     def put(self):
         try:
             args = review_put_args.parse_args()
             new_review = ReviewTable(
                 # generate id
-                review = uuid.uuid4(),
+                review_id = str(uuid.uuid4()),
                 university_id=args['university_id'],
                 user_id=args['user_id'],
                 title=args['title'],
@@ -60,12 +67,12 @@ class ReviewRes(Resource):
             print(e)
             abort(message=str(e.__dict__.get("orig")), http_status_code=400)
     
-    @marshal_with(review_put_args)
+    @marshal_with(review_resource_fields)
     def patch(self):
         try:
-            args = review_put_args.parse_args()
+            args = review_update_args.parse_args()
             review_id = args["review_id"]
-            review = db.one_or_404(ReviewTable, review_id, description=f"No review with the ID '{review_id}'.")
+            review = db.get_or_404(ReviewTable, review_id, description=f"No review with the ID '{review_id}'.")
             if 'title' in args:
                 review.title = args['title']
             if 'content' in args:
@@ -75,14 +82,18 @@ class ReviewRes(Resource):
             
             review.last_edit_datetime = datetime.now()
 
+            db.session.commit()
+            return review, 200
+
         except exc.SQLAlchemyError as e:
             print(e)
             abort(message=str(e.__dict__.get("orig")), http_status_code=400)
     
-    @marshal_with(review_put_args)
-    def delete(self, review_id):
+    def delete(self):
         try:
-            review = db.one_or_404(ReviewTable, review_id, description=f"No review with the ID '{review_id}'.")
+            args = review_delete_args.parse_args()
+            review_id = args["review_id"]
+            review = db.get_or_404(ReviewTable, review_id, description=f"No review with the ID '{review_id}'.")
             db.session.delete(review)
             db.session.commit()
             return {"message": f"Review with ID '{review_id}' was deleted successfully"}, 200

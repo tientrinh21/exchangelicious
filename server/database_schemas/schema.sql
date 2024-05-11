@@ -7,6 +7,7 @@ drop table if exists university_table;
 drop table if exists info_page_table;
 drop table if exists favorites_table;
 drop table if exists review_table;
+drop table if exists reply_table;
 
 
 -- uuid is 36 characters

@@ -13,4 +13,4 @@ def initialize_routes(api):
     api.add_resource(UserWithUniversityRed, "/api/users/<string:user_id>/uni")
     api.add_resource(UniversityPagination, "/api/universities/search")
     # Reviews
-    api.add_resource(ReviewRes, "/api/review/")
+    api.add_resource(ReviewRes, "/api/review")
