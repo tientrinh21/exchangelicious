@@ -8,7 +8,9 @@ def initialize_routes(api):
     api.add_resource(UserRes, "/api/users/<string:user_id>")
     api.add_resource(UsersAllRes, "/api/users")
     api.add_resource(UniversityRes, "/api/universities/<string:university_id>")
-    api.add_resource(UniversityWithInfoRes, "/api/universities/<string:university_id>/info")
+    api.add_resource(
+        UniversityWithInfoRes, "/api/universities/<string:university_id>/info"
+    )
     api.add_resource(UniversityAllRes, "/api/universities")
     api.add_resource(UserWithUniversityRed, "/api/users/<string:user_id>/uni")
     api.add_resource(UniversityPagination, "/api/universities/search")

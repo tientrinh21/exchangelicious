@@ -14,6 +14,7 @@ DB_NAME = os.getenv("DB_NAME")
 # # when the database schema is mostly decided on
 db.Model.metadata.reflect(bind=create_engine(get_database_uri()), schema=DB_NAME)
 
+
 class CountryTable(db.Model):
     """deal with an existing table"""
 
@@ -32,7 +33,7 @@ class UniversityTable(db.Model):
     __table__ = db.Model.metadata.tables[f"{DB_NAME}.university_table"]
 
     def __repr__(self):
-        return f'<University {self.university_id} + {self.long_name}>'
+        return f"<University {self.university_id} + {self.long_name}>"
 
 
 class PartnerUniversitiesTable(db.Model):
@@ -47,7 +48,7 @@ class UserTable(db.Model):
     __table__ = db.Model.metadata.tables[f"{DB_NAME}.user_table"]
 
     def __repr__(self):
-        return f'<User {self.username}>'
+        return f"<User {self.username}>"
 
 
 class ExchangeUniversityTable(db.Model):
@@ -80,4 +81,3 @@ class ReplyTable(db.Model):
 #     # to string
 #     def __repr__(self):
 #         return f'<User {self.username}>'
-
