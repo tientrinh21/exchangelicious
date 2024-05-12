@@ -45,20 +45,6 @@ def hash_password(password, salt):
 class UsersAllRes(Resource):
     @marshal_with(user_resource_fields)
     def get(self):
-        # # Extract the username from the query parameters
-        # username = request.args.get('username')
-
-        # if username:
-        #     # Query the database for the user with the provided username
-        #     user = UserTable.query.filter_by(username=username).first()
-        #     if user:
-        #         return user, 200
-        #     else:
-        #         abort(message="User not found", http_status_code=404)
-        # else:
-        #     # If no username is provided, return information about all users
-        #     users = UserTable.query.order_by(UserTable.username).all()
-        #     return users, 200
         try:
             args = user_put_args.parse_args()
             username = args['username']
@@ -120,15 +106,11 @@ class UsersAllRes(Resource):
         try:
             args = user_update_args.parse_args()
             # user_id should be generated automatically
-            uname = args['username']
-            # user_id = uuid.uuid4()
-            # user = UserTable.query.get(user_id)
-            user = db.get_or_404(UserTable, uname, description=f"No user with the username '{uname}'.")
+            username = args['username']
+            user = db.session.query(UserTable).filter_by(username=username).first()
             # Update the user attributes if they are present in the args
             if 'username' in args:
                 user.username = args['username']
-            # if 'pwd' in args:
-            #     user.pwd = args['pwd']
             if 'pwd' in args:
                 salt = generate_salt()
                 # Hash the new password with the generated salt
@@ -150,7 +132,7 @@ class UsersAllRes(Resource):
         try:
             args = user_update_args.parse_args()
             username = args['username']
-            print(f"Attempting to delete user with username: {username}")
+            # print(f"Attempting to delete user with username: {username}")
             user = db.session.query(UserTable).filter_by(username=username).first()
             if not user:
                 print(f"No user found with the username: {username}")
