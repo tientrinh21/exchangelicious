@@ -357,16 +357,6 @@
               "type": "string",
               "maxLength": 36
             }
-          },
-          {
-            "name": "pwd",
-            "in": "query",
-            "description": "password of the user to delete",
-            "required": true,
-            "schema": {
-              "type": "string",
-              "maxLength": 36
-            }
           }
         ],
         "responses": {

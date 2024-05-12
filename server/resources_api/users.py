@@ -147,40 +147,22 @@ class UsersAllRes(Resource):
             abort(message=str(e.__dict__.get("orig")), http_status_code=400)
         
     def delete(self):
-        # try:
-        #     args = user_delete_args.parse_args()
-        #     user_id = args['user_id']
-        #     user = db.get_or_404(UserTable, user_id, description=f"No user with the ID '{user_id}'.")
-        #     db.session.delete(user)
-        #     db.session.commit()
-        #     return {"message": f"User with ID '{user_id}' deleted successfully"}, 200
-        # except exc.SQLAlchemyError as e:
-        #     print(e)
-        #     abort(message=str(e.__dict__.get("orig")), http_status_code=400)
         try:
-            args = user_delete_args.parse_args()
+            args = user_update_args.parse_args()
             username = args['username']
-            password = args['pwd']
-
-            # Retrieve user from the database based on the provided username
-            user = UserTable.query.filter_by(username=username).first()
-
-            if user:
-                # Verify the provided password against the hashed password in the database
-                if check_password_hash(user.pwd, password):
-                    # Passwords match, user is authenticated, proceed with deletion
-                    db.session.delete(user)
-                    db.session.commit()
-                    return {"message": f"User '{username}' deleted successfully"}, 200
-                else:
-                    # Passwords do not match, authentication failed
-                    abort(message="Invalid credentials", http_status_code=401)
-            else:
-                # User with the provided username not found
-                abort(message="User not found", http_status_code=404)
-        except exc.SQLAlchemyError as e:
-            print(e)
-            abort(message=str(e.__dict__.get("orig")), http_status_code=400)
+            print(f"Attempting to delete user with username: {username}")
+            user = db.session.query(UserTable).filter_by(username=username).first()
+            if not user:
+                print(f"No user found with the username: {username}")
+                return {"message": f"No user with the username '{username}'"}, 404
+            
+            db.session.delete(user)
+            db.session.commit()
+            print(f"User with username '{username}' deleted successfully")
+            return {"message": f"User with username '{username}' deleted successfully"}, 200
+        except Exception as e:
+            print(f"An error occurred: {e}")
+            abort(message=str(e), http_status_code=500)
 
 class UserWithUniversityRed(Resource):
     @marshal_with(user_with_university_resource_fields)
