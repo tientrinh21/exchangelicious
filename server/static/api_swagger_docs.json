@@ -275,6 +275,16 @@
         "description": "Update user with details provided including user_id, username, password, nationality, and home_university.\n",
         "parameters": [
           {
+            "name": "user_id",
+            "in": "query",
+            "description": "User ID of the user to update",
+            "required": false,
+            "schema": {
+              "type": "string",
+              "maxLength": 64
+            }
+          },
+          {
             "name": "username",
             "in": "query",
             "description": "Username of the user to update",
@@ -339,13 +349,13 @@
         "description": "Delete user with provided user_id. \n",
         "parameters": [
           {
-            "name": "username",
+            "name": "user_id",
             "in": "query",
-            "description": "username of the user to delete",
+            "description": "user id of the user to delete",
             "required": true,
             "schema": {
               "type": "string",
-              "maxLength": 36
+              "maxLength": 64
             }
           }
         ],

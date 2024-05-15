@@ -83,8 +83,8 @@ class UsersAllRes(Resource):
         try:
             args = user_update_args.parse_args()
             # user_id should be generated automatically
-            username = args['username']
-            user = db.session.query(UserTable).filter_by(username=username).first()
+            user_id = args['user_id']
+            user = db.session.query(UserTable).filter_by(user_id=user_id).first()
             # Update the user attributes if they are present in the args
             if 'username' in args:
                 user.username = args['username']
@@ -108,17 +108,17 @@ class UsersAllRes(Resource):
     def delete(self):
         try:
             args = user_update_args.parse_args()
-            username = args['username']
+            user_id = args['user_id']
             # print(f"Attempting to delete user with username: {username}")
-            user = db.session.query(UserTable).filter_by(username=username).first()
+            user = db.session.query(UserTable).filter_by(user_id=user_id).first()
             if not user:
-                print(f"No user found with the username: {username}")
-                return {"message": f"No user with the username '{username}'"}, 404
+                print(f"No user found with the user id: {user_id}")
+                return {"message": f"No user with the user id '{user_id}'"}, 404
             
             db.session.delete(user)
             db.session.commit()
-            print(f"User with username '{username}' deleted successfully")
-            return {"message": f"User with username '{username}' deleted successfully"}, 200
+            print(f"User with user_id '{user_id}' deleted successfully")
+            return {"message": f"User with user_id '{user_id}' deleted successfully"}, 200
         except Exception as e:
             print(f"An error occurred: {e}")
             abort(message=str(e), http_status_code=500)
