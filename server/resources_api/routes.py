@@ -1,4 +1,4 @@
-from resources_api.users import UserRes, UsersAllRes, UserWithUniversityRed
+from resources_api.users import UserRes, UsersAllRes, UserWithUniversityRed, UserLogin
 from resources_api.universities import UniversityPagination, UniversityRes,  UniversityWithInfoRes, UniversityAllRes
 
 def initialize_routes(api):
@@ -11,3 +11,4 @@ def initialize_routes(api):
     api.add_resource(UniversityAllRes, "/api/universities")
     api.add_resource(UserWithUniversityRed, "/api/users/<string:user_id>/uni")
     api.add_resource(UniversityPagination, "/api/universities/search")
+    api.add_resource(UserLogin, "/api/users/login")
