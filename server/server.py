@@ -32,6 +32,7 @@ def get_exchange_data():
         json_data = {}
 
         for country, group_data in grouped_data:
+            country = country[0] + country[1:].lower()
             country_data = []
             for index, row in group_data.iterrows():
                 university_name = row[1]  # Assuming university name is in the second column
