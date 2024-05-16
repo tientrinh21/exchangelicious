@@ -40,3 +40,5 @@ export function toRomanNumerals(decimalNumber: number): string {
 
   return romanNums[decimalNumber]
 }
+
+export const BASE_URL = process.env.BASE_URL || 'http://localhost:8080/api'

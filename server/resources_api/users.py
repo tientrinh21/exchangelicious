@@ -1,5 +1,8 @@
 from flask_restful import Resource, marshal_with, reqparse, abort
-from resources_api.resource_fields_definitions import user_resource_fields, user_with_university_resource_fields
+from resources_api.resource_fields_definitions import (
+    user_resource_fields,
+    user_with_university_resource_fields,
+)
 from sqlalchemy import text, exc
 from database.database_setup import db
 from database.models import UserTable
@@ -8,31 +11,59 @@ from flask import request
 import hashlib
 import secrets
 
+
 class UserRes(Resource):
     @marshal_with(user_resource_fields)
     def get(self, user_id):
-        return db.get_or_404(UserTable, user_id, description=f"No user with the ID '{user_id}'.")
-    
+        return db.get_or_404(
+            UserTable, user_id, description=f"No user with the ID '{user_id}'."
+        )
+
+
 user_put_args = reqparse.RequestParser()
-user_put_args.add_argument('user_id', type=str, location = "args", help='User ID to create user')
-user_put_args.add_argument('username', type=str, location = "args", help='User name to create user')
-user_put_args.add_argument('pwd', type=str, location = "args", help='Password to create user')
-user_put_args.add_argument('nationality', type=str, location = "args", help='Nationality of user')
-user_put_args.add_argument('home_university', type=str, location = "args", help='Home university of user')
+user_put_args.add_argument(
+    "user_id", type=str, location="args", help="User ID to create user"
+)
+user_put_args.add_argument(
+    "username", type=str, location="args", help="User name to create user"
+)
+user_put_args.add_argument(
+    "pwd", type=str, location="args", help="Password to create user"
+)
+user_put_args.add_argument(
+    "nationality", type=str, location="args", help="Nationality of user"
+)
+user_put_args.add_argument(
+    "home_university", type=str, location="args", help="Home university of user"
+)
 
 user_update_args = reqparse.RequestParser()
-user_update_args.add_argument('user_id', type=str, location = "args", help='User ID to update user')
-user_update_args.add_argument('username', type=str, location = "args", help='User name to update user')
-user_update_args.add_argument('pwd', type=str, location = "args", help='Password to update user')
-user_update_args.add_argument('nationality', type=str, location = "args", help='Nationality of user')
-user_update_args.add_argument('home_university', type=str, location = "args", help='Home university of user')
+user_update_args.add_argument(
+    "user_id", type=str, location="args", help="User ID to update user"
+)
+user_update_args.add_argument(
+    "username", type=str, location="args", help="User name to update user"
+)
+user_update_args.add_argument(
+    "pwd", type=str, location="args", help="Password to update user"
+)
+user_update_args.add_argument(
+    "nationality", type=str, location="args", help="Nationality of user"
+)
+user_update_args.add_argument(
+    "home_university", type=str, location="args", help="Home university of user"
+)
 
 user_delete_args = reqparse.RequestParser()
-user_delete_args.add_argument('user_id', type=str, location = "args", help='User ID to delete user')
+user_delete_args.add_argument(
+    "user_id", type=str, location="args", help="User ID to delete user"
+)
+
 
 # Function to generate a salt
 def generate_salt():
     return secrets.token_hex(16)
+
 
 # Function to hash a password
 def hash_password(password, salt):
@@ -42,13 +73,14 @@ def hash_password(password, salt):
     hashed_password = hashlib.sha256(salted_password.encode()).hexdigest()
     return hashed_password
 
+
 class UsersAllRes(Resource):
     @marshal_with(user_resource_fields)
     def get(self):
         try:
             args = user_put_args.parse_args()
-            username = args['username']
-            password = args['pwd']
+            username = args["username"]
+            password = args["pwd"]
 
             # Retrieve user from the database based on the provided username
             user = UserTable.query.filter_by(username=username).first()
@@ -70,9 +102,9 @@ class UsersAllRes(Resource):
         except exc.SQLAlchemyError as e:
             print(e)
             abort(message=str(e.__dict__.get("orig")), http_status_code=400)
-    
+
     @marshal_with(user_resource_fields)
-    def put(self):
+    def post(self):
         try:
             args = user_put_args.parse_args()
             # Create a new UserTable object and assign values from args
@@ -81,18 +113,18 @@ class UsersAllRes(Resource):
             # Generate a salt
             salt = generate_salt()
             # Hash the password
-            hashed_password = hash_password(args['pwd'], salt)
+            hashed_password = hash_password(args["pwd"], salt)
 
             new_user = UserTable(
-                user_id = uid,
+                user_id=uid,
                 # user_id=args['user_id'],
-                username=args['username'],
+                username=args["username"],
                 # pwd=args['pwd'],
                 pwd=hashed_password,  # Save the hashed password
                 salt=salt,  # Save the salt
-                nationality=args['nationality'],
-                home_university=args['home_university']
-            )  
+                nationality=args["nationality"],
+                home_university=args["home_university"],
+            )
             db.session.add(new_user)
             db.session.commit()
             print(new_user)
@@ -100,51 +132,54 @@ class UsersAllRes(Resource):
         except exc.SQLAlchemyError as e:
             print(e)
             abort(message=str(e.__dict__.get("orig")), http_status_code=400)
-        
+
     @marshal_with(user_resource_fields, 200)
     def patch(self):
         try:
             args = user_update_args.parse_args()
             # user_id should be generated automatically
-            username = args['username']
+            username = args["username"]
             user = db.session.query(UserTable).filter_by(username=username).first()
             # Update the user attributes if they are present in the args
-            if 'username' in args:
-                user.username = args['username']
-            if 'pwd' in args:
+            if "username" in args:
+                user.username = args["username"]
+            if "pwd" in args:
                 salt = generate_salt()
                 # Hash the new password with the generated salt
-                hashed_password = hash_password(args['pwd'], salt)
+                hashed_password = hash_password(args["pwd"], salt)
                 # Update the hashed password and salt columns
                 user.pwd = hashed_password
                 user.salt = salt
-            if 'nationality' in args:
-                user.nationality = args['nationality']
-            if 'home_university' in args:
-                user.home_university = args['home_university']
+            if "nationality" in args:
+                user.nationality = args["nationality"]
+            if "home_university" in args:
+                user.home_university = args["home_university"]
             db.session.commit()
             return user, 200
         except exc.SQLAlchemyError as e:
             print(e)
             abort(message=str(e.__dict__.get("orig")), http_status_code=400)
-        
+
     def delete(self):
         try:
             args = user_update_args.parse_args()
-            username = args['username']
+            username = args["username"]
             # print(f"Attempting to delete user with username: {username}")
             user = db.session.query(UserTable).filter_by(username=username).first()
             if not user:
                 print(f"No user found with the username: {username}")
                 return {"message": f"No user with the username '{username}'"}, 404
-            
+
             db.session.delete(user)
             db.session.commit()
             print(f"User with username '{username}' deleted successfully")
-            return {"message": f"User with username '{username}' deleted successfully"}, 200
+            return {
+                "message": f"User with username '{username}' deleted successfully"
+            }, 200
         except Exception as e:
             print(f"An error occurred: {e}")
             abort(message=str(e), http_status_code=500)
+
 
 class UserWithUniversityRed(Resource):
     @marshal_with(user_with_university_resource_fields)

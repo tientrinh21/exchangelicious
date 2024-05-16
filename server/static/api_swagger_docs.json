@@ -18,9 +18,7 @@
   "paths": {
     "/api/universities": {
       "get": {
-        "tags": [
-          "University"
-        ],
+        "tags": ["University"],
         "summary": "Returns a list of all universities",
         "responses": {
           "200": {
@@ -44,9 +42,7 @@
     },
     "/api/universities/{university_id}": {
       "get": {
-        "tags": [
-          "University"
-        ],
+        "tags": ["University"],
         "summary": "Find university by ID",
         "description": "Returns a single university (with out info)",
         "parameters": [
@@ -80,9 +76,7 @@
     },
     "/api/universities/{university_id}/info": {
       "get": {
-        "tags": [
-          "University"
-        ],
+        "tags": ["University"],
         "summary": "Find university by ID with info page",
         "description": "Returns a single university with info",
         "parameters": [
@@ -116,9 +110,7 @@
     },
     "/api/universities/search": {
       "get": {
-        "tags": [
-          "University"
-        ],
+        "tags": ["University"],
         "summary": "Search and paginate universities",
         "parameters": [
           {
@@ -169,9 +161,7 @@
     },
     "/api/users": {
       "get": {
-        "tags": [
-          "User"
-        ],
+        "tags": ["User"],
         "summary": "Get an user information",
         "description": "Returns a list of users with their details including user_id, username, password, nationality, and home_university.\n",
         "parameters": [
@@ -212,14 +202,11 @@
           }
         }
       },
-      "put": {
-        "tags": [
-          "User"
-        ],
+      "post": {
+        "tags": ["User"],
         "summary": "Create a user",
         "description": "Create user with details provided including username, password, nationality, and home_university. User_id is automatically generated.\n",
         "parameters": [
-        
           {
             "name": "username",
             "in": "query",
@@ -278,9 +265,7 @@
         }
       },
       "patch": {
-        "tags": [
-          "User"
-        ],
+        "tags": ["User"],
         "summary": "Update a user",
         "description": "Update user with details provided including user_id, username, password, nationality, and home_university.\n",
         "parameters": [
@@ -342,9 +327,7 @@
         }
       },
       "delete": {
-        "tags": [
-          "User"
-        ],
+        "tags": ["User"],
         "summary": "Delete a user",
         "description": "Delete user with provided user_id. \n",
         "parameters": [
@@ -368,9 +351,7 @@
     },
     "/api/users/{user_id}": {
       "get": {
-        "tags": [
-          "User"
-        ],
+        "tags": ["User"],
         "summary": "Get a single user by ID",
         "parameters": [
           {
@@ -406,9 +387,7 @@
     },
     "/api/users/{user_id}/uni": {
       "get": {
-        "tags": [
-          "User"
-        ],
+        "tags": ["User"],
         "summary": "Get a single user by ID with uni-info",
         "parameters": [
           {
@@ -545,3 +524,4 @@
     }
   }
 }
+
