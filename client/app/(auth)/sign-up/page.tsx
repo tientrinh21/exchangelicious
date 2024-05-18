@@ -30,6 +30,7 @@ import {
   PopoverTrigger,
 } from '@/components/ui/popover'
 import { ScrollArea } from '@/components/ui/scroll-area'
+import { useUniversities } from '@/lib/auth'
 import countries from '@/lib/countries.json'
 import { createUser } from '@/lib/request'
 import { cn } from '@/lib/utils'
@@ -37,19 +38,25 @@ import {
   registerFormSchema,
   type RegisterFormSchema,
 } from '@/types/login-register'
+import { type University } from '@/types/university'
 import { zodResolver } from '@hookform/resolvers/zod'
 import { CaretSortIcon, CheckIcon } from '@radix-ui/react-icons'
+import axios from 'axios'
 import { CommandList } from 'cmdk'
 import Link from 'next/link'
 import { useRouter } from 'next/navigation'
-import { useState } from 'react'
+import { useEffect, useState } from 'react'
 import { useForm } from 'react-hook-form'
 import { toast } from 'sonner'
 
 export default function SignUpPage() {
   const router = useRouter()
-  const [open, setOpen] = useState(false)
-  const [value, setValue] = useState('')
+  const [nationalityOpen, setNationalityOpen] = useState(false)
+  const [nationalityValue, setNationalityValue] = useState('')
+
+  const universities = useUniversities()
+  const [uniOpen, setUniOpen] = useState(false)
+  const [uniValue, setUniValue] = useState('')
 
   // Define form
   const form = useForm<RegisterFormSchema>({
@@ -137,7 +144,10 @@ export default function SignUpPage() {
                     <span className="ml-2 text-xs">(Optional)</span>
                   </FormLabel>
 
-                  <Popover open={open} onOpenChange={setOpen}>
+                  <Popover
+                    open={nationalityOpen}
+                    onOpenChange={setNationalityOpen}
+                  >
                     <PopoverTrigger asChild>
                       <FormControl>
                         <Button
@@ -145,14 +155,14 @@ export default function SignUpPage() {
                           role="combobox"
                           className={cn(
                             'flex w-full justify-between rounded-md border border-input bg-transparent px-3 py-1 text-sm shadow-sm transition-colors focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-ring',
-                            value !== ''
+                            nationalityValue !== ''
                               ? 'text-foreground'
                               : 'text-muted-foreground',
                           )}
                         >
-                          {value
+                          {nationalityValue
                             ? countries.find(
-                                (country) => country.name === value,
+                                (country) => country.name === nationalityValue,
                               )?.name
                             : 'Select your country'}
                           <CaretSortIcon className="ml-2 h-4 w-4 shrink-0 opacity-50" />
@@ -176,23 +186,23 @@ export default function SignUpPage() {
                                   onSelect={(currentValue) => {
                                     form.setValue(
                                       'nationality',
-                                      currentValue === value
+                                      currentValue === nationalityValue
                                         ? ''
                                         : country.code,
                                     )
-                                    setValue(
-                                      currentValue === value
+                                    setNationalityValue(
+                                      currentValue === nationalityValue
                                         ? ''
                                         : currentValue,
                                     )
-                                    setOpen(false)
+                                    setNationalityOpen(false)
                                   }}
                                 >
                                   {country.name}
                                   <CheckIcon
                                     className={cn(
                                       'ml-auto h-4 w-4',
-                                      value == country.name
+                                      nationalityValue == country.name
                                         ? 'opacity-100'
                                         : 'opacity-0',
                                     )}
@@ -219,9 +229,74 @@ export default function SignUpPage() {
                     Home University
                     <span className="ml-2 text-xs">(Optional)</span>
                   </FormLabel>
-                  <FormControl>
-                    <Input placeholder="skku" {...field} />
-                  </FormControl>
+                  <Popover open={uniOpen} onOpenChange={setUniOpen}>
+                    <PopoverTrigger asChild>
+                      <FormControl>
+                        <Button
+                          variant="outline"
+                          role="combobox"
+                          className={cn(
+                            'flex w-full justify-between rounded-md border border-input bg-transparent px-3 py-1 text-sm shadow-sm transition-colors focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-ring',
+                            nationalityValue !== ''
+                              ? 'text-foreground'
+                              : 'text-muted-foreground',
+                          )}
+                        >
+                          {uniValue
+                            ? universities?.find(
+                                (uni) => uni.long_name === uniValue,
+                              )?.long_name
+                            : 'Select your home university'}
+                          <CaretSortIcon className="ml-2 h-4 w-4 shrink-0 opacity-50" />
+                        </Button>
+                      </FormControl>
+                    </PopoverTrigger>
+                    <PopoverContent className="w-[80vw] max-w-[400px] p-0">
+                      <Command>
+                        <CommandInput
+                          placeholder="Search university..."
+                          className="h-9"
+                        />
+                        <ScrollArea className="h-[200px]">
+                          <CommandEmpty>No university found.</CommandEmpty>
+                          <CommandGroup>
+                            <CommandList>
+                              {universities?.map((uni) => (
+                                <CommandItem
+                                  key={uni.university_id}
+                                  value={uni.long_name}
+                                  onSelect={(currentValue) => {
+                                    form.setValue(
+                                      'home_university',
+                                      currentValue === uniValue
+                                        ? ''
+                                        : uni.university_id,
+                                    )
+                                    setUniValue(
+                                      currentValue === uniValue
+                                        ? ''
+                                        : currentValue,
+                                    )
+                                    setUniOpen(false)
+                                  }}
+                                >
+                                  {uni.long_name}
+                                  <CheckIcon
+                                    className={cn(
+                                      'ml-auto h-4 w-4',
+                                      uniValue == uni.long_name
+                                        ? 'opacity-100'
+                                        : 'opacity-0',
+                                    )}
+                                  />
+                                </CommandItem>
+                              ))}
+                            </CommandList>
+                          </CommandGroup>
+                        </ScrollArea>
+                      </Command>
+                    </PopoverContent>
+                  </Popover>
                   <FormMessage />
                 </FormItem>
               )}

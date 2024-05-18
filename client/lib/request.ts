@@ -3,9 +3,14 @@ import {
   type RegisterFormSchema,
 } from '@/types/login-register'
 import { type User } from '@/types/user'
+import { type University } from '@/types/university'
 import axios from 'axios'
 
 const BASE_URL = process.env.BASE_URL || 'http://localhost:8080/api'
+
+export async function fetchUniversities() {
+  return axios.get<University[]>(`${BASE_URL}/universities`).then((r) => r.data)
+}
 
 export async function fetchUser({ username, password }: LoginFormSchema) {
   return axios
