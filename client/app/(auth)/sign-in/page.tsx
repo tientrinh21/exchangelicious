@@ -17,30 +17,19 @@ import {
   FormMessage,
 } from '@/components/ui/form'
 import { Input } from '@/components/ui/input'
-import { BASE_URL } from '@/lib/utils'
-import { type User } from '@/types/user'
 import { zodResolver } from '@hookform/resolvers/zod'
-import axios from 'axios'
+import { authAtom } from '@/lib/auth'
+import { useSetAtom } from 'jotai/react'
 import Link from 'next/link'
 import { useRouter } from 'next/navigation'
 import { useForm } from 'react-hook-form'
-import { z } from 'zod'
-
-// Form schema
-const loginFormSchema = z.object({
-  username: z
-    .string()
-    .min(2, { message: 'Username must be 2 or more characters long' })
-    .max(50),
-  password: z
-    .string()
-    .min(2, { message: 'Password must be 2 or more characters long' })
-    .max(50),
-})
-type LoginFormSchema = z.infer<typeof loginFormSchema>
+import { toast } from 'sonner'
+import { loginFormSchema, type LoginFormSchema } from '@/types/login-register'
+import { fetchUser } from '@/lib/request'
 
 export default function SignInPage() {
   const router = useRouter()
+  const setIsAuth = useSetAtom(authAtom)
 
   // Define form
   const form = useForm<LoginFormSchema>({
@@ -51,29 +40,30 @@ export default function SignInPage() {
     },
   })
 
-  async function fetchUser({ username, password }: LoginFormSchema) {
-    return axios
-      .get<User>(`${BASE_URL}/users`, {
-        params: {
-          username: username,
-          pwd: password,
-        },
-      })
-      .then((r) => r.data)
-  }
-
   // Submit handler
   async function onSubmit(values: LoginFormSchema) {
-    try {
-      console.log('Logging in with username:', values.username)
-      const user = await fetchUser(values)
-      console.log(user)
+    const toastId = toast.loading('Signing in...')
 
-      localStorage.setItem('user', JSON.stringify(user))
-      // localStorage.setItem('user', btoa(JSON.stringify(user)))
-      router.push('/exchange')
-    } catch (error) {
-      console.error(error)
+    try {
+      const user = await fetchUser(values)
+      localStorage.setItem('user', btoa(JSON.stringify(user)))
+
+      toast.success('All is good!', { id: toastId })
+      setIsAuth(true)
+      router.push('/')
+    } catch (error: any) {
+      const errMsg: string = error.response.data.message
+      console.error(errMsg)
+
+      let toastMsg = 'Something went wrong!'
+      if (errMsg === 'User not found') toastMsg = 'This user does not exist!'
+      else if (errMsg === 'Invalid credentials')
+        toastMsg = 'The password is not correct!'
+
+      toast.error(toastMsg, {
+        id: toastId,
+        duration: 2000,
+      })
     }
   }
 

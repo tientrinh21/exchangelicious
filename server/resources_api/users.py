@@ -122,8 +122,10 @@ class UsersAllRes(Resource):
                 # pwd=args['pwd'],
                 pwd=hashed_password,  # Save the hashed password
                 salt=salt,  # Save the salt
-                nationality=args["nationality"],
-                home_university=args["home_university"],
+                nationality=args["nationality"] if args["nationality"] != "" else None,
+                home_university=args["home_university"]
+                if args["home_university"]
+                else None,
             )
             db.session.add(new_user)
             db.session.commit()

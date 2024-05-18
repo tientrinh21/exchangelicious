@@ -17,30 +17,16 @@ import {
   FormMessage,
 } from '@/components/ui/form'
 import { Input } from '@/components/ui/input'
-import { BASE_URL } from '@/lib/utils'
-import { type User } from '@/types/user'
+import { createUser } from '@/lib/request'
+import {
+  registerFormSchema,
+  type RegisterFormSchema,
+} from '@/types/login-register'
 import { zodResolver } from '@hookform/resolvers/zod'
-import axios from 'axios'
-import { headers } from 'next/headers'
 import Link from 'next/link'
 import { useRouter } from 'next/navigation'
 import { useForm } from 'react-hook-form'
-import { z } from 'zod'
-
-// Form schema
-const registerFormSchema = z.object({
-  username: z
-    .string()
-    .min(2, { message: 'Username must be 2 or more characters long' })
-    .max(50),
-  password: z
-    .string()
-    .min(2, { message: 'Password must be 2 or more characters long' })
-    .max(50),
-  nationality: z.string().optional(),
-  home_university: z.string().optional(),
-})
-type RegisterFormSchema = z.infer<typeof registerFormSchema>
+import { toast } from 'sonner'
 
 export default function SignUpPage() {
   const router = useRouter()
@@ -49,39 +35,38 @@ export default function SignUpPage() {
   const form = useForm<RegisterFormSchema>({
     resolver: zodResolver(registerFormSchema),
     defaultValues: {
-      username: '',
-      password: '',
+      username: 'test2',
+      password: 'test2',
+      nationality: '',
+      home_university: '',
     },
   })
 
-  async function createUser({
-    username,
-    password,
-    nationality,
-    home_university,
-  }: RegisterFormSchema) {
-    return axios
-      .post<User>(`${BASE_URL}/users`, null, {
-        params: {
-          username: username,
-          pwd: password,
-          nationality: nationality,
-          home_university: home_university,
-        },
-      })
-      .then((r) => r.data)
-  }
-
   // Submit handler
   async function onSubmit(values: RegisterFormSchema) {
+    const toastId = toast.loading('Creating new account...')
+
     try {
-      console.log('Creating account with username:', values.username)
-      console.log(values)
       const user = await createUser(values)
       console.log(user)
-      // router.push('/sign-in')
-    } catch (error) {
-      console.error(error)
+      toast.success('Done! Please sign in.', { id: toastId })
+      router.push('/sign-in')
+    } catch (error: any) {
+      const errMsg: string = error.response.data.message
+      console.error(errMsg)
+
+      let toastMsg = 'Something went wrong!'
+      if (errMsg.includes('Duplicate entry'))
+        toastMsg = 'This user has already existed!'
+      else if (errMsg.includes('FOREIGN KEY (`nationality`)'))
+        toastMsg = 'The input country does not exist'
+      else if (errMsg.includes('FOREIGN KEY (`home_university`)'))
+        toastMsg = 'The input university does not exist'
+
+      toast.error(toastMsg, {
+        id: toastId,
+        duration: 2000,
+      })
     }
   }
 
@@ -103,7 +88,7 @@ export default function SignUpPage() {
                 <FormItem>
                   <FormLabel>Username</FormLabel>
                   <FormControl>
-                    <Input placeholder="test" {...field} />
+                    <Input placeholder="test2" {...field} />
                   </FormControl>
                   <FormMessage />
                 </FormItem>
@@ -132,7 +117,7 @@ export default function SignUpPage() {
                     <span className="ml-2 text-xs">(Optional)</span>
                   </FormLabel>
                   <FormControl>
-                    <Input {...field} />
+                    <Input placeholder="KOR" {...field} />
                   </FormControl>
                   <FormMessage />
                 </FormItem>
@@ -148,7 +133,7 @@ export default function SignUpPage() {
                     <span className="ml-2 text-xs">(Optional)</span>
                   </FormLabel>
                   <FormControl>
-                    <Input {...field} />
+                    <Input placeholder="skku" {...field} />
                   </FormControl>
                   <FormMessage />
                 </FormItem>
@@ -159,31 +144,6 @@ export default function SignUpPage() {
             </Button>
           </form>
         </Form>
-        {/* <div className="grid gap-4"> */}
-        {/*   <div className="grid gap-2"> */}
-        {/*     <Label htmlFor="username">Username</Label> */}
-        {/*     <Input id="username" required /> */}
-        {/*   </div> */}
-        {/*   <div className="grid gap-2"> */}
-        {/*     <Label htmlFor="password">Password</Label> */}
-        {/*     <Input id="password" type="password" /> */}
-        {/*   </div> */}
-        {/*   <div className="grid gap-2"> */}
-        {/*     <Label htmlFor="nationality">Nationality</Label> */}
-        {/*     <Input id="nationality" placeholder="South Korea" required /> */}
-        {/*   </div> */}
-        {/*   <div className="grid gap-2"> */}
-        {/*     <Label htmlFor="home_university">Home University</Label> */}
-        {/*     <Input */}
-        {/*       id="home_university" */}
-        {/*       placeholder="Sungkyunkwan University" */}
-        {/*       required */}
-        {/*     /> */}
-        {/*   </div> */}
-        {/*   <Button type="submit" className="mt-2 w-full"> */}
-        {/*     Create an account */}
-        {/*   </Button> */}
-        {/* </div> */}
         <div className="mt-4 text-center text-sm">
           Already have an account?{' '}
           <Link
