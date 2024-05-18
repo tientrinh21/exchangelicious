@@ -9,6 +9,13 @@ import {
   CardTitle,
 } from '@/components/ui/card'
 import {
+  Command,
+  CommandEmpty,
+  CommandGroup,
+  CommandInput,
+  CommandItem,
+} from '@/components/ui/command'
+import {
   Form,
   FormControl,
   FormField,
@@ -17,19 +24,32 @@ import {
   FormMessage,
 } from '@/components/ui/form'
 import { Input } from '@/components/ui/input'
+import {
+  Popover,
+  PopoverContent,
+  PopoverTrigger,
+} from '@/components/ui/popover'
+import { ScrollArea } from '@/components/ui/scroll-area'
+import countries from '@/lib/countries.json'
 import { createUser } from '@/lib/request'
+import { cn } from '@/lib/utils'
 import {
   registerFormSchema,
   type RegisterFormSchema,
 } from '@/types/login-register'
 import { zodResolver } from '@hookform/resolvers/zod'
+import { CaretSortIcon, CheckIcon } from '@radix-ui/react-icons'
+import { CommandList } from 'cmdk'
 import Link from 'next/link'
 import { useRouter } from 'next/navigation'
+import { useState } from 'react'
 import { useForm } from 'react-hook-form'
 import { toast } from 'sonner'
 
 export default function SignUpPage() {
   const router = useRouter()
+  const [open, setOpen] = useState(false)
+  const [value, setValue] = useState('')
 
   // Define form
   const form = useForm<RegisterFormSchema>({
@@ -111,14 +131,81 @@ export default function SignUpPage() {
               control={form.control}
               name="nationality"
               render={({ field }) => (
-                <FormItem>
+                <FormItem className="flex flex-col">
                   <FormLabel>
                     Nationality
                     <span className="ml-2 text-xs">(Optional)</span>
                   </FormLabel>
-                  <FormControl>
-                    <Input placeholder="KOR" {...field} />
-                  </FormControl>
+
+                  <Popover open={open} onOpenChange={setOpen}>
+                    <PopoverTrigger asChild>
+                      <FormControl>
+                        <Button
+                          variant="outline"
+                          role="combobox"
+                          className={cn(
+                            'flex w-full justify-between rounded-md border border-input bg-transparent px-3 py-1 text-sm shadow-sm transition-colors focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-ring',
+                            value !== ''
+                              ? 'text-foreground'
+                              : 'text-muted-foreground',
+                          )}
+                        >
+                          {value
+                            ? countries.find(
+                                (country) => country.name === value,
+                              )?.name
+                            : 'Select your country'}
+                          <CaretSortIcon className="ml-2 h-4 w-4 shrink-0 opacity-50" />
+                        </Button>
+                      </FormControl>
+                    </PopoverTrigger>
+                    <PopoverContent className="w-[80vw] max-w-[400px] p-0">
+                      <Command>
+                        <CommandInput
+                          placeholder="Search country..."
+                          className="h-9"
+                        />
+                        <ScrollArea className="h-[200px]">
+                          <CommandEmpty>No country found.</CommandEmpty>
+                          <CommandGroup>
+                            <CommandList>
+                              {countries.map((country) => (
+                                <CommandItem
+                                  key={country.code}
+                                  value={country.name}
+                                  onSelect={(currentValue) => {
+                                    form.setValue(
+                                      'nationality',
+                                      currentValue === value
+                                        ? ''
+                                        : country.code,
+                                    )
+                                    setValue(
+                                      currentValue === value
+                                        ? ''
+                                        : currentValue,
+                                    )
+                                    setOpen(false)
+                                  }}
+                                >
+                                  {country.name}
+                                  <CheckIcon
+                                    className={cn(
+                                      'ml-auto h-4 w-4',
+                                      value == country.name
+                                        ? 'opacity-100'
+                                        : 'opacity-0',
+                                    )}
+                                  />
+                                </CommandItem>
+                              ))}
+                            </CommandList>
+                          </CommandGroup>
+                        </ScrollArea>
+                      </Command>
+                    </PopoverContent>
+                  </Popover>
+
                   <FormMessage />
                 </FormItem>
               )}
