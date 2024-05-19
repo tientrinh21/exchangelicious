@@ -20,33 +20,5 @@ api = Api(app)
 from resources_api.routes import initialize_routes
 initialize_routes(api)
 
-@app.route('/rank')   
-def ranking():
-    try:
-        ranking_data = pd.read_csv('ranking.csv', usecols=[0, 1, 16], header=0)
-
-        # Initialize JSON data structure
-        json_data = []
-
-        # Iterate over each row in the DataFrame
-        for index, row in ranking_data.iterrows():
-            ranking = row[0]
-            university_name = row[1]
-            url = row[2]
-
-            # Create a dictionary for the current row
-            university_info = {
-                'ranking': ranking,
-                'university_name': university_name,
-                'url': url
-            }
-
-            # Add the dictionary to the json_data list
-            json_data.append(university_info)
-
-        return jsonify(json_data)
-    except Exception as e:
-        return jsonify({'error': str(e)}), 500
-
 if __name__ == "__main__":
     app.run(debug=True, port=8080)

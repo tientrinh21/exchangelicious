@@ -3,7 +3,7 @@ from flask import jsonify
 import pandas as pd
 
 class getExchangeData(Resource):
-    def exchData():
+    def get(self):
         try:
             exchange_data = pd.read_excel('exchange.xlsx', header=0)
 
@@ -26,29 +26,31 @@ class getExchangeData(Resource):
 
         except Exception as e:
             return jsonify({'error': str(e)}), 500
+        
+class getRanking(Resource):
+    def get(self):
+        try:
+            ranking_data = pd.read_csv('ranking.csv', usecols=[0, 1, 16], header=0)
 
-    # @app.route('/rank')   
-    # def ranking():
-    #     try:
-    #         ranking_data = pd.read_csv('ranking.csv', usecols=[0, 1], header=0)
+            # Initialize JSON data structure
+            json_data = []
 
-    #         # Initialize JSON data structure
-    #         json_data = []
+            # Iterate over each row in the DataFrame
+            for index, row in ranking_data.iterrows():
+                ranking = row[0]
+                university_name = row[1]
+                url = row[2]
 
-    #         # Iterate over each row in the DataFrame
-    #         for index, row in ranking_data.iterrows():
-    #             ranking = row[0]
-    #             university_name = row[1]
+                # Create a dictionary for the current row
+                university_info = {
+                    'ranking': ranking,
+                    'university_name': university_name,
+                    'url': url
+                }
 
-    #             # Create a dictionary for the current row
-    #             university_info = {
-    #                 'ranking': ranking,
-    #                 'university_name': university_name
-    #             }
+                # Add the dictionary to the json_data list
+                json_data.append(university_info)
 
-    #             # Add the dictionary to the json_data list
-    #             json_data.append(university_info)
-
-    #         return jsonify(json_data)
-    #     except Exception as e:
-    #         return jsonify({'error': str(e)}), 500
+            return jsonify(json_data)
+        except Exception as e:
+            return jsonify({'error': str(e)}), 500
