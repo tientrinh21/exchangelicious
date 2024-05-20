@@ -1,6 +1,8 @@
 from flask_restful import Resource
 from flask import jsonify
 import pandas as pd
+from database.database_setup import db
+from sqlalchemy import text
 
 class getExchangeData(Resource):
     def get(self):
@@ -35,6 +37,9 @@ class getRanking(Resource):
             # Initialize JSON data structure
             json_data = []
 
+            # SQL Insert query template
+            insert_query = "INSERT INTO uni_ranking uni_name, uni_rank, uni_url VALUES :uni_name, :uni_rank, :uni_url"
+
             # Iterate over each row in the DataFrame
             for index, row in ranking_data.iterrows():
                 ranking = row[0]
@@ -43,13 +48,18 @@ class getRanking(Resource):
 
                 # Create a dictionary for the current row
                 university_info = {
-                    'ranking': ranking,
-                    'university_name': university_name,
-                    'url': url
+                    'uni_name': university_name,
+                    'uni_rank': ranking,
+                    'uni_url': url
                 }
 
                 # Add the dictionary to the json_data list
                 json_data.append(university_info)
+                # Execute the SQL insert query
+                db.session.execute(text(insert_query), {"uni_name": university_name, "uni_rank": ranking, "uni_url": url})
+
+            # Commit the transaction
+            db.session.commit()
 
             return jsonify(json_data)
         except Exception as e:

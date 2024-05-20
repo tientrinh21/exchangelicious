@@ -98,6 +98,12 @@ create table exchange_university_table (
         on delete cascade on update cascade
 );
 
+create table uni_ranking_table (
+    uni_rank int not null primary key,
+    uni_name varchar(60) not null,
+    uni_url varchar(100)
+);
+
 -- Many-to-Many
 -- https://dba.stackexchange.com/questions/74627/difference-between-on-delete-cascade-on-update-cascade-in-mysql
 -- ^ ON DELETE CASCADE ON UPDATE CASCADE
@@ -131,7 +137,7 @@ insert into info_page_table(info_page_id, intro_text, intro_source) values
 ;
 
 insert into university_table(university_id, long_name, country_code, region, info_page_id) values
-('skku', 'Sungkyunkwan university - SKKU', 'KOR', 'Seoul, Suwon', 'skku_page'),
+('skku', 'Sungkyunkwan University - SKKU', 'KOR', 'Seoul, Suwon', 'skku_page'),
 ('ntnu', 'Norwegian University of Science and Technology - NTNU', 'NOR', 'Trondheim, Gjøvik, Ålesund', 'ntnu_page'),
 ('uio', 'University of Oslo - UiO', 'NOR', 'Oslo', 'uio_page'),
 ('uib', 'University of Bergen - UiB', 'NOR', 'Bergen', 'uib_page'),
@@ -150,8 +156,7 @@ insert into partner_universities_table(id, from_university_id, to_university_id)
 ('skku-ntnu', 'skku', 'ntnu'),
 ('skku-uio', 'skku', 'uio'),
 ('skku-uib', 'skku', 'uib'),
-('ntnu-ntnu', 'ntnu', 'skku')
-;
+('ntnu-ntnu', 'ntnu', 'skku');
 
 insert into user_table(user_id, username, pwd, nationality, home_university) values
 ('kk', 'kari', '123', 'NOR', 'ntnu'),
@@ -159,11 +164,4 @@ insert into user_table(user_id, username, pwd, nationality, home_university) val
 ('pp', 'per', '123', 'NOR', 'ntnu');
 
 insert into exchange_university_table(id, user_id, university_id) values
-('aaa', 'pp', 'skku')
-;
-
-
-
-
-
-
+('aaa', 'pp', 'skku');
