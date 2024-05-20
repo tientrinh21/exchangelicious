@@ -38,16 +38,19 @@ import {
   registerFormSchema,
   type RegisterFormSchema,
 } from '@/types/login-register'
-import { type University } from '@/types/university'
 import { zodResolver } from '@hookform/resolvers/zod'
 import { CaretSortIcon, CheckIcon } from '@radix-ui/react-icons'
-import axios from 'axios'
 import { CommandList } from 'cmdk'
 import Link from 'next/link'
 import { useRouter } from 'next/navigation'
-import { useEffect, useState } from 'react'
+import { useState } from 'react'
 import { useForm } from 'react-hook-form'
 import { toast } from 'sonner'
+
+const frequentlyCountries = [{ name: 'South Korea', code: 'KOR' }]
+const frequentlyUniversities = [
+  { long_name: 'Sungkyunkwan University', university_id: 'skku' },
+]
 
 export default function SignUpPage() {
   const router = useRouter()
@@ -176,8 +179,41 @@ export default function SignUpPage() {
                           className="h-9"
                         />
                         <ScrollArea className="h-[200px]">
-                          <CommandEmpty>No country found.</CommandEmpty>
-                          <CommandGroup>
+                          <CommandGroup heading="Frequently">
+                            <CommandList>
+                              {frequentlyCountries.map((country) => (
+                                <CommandItem
+                                  key={country.code}
+                                  value={country.name}
+                                  onSelect={(currentValue) => {
+                                    form.setValue(
+                                      'nationality',
+                                      currentValue === nationalityValue
+                                        ? ''
+                                        : country.code,
+                                    )
+                                    setNationalityValue(
+                                      currentValue === nationalityValue
+                                        ? ''
+                                        : currentValue,
+                                    )
+                                    setNationalityOpen(false)
+                                  }}
+                                >
+                                  {country.name}
+                                  <CheckIcon
+                                    className={cn(
+                                      'ml-auto h-4 w-4',
+                                      nationalityValue == country.name
+                                        ? 'opacity-100'
+                                        : 'opacity-0',
+                                    )}
+                                  />
+                                </CommandItem>
+                              ))}
+                            </CommandList>
+                          </CommandGroup>
+                          <CommandGroup heading="All countries">
                             <CommandList>
                               {countries.map((country) => (
                                 <CommandItem
@@ -237,7 +273,7 @@ export default function SignUpPage() {
                           role="combobox"
                           className={cn(
                             'flex w-full justify-between rounded-md border border-input bg-transparent px-3 py-1 text-sm shadow-sm transition-colors focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-ring',
-                            nationalityValue !== ''
+                            uniValue !== ''
                               ? 'text-foreground'
                               : 'text-muted-foreground',
                           )}
@@ -259,7 +295,41 @@ export default function SignUpPage() {
                         />
                         <ScrollArea className="h-[200px]">
                           <CommandEmpty>No university found.</CommandEmpty>
-                          <CommandGroup>
+                          <CommandGroup heading="Frequently">
+                            <CommandList>
+                              {frequentlyUniversities?.map((uni) => (
+                                <CommandItem
+                                  key={uni.university_id}
+                                  value={uni.long_name}
+                                  onSelect={(currentValue) => {
+                                    form.setValue(
+                                      'home_university',
+                                      currentValue === uniValue
+                                        ? ''
+                                        : uni.university_id,
+                                    )
+                                    setUniValue(
+                                      currentValue === uniValue
+                                        ? ''
+                                        : currentValue,
+                                    )
+                                    setUniOpen(false)
+                                  }}
+                                >
+                                  {uni.long_name}
+                                  <CheckIcon
+                                    className={cn(
+                                      'ml-auto h-4 w-4',
+                                      uniValue == uni.long_name
+                                        ? 'opacity-100'
+                                        : 'opacity-0',
+                                    )}
+                                  />
+                                </CommandItem>
+                              ))}
+                            </CommandList>
+                          </CommandGroup>
+                          <CommandGroup heading="All universities">
                             <CommandList>
                               {universities?.map((uni) => (
                                 <CommandItem
