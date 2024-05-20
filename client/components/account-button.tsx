@@ -66,7 +66,7 @@ export function AccountButton() {
           </DropdownMenuContent>
         </DropdownMenu>
       ) : (
-        <Link className="order-1" href="/sign-up">
+        <Link className="order-1" href="/sign-in">
           <Button className="rounded-lg text-base">Sign in</Button>
         </Link>
       )}
