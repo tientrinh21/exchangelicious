@@ -50,7 +50,7 @@ export default function SignInPage() {
 
       toast.success('All is good!', { id: toastId })
       setIsAuth(true)
-      router.push('/')
+      router.push('/exchange')
     } catch (error: any) {
       const errMsg: string = error.response.data.message
       console.error(errMsg)
