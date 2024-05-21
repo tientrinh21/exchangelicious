@@ -5,6 +5,7 @@ import Link from 'next/link'
 import { cn } from '@/lib/utils'
 
 export function InfoReviewsNav() {
+  // TODO: depends on university_id
   const uniPathname = usePathname().replace('/reviews', '')
 
   return (

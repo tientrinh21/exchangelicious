@@ -13,3 +13,21 @@ export interface University {
   campus: string
   info_page_id: string
 }
+
+export interface UniversityInfo {
+  // university_id: string
+  // country_code: string
+  // region: string
+  // long_name: string
+  // info_page_id: string
+  webpage: string
+  introduction: string
+  location: string
+  semester: string
+  courses: string
+  housing: string
+  tuition: string
+  visa: string
+  eligibility: string
+  requirements: string
+}
