@@ -1,578 +1,596 @@
 {
-	"openapi": "3.0.3",
-	"info": {
-		"title": "EduVenture API Documentation",
-		"description": "Some useful links:\n- [Swagger Editor](https://editor.swagger.io/)\n- [Swagger Documentation](https://swagger.io/docs/specification/data-models/)",
-		"version": "1.0.0"
-	},
-	"tags": [
-		{
-			"name": "University",
-			"description": "Everything about the universities"
-		},
-		{
-			"name": "User",
-			"description": "Operations about user"
-		}
-	],
-	"paths": {
-		"/api/universities": {
-			"get": {
-				"tags": ["University"],
-				"summary": "Returns a list of all universities",
-				"responses": {
-					"200": {
-						"description": "successful operation",
-						"content": {
-							"application/json": {
-								"schema": {
-									"type": "array",
-									"items": {
-										"$ref": "#/components/schemas/UniversityMeta"
-									}
-								}
-							}
-						}
-					},
-					"404": {
-						"description": "ID not found"
-					}
-				}
-			}
-		},
-		"/api/universities/{university_id}": {
-			"get": {
-				"tags": ["University"],
-				"summary": "Find university by ID",
-				"description": "Returns a single university (with out info)",
-				"parameters": [
-					{
-						"name": "university_id",
-						"in": "path",
-						"description": "ID of University to return",
-						"required": true,
-						"schema": {
-							"type": "string",
-							"maxLength": 36
-						}
-					}
-				],
-				"responses": {
-					"200": {
-						"description": "successful operation",
-						"content": {
-							"application/json": {
-								"schema": {
-									"$ref": "#/components/schemas/University"
-								}
-							}
-						}
-					},
-					"404": {
-						"description": "ID not found"
-					}
-				}
-			}
-		},
-		"/api/universities/{university_id}/info": {
-			"get": {
-				"tags": ["University"],
-				"summary": "Find university by ID with info page",
-				"description": "Returns a single university with info",
-				"parameters": [
-					{
-						"name": "university_id",
-						"in": "path",
-						"description": "ID of University to return",
-						"required": true,
-						"schema": {
-							"type": "string",
-							"maxLength": 36
-						}
-					}
-				],
-				"responses": {
-					"200": {
-						"description": "successful operation",
-						"content": {
-							"application/json": {
-								"schema": {
-									"$ref": "#/components/schemas/InfoPage"
-								}
-							}
-						}
-					},
-					"404": {
-						"description": "ID not found"
-					}
-				}
-			}
-		},
-		"/api/universities/search": {
-			"get": {
-				"tags": ["University"],
-				"summary": "Search and paginate universities",
-				"parameters": [
-					{
-						"name": "page_number",
-						"in": "query",
-						"description": "Page number for pagination",
-						"required": true,
-						"schema": {
-							"type": "integer"
-						}
-					},
-					{
-						"name": "search_word",
-						"in": "query",
-						"description": "Search keyword to filter universities",
-						"required": true,
-						"schema": {
-							"type": "string"
-						}
-					}
-				],
-				"responses": {
-					"200": {
-						"description": "Successful response",
-						"content": {
-							"application/json": {
-								"schema": {
-									"type": "object",
-									"properties": {
-										"hasMore": {
-											"type": "boolean",
-											"description": "Indicates whether there are more results available"
-										},
-										"items": {
-											"type": "array",
-											"description": "List of universities",
-											"items": {
-												"$ref": "#/components/schemas/UniversityMeta"
-											}
-										}
-									}
-								}
-							}
-						}
-					}
-				}
-			}
-		},
-		"/api/users": {
-			"get": {
-				"tags": ["User"],
-				"summary": "Get a list of users",
-				"description": "Returns a list of users with their details including user_id, username, password, nationality, and home_university.\n",
-				"responses": {
-					"200": {
-						"description": "A list of users.",
-						"content": {
-							"application/json": {
-								"schema": {
-									"type": "array",
-									"items": {
-										"$ref": "#/components/schemas/User"
-									}
-								}
-							}
-						}
-					}
-				}
-			},
-			"put": {
-				"tags": ["User"],
-				"summary": "Create a user",
-				"description": "Create user with details provided including user_id, username, password, nationality, and home_university.\n",
-				"parameters": [
-					{
-						"name": "user_id",
-						"in": "query",
-						"description": "ID of the user to create",
-						"required": true,
-						"schema": {
-							"type": "string",
-							"maxLength": 36
-						}
-					},
-					{
-						"name": "username",
-						"in": "query",
-						"description": "Username of the user to create",
-						"required": true,
-						"schema": {
-							"type": "string",
-							"maxLength": 36
-						}
-					},
-					{
-						"name": "pwd",
-						"in": "query",
-						"description": "Password of the user to create",
-						"required": true,
-						"schema": {
-							"type": "string",
-							"maxLength": 36
-						}
-					},
-					{
-						"name": "nationality",
-						"in": "query",
-						"description": "Nationality of the user to create",
-						"required": false,
-						"schema": {
-							"type": "string",
-							"maxLength": 36
-						}
-					},
-					{
-						"name": "home_university",
-						"in": "query",
-						"description": "Home university of the user to create",
-						"required": false,
-						"schema": {
-							"type": "string",
-							"maxLength": 36
-						}
-					}
-				],
-				"responses": {
-					"200": {
-						"description": "Creation of user",
-						"content": {
-							"application/json": {
-								"schema": {
-									"type": "array",
-									"items": {
-										"$ref": "#/components/schemas/User"
-									}
-								}
-							}
-						}
-					}
-				}
-			},
-			"patch": {
-				"tags": ["User"],
-				"summary": "Update a user",
-				"description": "Update user with details provided including user_id, username, password, nationality, and home_university.\n",
-				"parameters": [
-					{
-						"name": "user_id",
-						"in": "query",
-						"description": "ID of the user to update",
-						"required": true,
-						"schema": {
-							"type": "string",
-							"maxLength": 36
-						}
-					},
-					{
-						"name": "username",
-						"in": "query",
-						"description": "Username of the user to update",
-						"required": true,
-						"schema": {
-							"type": "string",
-							"maxLength": 36
-						}
-					},
-					{
-						"name": "pwd",
-						"in": "query",
-						"description": "Password of the user to update",
-						"required": true,
-						"schema": {
-							"type": "string",
-							"maxLength": 36
-						}
-					},
-					{
-						"name": "nationality",
-						"in": "query",
-						"description": "Nationality of the user to update",
-						"required": false,
-						"schema": {
-							"type": "string",
-							"maxLength": 36
-						}
-					},
-					{
-						"name": "home_university",
-						"in": "query",
-						"description": "Home university of the user to update",
-						"required": false,
-						"schema": {
-							"type": "string",
-							"maxLength": 36
-						}
-					}
-				],
-				"responses": {
-					"200": {
-						"description": "Update user",
-						"content": {
-							"application/json": {
-								"schema": {
-									"type": "array",
-									"items": {
-										"$ref": "#/components/schemas/User"
-									}
-								}
-							}
-						}
-					}
-				}
-			},
-			"delete": {
-				"tags": ["User"],
-				"summary": "Delete a user",
-				"description": "Delete user with provided user_id. \n",
-				"parameters": [
-					{
-						"name": "user_id",
-						"in": "query",
-						"description": "ID of the user to delete",
-						"required": true,
-						"schema": {
-							"type": "string",
-							"maxLength": 36
-						}
-					}
-				],
-				"responses": {
-					"200": {
-						"description": "Deletion of user"
-					}
-				}
-			}
-		},
-		"/api/users/{user_id}": {
-			"get": {
-				"tags": ["User"],
-				"summary": "Get a single user by ID",
-				"parameters": [
-					{
-						"name": "user_id",
-						"in": "path",
-						"description": "ID of the user to return",
-						"required": true,
-						"schema": {
-							"type": "string",
-							"maxLength": 36
-						}
-					}
-				],
-				"responses": {
-					"200": {
-						"description": "A list of users.",
-						"content": {
-							"application/json": {
-								"schema": {
-									"type": "array",
-									"items": {
-										"$ref": "#/components/schemas/User"
-									}
-								}
-							}
-						}
-					},
-					"404": {
-						"description": "ID not found"
-					}
-				}
-			}
-		},
-		"/api/users/{user_id}/uni": {
-			"get": {
-				"tags": ["User"],
-				"summary": "Get a single user by ID with uni-info",
-				"parameters": [
-					{
-						"name": "user_id",
-						"in": "path",
-						"description": "ID of the user to return",
-						"required": true,
-						"schema": {
-							"type": "string",
-							"maxLength": 36
-						}
-					}
-				],
-				"responses": {
-					"200": {
-						"description": "A list of users.",
-						"content": {
-							"application/json": {
-								"schema": {
-									"type": "array",
-									"items": {
-										"$ref": "#/components/schemas/UserWithUni"
-									}
-								}
-							}
-						}
-					},
-					"404": {
-						"description": "ID not found"
-					}
-				}
-			}
-		}
-	},
-	"components": {
-		"schemas": {
-			"University": {
-				"type": "object",
-				"properties": {
-					"university_id": {
-						"type": "string",
-						"maxLength": 36,
-						"example": "ea6ac0be-29e1-4da2-8e69-bf784d9c8859"
-					},
-					"country_name": {
-						"type": "string",
-						"maxLength": 200,
-						"example": "South KOrea"
-					},
-					"region": {
-						"type": "string",
-						"maxLength": 40,
-						"example": "Seoul, Suwon"
-					},
-					"long_name": {
-						"type": "string",
-						"maxLength": 255,
-						"example": "Sungkyunkwan university"
-					},
-					"ranking": {
-						"type": "string",
-						"maxLength": 10,
-						"example": "348"
-					}
-				}
-			},
-			"UniversityMeta": {
-				"type": "object",
-				"properties": {
-					"university_id": {
-						"type": "string",
-						"maxLength": 36,
-						"example": "ea6ac0be-29e1-4da2-8e69-bf784d9c8859"
-					},
-					"country_code": {
-						"type": "string",
-						"maxLength": 3,
-						"example": "KOR"
-					},
-					"region": {
-						"type": "string",
-						"maxLength": 40,
-						"example": "Seoul, Suwon"
-					},
-					"long_name": {
-						"type": "string",
-						"maxLength": 255,
-						"example": "Sungkyunkwan university"
-					},
-					"ranking": {
-						"type": "string",
-						"maxLength": 10,
-						"example": "348"
-					},
-					"info_page_id": {
-						"type": "string",
-						"maxLength": 36,
-						"example": "ea6ac0be-29e1-4da2-8e69-bf784d9c8859"
-					}
-				}
-			},
-			"InfoPage": {
-				"type": "object",
-				"properties": {
-					"webpage": {
-						"type": "string",
-						"example": "https://www.university.edu/"
-					},
-					"introduction": {
-						"type": "string",
-						"example": "This is a very good university."
-					},
-					"location": {
-						"type": "string",
-						"example": "The city where the university located is good too."
-					},
-					"semester": {
-						"type": "string",
-						"example": "From January to December"
-					},
-					"application_deadlines": {
-						"type": "string",
-						"example": "June 16th"
-					},
-					"courses": {
-						"type": "string",
-						"example": "Courses from this university are super super fun ^^"
-					},
-					"tuition": {
-						"type": "string",
-						"example": "$1000"
-					},
-					"visa": {
-						"type": "string",
-						"example": "Exchange student need to have a D-2 visa"
-					},
-					"eligibility": {
-						"type": "string",
-						"example": "TOEIC: min 800"
-					},
-					"requirements": {
-						"type": "string",
-						"example": "Min credits: 12 credit hours"
-					}
-				}
-			},
-			"User": {
-				"type": "object",
-				"properties": {
-					"user_id": {
-						"type": "string",
-						"maxLength": 36,
-						"description": "The unique identifier for the user.",
-						"example": "ea6ac0be-29e1-4da2-8e69-bf784d9c8859"
-					},
-					"username": {
-						"type": "string",
-						"description": "The username of the user.",
-						"example": "bobson"
-					},
-					"pwd": {
-						"type": "string",
-						"description": "The password of the user.",
-						"example": "topsecret"
-					},
-					"nationality": {
-						"type": "string",
-						"description": "The nationality of the user."
-					},
-					"home_university": {
-						"type": "string",
-						"maxLength": 36,
-						"description": "The home university of the user.",
-						"example": "2f1e5333-5600-4a0b-bccb-df6a9d295c43"
-					}
-				}
-			},
-			"UserWithUni": {
-				"allOf": [
-					{
-						"$ref": "#/components/schemas/User"
-					},
-					{
-						"$ref": "#/components/schemas/University"
-					}
-				]
-			}
-		}
-	}
+  "openapi": "3.0.3",
+  "info": {
+    "title": "EduVenture API Documentation",
+    "description": "Some useful links:\n- [Swagger Editor](https://editor.swagger.io/)\n- [Swagger Documentation](https://swagger.io/docs/specification/data-models/)",
+    "version": "1.0.0"
+  },
+  "tags": [
+    {
+      "name": "University",
+      "description": "Everything about the universities"
+    },
+    {
+      "name": "User",
+      "description": "Operations about user"
+    }
+  ],
+  "paths": {
+    "/api/universities": {
+      "get": {
+        "tags": ["University"],
+        "summary": "Returns a list of all universities",
+        "responses": {
+          "200": {
+            "description": "successful operation",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/UniversityMeta"
+                  }
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "ID not found"
+          }
+        }
+      }
+    },
+    "/api/universities/{university_id}": {
+      "get": {
+        "tags": ["University"],
+        "summary": "Find university by ID",
+        "description": "Returns a single university (with out info)",
+        "parameters": [
+          {
+            "name": "university_id",
+            "in": "path",
+            "description": "ID of University to return",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "maxLength": 36
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "successful operation",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/University"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "ID not found"
+          }
+        }
+      }
+    },
+    "/api/universities/{university_id}/info": {
+      "get": {
+        "tags": ["University"],
+        "summary": "Find university by ID with info page",
+        "description": "Returns a single university with info",
+        "parameters": [
+          {
+            "name": "university_id",
+            "in": "path",
+            "description": "ID of University to return",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "maxLength": 36
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "successful operation",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/InfoPage"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "ID not found"
+          }
+        }
+      }
+    },
+    "/api/universities/search": {
+      "get": {
+        "tags": ["University"],
+        "summary": "Search and paginate universities",
+        "parameters": [
+          {
+            "name": "page_number",
+            "in": "query",
+            "description": "Page number for pagination",
+            "required": true,
+            "schema": {
+              "type": "integer"
+            }
+          },
+          {
+            "name": "search_word",
+            "in": "query",
+            "description": "Search keyword to filter universities",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "hasMore": {
+                      "type": "boolean",
+                      "description": "Indicates whether there are more results available"
+                    },
+                    "items": {
+                      "type": "array",
+                      "description": "List of universities",
+                      "items": {
+                        "$ref": "#/components/schemas/UniversityMeta"
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/users": {
+      "get": {
+        "tags": ["User"],
+        "summary": "Get a list of users",
+        "description": "Returns a list of users with their details including user_id, username, password, nationality, and home_university.\n",
+        "responses": {
+          "200": {
+            "description": "A list of users.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/User"
+                  }
+                }
+              }
+            }
+          }
+        }
+      },
+      "put": {
+        "tags": ["User"],
+        "summary": "Create a user",
+        "description": "Create user with details provided including user_id, username, password, nationality, and home_university.\n",
+        "parameters": [
+          {
+            "name": "user_id",
+            "in": "query",
+            "description": "ID of the user to create",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "maxLength": 36
+            }
+          },
+          {
+            "name": "username",
+            "in": "query",
+            "description": "Username of the user to create",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "maxLength": 36
+            }
+          },
+          {
+            "name": "pwd",
+            "in": "query",
+            "description": "Password of the user to create",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "maxLength": 36
+            }
+          },
+          {
+            "name": "nationality",
+            "in": "query",
+            "description": "Nationality of the user to create",
+            "required": false,
+            "schema": {
+              "type": "string",
+              "maxLength": 36
+            }
+          },
+          {
+            "name": "home_university",
+            "in": "query",
+            "description": "Home university of the user to create",
+            "required": false,
+            "schema": {
+              "type": "string",
+              "maxLength": 36
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Creation of user",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/User"
+                  }
+                }
+              }
+            }
+          }
+        }
+      },
+      "patch": {
+        "tags": ["User"],
+        "summary": "Update a user",
+        "description": "Update user with details provided including user_id, username, password, nationality, and home_university.\n",
+        "parameters": [
+          {
+            "name": "user_id",
+            "in": "query",
+            "description": "ID of the user to update",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "maxLength": 36
+            }
+          },
+          {
+            "name": "username",
+            "in": "query",
+            "description": "Username of the user to update",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "maxLength": 36
+            }
+          },
+          {
+            "name": "pwd",
+            "in": "query",
+            "description": "Password of the user to update",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "maxLength": 36
+            }
+          },
+          {
+            "name": "nationality",
+            "in": "query",
+            "description": "Nationality of the user to update",
+            "required": false,
+            "schema": {
+              "type": "string",
+              "maxLength": 36
+            }
+          },
+          {
+            "name": "home_university",
+            "in": "query",
+            "description": "Home university of the user to update",
+            "required": false,
+            "schema": {
+              "type": "string",
+              "maxLength": 36
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Update user",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/User"
+                  }
+                }
+              }
+            }
+          }
+        }
+      },
+      "delete": {
+        "tags": ["User"],
+        "summary": "Delete a user",
+        "description": "Delete user with provided user_id. \n",
+        "parameters": [
+          {
+            "name": "user_id",
+            "in": "query",
+            "description": "ID of the user to delete",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "maxLength": 36
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Deletion of user"
+          }
+        }
+      }
+    },
+    "/api/users/{user_id}": {
+      "get": {
+        "tags": ["User"],
+        "summary": "Get a single user by ID",
+        "parameters": [
+          {
+            "name": "user_id",
+            "in": "path",
+            "description": "ID of the user to return",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "maxLength": 36
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "A list of users.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/User"
+                  }
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "ID not found"
+          }
+        }
+      }
+    },
+    "/api/users/{user_id}/uni": {
+      "get": {
+        "tags": ["User"],
+        "summary": "Get a single user by ID with uni-info",
+        "parameters": [
+          {
+            "name": "user_id",
+            "in": "path",
+            "description": "ID of the user to return",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "maxLength": 36
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "A list of users.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/UserWithUni"
+                  }
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "ID not found"
+          }
+        }
+      }
+    }
+  },
+  "components": {
+    "schemas": {
+      "University": {
+        "type": "object",
+        "properties": {
+          "university_id": {
+            "type": "string",
+            "maxLength": 36,
+            "example": "ea6ac0be-29e1-4da2-8e69-bf784d9c8859"
+          },
+          "country_name": {
+            "type": "string",
+            "maxLength": 200,
+            "example": "South Korea"
+          },
+          "region": {
+            "type": "string",
+            "maxLength": 40,
+            "example": "Seoul, Suwon"
+          },
+          "long_name": {
+            "type": "string",
+            "maxLength": 255,
+            "example": "Sungkyunkwan university"
+          },
+          "ranking": {
+            "type": "string",
+            "maxLength": 10,
+            "example": "145"
+          },
+          "campus": {
+            "type": "string",
+            "maxLength": 255,
+            "example": "Suwon Campus"
+          },
+          "housing": {
+            "type": "boolean",
+            "example": true
+          }
+        }
+      },
+      "UniversityMeta": {
+        "type": "object",
+        "properties": {
+          "university_id": {
+            "type": "string",
+            "maxLength": 36,
+            "example": "ea6ac0be-29e1-4da2-8e69-bf784d9c8859"
+          },
+          "country_code": {
+            "type": "string",
+            "maxLength": 3,
+            "example": "KOR"
+          },
+          "region": {
+            "type": "string",
+            "maxLength": 40,
+            "example": "Seoul, Suwon"
+          },
+          "long_name": {
+            "type": "string",
+            "maxLength": 255,
+            "example": "Sungkyunkwan University"
+          },
+          "ranking": {
+            "type": "string",
+            "maxLength": 10,
+            "example": "348"
+          },
+          "info_page_id": {
+            "type": "string",
+            "maxLength": 36,
+            "example": "ea6ac0be-29e1-4da2-8e69-bf784d9c8859"
+          },
+          "campus": {
+            "type": "string",
+            "maxLength": 255,
+            "example": "Suwon Campus"
+          },
+          "housing": {
+            "type": "boolean",
+            "example": true
+          }
+        }
+      },
+      "InfoPage": {
+        "type": "object",
+        "properties": {
+          "webpage": {
+            "type": "string",
+            "example": "https://www.university.edu/"
+          },
+          "introduction": {
+            "type": "string",
+            "example": "This is a very good university."
+          },
+          "location": {
+            "type": "string",
+            "example": "The city where the university located is good too."
+          },
+          "semester": {
+            "type": "string",
+            "example": "From January to December"
+          },
+          "application_deadlines": {
+            "type": "string",
+            "example": "June 16th"
+          },
+          "courses": {
+            "type": "string",
+            "example": "Courses from this university are super super fun ^^"
+          },
+          "tuition": {
+            "type": "string",
+            "example": "$1000"
+          },
+          "visa": {
+            "type": "string",
+            "example": "Exchange student need to have a D-2 visa"
+          },
+          "eligibility": {
+            "type": "string",
+            "example": "TOEIC: min 800"
+          },
+          "requirements": {
+            "type": "string",
+            "example": "Min credits: 12 credit hours"
+          }
+        }
+      },
+      "User": {
+        "type": "object",
+        "properties": {
+          "user_id": {
+            "type": "string",
+            "maxLength": 36,
+            "description": "The unique identifier for the user.",
+            "example": "ea6ac0be-29e1-4da2-8e69-bf784d9c8859"
+          },
+          "username": {
+            "type": "string",
+            "description": "The username of the user.",
+            "example": "bobson"
+          },
+          "pwd": {
+            "type": "string",
+            "description": "The password of the user.",
+            "example": "topsecret"
+          },
+          "nationality": {
+            "type": "string",
+            "description": "The nationality of the user."
+          },
+          "home_university": {
+            "type": "string",
+            "maxLength": 36,
+            "description": "The home university of the user.",
+            "example": "2f1e5333-5600-4a0b-bccb-df6a9d295c43"
+          }
+        }
+      },
+      "UserWithUni": {
+        "allOf": [
+          {
+            "$ref": "#/components/schemas/User"
+          },
+          {
+            "$ref": "#/components/schemas/University"
+          }
+        ]
+      }
+    }
+  }
 }

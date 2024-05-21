@@ -5,7 +5,7 @@ from resources_api.resource_fields_definitions import (
     search_universities_resource_fields,
     university_meta_table_resource_fields
 )
-from sqlalchemy import select, text, join
+from sqlalchemy import select
 from database.database_setup import db
 from database.models import InfoPageTable, UniversityTable, CountryTable
 
