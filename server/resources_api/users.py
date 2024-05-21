@@ -129,7 +129,6 @@ class UsersAllRes(Resource):
             )
             db.session.add(new_user)
             db.session.commit()
-            print(new_user)
             return new_user, 200
         except exc.SQLAlchemyError as e:
             print(e)
@@ -166,7 +165,6 @@ class UsersAllRes(Resource):
         try:
             args = user_update_args.parse_args()
             username = args["username"]
-            # print(f"Attempting to delete user with username: {username}")
             user = db.session.query(UserTable).filter_by(username=username).first()
             if not user:
                 print(f"No user found with the username: {username}")
@@ -188,5 +186,4 @@ class UserWithUniversityRed(Resource):
     def get(self, user_id):
         sql_raw = "SELECT * FROM user_table JOIN university_table ON user_table.home_university = university_table.university_id WHERE user_table.user_id = :val"
         res = db.session.execute(text(sql_raw), {"val": user_id}).first()
-        print(res)
         return res
