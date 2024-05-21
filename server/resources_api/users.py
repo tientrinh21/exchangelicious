@@ -22,10 +22,10 @@ user_put_args.add_argument('home_university', type=str, location = "args", help=
 
 user_update_args = reqparse.RequestParser()
 user_update_args.add_argument('user_id', type=str, location = "args", help='User ID to update user')
-user_update_args.add_argument('username', type=str, location = "args", help='User name to update user')
-user_update_args.add_argument('pwd', type=str, location = "args", help='Password to update user')
-user_update_args.add_argument('nationality', type=str, location = "args", help='Nationality of user')
-user_update_args.add_argument('home_university', type=str, location = "args", help='Home university of user')
+user_update_args.add_argument('username', type=str, location = "args", help='User name to update user', required=False)
+user_update_args.add_argument('pwd', type=str, location = "args", help='Password to update user', required=False)
+user_update_args.add_argument('nationality', type=str, location = "args", help='Nationality of user', required=False)
+user_update_args.add_argument('home_university', type=str, location = "args", help='Home university of user', required=False)
 
 user_delete_args = reqparse.RequestParser()
 user_delete_args.add_argument('user_id', type=str, location = "args", help='User ID to delete user')
@@ -86,18 +86,18 @@ class UsersAllRes(Resource):
             user_id = args['user_id']
             user = db.session.query(UserTable).filter_by(user_id=user_id).first()
             # Update the user attributes if they are present in the args
-            if 'username' in args:
+            if 'username' in args and args['username'] != None:
                 user.username = args['username']
-            if 'pwd' in args:
+            if 'pwd' in args and args['pwd'] != None:
                 salt = generate_salt()
                 # Hash the new password with the generated salt
                 hashed_password = hash_password(args['pwd'], salt)
                 # Update the hashed password and salt columns
                 user.pwd = hashed_password
                 user.salt = salt
-            if 'nationality' in args:
+            if 'nationality' in args and args['nationality'] != None:
                 user.nationality = args['nationality']
-            if 'home_university' in args:
+            if 'home_university' in args and args['home_university'] != None:
                 user.home_university = args['home_university']
             db.session.commit()
             return user, 200
@@ -107,7 +107,7 @@ class UsersAllRes(Resource):
         
     def delete(self):
         try:
-            args = user_update_args.parse_args()
+            args = user_delete_args.parse_args()
             user_id = args['user_id']
             # print(f"Attempting to delete user with username: {username}")
             user = db.session.query(UserTable).filter_by(user_id=user_id).first()
@@ -123,7 +123,7 @@ class UsersAllRes(Resource):
             print(f"An error occurred: {e}")
             abort(message=str(e), http_status_code=500)
 
-class UserWithUniversityRed(Resource):
+class UserWithUniversityRes(Resource):
     @marshal_with(user_with_university_resource_fields)
     def get(self, user_id):
         sql_raw = "SELECT * FROM user_table JOIN university_table ON user_table.home_university = university_table.university_id WHERE user_table.user_id = :val"
@@ -131,7 +131,7 @@ class UserWithUniversityRed(Resource):
         print(res)
         return res
 
-class UserLogin(Resource):
+class UserLoginRes(Resource):
     @marshal_with(user_resource_fields)
     def get(self):
         try:

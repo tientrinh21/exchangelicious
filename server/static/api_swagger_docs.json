@@ -174,18 +174,6 @@
         ],
         "summary": "Get an user information",
         "description": "Returns a list of users with their details including user_id, username, password, nationality, and home_university.\n",
-        "parameters": [
-          {
-            "name": "username",
-            "in": "query",
-            "description": "Username of the user to get",
-            "required": true,
-            "schema": {
-              "type": "string",
-              "maxLength": 36
-            }
-          }
-        ],
         "responses": {
           "200": {
             "description": "A list of users.",
