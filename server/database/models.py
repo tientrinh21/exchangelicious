@@ -60,6 +60,9 @@ class ReviewTable(db.Model):
     """deal with an existing table"""
 
     __table__ = db.Model.metadata.tables[f"{DB_NAME}.review_table"]
+    
+    def __repr__(self):
+        return f"<Review ({self.review_id}, {self.title}, {self.content}, {self.submit_datetime},)>"
 
 
 class ReplyTable(db.Model):

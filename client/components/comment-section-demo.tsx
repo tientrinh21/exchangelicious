@@ -14,17 +14,18 @@ function getReviewsPerUniversity(university_id: string) {
         setError(false)
         axios({
             method: "GET",
-            url: `${BASE_URL}/reviews/`,
+            url: `${BASE_URL}/reviews`,
             params: {university_id: university_id}
         }).then((res) => {
             console.log(res.data)
             setReviews(res.data)
+            setIsLoading(false)
         }).catch((e) => {
             console.log(e)
             setError(true)
             setIsLoading(false)
         })
-    })
+    }, [])
     
     return {
         isLoading,
@@ -34,8 +35,8 @@ function getReviewsPerUniversity(university_id: string) {
 }
 
 // https://react.semantic-ui.com/views/comment/#types-comment
+// export default function CommentSectionDemo(props: {university_id: string}) {
 export default function CommentSectionDemo(props: {university_id: string}) {
-
     console.log(props.university_id)
 
     const {
@@ -44,9 +45,11 @@ export default function CommentSectionDemo(props: {university_id: string}) {
         reviews
     } = getReviewsPerUniversity(props.university_id)
 
+    console.log(reviews.length)
+    console.log(isLoading)
     return (
         <>
-        <h1>All the reviews about this university in the database</h1>
+        <h1>All the reviews about this university in the database:</h1>
       {isLoading && (<div>Loading ...</div>)}
       {!isLoading && reviews.length > 0 && (
         <ul>
