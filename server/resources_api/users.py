@@ -1,15 +1,15 @@
-from flask_restful import Resource, marshal_with, reqparse, abort
-from resources_api.resource_fields_definitions import (
-    user_resource_fields,
-    user_with_university_resource_fields,
-)
-from sqlalchemy import text, exc
-from database.database_setup import db
-from database.models import UserTable
-import uuid
-from flask import request
 import hashlib
 import secrets
+import uuid
+
+from database.database_setup import db
+from database.models import UserTable
+from flask import request
+from flask_restful import Resource, abort, marshal_with, reqparse
+from sqlalchemy import exc, text
+
+from resources_api.resource_fields_definitions import (
+    user_resource_fields, user_with_university_resource_fields)
 
 
 class UserRes(Resource):
@@ -117,9 +117,7 @@ class UsersAllRes(Resource):
 
             new_user = UserTable(
                 user_id=uid,
-                # user_id=args['user_id'],
                 username=args["username"],
-                # pwd=args['pwd'],
                 pwd=hashed_password,  # Save the hashed password
                 salt=salt,  # Save the salt
                 nationality=args["nationality"] if args["nationality"] != "" else None,
@@ -181,9 +179,11 @@ class UsersAllRes(Resource):
             abort(message=str(e), http_status_code=500)
 
 
+
 class UserWithUniversityRed(Resource):
     @marshal_with(user_with_university_resource_fields)
     def get(self, user_id):
+        # TODO: rewrite this
         sql_raw = "SELECT * FROM user_table JOIN university_table ON user_table.home_university = university_table.university_id WHERE user_table.user_id = :val"
         res = db.session.execute(text(sql_raw), {"val": user_id}).first()
         return res

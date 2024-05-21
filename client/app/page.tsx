@@ -1,6 +1,8 @@
 'use client'
+
 import React from 'react'
 
-export default function HomePage() {
-  return <div>HomePage</div>
+export default function Homepage() {
+  return <div>Homepage</div>
 }
+

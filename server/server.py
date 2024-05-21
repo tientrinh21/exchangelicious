@@ -5,7 +5,6 @@ from database.database_setup import db, get_database_uri
 from swagger_setup import swaggerui_blueprint
 from resources_api.routes import initialize_routes
 
-
 app = Flask(__name__)
 cors = CORS(app, resources={r"/api/*": {"origins": "*"}})
 
@@ -22,4 +21,3 @@ initialize_routes(api)
 
 if __name__ == "__main__":
     app.run(debug=True, port=8080)
-
