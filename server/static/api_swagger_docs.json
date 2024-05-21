@@ -28,7 +28,7 @@
 								"schema": {
 									"type": "array",
 									"items": {
-										"$ref": "#/components/schemas/University"
+										"$ref": "#/components/schemas/UniversityMeta"
 									}
 								}
 							}
@@ -148,7 +148,7 @@
 											"type": "array",
 											"description": "List of universities",
 											"items": {
-												"$ref": "#/components/schemas/University"
+												"$ref": "#/components/schemas/UniversityMeta"
 											}
 										}
 									}
@@ -449,6 +449,41 @@
 						"type": "string",
 						"maxLength": 10,
 						"example": "348"
+					}
+				}
+			},
+			"UniversityMeta": {
+				"type": "object",
+				"properties": {
+					"university_id": {
+						"type": "string",
+						"maxLength": 36,
+						"example": "ea6ac0be-29e1-4da2-8e69-bf784d9c8859"
+					},
+					"country_code": {
+						"type": "string",
+						"maxLength": 3,
+						"example": "KOR"
+					},
+					"region": {
+						"type": "string",
+						"maxLength": 40,
+						"example": "Seoul, Suwon"
+					},
+					"long_name": {
+						"type": "string",
+						"maxLength": 255,
+						"example": "Sungkyunkwan university"
+					},
+					"ranking": {
+						"type": "string",
+						"maxLength": 10,
+						"example": "348"
+					},
+					"info_page_id": {
+						"type": "string",
+						"maxLength": 36,
+						"example": "ea6ac0be-29e1-4da2-8e69-bf784d9c8859"
 					}
 				}
 			},

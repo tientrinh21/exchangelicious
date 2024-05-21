@@ -3,6 +3,7 @@ from resources_api.resource_fields_definitions import (
     university_resource_fields,
     university_with_info_resource_fields,
     search_universities_resource_fields,
+    university_meta_table_resource_fields
 )
 from sqlalchemy import select, text, join
 from database.database_setup import db
@@ -27,7 +28,6 @@ class UniversityRes(Resource):
         parent, child = res
         result = parent.__dict__
         result.update(child.__dict__)
-
         return result, 200
 
 
@@ -42,7 +42,7 @@ class UniversityWithInfoRes(Resource):
 
 
 class UniversityAllRes(Resource):
-    @marshal_with(university_resource_fields)
+    @marshal_with(university_meta_table_resource_fields)
     def get(self):
         unis = UniversityTable.query.order_by(UniversityTable.long_name).all()
         return [uni for uni in unis], 200

@@ -11,6 +11,15 @@ university_resource_fields = {
     # "info_page_id": fields.String,
 }
 
+university_meta_table_resource_fields = {
+    "university_id": fields.String,
+    "country_code": fields.String,
+    "region": fields.String,
+    "long_name": fields.String,
+    "ranking": fields.String,
+    "info_page_id": fields.String,
+}
+
 university_with_info_resource_fields = {
     # "university_id": fields.String,
     # "country_code": fields.String,
@@ -32,7 +41,7 @@ university_with_info_resource_fields = {
 
 search_universities_resource_fields = {
     "hasMore": fields.Boolean,
-    "items": fields.List(fields.Nested(university_resource_fields)),
+    "items": fields.List(fields.Nested(university_meta_table_resource_fields)),
 }
 
 user_resource_fields = {
