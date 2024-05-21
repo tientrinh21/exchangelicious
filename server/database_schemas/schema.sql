@@ -36,6 +36,8 @@ create table university_table (
   long_name varchar(255),
   info_page_id varchar(36),
   ranking varchar(10),
+  housing boolean,
+  campus varchar(255),
   constraint country_code_fk_con
     foreign key (country_code) references country_table (country_code)
     on delete set null on update cascade,
@@ -387,18 +389,18 @@ Source: [https://utdallas.box.com/s/aa0wbsjdkpm7kuvrm5pxybhsg00svgi4](https://ut
     - Graduate - 12 credit hours"
   );
 
-insert into university_table(university_id, long_name, country_code, region, info_page_id, ranking) values
-  ('skku', 'Sungkyunkwan University', 'KOR', 'Seoul, Suwon', 'skku_page', "145"),
-  ('ntnu', 'Norwegian University of Science and Technology', 'NOR', 'Trondheim, Gjøvik, Ålesund', 'ntnu_page', "292"),
-  ('uio', 'University of Oslo', 'NOR', 'Oslo', 'uio_page', "117"),
-  ('uib', 'University of Bergen', 'NOR', 'Bergen', 'uib_page', "281"),
-  ('ut_dallas', 'University of Texas at Dallas', 'USA', 'Richardson, Texas', 'ut_dallas_page', "520"),
-  ('umass_boston', 'University of Massachusetts Boston', 'USA', 'Boston, Massachusetts', 'skku_page', "801-850"),
-  ('umanitoba', 'University of Manitoba', 'CAN', 'Winnipeg, Manitoba', 'skku_page', "671-680"),
-  ('utoronto', 'University of Toronto', 'CAN', 'Toronto, Ontarion', 'skku_page', "21"),
-  ('usask', 'University of Saskatchewan', 'CAN', 'Saskatoon, Saskatchewan', 'skku_page', "345"),
-  ('ets', 'Ecole de technolgie superieure', 'CAN', 'Montreal, Quebec', 'skku_page', "671-680"),
-  ('ntu', 'Nanyang Technological University', 'SGP', 'Nanyang Ave', 'skku_page', "26");
+insert into university_table(university_id, long_name, country_code, region, info_page_id, campus, housing, ranking) values
+  ('skku', 'Sungkyunkwan University', 'KOR', 'Seoul, Suwon', 'skku_page', "Suwon Campus" , 1, "145"),
+  ('ntnu', 'Norwegian University of Science and Technology', 'NOR', 'Trondheim, Gjøvik, Ålesund', 'ntnu_page', "Ålesund Campus", 0, "292"),
+  ('uio', 'University of Oslo', 'NOR', 'Oslo', 'uio_page', "Oslo Campus", 0, "117"),
+  ('uib', 'University of Bergen', 'NOR', 'Bergen', 'uib_page', "Bergen Campus", 0, "281"),
+  ('ut_dallas', 'University of Texas at Dallas', 'USA', 'Richardson, Texas', 'skku_page', "Dallas Campus", 1, "520"),
+  ('umass_boston', 'University of Massachusetts Boston', 'USA', 'Boston, Massachusetts', 'skku_page', "Boston Campus", 1, "801-850"),
+  ('umanitoba', 'University of Manitoba', 'CAN', 'Winnipeg, Manitoba', 'skku_page', "Winnipeg Campus", 0, "671-680"),
+  ('utoronto', 'University of Toronto', 'CAN', 'Toronto, Ontarion', 'skku_page', "Toronto Campus", 0, "21"),
+  ('usask', 'University of Saskatchewan', 'CAN', 'Saskatoon, Saskatchewan', 'skku_page', "Saskatoon Campus", 1, "345"),
+  ('ets', 'Ecole de technolgie superieure', 'CAN', 'Montreal, Quebec', 'skku_page', "Montreal Campus", 1, "671-680"),
+  ('ntu', 'Nanyang Technological University', 'SGP', 'Nanyang Ave', 'skku_page', "Singapore Campus", 1, "26");
 
 insert into partner_universities_table(id, from_university_id, to_university_id) values
   ('skku-ntnu', 'skku', 'ntnu'),
