@@ -21,6 +21,7 @@ module.exports = {
         border: 'hsl(var(--border))',
         input: 'hsl(var(--input))',
         ring: 'hsl(var(--ring))',
+        placeholder: 'hsl(var(--placeholder))',
         background: 'hsl(var(--background))',
         foreground: 'hsl(var(--foreground))',
         primary: {
@@ -74,9 +75,6 @@ module.exports = {
       fontSize: {
         'xl-plus': '1.375rem',
       },
-      placeholderColor: {
-        custom: '#B9C1CA' 
-      }
     },
   },
   plugins: [require('tailwindcss-animate'), require('@tailwindcss/typography')],
