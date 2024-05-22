@@ -53,8 +53,17 @@ def extract_relevant_sections(url, keywords):
     
     return markdown_output
 
+def process_universities(universities, keywords):
+    for university_name, url in universities.items():
+        markdown_result = extract_relevant_sections(url, keywords)
+        output_file_path = f'{university_name}.md'
+        with open(output_file_path, 'w', encoding='utf-8') as file:
+            file.write(markdown_result)
+        print(f"Markdown file saved as {output_file_path}")
+
 # 주어진 키워드
 keywords = {
+    "University": ["welcone"],
     "Location": ["city", "country", "welcome"],
     "Semester": ["fall", "spring", "summer"],
     "Application Deadlines": ["deadline", "due date", "Application", "apply"],
@@ -66,13 +75,16 @@ keywords = {
     "Requirements": ["prerequisite", "qualification", "insurance"]
 }
 
-# 테스트 URL
-url = 'https://kelley.iu.edu/programs/undergrad/academics/study-abroad/international-exchange-students.html'
+# 테스트 대학 딕셔너리
+universities = {
+    'usa-mbu': 'https://www.umb.edu/academics/global-programs/international-exchange-students/',
+    'usa-clarkson': 'https://www.clarkson.edu/about/departments/international-center/international-students-and-scholars/new-students-and-visitors',
+    'usa-northpark': 'https://www.northpark.edu/admissions-aid/undergraduate-admissions/international-students/',
+    'usa-ucsc': 'https://issp.ucsc.edu/students/exchange/',
+    'usa-utdallas': 'https://ie.utdallas.edu/education-abroad/incoming-exchange/',
+    'usa-sjsu': 'https://www.sjsu.edu/isss/scholars/exchange/',
+    'usa-unf': 'https://www.unf.edu/coggin/international-business/exchange-students.html',
+    'usa-houston': 'https://uh.edu/learningabroad/find-a-program/exchange-programs/'
+}
 
-# 결과를 파일로 저장
-markdown_result = extract_relevant_sections(url, keywords)
-output_file_path = 'output.md'
-with open(output_file_path, 'w', encoding='utf-8') as file:
-    file.write(markdown_result)
-
-print(f"Markdown file saved as {output_file_path}")
+process_universities(universities, keywords)

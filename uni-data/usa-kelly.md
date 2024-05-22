@@ -1,6 +1,6 @@
-![alt text](image.png)
-
 # University
+**[Exchange Students Website](https://kelley.iu.edu/programs/undergrad/academics/study-abroad/international-exchange-students.html)**
+
 Congratulations on your nomination! Your time at Kelley will offer an adventurous and enriching business experience—one that you’ll recall again and again as you move through your career as a business professional.
 
 Read through the following information to discover what you need to do to start your semester-long journey as a Kelley student.

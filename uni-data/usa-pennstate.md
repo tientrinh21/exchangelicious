@@ -1,4 +1,5 @@
 # University
+**[Exchange Students Website](https://global.psu.edu/category/incoming-exchange-students)**
 
 Welcome, prospective exchange students, to [Penn State University](http://www.psu.edu/this-is-penn-state)! Penn State is a public institution with national ranking in scholarship, research, and athletics. We are excited you are considering us for an international exchange!
 
