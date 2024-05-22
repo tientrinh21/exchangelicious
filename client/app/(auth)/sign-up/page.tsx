@@ -65,8 +65,8 @@ export default function SignUpPage() {
   const form = useForm<RegisterFormSchema>({
     resolver: zodResolver(registerFormSchema),
     defaultValues: {
-      username: 'test2',
-      password: 'test2',
+      username: '',
+      password: '',
       nationality: '',
       home_university: '',
     },
@@ -118,7 +118,7 @@ export default function SignUpPage() {
                 <FormItem>
                   <FormLabel>Username</FormLabel>
                   <FormControl>
-                    <Input placeholder="test2" {...field} />
+                    <Input {...field} />
                   </FormControl>
                   <FormMessage />
                 </FormItem>

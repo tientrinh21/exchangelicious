@@ -35,8 +35,8 @@ export default function SignInPage() {
   const form = useForm<LoginFormSchema>({
     resolver: zodResolver(loginFormSchema),
     defaultValues: {
-      username: 'test',
-      password: 'test',
+      username: '',
+      password: '',
     },
   })
 
@@ -85,7 +85,7 @@ export default function SignInPage() {
                 <FormItem>
                   <FormLabel>Username</FormLabel>
                   <FormControl>
-                    <Input placeholder="test" {...field} />
+                    <Input {...field} />
                   </FormControl>
                   <FormMessage />
                 </FormItem>
