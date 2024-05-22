@@ -7,8 +7,7 @@ from resources_api.resource_fields_definitions import (
 from sqlalchemy import select, text
 from database.database_setup import db
 from database.models import InfoPageTable, UniversityTable
-
-
+# from database.models import universities_schema
 class UniversityRes(Resource):
     @marshal_with(university_resource_fields)
     def get(self, university_id):
@@ -35,10 +34,11 @@ class UniversityWithInfoRes(Resource):
 
 
 class UniversityAllRes(Resource):
-    @marshal_with(university_resource_fields)
+    # @marshal_with(university_resource_fields)
     def get(self):
         unis = UniversityTable.query.order_by(UniversityTable.long_name).all()
-        return [uni for uni in unis], 200
+        # return [uni for uni in unis], 200
+        return universities_schema.dump(unis)
 
 
 class UniversityPagination(Resource):

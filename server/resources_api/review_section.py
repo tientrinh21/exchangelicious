@@ -3,6 +3,7 @@ from flask_restful import Resource, marshal_with, reqparse, abort
 from resources_api.resource_fields_definitions import reply_resource_fields, review_resource_fields
 from database.database_setup import db
 from database.models import ReviewTable, ReplyTable
+# from database.models import review_schema, reviews_schema
 from sqlalchemy import select, exc, text
 from datetime import datetime
 import uuid
@@ -33,39 +34,15 @@ review_update_args.add_argument('mood_score', type=str, location = "args", help=
 review_delete_args = reqparse.RequestParser()
 review_delete_args.add_argument('review_id', type=str, location = "args", required=True, help='ID of the review to be deleted')
 
-
-from sqlalchemy.ext.declarative import DeclarativeMeta
-
-# class AlchemyEncoder(json.JSONEncoder):
-
-#     def default(self, obj):
-#         if isinstance(obj.__class__, DeclarativeMeta):
-#             # an SQLAlchemy class
-#             fields = {}
-#             for field in [x for x in dir(obj) if not x.startswith('_') and x != 'metadata']:
-#                 data = obj.__getattribute__(field)
-#                 try:
-#                     json.dumps(data) # this will fail on non-encodable values, like other classes
-#                     fields[field] = data
-#                 except TypeError:
-#                     fields[field] = None
-#             # a json-encodable dict
-#             return fields
-
-#         return json.JSONEncoder.default(self, obj)
-
 class ReviewPerUniRes(Resource):
     @marshal_with(review_resource_fields)
     def get(self):
-        # TODO; WHYYYYYY DOES THE SQLALCHEMY ORM VERSION NOT SERIALIZE ???!!!!!
         args = review_per_uni_get_args.parse_args()
         university_id = args["university_id"]
-        # statement = select(ReviewTable).where(ReviewTable.university_id == university_id)
-        statement_text = "SELECT * FROM review_table WHERE review_table.university_id = :val"
-        # print(statement)
-        # res = db.session.execute(statement).all()
-        res = db.session.execute(text(statement_text), {"val": university_id}).all()        
+        statement = select(ReviewTable).where(ReviewTable.university_id == university_id)
+        res = db.session.scalars(statement).all()
         return [r for r in res], 200
+        # return reviews_schema.dump(res), 200
 
 class ReviewRes(Resource):
     @marshal_with(review_resource_fields)
