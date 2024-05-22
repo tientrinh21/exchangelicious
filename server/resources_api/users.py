@@ -1,5 +1,8 @@
 from flask_restful import Resource, marshal_with, reqparse, abort
-from resources_api.resource_fields_definitions import user_resource_fields, user_with_university_resource_fields
+from resources_api.resource_fields_definitions import (
+    user_resource_fields,
+    user_with_university_resource_fields,
+)
 from sqlalchemy import text, exc
 from database.database_setup import db
 from database.models import UserTable
@@ -8,27 +11,54 @@ from flask import request
 import hashlib
 import secrets
 
+
 class UserRes(Resource):
     @marshal_with(user_resource_fields)
     def get(self, user_id):
-        return db.get_or_404(UserTable, user_id, description=f"No user with the ID '{user_id}'.")
-    
+        return db.get_or_404(
+            UserTable, user_id, description=f"No user with the ID '{user_id}'."
+        )
+
+
 user_put_args = reqparse.RequestParser()
-user_put_args.add_argument('user_id', type=str, location = "args", help='User ID to create user')
-user_put_args.add_argument('username', type=str, location = "args", help='User name to create user')
-user_put_args.add_argument('pwd', type=str, location = "args", help='Password to create user')
-user_put_args.add_argument('nationality', type=str, location = "args", help='Nationality of user')
-user_put_args.add_argument('home_university', type=str, location = "args", help='Home university of user')
+user_put_args.add_argument(
+    "user_id", type=str, location="args", help="User ID to create user"
+)
+user_put_args.add_argument(
+    "username", type=str, location="args", help="User name to create user"
+)
+user_put_args.add_argument(
+    "pwd", type=str, location="args", help="Password to create user"
+)
+user_put_args.add_argument(
+    "nationality", type=str, location="args", help="Nationality of user"
+)
+user_put_args.add_argument(
+    "home_university", type=str, location="args", help="Home university of user"
+)
 
 user_update_args = reqparse.RequestParser()
-user_update_args.add_argument('user_id', type=str, location = "args", help='User ID to update user')
-user_update_args.add_argument('username', type=str, location = "args", help='User name to update user', required=False)
-user_update_args.add_argument('pwd', type=str, location = "args", help='Password to update user', required=False)
-user_update_args.add_argument('nationality', type=str, location = "args", help='Nationality of user', required=False)
-user_update_args.add_argument('home_university', type=str, location = "args", help='Home university of user', required=False)
+user_update_args.add_argument(
+    "user_id", type=str, location="args", help="User ID to update user"
+)
+user_update_args.add_argument(
+    "username", type=str, location="args", help="User name to update user"
+)
+user_update_args.add_argument(
+    "pwd", type=str, location="args", help="Password to update user"
+)
+user_update_args.add_argument(
+    "nationality", type=str, location="args", help="Nationality of user"
+)
+user_update_args.add_argument(
+    "home_university", type=str, location="args", help="Home university of user"
+)
 
 user_delete_args = reqparse.RequestParser()
-user_delete_args.add_argument('user_id', type=str, location = "args", help='User ID to delete user')
+user_delete_args.add_argument(
+    "user_id", type=str, location="args", help="User ID to delete user"
+)
+
 
 # Function to generate a salt
 def generate_salt():
@@ -47,7 +77,7 @@ class UsersAllRes(Resource):
     def get(self):
         users = UserTable.query.order_by(UserTable.username).all()
         return [user for user in users], 200
-    
+
     @marshal_with(user_resource_fields)
     def put(self):
         try:
@@ -70,6 +100,7 @@ class UsersAllRes(Resource):
                 nationality=args['nationality'],
                 home_university=args['home_university']
             )  
+
             db.session.add(new_user)
             db.session.commit()
             print(new_user)
@@ -77,7 +108,7 @@ class UsersAllRes(Resource):
         except exc.SQLAlchemyError as e:
             print(e)
             abort(message=str(e.__dict__.get("orig")), http_status_code=400)
-        
+
     @marshal_with(user_resource_fields, 200)
     def patch(self):
         try:
@@ -104,17 +135,20 @@ class UsersAllRes(Resource):
         except exc.SQLAlchemyError as e:
             print(e)
             abort(message=str(e.__dict__.get("orig")), http_status_code=400)
-        
+
     def delete(self):
         try:
             args = user_delete_args.parse_args()
-            user_id = args['user_id']
-            # print(f"Attempting to delete user with username: {username}")
-            user = db.session.query(UserTable).filter_by(user_id=user_id).first()
-            if not user:
-                print(f"No user found with the user id: {user_id}")
-                return {"message": f"No user with the user id '{user_id}'"}, 404
-            
+#             user_id = args['user_id']
+#             # print(f"Attempting to delete user with username: {username}")
+#             user = db.session.query(UserTable).filter_by(user_id=user_id).first()
+#             if not user:
+#                 print(f"No user found with the user id: {user_id}")
+#                 return {"message": f"No user with the user id '{user_id}'"}, 404
+            user_id = args["user_id"]
+            user = db.get_or_404(
+                UserTable, user_id, description=f"No user with the ID '{user_id}'."
+            )
             db.session.delete(user)
             db.session.commit()
             print(f"User with user_id '{user_id}' deleted successfully")
@@ -123,9 +157,10 @@ class UsersAllRes(Resource):
             print(f"An error occurred: {e}")
             abort(message=str(e), http_status_code=500)
 
-class UserWithUniversityRes(Resource):
+class UserWithUniversityRed(Resource):
     @marshal_with(user_with_university_resource_fields)
     def get(self, user_id):
+        # TODO: rewrite this
         sql_raw = "SELECT * FROM user_table JOIN university_table ON user_table.home_university = university_table.university_id WHERE user_table.user_id = :val"
         res = db.session.execute(text(sql_raw), {"val": user_id}).first()
         print(res)
