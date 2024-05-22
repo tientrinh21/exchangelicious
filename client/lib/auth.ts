@@ -15,7 +15,7 @@ export function useAuth(): boolean {
 
   useEffect(() => {
     setIsAuth(isAuthenticated())
-  }, [localStorage.getItem('user')])
+  }, [typeof window !== 'undefined' && localStorage.getItem('user')])
 
   return isAuth
 }
