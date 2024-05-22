@@ -17,5 +17,6 @@ def initialize_routes(api):
         UniversityWithInfoRes, "/api/universities/<string:university_id>/info"
     )
     api.add_resource(UniversityAllRes, "/api/universities")
-    api.add_resource(UserWithUniversityRed, "/api/users/<string:user_id>/uni")
-    api.add_resource(UniversityPagination, "/api/universities/search")
+    api.add_resource(UserWithUniversityRes, "/api/users/<string:user_id>/uni")
+    api.add_resource(UniversityPaginationRes, "/api/universities/search")
+    api.add_resource(UserLoginRes, "/api/users/login")

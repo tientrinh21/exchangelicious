@@ -47,7 +47,6 @@ class UniversityAllRes(Resource):
         unis = UniversityTable.query.order_by(UniversityTable.long_name).all()
         return [uni for uni in unis], 200
 
-
 class UniversityPagination(Resource):
     def __init__(self) -> None:
         super().__init__()

@@ -183,18 +183,9 @@
       "put": {
         "tags": ["User"],
         "summary": "Create a user",
-        "description": "Create user with details provided including user_id, username, password, nationality, and home_university.\n",
+        "description": "Create user with details provided including username, password, nationality, and home_university. User_id is automatically generated.\n",
         "parameters": [
-          {
-            "name": "user_id",
-            "in": "query",
-            "description": "ID of the user to create",
-            "required": true,
-            "schema": {
-              "type": "string",
-              "maxLength": 36
-            }
-          },
+        
           {
             "name": "username",
             "in": "query",
@@ -260,18 +251,18 @@
           {
             "name": "user_id",
             "in": "query",
-            "description": "ID of the user to update",
-            "required": true,
+            "description": "User ID of the user to update",
+            "required": false,
             "schema": {
               "type": "string",
-              "maxLength": 36
+              "maxLength": 64
             }
           },
           {
             "name": "username",
             "in": "query",
             "description": "Username of the user to update",
-            "required": true,
+            "required": false,
             "schema": {
               "type": "string",
               "maxLength": 36
@@ -281,7 +272,7 @@
             "name": "pwd",
             "in": "query",
             "description": "Password of the user to update",
-            "required": true,
+            "required": false,
             "schema": {
               "type": "string",
               "maxLength": 36
@@ -332,7 +323,43 @@
           {
             "name": "user_id",
             "in": "query",
-            "description": "ID of the user to delete",
+            "description": "user id of the user to delete",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "maxLength": 64
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Deletion of user"
+          }
+        }
+      }
+    },
+    "/api/users/login": {
+      "get": {
+        "tags": [
+          "User"
+        ],
+        "summary": "Get an user information",
+        "description": "Returns a list of users with their details including user_id, username, password, nationality, and home_university.\n",
+        "parameters": [
+          {
+            "name": "username",
+            "in": "query",
+            "description": "Username of the user to get",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "maxLength": 36
+            }
+          },
+          {
+            "name": "pwd",
+            "in": "query",
+            "description": "Password of the user to get",
             "required": true,
             "schema": {
               "type": "string",
@@ -342,7 +369,17 @@
         ],
         "responses": {
           "200": {
-            "description": "Deletion of user"
+            "description": "A list of users.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/User"
+                  }
+                }
+              }
+            }
           }
         }
       }
