@@ -157,7 +157,7 @@ class UsersAllRes(Resource):
             print(f"An error occurred: {e}")
             abort(message=str(e), http_status_code=500)
 
-class UserWithUniversityRed(Resource):
+class UserWithUniversityRes(Resource):
     @marshal_with(user_with_university_resource_fields)
     def get(self, user_id):
         # TODO: rewrite this
