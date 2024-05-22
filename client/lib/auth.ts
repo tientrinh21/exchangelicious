@@ -14,13 +14,8 @@ export function useAuth(): boolean {
   const [isAuth, setIsAuth] = useAtom(authAtom)
 
   useEffect(() => {
-    function handleChangeStorage() {
-      setIsAuth(isAuthenticated())
-    }
-
-    window.addEventListener('storage', handleChangeStorage)
-    return () => window.removeEventListener('storage', handleChangeStorage)
-  }, [])
+    setIsAuth(isAuthenticated())
+  }, [localStorage.getItem('user')])
 
   return isAuth
 }
