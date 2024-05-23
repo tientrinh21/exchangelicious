@@ -1,6 +1,6 @@
 import json
 from flask_restful import Resource, marshal_with, reqparse, abort
-from resources_api.resource_fields_definitions import reply_resource_fields, review_resource_fields
+from resources_api.resource_fields_definitions import reply_resource_fields, review_resource_fields, review_paginate_resource_fields
 from database.database_setup import db
 from database.models import ReviewTable, ReplyTable
 # from database.models import review_schema, reviews_schema
@@ -34,7 +34,7 @@ review_update_args.add_argument('mood_score', type=str, location = "args", help=
 review_delete_args = reqparse.RequestParser()
 review_delete_args.add_argument('review_id', type=str, location = "args", required=True, help='ID of the review to be deleted')
 
-class ReviewPerUniRes(Resource):
+class ReviewPerUniAllRes(Resource):
     @marshal_with(review_resource_fields)
     def get(self):
         args = review_per_uni_get_args.parse_args()
@@ -43,6 +43,27 @@ class ReviewPerUniRes(Resource):
         res = db.session.scalars(statement).all()
         return [r for r in res], 200
         # return reviews_schema.dump(res), 200
+
+class ReviewPerUniPaginateRes(Resource):
+    def __init__(self) -> None:
+        super().__init__()
+        self.reqparse = reqparse.RequestParser()
+        self.reqparse.add_argument(
+            "page_number", type=int, default=1, location="args", required=True
+        )
+        self.reqparse.add_argument('university_id', type=str, location = "args", required=True, help='ID of the review to be fetched')
+
+    @marshal_with(review_paginate_resource_fields)
+    def get(self):
+        args = self.reqparse.parse_args()
+        university_id = args["university_id"]
+        page_number = args["page_number"]
+        res = db.paginate(
+            select(ReviewTable).where(ReviewTable.university_id == university_id).order_by(),
+            per_page=2,
+            page=page_number
+        )
+        return {"hasMore": res.has_next, "items": [r for r in res]}, 200
 
 class ReviewRes(Resource):
     @marshal_with(review_resource_fields)

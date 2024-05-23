@@ -76,6 +76,11 @@ review_resource_fields = {
     "down_vote": fields.Integer,
 }
 
+review_paginate_resource_fields = {
+    "hasMore": fields.Boolean,
+    "items": fields.List(fields.Nested(review_resource_fields)),
+}
+
 reply_resource_fields = {
     "reply_id": fields.String,
     "user_id": fields.String,
