@@ -2,7 +2,6 @@ import { type LoginFormSchema, type RegisterFormSchema } from '@/types/schema'
 import { type University } from '@/types/university'
 import { type User } from '@/types/user'
 import axios from 'axios'
-import countries from './countries.json'
 
 const BASE_URL = process.env.BASE_URL || 'http://localhost:8080/api'
 
