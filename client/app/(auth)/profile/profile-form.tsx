@@ -37,38 +37,49 @@ import { cn } from '@/lib/utils'
 import { profileFormSchema, type ProfileFormSchema } from '@/types/schema'
 import { zodResolver } from '@hookform/resolvers/zod'
 import { CaretSortIcon, CheckIcon } from '@radix-ui/react-icons'
-import { useState } from 'react'
+import { useEffect, useState } from 'react'
 import { useForm } from 'react-hook-form'
 import { toast } from 'sonner'
+import { type User } from '@/types/user'
 
 export default function ProfileForm() {
-  const [user, setUser] = useState(getUserData())
+  const [user, setUser] = useState<User>()
 
   const [nationalityOpen, setNationalityOpen] = useState(false)
-  const [nationalityValue, setNationalityValue] = useState(
-    user.nationality ?? '',
-  )
+  const [nationalityValue, setNationalityValue] = useState('')
 
   const universities = useUniversities()
   const [uniOpen, setUniOpen] = useState(false)
-  const [uniValue, setUniValue] = useState(user.home_university ?? '')
+  const [uniValue, setUniValue] = useState('')
 
   // Define form
   const form = useForm<ProfileFormSchema>({
     resolver: zodResolver(profileFormSchema),
     defaultValues: {
       password: '',
-      nationality: user.nationality ?? '',
-      home_university: user.home_university ?? '',
+      nationality: '',
+      home_university: '',
     },
   })
+
+  // Load data from localStorage
+  useEffect(() => {
+    const user = getUserData()
+    setUser(user)
+
+    form.setValue('nationality', user.nationality ?? '')
+    setNationalityValue(user.nationality ?? '')
+
+    form.setValue('home_university', user.home_university ?? '')
+    setUniValue(user.home_university ?? '')
+  }, [typeof window !== 'undefined'])
 
   // Submit handler
   async function onSubmit(values: ProfileFormSchema) {
     const toastId = toast.loading('Updating your account...')
 
     try {
-      const updatedUser = await updateUser(user, values)
+      const updatedUser = await updateUser(user as User, values)
       localStorage.setItem('user', btoa(JSON.stringify(updatedUser)))
       setUser(updatedUser)
       console.log(updatedUser)

@@ -11,11 +11,13 @@ import { ExitIcon, FileTextIcon, PersonIcon } from '@radix-ui/react-icons'
 import { useSetAtom } from 'jotai/react'
 import Link from 'next/link'
 import { useRouter } from 'next/navigation'
+import { useState } from 'react'
 import { toast } from 'sonner'
 import { Button } from './ui/button'
 
 export function AccountButton() {
   const router = useRouter()
+  const [open, setOpen] = useState(false)
 
   const isAuth = useAuth()
   const setIsAuth = useSetAtom(authAtom)
@@ -31,8 +33,8 @@ export function AccountButton() {
   return (
     <>
       {isAuth ? (
-        <DropdownMenu>
-          <DropdownMenuTrigger>
+        <DropdownMenu open={open} onOpenChange={setOpen}>
+          <DropdownMenuTrigger asChild>
             <Button className="order-1 rounded-lg px-3 text-base md:px-5">
               <PersonIcon className="mr-1 h-3 w-3 md:mr-2 md:h-4 md:w-4" />
               <span className="text-sm md:text-base">{user?.username}</span>
@@ -46,6 +48,7 @@ export function AccountButton() {
               <Link
                 href="/profile"
                 className={`flex w-full items-center justify-center text-center text-base font-medium text-accent-foreground`}
+                onClick={() => setOpen(false)}
               >
                 <Button
                   variant="link"
