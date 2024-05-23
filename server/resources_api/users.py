@@ -75,31 +75,8 @@ def hash_password(password, salt):
 class UsersAllRes(Resource):
     @marshal_with(user_resource_fields)
     def get(self):
-        try:
-            args = user_put_args.parse_args()
-            username = args["username"]
-            password = args["pwd"]
-
-            # Retrieve user from the database based on the provided username
-            user = UserTable.query.filter_by(username=username).first()
-
-            if user:
-                # Hash the provided password using the salt stored in the database
-                hashed_password = hash_password(password, user.salt)
-
-                # Check if the hashed password matches the stored hashed password
-                if hashed_password == user.pwd:
-                    # Passwords match, user is authenticated, return user information
-                    return user, 200
-                else:
-                    # Passwords do not match, user authentication failed
-                    abort(message="Invalid credentials", http_status_code=401)
-            else:
-                # User with the provided username not found
-                abort(message="User not found", http_status_code=404)
-        except exc.SQLAlchemyError as e:
-            print(e)
-            abort(message=str(e.__dict__.get("orig")), http_status_code=400)
+        users = UserTable.query.order_by(UserTable.username).all()
+        return [user for user in users], 200
 
     @marshal_with(user_resource_fields)
     def post(self):
@@ -132,11 +109,10 @@ class UsersAllRes(Resource):
             print(e)
             abort(message=str(e.__dict__.get("orig")), http_status_code=400)
 
-    @marshal_with(user_resource_fields, 200)
+    @marshal_with(user_resource_fields)
     def patch(self):
         try:
             args = user_update_args.parse_args()
-            # user_id should be generated automatically
             user_id = args['user_id']
             user = db.session.query(UserTable).filter_by(user_id=user_id).first()
             # Update the user attributes if they are present in the args
