@@ -10,12 +10,16 @@ import {
 import { useAuth } from '@/lib/auth'
 import Link from 'next/link'
 import { useRouter } from 'next/navigation'
+import { useEffect } from 'react'
 import { RegisterForm } from './register-form'
 
 export default function SignUpPage() {
   const router = useRouter()
   const isAuth = useAuth()
-  if (isAuth) router.replace('/exchange')
+
+  useEffect(() => {
+    isAuth && router.replace('/exchange')
+  }, [isAuth])
 
   return (
     <Card className="w-full max-w-md">

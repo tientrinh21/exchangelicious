@@ -35,7 +35,9 @@ export const profileFormSchema = z.object({
   password: z
     .string()
     .min(2, { message: 'Password must be 2 or more characters long' })
-    .max(50),
+    .max(50)
+    .optional()
+    .or(z.literal('')),
   nationality: z.string().optional(),
   home_university: z.string().optional(),
 })

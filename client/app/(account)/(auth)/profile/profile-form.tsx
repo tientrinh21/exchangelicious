@@ -7,8 +7,8 @@ import {
   CommandGroup,
   CommandInput,
   CommandItem,
-  CommandList,
 } from '@/components/ui/command'
+import { CommandList } from 'cmdk'
 import {
   Form,
   FormControl,
@@ -42,20 +42,24 @@ import { useForm } from 'react-hook-form'
 import { toast } from 'sonner'
 
 export default function ProfileForm() {
+  const [user, setUser] = useState(getUserData())
+
   const [nationalityOpen, setNationalityOpen] = useState(false)
-  const [nationalityValue, setNationalityValue] = useState('')
+  const [nationalityValue, setNationalityValue] = useState(
+    user.nationality ?? '',
+  )
 
   const universities = useUniversities()
   const [uniOpen, setUniOpen] = useState(false)
-  const [uniValue, setUniValue] = useState('')
+  const [uniValue, setUniValue] = useState(user.home_university ?? '')
 
   // Define form
   const form = useForm<ProfileFormSchema>({
     resolver: zodResolver(profileFormSchema),
     defaultValues: {
       password: '',
-      nationality: '',
-      home_university: '',
+      nationality: user.nationality ?? '',
+      home_university: user.home_university ?? '',
     },
   })
 
@@ -64,9 +68,12 @@ export default function ProfileForm() {
     const toastId = toast.loading('Updating your account...')
 
     try {
-      const user = getUserData()
       const updatedUser = await updateUser(user, values)
+      localStorage.setItem('user', btoa(JSON.stringify(updatedUser)))
+      setUser(updatedUser)
       console.log(updatedUser)
+
+      form.setValue('password', '') // clean input on successful update
       toast.success('Updated successfullly!', { id: toastId })
     } catch (error: any) {
       const errMsg: string = error.response.data.message
@@ -119,7 +126,7 @@ export default function ProfileForm() {
                       variant="outline"
                       role="combobox"
                       className={cn(
-                        'flex w-full justify-between rounded-md border border-input bg-transparent px-3 py-1 text-sm shadow-sm transition-colors focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-ring',
+                        'flex w-full max-w-[35rem] justify-between rounded-md border border-input bg-transparent px-3 py-1 text-sm shadow-sm transition-colors focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-ring',
                         nationalityValue !== ''
                           ? 'text-foreground'
                           : 'text-muted-foreground',
@@ -127,14 +134,14 @@ export default function ProfileForm() {
                     >
                       {nationalityValue
                         ? countries.find(
-                            (country) => country.name === nationalityValue,
+                            (country) => country.code === nationalityValue,
                           )?.name
                         : 'Select your country'}
                       <CaretSortIcon className="ml-2 h-4 w-4 shrink-0 opacity-50" />
                     </Button>
                   </FormControl>
                 </PopoverTrigger>
-                <PopoverContent className="w-[80vw] max-w-[400px] p-0">
+                <PopoverContent className="w-[80vw] max-w-[35rem] p-0">
                   <Command>
                     <CommandInput
                       placeholder="Search country..."
@@ -147,18 +154,13 @@ export default function ProfileForm() {
                             <CommandItem
                               key={country.code}
                               value={country.name}
-                              onSelect={(currentValue) => {
-                                form.setValue(
-                                  'nationality',
-                                  currentValue === nationalityValue
+                              onSelect={() => {
+                                const val =
+                                  country.code === nationalityValue
                                     ? ''
-                                    : country.code,
-                                )
-                                setNationalityValue(
-                                  currentValue === nationalityValue
-                                    ? ''
-                                    : currentValue,
-                                )
+                                    : country.code
+                                form.setValue('nationality', val)
+                                setNationalityValue(val)
                                 setNationalityOpen(false)
                               }}
                             >
@@ -166,7 +168,7 @@ export default function ProfileForm() {
                               <CheckIcon
                                 className={cn(
                                   'ml-auto h-4 w-4',
-                                  nationalityValue == country.name
+                                  nationalityValue == country.code
                                     ? 'opacity-100'
                                     : 'opacity-0',
                                 )}
@@ -181,18 +183,13 @@ export default function ProfileForm() {
                             <CommandItem
                               key={country.code}
                               value={country.name}
-                              onSelect={(currentValue) => {
-                                form.setValue(
-                                  'nationality',
-                                  currentValue === nationalityValue
+                              onSelect={() => {
+                                const val =
+                                  country.code === nationalityValue
                                     ? ''
-                                    : country.code,
-                                )
-                                setNationalityValue(
-                                  currentValue === nationalityValue
-                                    ? ''
-                                    : currentValue,
-                                )
+                                    : country.code
+                                form.setValue('nationality', val)
+                                setNationalityValue(val)
                                 setNationalityOpen(false)
                               }}
                             >
@@ -200,7 +197,7 @@ export default function ProfileForm() {
                               <CheckIcon
                                 className={cn(
                                   'ml-auto h-4 w-4',
-                                  nationalityValue == country.name
+                                  nationalityValue == country.code
                                     ? 'opacity-100'
                                     : 'opacity-0',
                                 )}
@@ -234,7 +231,7 @@ export default function ProfileForm() {
                       variant="outline"
                       role="combobox"
                       className={cn(
-                        'flex w-full justify-between rounded-md border border-input bg-transparent px-3 py-1 text-sm shadow-sm transition-colors focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-ring',
+                        'flex w-full max-w-[35rem] justify-between rounded-md border border-input bg-transparent px-3 py-1 text-sm shadow-sm transition-colors focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-ring',
                         uniValue !== ''
                           ? 'text-foreground'
                           : 'text-muted-foreground',
@@ -242,14 +239,14 @@ export default function ProfileForm() {
                     >
                       {uniValue
                         ? universities?.find(
-                            (uni) => uni.long_name === uniValue,
+                            (uni) => uni.university_id === uniValue,
                           )?.long_name
                         : 'Select your home university'}
                       <CaretSortIcon className="ml-2 h-4 w-4 shrink-0 opacity-50" />
                     </Button>
                   </FormControl>
                 </PopoverTrigger>
-                <PopoverContent className="w-[80vw] max-w-[400px] p-0">
+                <PopoverContent className="w-[80vw] max-w-[35rem] p-0">
                   <Command>
                     <CommandInput
                       placeholder="Search university..."
@@ -263,16 +260,13 @@ export default function ProfileForm() {
                             <CommandItem
                               key={uni.university_id}
                               value={uni.long_name}
-                              onSelect={(currentValue) => {
-                                form.setValue(
-                                  'home_university',
-                                  currentValue === uniValue
+                              onSelect={() => {
+                                const val =
+                                  uni.university_id === uniValue
                                     ? ''
-                                    : uni.university_id,
-                                )
-                                setUniValue(
-                                  currentValue === uniValue ? '' : currentValue,
-                                )
+                                    : uni.university_id
+                                form.setValue('home_university', val)
+                                setUniValue(val)
                                 setUniOpen(false)
                               }}
                             >
@@ -280,7 +274,7 @@ export default function ProfileForm() {
                               <CheckIcon
                                 className={cn(
                                   'ml-auto h-4 w-4',
-                                  uniValue == uni.long_name
+                                  uniValue == uni.university_id
                                     ? 'opacity-100'
                                     : 'opacity-0',
                                 )}
@@ -295,16 +289,13 @@ export default function ProfileForm() {
                             <CommandItem
                               key={uni.university_id}
                               value={uni.long_name}
-                              onSelect={(currentValue) => {
-                                form.setValue(
-                                  'home_university',
-                                  currentValue === uniValue
+                              onSelect={() => {
+                                const val =
+                                  uni.university_id === uniValue
                                     ? ''
-                                    : uni.university_id,
-                                )
-                                setUniValue(
-                                  currentValue === uniValue ? '' : currentValue,
-                                )
+                                    : uni.university_id
+                                form.setValue('home_university', val)
+                                setUniValue(val)
                                 setUniOpen(false)
                               }}
                             >
@@ -312,7 +303,7 @@ export default function ProfileForm() {
                               <CheckIcon
                                 className={cn(
                                   'ml-auto h-4 w-4',
-                                  uniValue == uni.long_name
+                                  uniValue == uni.university_id
                                     ? 'opacity-100'
                                     : 'opacity-0',
                                 )}
@@ -329,7 +320,7 @@ export default function ProfileForm() {
             </FormItem>
           )}
         />
-        <Button type="submit" className="mt-2">
+        <Button type="submit" className="mt-2 w-full">
           Update account
         </Button>
       </form>

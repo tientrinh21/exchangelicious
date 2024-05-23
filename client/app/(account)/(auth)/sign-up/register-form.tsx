@@ -7,8 +7,8 @@ import {
   CommandGroup,
   CommandInput,
   CommandItem,
-  CommandList,
 } from '@/components/ui/command'
+import { CommandList } from 'cmdk'
 import {
   Form,
   FormControl,
@@ -142,7 +142,7 @@ export function RegisterForm() {
                     >
                       {nationalityValue
                         ? countries.find(
-                            (country) => country.name === nationalityValue,
+                            (country) => country.code === nationalityValue,
                           )?.name
                         : 'Select your country'}
                       <CaretSortIcon className="ml-2 h-4 w-4 shrink-0 opacity-50" />
@@ -162,18 +162,13 @@ export function RegisterForm() {
                             <CommandItem
                               key={country.code}
                               value={country.name}
-                              onSelect={(currentValue) => {
-                                form.setValue(
-                                  'nationality',
-                                  currentValue === nationalityValue
+                              onSelect={() => {
+                                const val =
+                                  country.code === nationalityValue
                                     ? ''
-                                    : country.code,
-                                )
-                                setNationalityValue(
-                                  currentValue === nationalityValue
-                                    ? ''
-                                    : currentValue,
-                                )
+                                    : country.code
+                                form.setValue('nationality', val)
+                                setNationalityValue(val)
                                 setNationalityOpen(false)
                               }}
                             >
@@ -181,7 +176,7 @@ export function RegisterForm() {
                               <CheckIcon
                                 className={cn(
                                   'ml-auto h-4 w-4',
-                                  nationalityValue == country.name
+                                  nationalityValue == country.code
                                     ? 'opacity-100'
                                     : 'opacity-0',
                                 )}
@@ -196,18 +191,13 @@ export function RegisterForm() {
                             <CommandItem
                               key={country.code}
                               value={country.name}
-                              onSelect={(currentValue) => {
-                                form.setValue(
-                                  'nationality',
-                                  currentValue === nationalityValue
+                              onSelect={() => {
+                                const val =
+                                  country.code === nationalityValue
                                     ? ''
-                                    : country.code,
-                                )
-                                setNationalityValue(
-                                  currentValue === nationalityValue
-                                    ? ''
-                                    : currentValue,
-                                )
+                                    : country.code
+                                form.setValue('nationality', val)
+                                setNationalityValue(val)
                                 setNationalityOpen(false)
                               }}
                             >
@@ -215,7 +205,7 @@ export function RegisterForm() {
                               <CheckIcon
                                 className={cn(
                                   'ml-auto h-4 w-4',
-                                  nationalityValue == country.name
+                                  nationalityValue == country.code
                                     ? 'opacity-100'
                                     : 'opacity-0',
                                 )}
@@ -257,7 +247,7 @@ export function RegisterForm() {
                     >
                       {uniValue
                         ? universities?.find(
-                            (uni) => uni.long_name === uniValue,
+                            (uni) => uni.university_id === uniValue,
                           )?.long_name
                         : 'Select your home university'}
                       <CaretSortIcon className="ml-2 h-4 w-4 shrink-0 opacity-50" />
@@ -278,24 +268,20 @@ export function RegisterForm() {
                             <CommandItem
                               key={uni.university_id}
                               value={uni.long_name}
-                              onSelect={(currentValue) => {
-                                form.setValue(
-                                  'home_university',
-                                  currentValue === uniValue
+                              onSelect={() => {
+                                const val =
+                                  uni.university_id === uniValue
                                     ? ''
-                                    : uni.university_id,
-                                )
-                                setUniValue(
-                                  currentValue === uniValue ? '' : currentValue,
-                                )
-                                setUniOpen(false)
+                                    : uni.university_id
+                                form.setValue('home_university', val)
+                                setUniValue(val)
                               }}
                             >
                               {uni.long_name}
                               <CheckIcon
                                 className={cn(
                                   'ml-auto h-4 w-4',
-                                  uniValue == uni.long_name
+                                  uniValue == uni.university_id
                                     ? 'opacity-100'
                                     : 'opacity-0',
                                 )}
@@ -310,16 +296,13 @@ export function RegisterForm() {
                             <CommandItem
                               key={uni.university_id}
                               value={uni.long_name}
-                              onSelect={(currentValue) => {
-                                form.setValue(
-                                  'home_university',
-                                  currentValue === uniValue
+                              onSelect={() => {
+                                const val =
+                                  uni.university_id === uniValue
                                     ? ''
-                                    : uni.university_id,
-                                )
-                                setUniValue(
-                                  currentValue === uniValue ? '' : currentValue,
-                                )
+                                    : uni.university_id
+                                form.setValue('home_university', val)
+                                setUniValue(val)
                                 setUniOpen(false)
                               }}
                             >
@@ -327,7 +310,7 @@ export function RegisterForm() {
                               <CheckIcon
                                 className={cn(
                                   'ml-auto h-4 w-4',
-                                  uniValue == uni.long_name
+                                  uniValue == uni.university_id
                                     ? 'opacity-100'
                                     : 'opacity-0',
                                 )}
