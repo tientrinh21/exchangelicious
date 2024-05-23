@@ -4,7 +4,7 @@ from resources_api.resource_fields_definitions import reply_resource_fields, rev
 from database.database_setup import db
 from database.models import ReviewTable, ReplyTable
 # from database.models import review_schema, reviews_schema
-from sqlalchemy import select, exc, text
+from sqlalchemy import select, exc, text, desc
 from datetime import datetime
 import uuid
 
@@ -58,9 +58,10 @@ class ReviewPerUniPaginateRes(Resource):
         args = self.reqparse.parse_args()
         university_id = args["university_id"]
         page_number = args["page_number"]
+        # TODO: Should be able to order based on votes or new/old
         res = db.paginate(
-            select(ReviewTable).where(ReviewTable.university_id == university_id).order_by(),
-            per_page=2,
+            select(ReviewTable).where(ReviewTable.university_id == university_id).order_by((ReviewTable.up_vote - ReviewTable.down_vote).desc()),
+            per_page=4,
             page=page_number
         )
         return {"hasMore": res.has_next, "items": [r for r in res]}, 200
@@ -129,7 +130,6 @@ class ReviewRes(Resource):
         except exc.SQLAlchemyError as e:
             print(e)
             abort(message=str(e.__dict__.get("orig")), http_status_code=400)
-
 
 # find all reviews for a university
 # upvote/downvote

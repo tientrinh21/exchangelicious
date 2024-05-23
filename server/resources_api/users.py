@@ -132,7 +132,7 @@ class UsersAllRes(Resource):
             print(e)
             abort(message=str(e.__dict__.get("orig")), http_status_code=400)
 
-    @marshal_with(user_resource_fields)
+    @marshal_with(user_resource_fields, 200)
     def patch(self):
         try:
             args = user_update_args.parse_args()

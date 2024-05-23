@@ -1,67 +1,158 @@
 import { Review } from '@/types/review-section'
 import axios from 'axios'
 import React, { useEffect, useState } from 'react'
+import InfiniteScroll from 'react-infinite-scroll-component'
 
 const BASE_URL = 'http://127.0.0.1:8080/api'
 
-function getReviewsPerUniversity(university_id: string) {
-    const [error, setError] = useState(false)
-    const [isLoading, setIsLoading] = useState(false)
-    const [reviews, setReviews] = useState<Review[]>([])    
+// function getReviewsPerUniversity(university_id: string) {
+//     const [error, setError] = useState(false)
+//     const [isLoading, setIsLoading] = useState(false)
+//     const [reviews, setReviews] = useState<Review[]>([])    
 
-    useEffect(() => {
-        setIsLoading(true)
-        setError(false)
-        axios({
-            method: "GET",
-            url: `${BASE_URL}/reviews`,
-            params: {university_id: university_id}
-        }).then((res) => {
-            console.log(res.data)
-            setReviews(res.data)
-            setIsLoading(false)
-        }).catch((e) => {
-            console.log(e)
-            setError(true)
-            setIsLoading(false)
-        })
-    }, [])
+//     useEffect(() => {
+//         setIsLoading(true)
+//         setError(false)
+//         axios({
+//             method: "GET",
+//             url: `${BASE_URL}/reviews`,
+//             params: {university_id: university_id}
+//         }).then((res) => {
+//             console.log(res.data)
+//             setReviews(res.data)
+//             setIsLoading(false)
+//         }).catch((e) => {
+//             console.log(e)
+//             setError(true)
+//             setIsLoading(false)
+//         })
+//     }, [])
     
-    return {
-        isLoading,
-        error,
-        reviews
-    }
-}
+//     return {
+//         isLoading,
+//         error,
+//         reviews
+//     }
+// }
+
+
+export default function CommentSectionDemo(props: {university_id: string}) {
+  const [reviews, setReviews] = useState<Review[]>([])    
+  const [isLoading, setIsLoading] = useState(true) // to avoid blank screen when awaiting
+  const [hasMore, setHasMore] = useState(true)
+  const [pageNumber, setPageNumber] = useState(2)
+
+  // fetch initial data
+  useEffect(() => {
+    setIsLoading(true)
+    axios({
+      method: 'GET',
+      url: `${BASE_URL}/reviews/paginate`,
+      headers: {
+        'Content-Type': 'application/json',
+      },
+      params: { university_id: props.university_id, page_number: 1},
+    })
+      .then((res) => {
+        setHasMore(res.data['hasMore'])
+        setReviews(res.data['items'])
+        setIsLoading(false)
+      })
+      .catch((err) => {
+        console.log(err)
+        setIsLoading(false)
+      })
+  }, [])
+
+  const fetchMoreData = () => {
+    setIsLoading(true)
+    axios({
+      method: 'GET',
+      url: `${BASE_URL}/reviews/paginate`,
+      headers: {
+        'Content-Type': 'application/json',
+      },
+      params: { university_id: props.university_id, page_number: pageNumber},
+    })
+      .then((res) => {
+        setHasMore(res.data['hasMore'])
+        setReviews((previousUniversities) => [
+          ...previousUniversities,
+          ...res.data['items'],
+        ])
+        setPageNumber((prevIndex) => prevIndex + 1)
+        setIsLoading(false)
+      })
+      .catch((err) => {
+        console.log(err)
+        setIsLoading(false)
+      })
+  }
+
+  return (
+      <>
+      <h1>All the reviews about this university in the database:</h1>
+    {isLoading && (<div>Loading ...</div>)}
+    {!isLoading && reviews.length > 0 && (
+        <InfiniteScroll
+          dataLength={reviews.length}
+          next={fetchMoreData}
+          hasMore={hasMore}
+          loader={
+            <p className="mt-20 text-center text-lg font-semibold text-secondary-foreground">
+              Loading...
+            </p>
+          }
+          endMessage={
+            <p className="my-10 text-center text-lg font-semibold text-secondary-foreground">
+              No more reviews found.
+            </p>
+          }
+        >
+          <div className="flex flex-col gap-3">
+            {reviews.map((review) => (
+              // TODO: Make pretty review cards
+              <li key={review.review_id}>Author: {review.user_id} + {review.title} + {review.mood_score} + {review.content} + {review.up_vote} - {review.down_vote} = {review.up_vote - review.down_vote} </li>
+            ))}
+          </div>
+        </InfiniteScroll>
+      )}
+      {!isLoading && reviews.length == 0 && (
+        <p className="mt-20 text-center text-lg font-semibold text-secondary-foreground">
+          No reviews found.
+        </p>
+      )}
+      </>
+  )
 
 // https://react.semantic-ui.com/views/comment/#types-comment
 // export default function CommentSectionDemo(props: {university_id: string}) {
-export default function CommentSectionDemo(props: {university_id: string}) {
-    console.log(props.university_id)
+// export default function CommentSectionDemo(props: {university_id: string}) {
+//     console.log(props.university_id)
 
-    const {
-        isLoading,
-        error,
-        reviews
-    } = getReviewsPerUniversity(props.university_id)
+//     const {
+//         isLoading,
+//         error,
+//         reviews
+//     } = getReviewsPerUniversity(props.university_id)
 
-    console.log(reviews.length)
-    console.log(isLoading)
-    return (
-        <>
-        <h1>All the reviews about this university in the database:</h1>
-      {isLoading && (<div>Loading ...</div>)}
-      {!isLoading && reviews.length > 0 && (
-        <ul>
-          {reviews.map((review) => {
-            // TODO: We need the username of a user
-            return <li key={review.review_id}>Author: {review.user_id} + {review.title} + {review.mood_score} + {review.content}</li>
-          })}
-        </ul>
-      )} 
+//     console.log(reviews.length)
+//     console.log(isLoading)
+//     return (
+//         <>
+//         <h1>All the reviews about this university in the database:</h1>
+//       {isLoading && (<div>Loading ...</div>)}
+//       {!isLoading && reviews.length > 0 && (
+//         <ul>
+//           {reviews.map((review) => {
+//             // TODO: We need the username of a user
+//             return <li key={review.review_id}>Author: {review.user_id} + {review.title} + {review.mood_score} + {review.content}</li>
+//           })}
+//         </ul>
+//       )} 
 
-        </>
-    )
+//         </>
+//     )
 
     // return (
     //     <div className="w-fullbg-white rounded-lg border p-1 md:p-3 m-10">
