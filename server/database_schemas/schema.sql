@@ -438,9 +438,13 @@ insert into partner_universities_table(id, from_university_id, to_university_id)
   ('skku-uib', 'skku', 'uib'),
   ('ntnu-skku', 'ntnu', 'skku');
   
-#d31-4f6a-8c8e-2d22fb805446	ntnu	oo	NTNU for life	NTNU is the best evah	2024-05-22 13:41:14		very good	0	0
-#	7df62b4d-2e10-421a-aeae-8d08a1613db4	skku	kk	We love skku - alfa	skkuuu is fantastic - alfa	2024-05-23 11:41:49		neutral	0	0
-#	8056c629-e9ee-4fac-96ae-90bdd01f1190	skku	kk	We love skku - beta	skkuuu is fantastic - beta	2024-05-23 11:41:58		neutral	0	0
-#	8e420f12-2546-4fc9-8a70-800e5d1ebf0d	skku	kk	We love skku - delta	skkuuu is fantastic - delta	2024-05-23 11:42:20		neutral	0	0
-#	e3cabc1e-4e84-4a8b-b00b-bb22fff8ab98	skku	kk	We love skku - echo	skkuuu is fantastic - echo	2024-05-23 11:42:28		neutral	0	0
-#	e6ee153a-b592-4a29-94f2-f41d6fdd445c	skku	kk	We love skku - charlie	skkuuu is fantastic - charlie	2024-05-23 11:42:10		neutral	0	0
+insert into review_table(review_id, university_id, user_id, title, content, submit_datetime ,last_edit_datetime,
+    mood_score,
+    up_vote,
+    down_vote) values
+("6df62b4d-d31-4f6a-8c8e-2d22fb805446", "ntnu", "kk", "NTNU for life", "NTNU is the best evah", "2024-05-22 13:41:14", null, "very good", 	3,	10),
+("7df62b4d-2e10-421a-aeae-8d08a1613db4", "skku", "kk", "We love skku - alfa",	"skkuuu is fantastic - alfa", "2024-05-23 15:41:49", null, "neutral", 3, 10),
+("8056c629-e9ee-4fac-96ae-90bdd01f1190", "skku", "kk", "We love skku - beta",	"skkuuu is fantastic - beta", "2024-05-23 13:41:49", null, "neutral", 5, 5),
+("8e420f12-2546-4fc9-8a70-800e5d1ebf0d", "skku", "kk", "We love skku - echo",	"skkuuu is fantastic - echo", "2024-05-23 12:41:49", null, "neutral", 20, 0),
+("e3cabc1e-4e84-4a8b-b00b-bb22fff8ab98", "skku", "kk", "We love skku - charlie",	"skkuuu is fantastic - charlie", "2024-05-23 11:41:49", null, "neutral", 10, 3),
+("e6ee153a-b592-4a29-94f2-f41d6fdd445c", "skku", "kk", "We love skku - delta",	"skkuuu is fantastic - delta", "2024-05-23 11:45:49", null, "neutral", 20, 1);

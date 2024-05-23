@@ -134,6 +134,3 @@ class ReviewRes(Resource):
 # find all reviews for a university
 # upvote/downvote
 
-        
-    
-    
