@@ -1,3 +1,5 @@
+'use client'
+
 import {
   Card,
   CardContent,
@@ -5,10 +7,16 @@ import {
   CardHeader,
   CardTitle,
 } from '@/components/ui/card'
+import { useAuth } from '@/lib/auth'
 import Link from 'next/link'
+import { useRouter } from 'next/navigation'
 import { RegisterForm } from './register-form'
 
 export default function SignUpPage() {
+  const router = useRouter()
+  const isAuth = useAuth()
+  if (isAuth) router.replace('/exchange')
+
   return (
     <Card className="w-full max-w-md">
       <CardHeader>
