@@ -7,7 +7,7 @@ import InfiniteScroll from 'react-infinite-scroll-component'
 import axios from 'axios'
 import { University } from '@/types/university'
 
-const BASE_URL = 'http://127.0.0.1:8080/api'
+const BASE_URL = process.env.BASE_URL || 'http://localhost:8080/api'
 
 export default function ExchangePage() {
   const [universities, setUniversities] = useState<University[]>([])
