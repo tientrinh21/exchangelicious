@@ -408,11 +408,3 @@ insert into partner_universities_table(id, from_university_id, to_university_id)
   ('skku-uio', 'skku', 'uio'),
   ('skku-uib', 'skku', 'uib'),
   ('ntnu-skku', 'ntnu', 'skku');
-
-insert into user_table(user_id, username, pwd, nationality, home_university) values
-  ('kk', 'kari', '123', 'NOR', 'ntnu'),
-  ('oo', 'ola', '123456', 'NOR', 'uio'),
-  ('pp', 'per', '123', 'NOR', 'ntnu');
-
-insert into exchange_university_table(id, user_id, university_id) values
-  ('aaa', 'pp', 'skku');

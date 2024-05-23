@@ -1,16 +1,15 @@
-from flask_restful import Resource, marshal_with, reqparse, abort
-from resources_api.resource_fields_definitions import (
-    user_resource_fields,
-    user_with_university_resource_fields,
-)
-from sqlalchemy import text, exc
-from database.database_setup import db
-from database.models import UserTable
-import uuid
-from flask import request
 import hashlib
 import secrets
+import uuid
 
+from database.database_setup import db
+from database.models import UserTable
+from flask import request
+from flask_restful import Resource, abort, marshal_with, reqparse
+from sqlalchemy import exc, text
+
+from resources_api.resource_fields_definitions import (
+    user_resource_fields, user_with_university_resource_fields)
 
 class UserRes(Resource):
     @marshal_with(user_resource_fields)
@@ -72,14 +71,38 @@ def hash_password(password, salt):
     hashed_password = hashlib.sha256(salted_password.encode()).hexdigest()
     return hashed_password
 
+  
 class UsersAllRes(Resource):
     @marshal_with(user_resource_fields)
     def get(self):
-        users = UserTable.query.order_by(UserTable.username).all()
-        return [user for user in users], 200
+        try:
+            args = user_put_args.parse_args()
+            username = args["username"]
+            password = args["pwd"]
+
+            # Retrieve user from the database based on the provided username
+            user = UserTable.query.filter_by(username=username).first()
+
+            if user:
+                # Hash the provided password using the salt stored in the database
+                hashed_password = hash_password(password, user.salt)
+
+                # Check if the hashed password matches the stored hashed password
+                if hashed_password == user.pwd:
+                    # Passwords match, user is authenticated, return user information
+                    return user, 200
+                else:
+                    # Passwords do not match, user authentication failed
+                    abort(message="Invalid credentials", http_status_code=401)
+            else:
+                # User with the provided username not found
+                abort(message="User not found", http_status_code=404)
+        except exc.SQLAlchemyError as e:
+            print(e)
+            abort(message=str(e.__dict__.get("orig")), http_status_code=400)
 
     @marshal_with(user_resource_fields)
-    def put(self):
+    def post(self):
         try:
             args = user_put_args.parse_args()
             # Create a new UserTable object and assign values from args
@@ -88,22 +111,22 @@ class UsersAllRes(Resource):
             # Generate a salt
             salt = generate_salt()
             # Hash the password
-            hashed_password = hash_password(args['pwd'], salt)
+
+            hashed_password = hash_password(args["pwd"], salt)
 
             new_user = UserTable(
-                user_id = uid,
-                # user_id=args['user_id'],
-                username=args['username'],
-                # pwd=args['pwd'],
+                user_id=uid,
+                username=args["username"],
                 pwd=hashed_password,  # Save the hashed password
                 salt=salt,  # Save the salt
-                nationality=args['nationality'],
-                home_university=args['home_university']
-            )  
-
+                nationality=args["nationality"] if args["nationality"] != "" else None,
+                home_university=args["home_university"]
+                if args["home_university"]
+                else None,
+            )
+            
             db.session.add(new_user)
             db.session.commit()
-            print(new_user)
             return new_user, 200
         except exc.SQLAlchemyError as e:
             print(e)
@@ -139,12 +162,6 @@ class UsersAllRes(Resource):
     def delete(self):
         try:
             args = user_delete_args.parse_args()
-#             user_id = args['user_id']
-#             # print(f"Attempting to delete user with username: {username}")
-#             user = db.session.query(UserTable).filter_by(user_id=user_id).first()
-#             if not user:
-#                 print(f"No user found with the user id: {user_id}")
-#                 return {"message": f"No user with the user id '{user_id}'"}, 404
             user_id = args["user_id"]
             user = db.get_or_404(
                 UserTable, user_id, description=f"No user with the ID '{user_id}'."
@@ -163,7 +180,6 @@ class UserWithUniversityRes(Resource):
         # TODO: rewrite this
         sql_raw = "SELECT * FROM user_table JOIN university_table ON user_table.home_university = university_table.university_id WHERE user_table.user_id = :val"
         res = db.session.execute(text(sql_raw), {"val": user_id}).first()
-        print(res)
         return res
 
 class UserLoginRes(Resource):

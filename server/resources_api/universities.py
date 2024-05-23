@@ -1,13 +1,11 @@
-from flask_restful import Resource, marshal_with, reqparse, abort
-from resources_api.resource_fields_definitions import (
-    university_resource_fields,
-    university_with_info_resource_fields,
-    search_universities_resource_fields,
-    university_meta_table_resource_fields
-)
-from sqlalchemy import select
 from database.database_setup import db
-from database.models import InfoPageTable, UniversityTable, CountryTable
+from database.models import CountryTable, InfoPageTable, UniversityTable
+from flask_restful import Resource, abort, marshal_with, reqparse
+from sqlalchemy import select
+
+from resources_api.resource_fields_definitions import (
+    search_universities_resource_fields, university_meta_table_resource_fields,
+    university_resource_fields, university_with_info_resource_fields)
 
 
 class UniversityRes(Resource):
@@ -39,6 +37,7 @@ class UniversityWithInfoRes(Resource):
             f"{university_id}_page",
             description=f"No university with the ID '{university_id}'.",
         )
+
 
 
 class UniversityAllRes(Resource):
