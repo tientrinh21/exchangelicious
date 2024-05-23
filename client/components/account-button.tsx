@@ -6,13 +6,12 @@ import {
   DropdownMenuItem,
   DropdownMenuTrigger,
 } from '@/components/ui/dropdown-menu'
-import { PersonIcon, FileTextIcon, ExitIcon } from '@radix-ui/react-icons'
-import Link from 'next/link'
-import { Button } from './ui/button'
-import { toast } from 'sonner'
-import { getUserData, useAuth } from '@/lib/auth'
-import { authAtom } from '@/lib/auth'
+import { authAtom, getUserData, useAuth } from '@/lib/auth'
+import { ExitIcon, FileTextIcon, PersonIcon } from '@radix-ui/react-icons'
 import { useSetAtom } from 'jotai/react'
+import Link from 'next/link'
+import { toast } from 'sonner'
+import { Button } from './ui/button'
 
 export function AccountButton() {
   const isAuth = useAuth()
