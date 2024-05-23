@@ -11,20 +11,26 @@ class MoodScore(str, Enum):
 # handle serialization
 university_resource_fields = {
     "university_id": fields.String,
-    # "country_code": fields.String,
     "country_name": fields.String,
     "region": fields.String,
     "long_name": fields.String,
     "ranking": fields.String,
-    # "info_page_id": fields.String,
+    "campus": fields.String,
+    "housing": fields.Boolean,
+}
+
+university_meta_table_resource_fields = {
+    "university_id": fields.String,
+    "country_code": fields.String,
+    "region": fields.String,
+    "long_name": fields.String,
+    "ranking": fields.String,
+    "info_page_id": fields.String,
+    "campus": fields.String,
+    "housing": fields.Boolean,
 }
 
 university_with_info_resource_fields = {
-    # "university_id": fields.String,
-    # "country_code": fields.String,
-    # "region": fields.String,
-    # "long_name": fields.String,
-    # "info_page_id": fields.String,
     "webpage": fields.String,
     "introduction": fields.String,
     "location": fields.String,
@@ -40,7 +46,7 @@ university_with_info_resource_fields = {
 
 search_universities_resource_fields = {
     "hasMore": fields.Boolean,
-    "items": fields.List(fields.Nested(university_resource_fields)),
+    "items": fields.List(fields.Nested(university_meta_table_resource_fields)),
 }
 
 user_resource_fields = {
@@ -61,6 +67,9 @@ user_with_university_resource_fields = {
     "region": fields.String,
     "long_name": fields.String,
     "info_page_id": fields.String,
+    "campus": fields.String,
+    "ranking": fields.Integer,
+    "housing": fields.Boolean,
 }
 
 review_resource_fields = {

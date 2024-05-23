@@ -6,8 +6,8 @@ from swagger_setup import swaggerui_blueprint
 from resources_api.routes import initialize_routes
 
 app = Flask(__name__)
-
 cors = CORS(app, resources={r"/api/*": {"origins": "*"}})
+
 # Swagger Docs
 app.register_blueprint(swaggerui_blueprint)
 
