@@ -14,7 +14,7 @@ export async function fetchUniversities() {
 
 export async function fetchUser({ username, password }: LoginFormSchema) {
   return axios
-    .get<User>(`${BASE_URL}/users`, {
+    .get<User>(`${BASE_URL}/users/login`, {
       params: {
         username: username,
         pwd: password,

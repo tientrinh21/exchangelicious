@@ -4,7 +4,6 @@ import uuid
 
 from database.database_setup import db
 from database.models import UserTable
-from flask import request
 from flask_restful import Resource, abort, marshal_with, reqparse
 from sqlalchemy import exc, text
 
