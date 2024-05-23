@@ -1,7 +1,4 @@
-import {
-  type LoginFormSchema,
-  type RegisterFormSchema,
-} from '@/types/login-register'
+import { type LoginFormSchema, type RegisterFormSchema } from '@/types/schema'
 import { type User } from '@/types/user'
 import { type University } from '@/types/university'
 import axios from 'axios'
@@ -33,6 +30,22 @@ export async function createUser({
     .post<User>(`${BASE_URL}/users`, null, {
       params: {
         username: username,
+        pwd: password,
+        nationality: nationality,
+        home_university: home_university,
+      },
+    })
+    .then((r) => r.data)
+}
+
+export async function updateUser(
+  user: User,
+  { password, nationality, home_university }: RegisterFormSchema,
+) {
+  return axios
+    .post<User>(`${BASE_URL}/users`, null, {
+      params: {
+        user_id: user.user_id,
         pwd: password,
         nationality: nationality,
         home_university: home_university,
