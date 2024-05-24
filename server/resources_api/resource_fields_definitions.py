@@ -81,8 +81,23 @@ review_resource_fields = {
     "submit_datetime": fields.DateTime,
     "last_edit_datetime": fields.DateTime,
     "mood_score": fields.String, # TODO: Is this correct? Enum??
-    "up_vote": fields.Integer,
-    "down_vote": fields.Integer,
+}
+
+review_vote_count_resource_fields = {
+    "review_id": fields.String,
+    "university_id": fields.String,
+    "user_id": fields.String,
+    "title": fields.String,
+    "content": fields.String,
+    "submit_datetime": fields.DateTime,
+    "last_edit_datetime": fields.DateTime,
+    "mood_score": fields.String, # TODO: Is this correct? Enum??
+    "vote": fields.String
+}
+
+review_vote_count_paginate_resource_fields = {
+    "hasMore": fields.Boolean,
+    "items": fields.List(fields.Nested(review_vote_count_resource_fields)),
 }
 
 review_paginate_resource_fields = {
@@ -97,4 +112,15 @@ reply_resource_fields = {
     "parent_review_id": fields.String,
 }
 
+upvote_resource_fields = {
+    "upvote_id": fields.String,
+    "user_id": fields.String,
+    "review_id": fields.String,
+}
+
+downvote_resource_fields = {
+    "downvote_id": fields.String,
+    "user_id": fields.String,
+    "review_id": fields.String,
+}
 

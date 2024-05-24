@@ -1,3 +1,4 @@
+import { getUserData } from '@/lib/auth'
 import { Review } from '@/types/review-section'
 import axios from 'axios'
 import React, { useEffect, useState } from 'react'
@@ -34,6 +35,49 @@ const BASE_URL = 'http://127.0.0.1:8080/api'
 //         reviews
 //     }
 // }
+
+function MakeComment(props: {university_id: string}) {
+
+  console.log(getUserData())
+
+  function createReview(formData:any) {
+    axios({
+      method: 'PUT',
+      url: `${BASE_URL}/review`,
+      headers: {
+        'Content-Type': 'application/json',
+      },
+      params: { user_id: getUserData().user_id, 
+                university_id: props.university_id, 
+                title: formData.get("title"),
+                content: formData.get("content"),
+                mood_score: formData.get("mood_score")
+              },
+    })
+      .then((res) => {
+        console.log(res)
+      })
+      .catch((err) => {
+        console.log(err)
+      })
+  }
+  
+  return (
+    <form action={createReview}>
+      <input name="title" placeholder='title'/>
+      <input name="content" placeholder='content'/>
+      <select name="mood_score">
+      {/* TODO: Should handle ENUM differently on the front end */}
+        <option value="very bad">very bad</option>
+        <option value="bad">bad</option>
+        <option value="neutral">neutral</option>
+        <option value="good">good</option>
+        <option value="very good">very good</option>
+      </select>
+      <button type="submit">Search</button>
+    </form>
+  );
+}
 
 
 export default function CommentSectionDemo(props: {university_id: string}) {
@@ -87,10 +131,14 @@ export default function CommentSectionDemo(props: {university_id: string}) {
         console.log(err)
         setIsLoading(false)
       })
+      // TODO: After a the comment has been added. You need to reset the infinite scroll 
+      // (or something, so that the new comment shows up)
   }
 
   return (
       <>
+      {/* TODO: Should only be visible if the user is logged in */}
+      <MakeComment university_id={props.university_id}></MakeComment>
       <h1>All the reviews about this university in the database:</h1>
     {isLoading && (<div>Loading ...</div>)}
     {!isLoading && reviews.length > 0 && (
@@ -110,10 +158,19 @@ export default function CommentSectionDemo(props: {university_id: string}) {
           }
         >
           <div className="flex flex-col gap-3">
-            {reviews.map((review) => (
-              // TODO: Make pretty review cards
-              <li key={review.review_id}>Author: {review.user_id} + {review.title} + {review.mood_score} + {review.content} + {review.up_vote} - {review.down_vote} = {review.up_vote - review.down_vote} </li>
-            ))}
+            
+            <ul>
+              {reviews.map((review) => (
+                // TODO: Make pretty review cards
+                <>
+                <li key={review.review_id}>Author: {review.user_id} + {review.title} + {review.mood_score} </li>
+                <ul>
+                  <li><button name='upvote'>Up vote</button></li>
+                  <li><button name='downvote'>Down vote</button></li>
+                </ul>
+                </>
+              ))}
+              </ul>
           </div>
         </InfiniteScroll>
       )}

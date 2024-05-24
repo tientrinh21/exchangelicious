@@ -942,11 +942,11 @@
             ],
             "description": "Mood score of the review"
           },
-          "up_vote": {
+          "upvote": {
             "type": "integer",
             "description": "Number of up votes for the review"
           },
-          "down_vote": {
+          "downvote": {
             "type": "integer",
             "description": "Number of down votes for the review"
           }

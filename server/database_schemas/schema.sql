@@ -2,6 +2,8 @@ use exchangeDB;
 -- reset the tables metioned in this file
 drop table if exists partner_universities_table;
 drop table if exists exchange_university_table;
+drop table if exists upvote_table;
+drop table if exists downvote_table;
 drop table if exists user_table;
 drop table if exists university_table;
 drop table if exists info_page_table;
@@ -110,22 +112,43 @@ create table review_table (
 	content text,
     submit_datetime datetime,
     last_edit_datetime datetime,
-    mood_score ENUM('very bad', 'bad', 'neutral', 'good', 'very good'),
-    up_vote integer,
-    down_vote integer
+    mood_score ENUM('very bad', 'bad', 'neutral', 'good', 'very good')
 );
 
 # Are we having replies or not? 
-create table reply_table (
-	reply_id int auto_increment primary key,
+# create table reply_table (
+#	reply_id int auto_increment primary key,
+#    user_id varchar(36) not null,
+#    content text,
+#    # A review can have many replies
+#    parent_review_id int
+# );
+
+create table upvote_table (
+	upvote_id varchar(36) default (uuid()) primary key,
     user_id varchar(36) not null,
-    content text,
-    # A review can have many replies
-    parent_review_id int
+    review_id varchar(36) not null,
+	constraint user_id_up_fk_con
+		foreign key (user_id) references user_table (user_id)
+		on delete cascade on update cascade,
+	constraint review_id_up_fk_con
+		foreign key (review_id) references review_table (review_id)
+		on delete cascade on update cascade,
+	unique key only_one_upvote (user_id, review_id)
 );
 
-
-
+create table downvote_table (
+	downvote_id varchar(36) default (uuid()) primary key,
+    user_id varchar(36) not null,
+    review_id varchar(36) not null,
+	constraint user_id_down_fk_con
+		foreign key (user_id) references user_table (user_id)
+		on delete cascade on update cascade,
+	constraint review_id_down_fk_con
+		foreign key (review_id) references review_table (review_id)
+		on delete cascade on update cascade,
+	unique key only_one_downvote (user_id, review_id)
+);
 
 
 -- Many-to-Many
@@ -439,12 +462,10 @@ insert into partner_universities_table(id, from_university_id, to_university_id)
   ('ntnu-skku', 'ntnu', 'skku');
   
 insert into review_table(review_id, university_id, user_id, title, content, submit_datetime ,last_edit_datetime,
-    mood_score,
-    up_vote,
-    down_vote) values
-("6df62b4d-d31-4f6a-8c8e-2d22fb805446", "ntnu", "kk", "NTNU for life", "NTNU is the best evah", "2024-05-22 13:41:14", null, "very good", 	3,	10),
-("7df62b4d-2e10-421a-aeae-8d08a1613db4", "skku", "kk", "We love skku - alfa",	"skkuuu is fantastic - alfa", "2024-05-23 15:41:49", null, "neutral", 3, 10),
-("8056c629-e9ee-4fac-96ae-90bdd01f1190", "skku", "kk", "We love skku - beta",	"skkuuu is fantastic - beta", "2024-05-23 13:41:49", null, "neutral", 11, 5),
-("8e420f12-2546-4fc9-8a70-800e5d1ebf0d", "skku", "kk", "We love skku - echo",	"skkuuu is fantastic - echo", "2024-05-23 12:41:49", null, "neutral", 20, 2),
-("e3cabc1e-4e84-4a8b-b00b-bb22fff8ab98", "skku", "kk", "We love skku - charlie",	"skkuuu is fantastic - charlie", "2024-05-23 11:41:49", null, "neutral", 10, 3),
-("e6ee153a-b592-4a29-94f2-f41d6fdd445c", "skku", "kk", "We love skku - delta",	"skkuuu is fantastic - delta", "2024-05-23 11:45:49", null, "neutral", 20, 1);
+    mood_score) values
+("6df62b4d-d31-4f6a-8c8e-2d22fb805446", "ntnu", "kk", "NTNU for life", "NTNU is the best evah", "2024-05-22 13:41:14", null, "very good"),
+("7df62b4d-2e10-421a-aeae-8d08a1613db4", "skku", "kk", "We love skku - alfa",	"skkuuu is fantastic - alfa", "2024-05-23 15:41:49", null, "neutral"),
+("8056c629-e9ee-4fac-96ae-90bdd01f1190", "skku", "kk", "We love skku - beta",	"skkuuu is fantastic - beta", "2024-05-23 13:41:49", null, "neutral"),
+("8e420f12-2546-4fc9-8a70-800e5d1ebf0d", "skku", "kk", "We love skku - echo",	"skkuuu is fantastic - echo", "2024-05-23 12:41:49", null, "neutral"),
+("e3cabc1e-4e84-4a8b-b00b-bb22fff8ab98", "skku", "kk", "We love skku - charlie",	"skkuuu is fantastic - charlie", "2024-05-23 11:41:49", null, "neutral"),
+("e6ee153a-b592-4a29-94f2-f41d6fdd445c", "skku", "kk", "We love skku - delta",	"skkuuu is fantastic - delta", "2024-05-23 11:45:49", null, "neutral");

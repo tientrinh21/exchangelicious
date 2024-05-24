@@ -70,10 +70,22 @@ class ReviewTable(db.Model):
         return f"<Review ({self.review_id}, {self.title}, {self.content}, {self.submit_datetime},)>"
 
 
-class ReplyTable(db.Model):
+# class ReplyTable(db.Model):
+#     """deal with an existing table"""
+
+#     __table__ = db.Model.metadata.tables[f"{DB_NAME}.reply_table"]
+
+
+class UpvoteTable(db.Model):
     """deal with an existing table"""
 
-    __table__ = db.Model.metadata.tables[f"{DB_NAME}.reply_table"]
+    __table__ = db.Model.metadata.tables[f"{DB_NAME}.upvote_table"]
+
+
+class DownvoteTable(db.Model):
+    """deal with an existing table"""
+
+    __table__ = db.Model.metadata.tables[f"{DB_NAME}.downvote_table"]
 
 
 # class CountryTable(db.Model):
@@ -146,8 +158,8 @@ class ReplyTable(db.Model):
 #     submit_datetime = db.Column(db.DateTime)
 #     last_edit_datetime = db.Column(db.DateTime)
 #     mood_score = db.Column(ENUM('very bad', 'bad', 'neutral', 'good', 'very good'))
-#     up_vote = db.Column(db.Integer)
-#     down_vote = db.Column(db.Integer)
+#     upvote = db.Column(db.Integer)
+#     downvote = db.Column(db.Integer)
 
 
 # class ReplyTable(db.Model):
