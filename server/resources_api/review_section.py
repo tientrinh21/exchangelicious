@@ -21,10 +21,7 @@ review_put_args.add_argument('user_id', type=str, location = "args", help='The u
 review_put_args.add_argument('university_id', type=str, location = "args", help='The ID of the university to review', required=True)
 review_put_args.add_argument('title', type=str, location = "args", help='The title of the review', required=True)
 review_put_args.add_argument('content', type=str, location = "args", help='The text/content of the review', required=True)
-#review_put_args.add_argument('submit_datetime', type=str, location = "args", help='Home university of user')
 review_put_args.add_argument('mood_score', type=str, location = "args", help='The mood score of the review. Should be one of the enum values', required=True)
-#review_put_args.add_argument('upvote', type=str, location = "args", help='Home university of user')
-#review_put_args.add_argument('downvote', type=str, location = "args", help='Home university of user')
 
 review_update_args = reqparse.RequestParser()
 review_update_args.add_argument('review_id', type=str, location = "args", required=True, help='ID of the review to be updated')
@@ -198,7 +195,7 @@ class DownvoteRes(Resource):
 
             new = DownvoteTable(
                 # generate id
-                upvote_id = str(uuid.uuid4()),
+                downvote_id = str(uuid.uuid4()),
                 review_id = review_id,
                 user_id = user_id
             )

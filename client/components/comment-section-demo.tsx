@@ -37,7 +37,7 @@ function MakeComment(props: { university_id: string }) {
       <input name="title" placeholder="title" />
       <input name="content" placeholder="content" />
       <select name="mood_score">
-        {/* TODO: Should handle ENUM differently on the front end */}
+        {/* TODO: Should probably handle ENUM differently on the front end */}
         <option value="very bad">very bad</option>
         <option value="bad">bad</option>
         <option value="neutral">neutral</option>
