@@ -22,7 +22,9 @@
   "paths": {
     "/api/universities": {
       "get": {
-        "tags": ["University"],
+        "tags": [
+          "University"
+        ],
         "summary": "Returns a list of all universities",
         "responses": {
           "200": {
@@ -46,7 +48,9 @@
     },
     "/api/universities/{university_id}": {
       "get": {
-        "tags": ["University"],
+        "tags": [
+          "University"
+        ],
         "summary": "Find university by ID",
         "description": "Returns a single university (with out info)",
         "parameters": [
@@ -80,7 +84,9 @@
     },
     "/api/universities/{university_id}/info": {
       "get": {
-        "tags": ["University"],
+        "tags": [
+          "University"
+        ],
         "summary": "Find university by ID with info page",
         "description": "Returns a single university with info",
         "parameters": [
@@ -114,7 +120,9 @@
     },
     "/api/universities/search": {
       "get": {
-        "tags": ["University"],
+        "tags": [
+          "University"
+        ],
         "summary": "Search and paginate universities",
         "parameters": [
           {
@@ -165,7 +173,9 @@
     },
     "/api/users": {
       "get": {
-        "tags": ["User"],
+        "tags": [
+          "User"
+        ],
         "summary": "Get a list of users",
         "description": "Returns a list of users with their details including user_id, username, password, nationality, and home_university.\n",
         "responses": {
@@ -185,11 +195,12 @@
         }
       },
       "put": {
-        "tags": ["User"],
+        "tags": [
+          "User"
+        ],
         "summary": "Create a user",
         "description": "Create user with details provided including username, password, nationality, and home_university. User_id is automatically generated.\n",
         "parameters": [
-        
           {
             "name": "username",
             "in": "query",
@@ -248,7 +259,9 @@
         }
       },
       "patch": {
-        "tags": ["User"],
+        "tags": [
+          "User"
+        ],
         "summary": "Update a user",
         "description": "Update user with details provided including user_id, username, password, nationality, and home_university.\n",
         "parameters": [
@@ -320,7 +333,9 @@
         }
       },
       "delete": {
-        "tags": ["User"],
+        "tags": [
+          "User"
+        ],
         "summary": "Delete a user",
         "description": "Delete user with provided user_id. \n",
         "parameters": [
@@ -390,7 +405,9 @@
     },
     "/api/users/{user_id}": {
       "get": {
-        "tags": ["User"],
+        "tags": [
+          "User"
+        ],
         "summary": "Get a single user by ID",
         "parameters": [
           {
@@ -426,7 +443,9 @@
     },
     "/api/users/{user_id}/uni": {
       "get": {
-        "tags": ["User"],
+        "tags": [
+          "User"
+        ],
         "summary": "Get a single user by ID with uni-info",
         "parameters": [
           {
@@ -495,7 +514,7 @@
           }
         }
       },
-      "put": {
+      "post": {
         "tags": [
           "Reviews Section"
         ],
@@ -557,7 +576,7 @@
           }
         ],
         "responses": {
-          "200": {
+          "201": {
             "description": "Review created successfully",
             "content": {
               "application/json": {
@@ -684,19 +703,35 @@
         }
       }
     },
-    "/api/reviews/{university_id}": {
+    "/api/reviews/paginate": {
       "get": {
         "tags": [
           "Reviews Section"
         ],
-        "summary": "Get all reviews written about a university",
-        "description": "Get all reviews written about a university",
+        "summary": "Get paginated reviews for a university with ordering",
         "parameters": [
           {
-            "in": "path",
             "name": "university_id",
+            "in": "query",
+            "description": "ID of the university to get reviews for",
             "required": true,
-            "description": "ID of the university",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "page_number",
+            "in": "query",
+            "description": "Page number",
+            "required": true,
+            "schema": {
+              "type": "integer"
+            }
+          },
+          {
+            "name": "order_by",
+            "description": "Options: \"new\", \"old\", or leave blank for default ordering",
+            "in": "query",
             "schema": {
               "type": "string"
             }
@@ -704,20 +739,194 @@
         ],
         "responses": {
           "200": {
-            "description": "All the reviews that belongs to the university",
+            "description": "Successful operation",
             "content": {
               "application/json": {
                 "schema": {
-                  "type": "array",
-                  "items": {
-                    "$ref": "#/components/schemas/Review"
+                  "$ref": "#/components/schemas/ReviewPaginateResponse"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/review/upvote": {
+      "post": {
+        "tags": [
+          "Reviews Section"
+        ],
+        "summary": "Upvote a review",
+        "parameters": [
+          {
+            "name": "review_id",
+            "in": "query",
+            "required": true,
+            "description": "ID of the review to upvote",
+            "schema": {
+              "type": "string",
+              "format": "uuid"
+            }
+          },
+          {
+            "name": "user_id",
+            "in": "query",
+            "required": true,
+            "description": "ID of the user upvoting the review",
+            "schema": {
+              "type": "string",
+              "format": "uuid"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Upvote successful",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/UpvoteRow"
+                }
+              }
+            }
+          }
+        }
+      },
+      "delete": {
+        "tags": [
+          "Reviews Section"
+        ],
+        "summary": "Delete an upvote",
+        "parameters": [
+          {
+            "name": "review_id",
+            "in": "query",
+            "required": true,
+            "description": "ID of the review to delete the upvote from",
+            "schema": {
+              "type": "string",
+              "format": "uuid"
+            }
+          },
+          {
+            "name": "user_id",
+            "in": "query",
+            "required": true,
+            "description": "ID of the user who upvoted the review",
+            "schema": {
+              "type": "string",
+              "format": "uuid"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Upvote deleted successfully",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "message": {
+                      "type": "string"
+                    }
                   }
                 }
               }
             }
           },
-          "404": {
-            "description": "No review found with the provided ID"
+          "400": {
+            "description": "Error deleting upvote"
+          }
+        }
+      }
+    },
+    "/api/review/downvote": {
+      "post": {
+        "tags": [
+          "Reviews Section"
+        ],
+        "summary": "downvote a review",
+        "parameters": [
+          {
+            "name": "review_id",
+            "in": "query",
+            "required": true,
+            "description": "ID of the review to downvote",
+            "schema": {
+              "type": "string",
+              "format": "uuid"
+            }
+          },
+          {
+            "name": "user_id",
+            "in": "query",
+            "required": true,
+            "description": "ID of the user downvoting the review",
+            "schema": {
+              "type": "string",
+              "format": "uuid"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "downvote successful",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/UpvoteRow"
+                }
+              }
+            }
+          }
+        }
+      },
+      "delete": {
+        "tags": [
+          "Reviews Section"
+        ],
+        "summary": "Delete an downvote",
+        "parameters": [
+          {
+            "name": "review_id",
+            "in": "query",
+            "required": true,
+            "description": "ID of the review to delete the downvote from",
+            "schema": {
+              "type": "string",
+              "format": "uuid"
+            }
+          },
+          {
+            "name": "user_id",
+            "in": "query",
+            "required": true,
+            "description": "ID of the user who downvoted the review",
+            "schema": {
+              "type": "string",
+              "format": "uuid"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Downvote deleted successfully",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "message": {
+                      "type": "string"
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Error deleting downvote"
           }
         }
       }
@@ -904,7 +1113,6 @@
           },
           "university_id": {
             "type": "string",
-            "format": "uuid",
             "description": "Identifier for the university associated with the review"
           },
           "user_id": {
@@ -949,6 +1157,54 @@
           "downvote": {
             "type": "integer",
             "description": "Number of down votes for the review"
+          }
+        }
+      },
+      "ReviewPaginateResponse": {
+        "type": "object",
+        "properties": {
+          "hasMore": {
+            "type": "boolean"
+          },
+          "items": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/Review"
+            }
+          }
+        }
+      },
+      "UpvoteRow": {
+        "type": "object",
+        "properties": {
+          "upvote_id": {
+            "type": "string",
+            "format": "uuid"
+          },
+          "user_id": {
+            "type": "string",
+            "format": "uuid"
+          },
+          "review_id": {
+            "type": "string",
+            "format": "uuid"
+          }
+        }
+      },
+      "DownvoteRow": {
+        "type": "object",
+        "properties": {
+          "downvote_id": {
+            "type": "string",
+            "format": "uuid"
+          },
+          "user_id": {
+            "type": "string",
+            "format": "uuid"
+          },
+          "review_id": {
+            "type": "string",
+            "format": "uuid"
           }
         }
       }

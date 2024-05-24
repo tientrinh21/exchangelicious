@@ -1,6 +1,6 @@
 import json
 from flask_restful import Resource, marshal_with, reqparse, abort
-from resources_api.resource_fields_definitions import reply_resource_fields, review_resource_fields, review_paginate_resource_fields, upvote_resource_fields, downvote_resource_fields
+from resources_api.resource_fields_definitions import review_resource_fields, review_paginate_resource_fields, upvote_resource_fields, downvote_resource_fields
 from database.database_setup import db
 from database.models import ReviewTable, UpvoteTable, DownvoteTable
 # from database.models import review_schema, reviews_schema
@@ -35,14 +35,14 @@ review_update_args.add_argument('mood_score', type=str, location = "args", help=
 review_delete_args = reqparse.RequestParser()
 review_delete_args.add_argument('review_id', type=str, location = "args", required=True, help='ID of the review to be deleted')
 
-class ReviewPerUniAllRes(Resource):
-    @marshal_with(review_resource_fields)
-    def get(self):
-        args = review_per_uni_get_args.parse_args()
-        university_id = args["university_id"]
-        statement = select(ReviewTable).where(ReviewTable.university_id == university_id)
-        res = db.session.scalars(statement).all()
-        return [r for r in res], 200
+# class ReviewPerUniAllRes(Resource):
+#     @marshal_with(review_resource_fields)
+#     def get(self):
+#         args = review_per_uni_get_args.parse_args()
+#         university_id = args["university_id"]
+#         statement = select(ReviewTable).where(ReviewTable.university_id == university_id)
+#         res = db.session.scalars(statement).all()
+#         return [r for r in res], 200
 
 class ReviewPerUniPaginateRes(Resource):
     def __init__(self) -> None:
@@ -84,7 +84,7 @@ class ReviewRes(Resource):
         return db.get_or_404(ReviewTable, review_id, description=f"No review with the ID '{review_id}'.")
     
     @marshal_with(review_resource_fields)
-    def put(self):
+    def post(self):
         try:
             args = review_put_args.parse_args()
             new_review = ReviewTable(
@@ -148,18 +148,18 @@ class UpvoteRes(Resource):
         )
         self.reqparse.add_argument('user_id', type=str, location = "args", required=True, help='ID of the review to be fetched')
 
-    @marshal_with(upvote_resource_fields)
-    def get(self):
-        args = self.reqparse.parse_args()
-        review_id = args["review_id"]
-        user_id = args["user_id"]
+    # @marshal_with(upvote_resource_fields)
+    # def get(self):
+    #     args = self.reqparse.parse_args()
+    #     review_id = args["review_id"]
+    #     user_id = args["user_id"]
 
-        stmt = (
-            select(UpvoteTable).where(UpvoteTable.user_id == user_id, UpvoteTable.review_id == review_id)
-        )
-        res = db.session.scalar(stmt)
-        print(res)
-        return res, 200
+    #     stmt = (
+    #         select(UpvoteTable).where(UpvoteTable.user_id == user_id, UpvoteTable.review_id == review_id)
+    #     )
+    #     res = db.session.scalar(stmt)
+    #     print(res)
+    #     return res, 200
 
     @marshal_with(upvote_resource_fields)
     def post(self):
@@ -211,20 +211,20 @@ class DownvoteRes(Resource):
         )
         self.reqparse.add_argument('user_id', type=str, location = "args", required=True, help='ID of the review to be fetched')
 
-    @marshal_with(upvote_resource_fields)
-    def get(self):
-        args = self.reqparse.parse_args()
-        review_id = args["review_id"]
-        user_id = args["user_id"]
+    # @marshal_with(downvote_resource_fields)
+    # def get(self):
+    #     args = self.reqparse.parse_args()
+    #     review_id = args["review_id"]
+    #     user_id = args["user_id"]
 
-        stmt = (
-            select(DownvoteTable).where(DownvoteTable.user_id == user_id, DownvoteTable.review_id == review_id)
-        )
-        res = db.session.scalars(stmt)
-        print(res)
-        return res, 200
+    #     stmt = (
+    #         select(DownvoteTable).where(DownvoteTable.user_id == user_id, DownvoteTable.review_id == review_id)
+    #     )
+    #     res = db.session.scalars(stmt)
+    #     print(res)
+    #     return res, 200
 
-    @marshal_with(upvote_resource_fields)
+    @marshal_with(downvote_resource_fields)
     def post(self):
         try:
             args = self.reqparse.parse_args()

@@ -42,7 +42,7 @@ function MakeComment(props: {university_id: string}) {
 
   function createReview(formData:any) {
     axios({
-      method: 'PUT',
+      method: 'POST',
       url: `${BASE_URL}/review`,
       headers: {
         'Content-Type': 'application/json',
@@ -141,6 +141,7 @@ export default function CommentSectionDemo(props: {university_id: string}) {
       <MakeComment university_id={props.university_id}></MakeComment>
       <h1>All the reviews about this university in the database:</h1>
     {isLoading && (<div>Loading ...</div>)}
+    {/* TODO: Make a sort by button */}
     {!isLoading && reviews.length > 0 && (
         <InfiniteScroll
           dataLength={reviews.length}
