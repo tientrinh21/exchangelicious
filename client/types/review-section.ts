@@ -16,6 +16,6 @@ export interface Review {
     submit_datetime: Date // datetime??
     last_edit_datetime: Date // datetime??
     mood_score: MoodScore
-    upvote: number
-    downvote: number
+    upvotes: number
+    downvotes: number
   }

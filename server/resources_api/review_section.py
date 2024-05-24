@@ -53,67 +53,76 @@ class ReviewPerUniPaginateRes(Resource):
             "page_number", type=int, default=1, location="args", required=True
         )
         self.reqparse.add_argument('university_id', type=str, location = "args", required=True, help='ID of the review to be fetched')
-
-    # @marshal_with(review_paginate_resource_fields)
-    # def get(self):
-    #     args = self.reqparse.parse_args()
-    #     university_id = args["university_id"]
-    #     page_number = args["page_number"]
-    #     # TODO: Should be able to order based on votes or new/old
-    #     res = db.paginate(
-    #         select(ReviewTable).where(ReviewTable.university_id == university_id),
-    #         # .order_by((ReviewTable.upvote - ReviewTable.downvote).desc()),
-    #         per_page=4,
-    #         page=page_number
-    #     )
-    #     return {"hasMore": res.has_next, "items": [r for r in res]}, 200
+        self.reqparse.add_argument('order_by', type=str, location = "args", required=False)
 
     @marshal_with(review_paginate_resource_fields)
     def get(self):
         args = self.reqparse.parse_args()
         university_id = args["university_id"]
         page_number = args["page_number"]
+        order_by = args["order_by"]
+        # TODO: Should be able to order based on votes or new/old
+        if order_by == "new":
+            order_stmt = ReviewTable.submit_datetime.desc()
+        elif order_by == "old":
+            order_stmt = ReviewTable.submit_datetime
+        else:
+            order_stmt = (ReviewTable.upvotes - ReviewTable.downvotes).desc()
 
-        upvote_alias = aliased(UpvoteTable)
-        downvote_alias = aliased(DownvoteTable)
+        res = db.paginate(
+            select(ReviewTable).where(ReviewTable.university_id == university_id)
+            .order_by(order_stmt),
+            per_page=4,
+            page=page_number
+        )
+        return {"hasMore": res.has_next, "items": [r for r in res]}, 200
 
-        # Subqueries to count upvotes and downvotes
-        upvote_count = db.session.query(
-            ReviewTable.review_id,
-            func.count(upvote_alias.upvote_id).label('upvote_count')
-        ).join(upvote_alias, upvote_alias.review_id == ReviewTable.review_id, isouter=True).group_by(ReviewTable.review_id).subquery()
+    # @marshal_with(review_paginate_resource_fields)
+    # def get(self):
+    #     args = self.reqparse.parse_args()
+    #     university_id = args["university_id"]
+    #     page_number = args["page_number"]
 
-        print(upvote_count)
+    #     upvote_alias = aliased(UpvoteTable)
+    #     downvote_alias = aliased(DownvoteTable)
 
-        downvote_count = db.session.query(
-            ReviewTable.review_id,
-            func.count(downvote_alias.downvote_id).label('downvote_count')
-        ).join(downvote_alias, downvote_alias.review_id == ReviewTable.review_id, isouter=True).group_by(ReviewTable.review_id).subquery()
+    #     # Subqueries to count upvotes and downvotes
+    #     upvote_count = db.session.query(
+    #         ReviewTable.review_id,
+    #         func.count(upvote_alias.upvote_id).label('upvote_count')
+    #     ).join(upvote_alias, upvote_alias.review_id == ReviewTable.review_id, isouter=True).group_by(ReviewTable.review_id).subquery()
 
-        print(downvote_count)
+    #     print(upvote_count)
 
-        # Main query with pagination and sorting by vote difference
-        query = db.session.query(
-            ReviewTable,
-            (func.coalesce(upvote_count.c.upvote_count, 0) - func.coalesce(downvote_count.c.downvote_count, 0)).label('vote_diff')
-        ).outerjoin(upvote_count, upvote_count.c.review_id == ReviewTable.review_id)\
-        .outerjoin(downvote_count, downvote_count.c.review_id == ReviewTable.review_id)\
-        .filter(ReviewTable.university_id == university_id)\
-        .order_by(func.coalesce(upvote_count.c.upvote_count, 0) - func.coalesce(downvote_count.c.downvote_count, 0).desc())
+    #     downvote_count = db.session.query(
+    #         ReviewTable.review_id,
+    #         func.count(downvote_alias.downvote_id).label('downvote_count')
+    #     ).join(downvote_alias, downvote_alias.review_id == ReviewTable.review_id, isouter=True).group_by(ReviewTable.review_id).subquery()
 
-        print(" ")
-        print(query)
+    #     print(downvote_count)
 
-        # Apply pagination
-        res = query.paginate(page=page_number, per_page=4, error_out=False)
+    #     # Main query with pagination and sorting by vote difference
+    #     query = db.session.query(
+    #         ReviewTable,
+    #         (func.coalesce(upvote_count.c.upvote_count, 0) - func.coalesce(downvote_count.c.downvote_count, 0)).label('vote_diff')
+    #     ).outerjoin(upvote_count, upvote_count.c.review_id == ReviewTable.review_id)\
+    #     .outerjoin(downvote_count, downvote_count.c.review_id == ReviewTable.review_id)\
+    #     .filter(ReviewTable.university_id == university_id)\
+    #     .order_by(func.coalesce(upvote_count.c.upvote_count, 0) - func.coalesce(downvote_count.c.downvote_count, 0).desc())
 
-        print("")
+    #     print(" ")
+    #     print(query)
 
-        res_updated = []
-        for r in res.items:
-            print(type(r[0]))
-            print(r[0])
-        return {"hasMore": res.has_next, "items":  for r in res.items]}, 200
+    #     # Apply pagination
+    #     res = query.paginate(page=page_number, per_page=4, error_out=False)
+
+    #     print("")
+
+    #     res_updated = []
+    #     for r in res.items:
+    #         print(type(r[0]))
+    #         print(r[0])
+    #     return {"hasMore": res.has_next, "items": [r[0] for r in res.items]}, 200
 
     # def get(self):
     #     args = self.reqparse.parse_args()

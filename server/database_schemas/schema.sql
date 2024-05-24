@@ -10,6 +10,10 @@ drop table if exists info_page_table;
 drop table if exists favorites_table;
 drop table if exists review_table;
 drop table if exists reply_table;
+drop trigger if exists update_upvotes_post;
+drop trigger if exists update_upvotes_delete;
+drop trigger if exists update_downvotes_post;
+drop trigger if exists update_downvotes_delete;
 
 
 -- uuid is 36 characters
@@ -112,7 +116,9 @@ create table review_table (
 	content text,
     submit_datetime datetime,
     last_edit_datetime datetime,
-    mood_score ENUM('very bad', 'bad', 'neutral', 'good', 'very good')
+    mood_score ENUM('very bad', 'bad', 'neutral', 'good', 'very good'),
+	upvotes int default 0,
+    downvotes int default 0
 );
 
 # Are we having replies or not? 
@@ -149,6 +155,48 @@ create table downvote_table (
 		on delete cascade on update cascade,
 	unique key only_one_downvote (user_id, review_id)
 );
+
+
+delimiter //
+CREATE TRIGGER update_upvotes_post
+AFTER INSERT ON upvote_table
+FOR EACH ROW
+BEGIN
+    UPDATE review_table
+    SET upvotes = upvotes + 1
+    WHERE review_id = NEW.review_id;
+END;
+// 
+
+CREATE TRIGGER update_upvotes_delete
+AFTER DELETE ON upvote_table
+FOR EACH ROW
+BEGIN
+    UPDATE review_table
+    SET upvotes = upvotes - 1
+    WHERE review_id = OLD.review_id;
+END;
+//
+CREATE TRIGGER update_downvotes_post
+AFTER INSERT ON downvote_table
+FOR EACH ROW
+BEGIN
+    UPDATE review_table
+    SET downvotes = downvotes + 1
+    WHERE review_id = NEW.review_id;
+END;
+// 
+
+CREATE TRIGGER update_downvotes_delete
+AFTER DELETE ON downvote_table
+FOR EACH ROW
+BEGIN
+    UPDATE review_table
+    SET downvotes = downvotes - 1
+    WHERE review_id = OLD.review_id;
+END;
+//
+delimiter ;
 
 
 -- Many-to-Many
@@ -469,3 +517,24 @@ insert into review_table(review_id, university_id, user_id, title, content, subm
 ("8e420f12-2546-4fc9-8a70-800e5d1ebf0d", "skku", "kk", "We love skku - echo",	"skkuuu is fantastic - echo", "2024-05-23 12:41:49", null, "neutral"),
 ("e3cabc1e-4e84-4a8b-b00b-bb22fff8ab98", "skku", "kk", "We love skku - charlie",	"skkuuu is fantastic - charlie", "2024-05-23 11:41:49", null, "neutral"),
 ("e6ee153a-b592-4a29-94f2-f41d6fdd445c", "skku", "kk", "We love skku - delta",	"skkuuu is fantastic - delta", "2024-05-23 11:45:49", null, "neutral");
+
+insert into user_table(user_id, username) values
+("9d9ed250-c3a5-4b9c-9d11-4ccecbde5c5c", "scanlan"),
+("be8b46a1-b6f7-46da-8945-60a624190181", "grog"),
+("d94b17fa-9546-43b7-b01e-191d402a0603", "percy"),
+("9245ba10-726f-48db-89c4-e3490eb17ba2", "keyleth"),
+("0d35f39b-181a-4a6d-8def-a789fc99ba7c", "pike");
+
+insert into upvote_table(review_id, user_id) values
+("7df62b4d-2e10-421a-aeae-8d08a1613db4", "9d9ed250-c3a5-4b9c-9d11-4ccecbde5c5c"),
+("7df62b4d-2e10-421a-aeae-8d08a1613db4", "be8b46a1-b6f7-46da-8945-60a624190181"),
+("7df62b4d-2e10-421a-aeae-8d08a1613db4", "d94b17fa-9546-43b7-b01e-191d402a0603"),
+("8056c629-e9ee-4fac-96ae-90bdd01f1190", "9d9ed250-c3a5-4b9c-9d11-4ccecbde5c5c"),
+("8056c629-e9ee-4fac-96ae-90bdd01f1190", "be8b46a1-b6f7-46da-8945-60a624190181"),
+("8056c629-e9ee-4fac-96ae-90bdd01f1190", "9245ba10-726f-48db-89c4-e3490eb17ba2"),
+("8056c629-e9ee-4fac-96ae-90bdd01f1190", "0d35f39b-181a-4a6d-8def-a789fc99ba7c");
+
+insert into downvote_table(review_id, user_id) values
+("8056c629-e9ee-4fac-96ae-90bdd01f1190", "9245ba10-726f-48db-89c4-e3490eb17ba2"),
+("8056c629-e9ee-4fac-96ae-90bdd01f1190", "0d35f39b-181a-4a6d-8def-a789fc99ba7c");
+

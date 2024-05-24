@@ -163,7 +163,7 @@ export default function CommentSectionDemo(props: {university_id: string}) {
               {reviews.map((review) => (
                 // TODO: Make pretty review cards
                 <>
-                <li key={review.review_id}>Author: {review.user_id} + {review.title} + {review.mood_score} </li>
+                <li key={review.review_id}>Author: {review.user_id} + {review.title} + {review.mood_score} + {review.content} + {review.upvotes} - {review.downvotes} = {review.upvotes - review.downvotes} </li>
                 <ul>
                   <li><button name='upvote'>Up vote</button></li>
                   <li><button name='downvote'>Down vote</button></li>

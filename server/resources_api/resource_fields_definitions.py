@@ -81,24 +81,26 @@ review_resource_fields = {
     "submit_datetime": fields.DateTime,
     "last_edit_datetime": fields.DateTime,
     "mood_score": fields.String, # TODO: Is this correct? Enum??
+    "upvotes": fields.String,
+    "downvotes": fields.String
 }
 
-review_vote_count_resource_fields = {
-    "review_id": fields.String,
-    "university_id": fields.String,
-    "user_id": fields.String,
-    "title": fields.String,
-    "content": fields.String,
-    "submit_datetime": fields.DateTime,
-    "last_edit_datetime": fields.DateTime,
-    "mood_score": fields.String, # TODO: Is this correct? Enum??
-    "vote": fields.String
-}
+# review_vote_count_resource_fields = {
+#     "review_id": fields.String,
+#     "university_id": fields.String,
+#     "user_id": fields.String,
+#     "title": fields.String,
+#     "content": fields.String,
+#     "submit_datetime": fields.DateTime,
+#     "last_edit_datetime": fields.DateTime,
+#     "mood_score": fields.String, # TODO: Is this correct? Enum??
+#     "vote": fields.String
+# }
 
-review_vote_count_paginate_resource_fields = {
-    "hasMore": fields.Boolean,
-    "items": fields.List(fields.Nested(review_vote_count_resource_fields)),
-}
+# review_vote_count_paginate_resource_fields = {
+#     "hasMore": fields.Boolean,
+#     "items": fields.List(fields.Nested(review_vote_count_resource_fields)),
+# }
 
 review_paginate_resource_fields = {
     "hasMore": fields.Boolean,
