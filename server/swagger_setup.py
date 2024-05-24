@@ -13,3 +13,4 @@ swaggerui_blueprint = get_swaggerui_blueprint(
         'app_name': "EduVenture Api Docs"
     }
 )
+

@@ -73,4 +73,3 @@ class UniversityPagination(Resource):
             res = db.paginate(select(UniversityTable).where(UniversityTable.long_name.contains(search_word)), per_page=5, page=page_number)
         return {"hasMore": res.has_next, "items": [r for r in res]}, 200
 
-

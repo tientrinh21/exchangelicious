@@ -22,9 +22,7 @@
   "paths": {
     "/api/universities": {
       "get": {
-        "tags": [
-          "University"
-        ],
+        "tags": ["University"],
         "summary": "Returns a list of all universities",
         "responses": {
           "200": {
@@ -48,9 +46,7 @@
     },
     "/api/universities/{university_id}": {
       "get": {
-        "tags": [
-          "University"
-        ],
+        "tags": ["University"],
         "summary": "Find university by ID",
         "description": "Returns a single university (with out info)",
         "parameters": [
@@ -84,9 +80,7 @@
     },
     "/api/universities/{university_id}/info": {
       "get": {
-        "tags": [
-          "University"
-        ],
+        "tags": ["University"],
         "summary": "Find university by ID with info page",
         "description": "Returns a single university with info",
         "parameters": [
@@ -120,9 +114,7 @@
     },
     "/api/universities/search": {
       "get": {
-        "tags": [
-          "University"
-        ],
+        "tags": ["University"],
         "summary": "Search and paginate universities",
         "parameters": [
           {
@@ -173,9 +165,7 @@
     },
     "/api/users": {
       "get": {
-        "tags": [
-          "User"
-        ],
+        "tags": ["User"],
         "summary": "Get a list of users",
         "description": "Returns a list of users with their details including user_id, username, password, nationality, and home_university.\n",
         "responses": {
@@ -195,9 +185,7 @@
         }
       },
       "put": {
-        "tags": [
-          "User"
-        ],
+        "tags": ["User"],
         "summary": "Create a user",
         "description": "Create user with details provided including username, password, nationality, and home_university. User_id is automatically generated.\n",
         "parameters": [
@@ -259,9 +247,7 @@
         }
       },
       "patch": {
-        "tags": [
-          "User"
-        ],
+        "tags": ["User"],
         "summary": "Update a user",
         "description": "Update user with details provided including user_id, username, password, nationality, and home_university.\n",
         "parameters": [
@@ -333,9 +319,7 @@
         }
       },
       "delete": {
-        "tags": [
-          "User"
-        ],
+        "tags": ["User"],
         "summary": "Delete a user",
         "description": "Delete user with provided user_id. \n",
         "parameters": [
@@ -359,9 +343,7 @@
     },
     "/api/users/login": {
       "get": {
-        "tags": [
-          "User"
-        ],
+        "tags": ["User"],
         "summary": "Get an user information",
         "description": "Returns a list of users with their details including user_id, username, password, nationality, and home_university.\n",
         "parameters": [
@@ -405,9 +387,7 @@
     },
     "/api/users/{user_id}": {
       "get": {
-        "tags": [
-          "User"
-        ],
+        "tags": ["User"],
         "summary": "Get a single user by ID",
         "parameters": [
           {
@@ -443,9 +423,7 @@
     },
     "/api/users/{user_id}/uni": {
       "get": {
-        "tags": [
-          "User"
-        ],
+        "tags": ["User"],
         "summary": "Get a single user by ID with uni-info",
         "parameters": [
           {
@@ -481,9 +459,7 @@
     },
     "/api/review": {
       "get": {
-        "tags": [
-          "Reviews Section"
-        ],
+        "tags": ["Reviews Section"],
         "summary": "Get a review by ID",
         "description": "Retrieves a review by its unique identifier.",
         "parameters": [
@@ -515,9 +491,7 @@
         }
       },
       "post": {
-        "tags": [
-          "Reviews Section"
-        ],
+        "tags": ["Reviews Section"],
         "summary": "Create a new review",
         "description": "Creates a new review entry in the database.",
         "parameters": [
@@ -565,13 +539,7 @@
             "required": true,
             "schema": {
               "type": "string",
-              "enum": [
-                "very bad",
-                "bad",
-                "neutral",
-                "good",
-                "very good"
-              ]
+              "enum": ["very bad", "bad", "neutral", "good", "very good"]
             }
           }
         ],
@@ -595,9 +563,7 @@
         }
       },
       "patch": {
-        "tags": [
-          "Reviews Section"
-        ],
+        "tags": ["Reviews Section"],
         "summary": "Edit a old review",
         "description": "Updates a review entry in the database.",
         "parameters": [
@@ -636,13 +602,7 @@
             "required": true,
             "schema": {
               "type": "string",
-              "enum": [
-                "very bad",
-                "bad",
-                "neutral",
-                "good",
-                "very good"
-              ]
+              "enum": ["very bad", "bad", "neutral", "good", "very good"]
             }
           }
         ],
@@ -666,9 +626,7 @@
         }
       },
       "delete": {
-        "tags": [
-          "Reviews Section"
-        ],
+        "tags": ["Reviews Section"],
         "summary": "Delete a review",
         "description": "Deletes a review with the provided ID.",
         "parameters": [
@@ -705,9 +663,7 @@
     },
     "/api/reviews/paginate": {
       "get": {
-        "tags": [
-          "Reviews Section"
-        ],
+        "tags": ["Reviews Section"],
         "summary": "Get paginated reviews for a university with ordering",
         "parameters": [
           {
@@ -753,9 +709,7 @@
     },
     "/api/review/upvote": {
       "post": {
-        "tags": [
-          "Reviews Section"
-        ],
+        "tags": ["Reviews Section"],
         "summary": "Upvote a review",
         "parameters": [
           {
@@ -793,9 +747,7 @@
         }
       },
       "delete": {
-        "tags": [
-          "Reviews Section"
-        ],
+        "tags": ["Reviews Section"],
         "summary": "Delete an upvote",
         "parameters": [
           {
@@ -843,9 +795,7 @@
     },
     "/api/review/downvote": {
       "post": {
-        "tags": [
-          "Reviews Section"
-        ],
+        "tags": ["Reviews Section"],
         "summary": "downvote a review",
         "parameters": [
           {
@@ -883,9 +833,7 @@
         }
       },
       "delete": {
-        "tags": [
-          "Reviews Section"
-        ],
+        "tags": ["Reviews Section"],
         "summary": "Delete an downvote",
         "parameters": [
           {
@@ -1141,13 +1089,7 @@
           },
           "mood_score": {
             "type": "string",
-            "enum": [
-              "very bad",
-              "bad",
-              "neutral",
-              "good",
-              "very good"
-            ],
+            "enum": ["very bad", "bad", "neutral", "good", "very good"],
             "description": "Mood score of the review"
           },
           "upvote": {
