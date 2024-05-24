@@ -180,12 +180,11 @@
           }
         }
       },
-      "put": {
+      "post": {
         "tags": ["User"],
         "summary": "Create a user",
         "description": "Create user with details provided including username, password, nationality, and home_university. User_id is automatically generated.\n",
         "parameters": [
-        
           {
             "name": "username",
             "in": "query",
@@ -340,9 +339,7 @@
     },
     "/api/users/login": {
       "get": {
-        "tags": [
-          "User"
-        ],
+        "tags": ["User"],
         "summary": "Get an user information",
         "description": "Returns a list of users with their details including user_id, username, password, nationality, and home_university.\n",
         "parameters": [

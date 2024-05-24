@@ -1,9 +1,10 @@
-import type { Metadata } from 'next'
-import { Inter } from 'next/font/google'
-import './globals.css'
 import { SiteHeader } from '@/components/site-header'
 import { cn } from '@/lib/utils'
+import { Provider } from 'jotai'
+import type { Metadata } from 'next'
+import { Inter } from 'next/font/google'
 import { Toaster } from 'sonner'
+import './globals.css'
 
 const inter = Inter({ subsets: ['latin'] })
 
@@ -28,11 +29,13 @@ export default function RootLayout({ children }: RootLayoutProps) {
           inter.className,
         )}
       >
-        <SiteHeader />
-        <main className="flex-1">{children}</main>
-        {/* TODO: Implement site footer */}
-        {/* <SiteFooter /> */}
-        <Toaster position="bottom-right" richColors />
+        <Provider>
+          <SiteHeader />
+          <main className="flex-1">{children}</main>
+          {/* TODO: Implement site footer */}
+          {/* <SiteFooter /> */}
+          <Toaster position="bottom-right" richColors />
+        </Provider>
       </body>
     </html>
   )

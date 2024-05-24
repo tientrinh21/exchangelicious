@@ -1,9 +1,6 @@
-import {
-  type LoginFormSchema,
-  type RegisterFormSchema,
-} from '@/types/login-register'
-import { type User } from '@/types/user'
+import { type LoginFormSchema, type RegisterFormSchema } from '@/types/schema'
 import { type University } from '@/types/university'
+import { type User } from '@/types/user'
 import axios from 'axios'
 
 const BASE_URL = process.env.BASE_URL || 'http://localhost:8080/api'
@@ -36,6 +33,32 @@ export async function createUser({
         pwd: password,
         nationality: nationality,
         home_university: home_university,
+      },
+    })
+    .then((r) => r.data)
+}
+
+export async function updateUser(
+  user: User,
+  { password, nationality, home_university }: RegisterFormSchema,
+) {
+  return axios
+    .patch<User>(`${BASE_URL}/users`, null, {
+      params: {
+        user_id: user.user_id,
+        pwd: password,
+        nationality: nationality,
+        home_university: home_university,
+      },
+    })
+    .then((r) => r.data)
+}
+
+export async function deleteUser(user: User) {
+  return axios
+    .delete(`${BASE_URL}/users`, {
+      params: {
+        user_id: user.user_id,
       },
     })
     .then((r) => r.data)
