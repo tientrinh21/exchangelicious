@@ -72,6 +72,7 @@ user_with_university_resource_fields = {
     "housing": fields.Boolean,
 }
 
+# Reviews 
 review_resource_fields = {
     "review_id": fields.String,
     "university_id": fields.String,
@@ -85,33 +86,9 @@ review_resource_fields = {
     "downvotes": fields.String
 }
 
-# review_vote_count_resource_fields = {
-#     "review_id": fields.String,
-#     "university_id": fields.String,
-#     "user_id": fields.String,
-#     "title": fields.String,
-#     "content": fields.String,
-#     "submit_datetime": fields.DateTime,
-#     "last_edit_datetime": fields.DateTime,
-#     "mood_score": fields.String, # TODO: Is this correct? Enum??
-#     "vote": fields.String
-# }
-
-# review_vote_count_paginate_resource_fields = {
-#     "hasMore": fields.Boolean,
-#     "items": fields.List(fields.Nested(review_vote_count_resource_fields)),
-# }
-
 review_paginate_resource_fields = {
     "hasMore": fields.Boolean,
     "items": fields.List(fields.Nested(review_resource_fields)),
-}
-
-reply_resource_fields = {
-    "reply_id": fields.String,
-    "user_id": fields.String,
-    "content": fields.String,
-    "parent_review_id": fields.String,
 }
 
 upvote_resource_fields = {

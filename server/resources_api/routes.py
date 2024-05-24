@@ -30,11 +30,10 @@ def initialize_routes(api):
     api.add_resource(UniversityAllRes, "/api/universities")
     api.add_resource(UserWithUniversityRes, "/api/users/<string:user_id>/uni")
     api.add_resource(UniversityPagination, "/api/universities/search")
+    api.add_resource(UserLoginRes, "/api/users/login")
     # Reviews
     api.add_resource(ReviewRes, "/api/review")
-    # api.add_resource(ReviewPerUniRes, "/api/reviews/<string:university_id>")
     api.add_resource(ReviewPerUniAllRes, "/api/reviews")
     api.add_resource(ReviewPerUniPaginateRes, "/api/reviews/paginate")
-    api.add_resource(UserLoginRes, "/api/users/login")
     api.add_resource(UpvoteRes, "/api/review/upvote")
     api.add_resource(DownvoteRes, "/api/review/downvote")

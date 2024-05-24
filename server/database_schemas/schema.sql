@@ -121,15 +121,6 @@ create table review_table (
     downvotes int default 0
 );
 
-# Are we having replies or not? 
-# create table reply_table (
-#	reply_id int auto_increment primary key,
-#    user_id varchar(36) not null,
-#    content text,
-#    # A review can have many replies
-#    parent_review_id int
-# );
-
 create table upvote_table (
 	upvote_id varchar(36) default (uuid()) primary key,
     user_id varchar(36) not null,

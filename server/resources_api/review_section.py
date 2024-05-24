@@ -43,7 +43,6 @@ class ReviewPerUniAllRes(Resource):
         statement = select(ReviewTable).where(ReviewTable.university_id == university_id)
         res = db.session.scalars(statement).all()
         return [r for r in res], 200
-        # return reviews_schema.dump(res), 200
 
 class ReviewPerUniPaginateRes(Resource):
     def __init__(self) -> None:
@@ -76,66 +75,7 @@ class ReviewPerUniPaginateRes(Resource):
             page=page_number
         )
         return {"hasMore": res.has_next, "items": [r for r in res]}, 200
-
-    # @marshal_with(review_paginate_resource_fields)
-    # def get(self):
-    #     args = self.reqparse.parse_args()
-    #     university_id = args["university_id"]
-    #     page_number = args["page_number"]
-
-    #     upvote_alias = aliased(UpvoteTable)
-    #     downvote_alias = aliased(DownvoteTable)
-
-    #     # Subqueries to count upvotes and downvotes
-    #     upvote_count = db.session.query(
-    #         ReviewTable.review_id,
-    #         func.count(upvote_alias.upvote_id).label('upvote_count')
-    #     ).join(upvote_alias, upvote_alias.review_id == ReviewTable.review_id, isouter=True).group_by(ReviewTable.review_id).subquery()
-
-    #     print(upvote_count)
-
-    #     downvote_count = db.session.query(
-    #         ReviewTable.review_id,
-    #         func.count(downvote_alias.downvote_id).label('downvote_count')
-    #     ).join(downvote_alias, downvote_alias.review_id == ReviewTable.review_id, isouter=True).group_by(ReviewTable.review_id).subquery()
-
-    #     print(downvote_count)
-
-    #     # Main query with pagination and sorting by vote difference
-    #     query = db.session.query(
-    #         ReviewTable,
-    #         (func.coalesce(upvote_count.c.upvote_count, 0) - func.coalesce(downvote_count.c.downvote_count, 0)).label('vote_diff')
-    #     ).outerjoin(upvote_count, upvote_count.c.review_id == ReviewTable.review_id)\
-    #     .outerjoin(downvote_count, downvote_count.c.review_id == ReviewTable.review_id)\
-    #     .filter(ReviewTable.university_id == university_id)\
-    #     .order_by(func.coalesce(upvote_count.c.upvote_count, 0) - func.coalesce(downvote_count.c.downvote_count, 0).desc())
-
-    #     print(" ")
-    #     print(query)
-
-    #     # Apply pagination
-    #     res = query.paginate(page=page_number, per_page=4, error_out=False)
-
-    #     print("")
-
-    #     res_updated = []
-    #     for r in res.items:
-    #         print(type(r[0]))
-    #         print(r[0])
-    #     return {"hasMore": res.has_next, "items": [r[0] for r in res.items]}, 200
-
-    # def get(self):
-    #     args = self.reqparse.parse_args()
-    #     university_id = args["university_id"]
-    #     page_number = args["page_number"]
-
-    #     up_stmt = (
-    #         select(UpvoteTable)
-    #         .where(UpvoteTable.university_id == university_id, UpvoteTable.university_id == university_id)
-    #         .with_only_columns[]
-    #     )
         
-
 class ReviewRes(Resource):
     @marshal_with(review_resource_fields)
     def get(self):
@@ -199,7 +139,6 @@ class ReviewRes(Resource):
             print(e)
             abort(message=str(e.__dict__.get("orig")), http_status_code=400)
 
-
 class UpvoteRes(Resource):
     def __init__(self) -> None:
         super().__init__()
@@ -228,17 +167,6 @@ class UpvoteRes(Resource):
             args = self.reqparse.parse_args()
             review_id = args["review_id"]
             user_id = args["user_id"]
-
-            # stmt = (
-            #     select(UpvoteTable).where(UpvoteTable.user_id == user_id, UpvoteTable.review_id == review_id)
-            # )
-            # print(stmt)
-            # res = db.session.execute(stmt).all()
-            # print(res)
-            # for i in res:
-            #     print(i)
-            # if len(res) >= 1:
-            #     abort(message="A user can only upvote a stat", http_status_code=400)
 
             new = UpvoteTable(
                 # generate id
@@ -336,6 +264,3 @@ class DownvoteRes(Resource):
             print(e)
             abort(message=str(e.__dict__.get("orig")), http_status_code=400)
 
-# find all reviews for a university
-# upvote/downvote (A user can only upvote a review once)
-# Replies (with fetch more)
