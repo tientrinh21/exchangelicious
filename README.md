@@ -1,4 +1,7 @@
-# Uni POV Exchange
+# Exchangelicious
+Savor the Flavor of Global Exchange!
+
+<img src="https://i.imgur.com/oGYOwF5.png" alt="Hero image" style="border-radius: 10px"/>
 
 ## Development guide
 
