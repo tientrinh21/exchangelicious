@@ -3,6 +3,7 @@ import { Inter } from 'next/font/google'
 import './globals.css'
 import { SiteHeader } from '@/components/site-header'
 import { cn } from '@/lib/utils'
+import { Toaster } from 'sonner'
 
 const inter = Inter({ subsets: ['latin'] })
 
@@ -31,6 +32,7 @@ export default function RootLayout({ children }: RootLayoutProps) {
         <main className="flex-1">{children}</main>
         {/* TODO: Implement site footer */}
         {/* <SiteFooter /> */}
+        <Toaster position="bottom-right" richColors />
       </body>
     </html>
   )

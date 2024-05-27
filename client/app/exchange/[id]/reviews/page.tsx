@@ -1,3 +1,11 @@
+import { InfoReviewsNav } from '@/components/info-reviews-nav'
+
 export default function ReviewsPage() {
-  return <div className="">Hello from Reviews Page</div>
+  return (
+    <>
+      <InfoReviewsNav />
+
+      <div className="">Hello from Reviews Page</div>
+    </>
+  )
 }

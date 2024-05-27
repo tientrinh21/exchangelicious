@@ -5,66 +5,37 @@ import {
   DropdownMenuItem,
   DropdownMenuTrigger,
 } from '@/components/ui/dropdown-menu'
-import { DotsHorizontalIcon } from '@radix-ui/react-icons'
-import { toRomanNumerals } from '@/lib/utils'
+import { objKeyToText, toRomanNumerals } from '@/lib/utils'
+import type { Error } from '@/types/error'
+import type { UniversityInfo } from '@/types/university'
+import {
+  DotsHorizontalIcon,
+  SymbolIcon,
+  ArrowUpIcon,
+} from '@radix-ui/react-icons'
+import { Url } from 'next/dist/shared/lib/router/router'
 import Link from 'next/link'
 import React from 'react'
+import Markdown from 'react-markdown'
+import remarkGfm from 'remark-gfm'
 
-function UniInfoName(props: { name: string }) {
+function UniInfoContent(props: { data: UniversityInfo | undefined }) {
   return (
-    <h2 className="lg:md-6 mb-2 text-xl font-bold text-primary-foreground sm:mb-3 sm:text-2xl md:mb-4 md:text-3xl lg:text-4xl">
-      {props.name}
-    </h2>
-  )
-}
-
-function UniInfoMeta(props: { meta: string }) {
-  return (
-    <span className=" text-xs font-medium leading-5 text-primary-foreground sm:text-sm sm:leading-6 md:text-base md:leading-7">
-      {props.meta}
-    </span>
-  )
-}
-
-function UniInfoContainer(props: { children: React.ReactNode }) {
-  return (
-    <div className="container flex w-full max-w-screen-lg flex-col pb-6 lg:pb-8">
-      {props.children}
-    </div>
-  )
-}
-
-function UniInfoImgWrapper(props: {
-  children: React.ReactNode
-  imgSrc: string
-}) {
-  return (
-    <div
-      className="md:80 flex h-48 w-screen items-end justify-center bg-cover bg-center sm:h-72 lg:h-96"
-      style={{
-        backgroundImage: `linear-gradient(to right, rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url(${props.imgSrc})`,
-      }}
-    >
-      {props.children}
-    </div>
-  )
-}
-
-function UniInfoContent(props: { data: Object }) {
-  return (
-    <div className="pb-[1000px] lg:order-1">
-      {Object.entries(props.data).map(([key, value], index) => {
+    <div className="lg:order-1">
+      {Object.entries(props.data!).map(([key, value], index) => {
         if (key === 'webpage')
           return (
             <div
               key={index}
-              className="mb-8 flex w-full items-center justify-center gap-2 font-medium lg:justify-normal"
+              className="mb-4 mt-2 flex w-full items-center justify-center gap-2 font-medium lg:mb-8 lg:mt-0 lg:justify-normal"
             >
-              <span className="text-primary sm:text-lg">Webpage:</span>{' '}
+              <span className="font-semibold text-foreground sm:text-lg">
+                Webpage:
+              </span>{' '}
               <Link
                 href={value}
                 target="_blank"
-                className="text-secondary-foreground underline underline-offset-2 hover:text-muted-foreground"
+                className="text-primary underline underline-offset-2 hover:text-primary/80"
               >
                 {value}
               </Link>
@@ -77,10 +48,28 @@ function UniInfoContent(props: { data: Object }) {
             id={key}
             className="mt-[-6rem] space-y-5 pb-8 pt-[6rem]"
           >
-            <h3 className="text-xl font-bold text-foreground md:text-2xl">
-              {`${toRomanNumerals(index)}. ${key[0].toUpperCase()}${key.substring(1)}`}
-            </h3>
-            <p className="font-medium text-secondary-foreground">{value}</p>
+            <h2 className="text-xl font-bold text-foreground md:text-2xl">
+              {`${toRomanNumerals(index)}. ${objKeyToText(key)}`}
+            </h2>
+            {/* <p className="whitespace-pre-line font-medium text-secondary-foreground"> */}
+            {/*   {value} */}
+            {/* </p> */}
+            <Markdown
+              remarkPlugins={[remarkGfm]}
+              className="prose font-medium text-secondary-foreground"
+              components={{
+                a: ({ node, href, ...props }) => (
+                  <Link
+                    {...props}
+                    href={href as Url}
+                    target="_blank"
+                    className="text-primary underline underline-offset-4 hover:text-primary/80"
+                  />
+                ),
+              }}
+            >
+              {value}
+            </Markdown>
           </div>
         )
       })}
@@ -88,33 +77,43 @@ function UniInfoContent(props: { data: Object }) {
   )
 }
 
-function UniInfoNav(props: { data: Object }) {
+function UniInfoNav(props: { data: UniversityInfo | undefined }) {
   return (
     <div className="hidden w-[30%] min-w-44 lg:order-2 lg:block lg:min-w-52">
       <div className="sticky top-20 z-40">
-        {Object.entries(props.data).map(([key, _], index) => {
+        {Object.entries(props.data!).map(([key, _], index) => {
           if (key === 'webpage') return
           return (
             <div
               key={index}
-              className="w-full border-b-2 border-y-accent-foreground/30 py-5 first:border-t-2"
+              className="w-full border-b-2 border-y-accent-foreground/30 py-4 first:border-t-2"
             >
               <Link
                 href={`#${key}`}
                 className="font-medium text-accent-foreground/75 hover:text-foreground"
               >
                 <span className="mr-1 inline-block w-8">{`${toRomanNumerals(index)}.`}</span>
-                <span>{`${key[0].toUpperCase()}${key.substring(1)}`}</span>
+                <span>{objKeyToText(key)}</span>
               </Link>
             </div>
           )
         })}
+
+        <div className="w-full border-b-2 border-y-accent-foreground/30 py-4 first:border-t-2">
+          <Link
+            href=""
+            className="flex items-center font-medium text-accent-foreground/75 hover:text-foreground"
+          >
+            <ArrowUpIcon className="mr-4 inline-block h-5 w-5" />
+            <span>Back to top</span>
+          </Link>
+        </div>
       </div>
     </div>
   )
 }
 
-function UniInfoMobileMenu(props: { data: Object }) {
+function UniInfoMobileMenu(props: { data: UniversityInfo | undefined }) {
   return (
     <DropdownMenu>
       <DropdownMenuTrigger asChild>
@@ -130,9 +129,9 @@ function UniInfoMobileMenu(props: { data: Object }) {
       </DropdownMenuTrigger>
       <DropdownMenuContent
         align="center"
-        className="w-[65vw] space-y-2 rounded-lg px-2 py-4 shadow-xl sm:w-[40vw]"
+        className="w-[65vw] space-y-2 rounded-lg px-4 py-4 shadow-xl sm:w-[40vw]"
       >
-        {Object.entries(props.data).map(([key, _], index) => {
+        {Object.entries(props.data!).map(([key, _], index) => {
           if (key === 'webpage') return
           return (
             <DropdownMenuItem key={index}>
@@ -141,22 +140,61 @@ function UniInfoMobileMenu(props: { data: Object }) {
                 className={`mx-auto w-2/3 text-base font-medium text-accent-foreground`}
               >
                 <span className="mr-1 inline-block w-8">{`${toRomanNumerals(index)}.`}</span>
-                <span>{`${key[0].toUpperCase()}${key.substring(1)}`}</span>
+                <span>{objKeyToText(key)}</span>
               </Link>
             </DropdownMenuItem>
           )
         })}
+        <DropdownMenuItem>
+          <Link
+            href=""
+            className={`mx-auto w-2/3 text-base font-medium text-accent-foreground`}
+          >
+            <ArrowUpIcon className="mr-4 inline-block h-5 w-5" />
+            <span>Back to top</span>
+          </Link>
+        </DropdownMenuItem>
       </DropdownMenuContent>
     </DropdownMenu>
   )
 }
 
+function UniInfoLoading() {
+  return (
+    <>
+      <div className="mt-4 flex w-full items-center justify-center gap-2 text-center">
+        <SymbolIcon className="h-4 w-4 animate-spin" />
+        <p className="text-xl font-medium text-secondary-foreground">
+          Loading...
+        </p>
+      </div>
+    </>
+  )
+}
+
+function UniInfoError(props: { error: Error }) {
+  return (
+    <>
+      <div className="flex w-full flex-col items-center justify-center text-center">
+        <h1 className="text-xl font-bold text-destructive">404: Not Found</h1>
+        <p>
+          {/* If id of univeristy not in database */}
+          {props.error.message.includes('No university with the ID')
+            ? 'Could not find information about requested university'
+            : 'An error occurred while fetching the data.'}
+        </p>
+        <Link href="/exchange" className="mt-5">
+          <Button variant="secondary">Back to Exchange</Button>
+        </Link>
+      </div>
+    </>
+  )
+}
+
 export {
-  UniInfoContainer,
   UniInfoContent,
-  UniInfoImgWrapper,
-  UniInfoMeta,
-  UniInfoName,
-  UniInfoNav,
+  UniInfoError,
+  UniInfoLoading,
   UniInfoMobileMenu,
+  UniInfoNav,
 }

@@ -10,22 +10,22 @@ For any questions not covered please contact [EAexchanges@psu.edu](mailto:eaexch
 
 Most exchange programs take place at [Penn State’s University Park campus](https://admissions.psu.edu/pennstate/campuses/?campusCode=UP). However, exchanges are available at several other campuses as well:
 
-- [Penn State Abington](http://www.abington.psu.edu/) (Exchange with Hof University of Applied Sciences)
-- [Penn State Berks](https://berks.psu.edu/) (Exchange with University of Education Freiburg)
-- [Penn State Harrisburg](http://www.hbg.psu.edu/) (Exchange with Hochschule Darmstadt, University of Applied Science)
+-   [Penn State Abington](http://www.abington.psu.edu/) (Exchange with Hof University of Applied Sciences)
+-   [Penn State Berks](https://berks.psu.edu/) (Exchange with University of Education Freiburg)
+-   [Penn State Harrisburg](http://www.hbg.psu.edu/) (Exchange with Hochschule Darmstadt, University of Applied Science)
 
 For non-University Park exchanges, you will follow many of the same processes, but will also work with staff at the campus regarding course enrollment and accommodation.
 
 # Semester
 
-|   | Fall Semester and Academic Year | Spring Semester |
-| --- | --- | --- |
-| Nomination Period Opens | Mid-January | Mid-July |
-| Nominations Due | March 1 | September 1 |
-| EA Applications Open | February 15 | August 15 |
-| EA Application Deadline | April 1 | October 1 |
-| Confirmation Date | June 1 | December 1 |
-| Official Transcripts Sent to Home Institution  | February | June |
+|                                                | Fall Semester and Academic Year | Spring Semester |
+| ---------------------------------------------- | ------------------------------- | --------------- |
+| Nomination Period Opens                        | Mid-January                     | Mid-July        |
+| Nominations Due                                | March 1                         | September 1     |
+| EA Applications Open                           | February 15                     | August 15       |
+| EA Application Deadline                        | April 1                         | October 1       |
+| Confirmation Date                              | June 1                          | December 1      |
+| Official Transcripts Sent to Home Institution  | February                        | June            |
 
 # Application Deadlines
 
@@ -66,16 +66,16 @@ The Pennsylvania State University, founded in 1855, is the Commonwealth of Penns
 
 ### ACADEMIC STATUS AND CREDIT LOAD
 
-- Participants in the Penn State Education Abroad (EA) exchange program are enrolled on non-degree undergraduate students.
-- Undergraduate students are required to enroll in 12 credits per semester, with an average semester load being 15 credits.
+-   Participants in the Penn State Education Abroad (EA) exchange program are enrolled on non-degree undergraduate students.
+-   Undergraduate students are required to enroll in 12 credits per semester, with an average semester load being 15 credits.
 
 ### COURSE ENROLLMENT
 
-- You will be enrolled in courses based on the requests that you submit in your Advance Course Registration Form in the EA application.
-- We cannot guarantee enrollment in any course. Academic departments do their best to accommodate your choices, however all of your course selections may not be available. Please be as flexible as possible in selecting courses!
-- Course descriptions, pre-requisites and credits can be found in [Penn State’s Course Catalog](https://public.lionpath.psu.edu/psp/CSPRD/EMPLOYEE/HRMS/c/COMMUNITY_ACCESS.SSS_BROWSE_CATLG.GBL?PORTALPARAM_PTCNAV=HC_SSS_BROWSE_CATLG_GBL4&EOPP.SCNode=HRMS&EOPP.SCPortal=EMPLOYEE&EOPP.SCName=PE_TE031_NAV&EOPP.SCLabel=&EOPP.SCPTcname=PT_PTPP_SCFNAV_BASEPAGE_SCR&FolderPath=PORTAL_ROOT_OBJECT.PORTAL_BASE_DATA.CO_NAVIGATION_COLLECTIONS.PE_TE031_NAV.ADMN_S201605170717251006321046&IsFolder=false).
-- Refer to [Penn State’s Class Search](https://public.lionpath.psu.edu/psp/CSPRD/EMPLOYEE/HRMS/c/COMMUNITY_ACCESS.CLASS_SEARCH.GBL?PORTALPARAM_PTCNAV=HC_CLASS_SEARCH_GBL&EOPP.SCNode=HRMS&EOPP.SCPortal=EMPLOYEE&EOPP.SCName=CO_EMPLOYEE_SELF_SERVICE&EOPP.SCLabel=Self%20Service&EOPP.SCPTfname=CO_EMPLOYEE_SELF_SERVICE&FolderPath=PORTAL_ROOT_OBJECT.CO_EMPLOYEE_SELF_SERVICE.HC_CLASS_SEARCH_GBL&IsFolder=false) for course availability for a specific semester.
-- Exchange students will finalize their schedule of courses after arriving on campus and in consultation with an assigned academic adviser.
+-   You will be enrolled in courses based on the requests that you submit in your Advance Course Registration Form in the EA application.
+-   We cannot guarantee enrollment in any course. Academic departments do their best to accommodate your choices, however all of your course selections may not be available. Please be as flexible as possible in selecting courses!
+-   Course descriptions, pre-requisites and credits can be found in [Penn State’s Course Catalog](https://public.lionpath.psu.edu/psp/CSPRD/EMPLOYEE/HRMS/c/COMMUNITY_ACCESS.SSS_BROWSE_CATLG.GBL?PORTALPARAM_PTCNAV=HC_SSS_BROWSE_CATLG_GBL4&EOPP.SCNode=HRMS&EOPP.SCPortal=EMPLOYEE&EOPP.SCName=PE_TE031_NAV&EOPP.SCLabel=&EOPP.SCPTcname=PT_PTPP_SCFNAV_BASEPAGE_SCR&FolderPath=PORTAL_ROOT_OBJECT.PORTAL_BASE_DATA.CO_NAVIGATION_COLLECTIONS.PE_TE031_NAV.ADMN_S201605170717251006321046&IsFolder=false).
+-   Refer to [Penn State’s Class Search](https://public.lionpath.psu.edu/psp/CSPRD/EMPLOYEE/HRMS/c/COMMUNITY_ACCESS.CLASS_SEARCH.GBL?PORTALPARAM_PTCNAV=HC_CLASS_SEARCH_GBL&EOPP.SCNode=HRMS&EOPP.SCPortal=EMPLOYEE&EOPP.SCName=CO_EMPLOYEE_SELF_SERVICE&EOPP.SCLabel=Self%20Service&EOPP.SCPTfname=CO_EMPLOYEE_SELF_SERVICE&FolderPath=PORTAL_ROOT_OBJECT.CO_EMPLOYEE_SELF_SERVICE.HC_CLASS_SEARCH_GBL&IsFolder=false) for course availability for a specific semester.
+-   Exchange students will finalize their schedule of courses after arriving on campus and in consultation with an assigned academic adviser.
 
 ### COURSE RESTRICTIONS
 
@@ -85,48 +85,48 @@ If you are interested in courses that are restricted or full, please list them o
 
 ### [College of Arts and Architecture](http://artsandarchitecture.psu.edu/)
 
-- Availability in Architecture, Landscape Architecture studio courses are limited.
-- Availability in Music, Theatre, and Dance performance courses are limited.
-- Availability in Graphic Design and Digital Arts courses are limited and interested applicants may be required to submit a portfolio of representative work if courses are available.
-- Musical Theatre & Acting major courses are not available.
-- For courses in the School of Visual Arts (outside of Digital Arts), you may be required to submit a portfolio of representative work.
+-   Availability in Architecture, Landscape Architecture studio courses are limited.
+-   Availability in Music, Theatre, and Dance performance courses are limited.
+-   Availability in Graphic Design and Digital Arts courses are limited and interested applicants may be required to submit a portfolio of representative work if courses are available.
+-   Musical Theatre & Acting major courses are not available.
+-   For courses in the School of Visual Arts (outside of Digital Arts), you may be required to submit a portfolio of representative work.
 
 ### [College of Education](http://www.ed.psu.edu/educate)
 
-- Not available unless specified in the exchange agreement.
+-   Not available unless specified in the exchange agreement.
 
 ### [College of Engineering](http://www.engr.psu.edu/)
 
-- Mechanical Engineering Courses can be difficult to schedule. Please have back up options.
+-   Mechanical Engineering Courses can be difficult to schedule. Please have back up options.
 
 ### [College of Health and Human Development](http://hhd.psu.edu/)
 
-- Kinesiology courses are very limited.
-- Nursing courses are not available unless specified in the exchange agreement.
+-   Kinesiology courses are very limited.
+-   Nursing courses are not available unless specified in the exchange agreement.
 
 ### [College of the Liberal Arts](http://www.la.psu.edu/)
 
-- Courses in Political Science and History fill quickly.
-- It is not advisable to schedule more than two 400 level courses in Political Science (PL SC). Do not select writing intensive (“W”) courses in PL SC.
+-   Courses in Political Science and History fill quickly.
+-   It is not advisable to schedule more than two 400 level courses in Political Science (PL SC). Do not select writing intensive (“W”) courses in PL SC.
 
 ### [Donald P. Bellisario College of Communications](http://bellisario.psu.edu/)
 
-- Studio and production courses not available.
+-   Studio and production courses not available.
 
 ### [College of Information Sciences and Technology](https://ist.psu.edu/)
 
-- Limit of three (3) College of Information Science and Technology courses per semester.
-- Do not select writing intensive (“W”) courses for any College of Information Sciences and Technology courses. College of Information Sciences and Technology course codes are IST, SRA, DS, CYBER, and HCDD.
+-   Limit of three (3) College of Information Science and Technology courses per semester.
+-   Do not select writing intensive (“W”) courses for any College of Information Sciences and Technology courses. College of Information Sciences and Technology course codes are IST, SRA, DS, CYBER, and HCDD.
 
 ### [Smeal College of Business](http://www.smeal.psu.edu/about-smeal)
 
-- You must be a business major at your home university to take Smeal College of Business courses at Penn State. Please note, economics courses are considered College of the Liberal Arts courses, not Business, at Penn State.
-- You must have been working toward your business degree prior to your arrival at Penn State to take advanced courses. Business major courses have pre-requisites. Those available to exchange students assume students have an equivalent academic background at their home institutions as the following:
-  - [ENGL 15](https://bulletins.psu.edu/search/?scontext=courses&search=engl+15), [MATH 110](https://bulletins.psu.edu/search/?scontext=courses&search=math+110), [STAT 200](https://bulletins.psu.edu/search/?scontext=courses&search=stat+200), [ACCTG 211](https://bulletins.psu.edu/search/?scontext=courses&search=acctg+211), [ECON 102](https://bulletins.psu.edu/search/?scontext=courses&search=econ+102), [MGMT 301](https://bulletins.psu.edu/search/?scontext=courses&search=mgmt+301) (pre-req ECON 102 or 104), [MKTG 301](https://bulletins.psu.edu/search/?scontext=courses&search=mktg+301) (pre-req ECON 102 or 104), [FIN 301](https://bulletins.psu.edu/search/?scontext=courses&search=fin+301) (pre-req ACCTG 211, STAT 200, ECON 102 or 104)
-- The college guarantees each exchange student two Business courses each semester, if they meet the prerequisites for the course space is available in the courses. Smeal College of Business courses are in high demand with limited seating capacity. Some semesters the offerings are very limited.
-- Courses in the Real Estate major are currently not available for exchange students.
-- The rest of the courses selected must be from other colleges/disciplines.
-- You will be provided with a list of courses that permit exchange students after your nomination.
+-   You must be a business major at your home university to take Smeal College of Business courses at Penn State. Please note, economics courses are considered College of the Liberal Arts courses, not Business, at Penn State.
+-   You must have been working toward your business degree prior to your arrival at Penn State to take advanced courses. Business major courses have pre-requisites. Those available to exchange students assume students have an equivalent academic background at their home institutions as the following:
+    -   [ENGL 15](https://bulletins.psu.edu/search/?scontext=courses&search=engl+15), [MATH 110](https://bulletins.psu.edu/search/?scontext=courses&search=math+110), [STAT 200](https://bulletins.psu.edu/search/?scontext=courses&search=stat+200), [ACCTG 211](https://bulletins.psu.edu/search/?scontext=courses&search=acctg+211), [ECON 102](https://bulletins.psu.edu/search/?scontext=courses&search=econ+102), [MGMT 301](https://bulletins.psu.edu/search/?scontext=courses&search=mgmt+301) (pre-req ECON 102 or 104), [MKTG 301](https://bulletins.psu.edu/search/?scontext=courses&search=mktg+301) (pre-req ECON 102 or 104), [FIN 301](https://bulletins.psu.edu/search/?scontext=courses&search=fin+301) (pre-req ACCTG 211, STAT 200, ECON 102 or 104)
+-   The college guarantees each exchange student two Business courses each semester, if they meet the prerequisites for the course space is available in the courses. Smeal College of Business courses are in high demand with limited seating capacity. Some semesters the offerings are very limited.
+-   Courses in the Real Estate major are currently not available for exchange students.
+-   The rest of the courses selected must be from other colleges/disciplines.
+-   You will be provided with a list of courses that permit exchange students after your nomination.
 
 ### ACADEMIC TRANSCRIPTS
 
@@ -136,23 +136,23 @@ Official academic transcripts will be sent to partners within six weeks of the p
 
 &nbsp;**Estimated Expenses for 2024 / 2025 Academic Year**
 
-| Exchange | Fall Only | Spring Only | Fall + Spring | Spring + Fall<br>(12 months living estimates) |
-| --- | --- | --- | --- | --- |
-| Tuition (covered) | ($20,650) | ($20,650) | ($41,300) | ($41,300) |
-| Living Expenses | $7,300 | $7,300 | $14,600 | $19,400 |
-| Books | $950 | $950 | $1,900 | $1,900 |
-| Health Insurance | $1,350 | $2,150 | $3,400 | $3,400 |
-| TOTAL Financial Guarantee for DS-2019: | &nbsp;$9,600 | &nbsp;$10,400 | &nbsp;$19,900 | &nbsp;$24,700 |
+| Exchange                               | Fall Only    | Spring Only   | Fall + Spring | Spring + Fall<br>(12 months living estimates) |
+| -------------------------------------- | ------------ | ------------- | ------------- | --------------------------------------------- |
+| Tuition (covered)                      | ($20,650)    | ($20,650)     | ($41,300)     | ($41,300)                                     |
+| Living Expenses                        | $7,300       | $7,300        | $14,600       | $19,400                                       |
+| Books                                  | $950         | $950          | $1,900        | $1,900                                        |
+| Health Insurance                       | $1,350       | $2,150        | $3,400        | $3,400                                        |
+| TOTAL Financial Guarantee for DS-2019: | &nbsp;$9,600 | &nbsp;$10,400 | &nbsp;$19,900 | &nbsp;$24,700                                 |
 
 ### PROOF OF FUNDS
 
 To be issued a DS-2019 you must provide financial documentation for how your educational expenses will be supported for the duration of your J-1 Exchange Visitor Status.
 
-A Financial Guarantee is typically 2 parts:  Proof of funds + a Certification of Financial Support from your guarantor.
+A Financial Guarantee is typically 2 parts: Proof of funds + a Certification of Financial Support from your guarantor.
 
-- Refer to [Financial Guarantee Requirements](https://global.psu.edu/node/297) for a list of acceptable documents.
-- Here are links to the preferred Certification of Financial Support letter:
-  - [Word Document Version of Certification of Financial Support Form](https://global.psu.edu/file/723)
+-   Refer to [Financial Guarantee Requirements](https://global.psu.edu/node/297) for a list of acceptable documents.
+-   Here are links to the preferred Certification of Financial Support letter:
+    - [Word Document Version of Certification of Financial Support Form](https://global.psu.edu/file/723)
   - [PDF Version of Certification of Financial Support Form](https://global.psu.edu/file/724)
 
 ### PAYING YOUR BURSAR SEMESTER BILL
