@@ -1,16 +1,8 @@
-"use client";
+'use client'
+
 import React from 'react'
-import ConsumeApiDemo from '@/components/consumeApiDemo';
-import PaginationDemo from '@/components/paginationDemo';
 
-function page() {
-
-  return (
-    <div>
-      {/* <ConsumeApiDemo></ConsumeApiDemo> */}
-      <PaginationDemo></PaginationDemo>
-    </div>
-  )
+export default function Homepage() {
+  return <div>Homepage</div>
 }
 
-export default page

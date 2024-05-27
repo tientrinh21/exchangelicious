@@ -29,25 +29,40 @@ export function MobileNav() {
         <DropdownMenuItem>
           <Link
             href="/"
-            className={`w-full text-center text-base font-medium text-accent-foreground ${pathname === '/' ? 'opacity-100' : 'opacity-40'}`}
+            className={`w-full text-center text-base font-medium ${pathname === '/' ? 'opacity-100' : 'opacity-40'}`}
           >
-            Home
+            <Button
+              variant="link"
+              className="text-accent-foreground hover:no-underline"
+            >
+              Home
+            </Button>
           </Link>
         </DropdownMenuItem>
         <DropdownMenuItem>
           <Link
             href="/exchange"
-            className={`w-full text-center text-base font-medium text-accent-foreground ${pathname.includes('/exchange') ? 'opacity-100' : 'opacity-40'}`}
+            className={`w-full text-center text-base font-medium ${pathname.includes('/exchange') ? 'opacity-100' : 'opacity-40'}`}
           >
-            Exchange
+            <Button
+              variant="link"
+              className="text-accent-foreground hover:no-underline"
+            >
+              Exchange
+            </Button>
           </Link>
         </DropdownMenuItem>
         <DropdownMenuItem>
           <Link
             href="/my-page"
-            className={`w-full text-center text-base font-medium text-accent-foreground ${pathname === '/my-page' ? 'opacity-100' : 'opacity-40'}`}
+            className={`w-full text-center text-base font-medium ${pathname === '/my-page' ? 'opacity-100' : 'opacity-40'}`}
           >
-            My Page
+            <Button
+              variant="link"
+              className="text-accent-foreground hover:no-underline"
+            >
+              My Page
+            </Button>
           </Link>
         </DropdownMenuItem>
       </DropdownMenuContent>
