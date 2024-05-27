@@ -101,6 +101,18 @@ create table exchange_university_table (
 
 DELIMITER //
 
+-- CREATE TRIGGER before_uni_insert
+-- BEFORE INSERT ON university_table
+-- FOR EACH ROW
+-- BEGIN
+--     DECLARE var varchar(10);
+--     SELECT uni_rank INTO var
+--     FROM uni_ranking_table
+--     WHERE uni_name = NEW.long_name
+--     LIMIT 1;
+
+--     SET NEW.ranking = var;
+-- END//
 CREATE TRIGGER before_uni_insert
 BEFORE INSERT ON university_table
 FOR EACH ROW
@@ -108,11 +120,12 @@ BEGIN
     DECLARE var varchar(10);
     SELECT uni_rank INTO var
     FROM uni_ranking_table
-    WHERE uni_name = NEW.long_name
+    WHERE uni_name LIKE CONCAT('%', NEW.long_name, '%')
     LIMIT 1;
 
     SET NEW.ranking = var;
 END//
+
 
 
 DELIMITER ;
@@ -409,7 +422,7 @@ Source: [https://utdallas.box.com/s/aa0wbsjdkpm7kuvrm5pxybhsg00svgi4](https://ut
   );
 
 insert into university_table(university_id, long_name, country_code, region, info_page_id, campus, housing, ranking) values
-  ('skku', 'Sungkyunkwan University', 'KOR', 'Seoul, Suwon', 'skku_page', "Suwon Campus" , 1, "145"),
+  ('skku', 'Sungkyunkwan University (SKKU)', 'KOR', 'Seoul, Suwon', 'skku_page', "Suwon Campus" , 1, "145"),
   ('ntnu', 'Norwegian University of Science and Technology', 'NOR', 'Trondheim, Gjøvik, Ålesund', 'ntnu_page', "Ålesund Campus", 0, "292"),
   ('uio', 'University of Oslo', 'NOR', 'Oslo', 'uio_page', "Oslo Campus", 0, "117"),
   ('uib', 'University of Bergen', 'NOR', 'Bergen', 'uib_page', "Bergen Campus", 0, "281"),
