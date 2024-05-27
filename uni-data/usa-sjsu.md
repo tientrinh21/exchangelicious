@@ -1,5 +1,6 @@
+https://www.sjsu.edu/isss/scholars/exchange/
+
 # University
-**[Exchange Students Website](https://www.sjsu.edu/isss/scholars/exchange/)**
 
 San Jose State provides a comprehensive university education and offers 145 areas of study with an additional 108 concentrations. Quality teaching and small classes are a priority at SJSU, where tenured professors teach introductory as well as advanced courses. 
 

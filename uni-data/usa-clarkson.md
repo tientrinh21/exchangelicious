@@ -1,6 +1,6 @@
-# University
-**[Exchange Students Website](https://www.clarkson.edu/about/departments/international-center/international-students-and-scholars)**
+https://www.clarkson.edu/about/departments/international-center/international-students-and-scholars
 
+# University
 ### Welcome to Clarkson University!
 
 Clarkson University is a nationally ranked research university and the institution of choice for more than 3,400 enterprising, high-ability undergraduate and graduate students. Clarkson has strong undergraduate & graduate programs in engineering, business and the arts & sciences. We invite students from our exchange colleges & universities to study for a semester or a full-year at our Potsdam, New York campus.

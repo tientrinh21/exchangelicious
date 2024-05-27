@@ -1,5 +1,6 @@
+https://issp.ucsc.edu/students/exchange/
+
 # University
-**[Exchange Students Website](https://issp.ucsc.edu/students/exchange/)**
 
 UC Santa Cruz hosts exchange students (who typically come to the U.S. on J-1 Status) through two different programs:
 

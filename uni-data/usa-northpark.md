@@ -1,5 +1,6 @@
+https://www.northpark.edu/admissions-aid/undergraduate-admissions/international-students/international-exchange-or-study-abroad-students/
+
 # University
-**[Exchange Students Website](https://www.northpark.edu/admissions-aid/undergraduate-admissions/international-students/international-exchange-or-study-abroad-students/)**
 
 Founded by Swedish immigrants in 1891, North Park University now enrolls about 3,200 students, including approximately 200 international students from almost 50 countries. International students are an important part of the University’s commitment to being purposefully multicultural.
 

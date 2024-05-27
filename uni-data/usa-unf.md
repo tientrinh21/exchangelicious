@@ -1,6 +1,6 @@
-# University
-**[Exchange Students Website](https://www.unf.edu/coggin/international-business/exchange-students.html)**
+https://www.unf.edu/coggin/international-business/exchange-students.html
 
+# University
 ## About UNF
 
 <iframe allowfullscreen="allowfullscreen" data-mce-fragment="1" frameborder="0" src="https://www.youtube.com/embed/Mnvwd6TUgk0?cc_load_policy=1" title="Swoop Together Overview"></iframe>
