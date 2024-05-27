@@ -1,6 +1,7 @@
 https://www.umb.edu/academics/global-programs/international-exchange-students/
 
 # University
+
 ### Coming to UMass Boston on Exchange
 
 If you are a matriculated student at one of our [exchange partner institutions](https://www.umb.edu/admissions/international-students/apply-as-a-international-student/international-partnerships/) and you have been nominated and approved by your home institution to study abroad at UMass Boston, then you are at the right place. We look forward to your arrival.

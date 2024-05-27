@@ -1,6 +1,7 @@
 https://uh.edu/learningabroad/find-a-program/exchange-programs/
 
 # University
+
 ### REEP Overview
 
 Through the Reciprocal Educational Exchange Program (REEP), UH students can study at a partner university, while paying the UH tuition rate and limited student fees. Conversely, students at a UH partner university can study at UH while paying tuition to their home university. REEPs provide an opportunity to take courses with local students and are best suited for highly motivated, independent students. REEPs are typically a semester or year-long commitment and tend to be more cost effective.
