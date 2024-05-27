@@ -38,6 +38,7 @@ create table university_table (
     region varchar(40), -- Is this the correct way to do this?
     long_name varchar(255),
     info_page_id varchar(36),
+    ranking varchar(10),
 	constraint country_code_fk_con
         foreign key (country_code) references country_table (country_code)
         on delete set null on update cascade,
@@ -98,11 +99,23 @@ create table exchange_university_table (
         on delete cascade on update cascade
 );
 
-create table uni_ranking_table (
-    uni_rank int not null primary key,
-    uni_name varchar(60) not null,
-    uni_url varchar(100)
-);
+DELIMITER //
+
+CREATE TRIGGER before_uni_insert
+BEFORE INSERT ON university_table
+FOR EACH ROW
+BEGIN
+    DECLARE var varchar(10);
+    SELECT uni_rank INTO var
+    FROM uni_ranking_table
+    WHERE uni_name = NEW.long_name
+    LIMIT 1;
+
+    SET NEW.ranking = var;
+END//
+
+
+DELIMITER ;
 
 -- Many-to-Many
 -- https://dba.stackexchange.com/questions/74627/difference-between-on-delete-cascade-on-update-cascade-in-mysql
@@ -133,11 +146,12 @@ insert into info_page_table(info_page_id, intro_text, intro_source) values
 ('skku_page', 'This is SKKU. ', 'edu.skku.com'),
 ('ntnu_page', 'NTNU started a University that focused on STEM, however it has evolved to broaden its study programs. Around half the study-mass studies within the field of science and technology.', 'https://www.ntnu.edu/facts'),
 ('uio_page', 'Founded in 1811, UiO is the countrys largest and oldest university, renowned for its world-class research and commitment to scholarly advancement. At UiO, students have access to a wide range of programs across disciplines, including humanities, social sciences, natural sciences, law, and medicine.', 'uio.no'),
-('uib_page', 'The University of Bergen (UiB) stands proudly on Norways picturesque western coast, overlooking the stunning fjords and surrounded by breathtaking natural beauty. The university was established in 1946. ', 'uib.no')
+('uib_page', 'The University of Bergen (UiB) stands proudly on Norways picturesque western coast, overlooking the stunning fjords and surrounded by breathtaking natural beauty. The university was established in 1946. ', 'uib.no'),
+('keio_page', 'Keio University located in Tokyo, Japan.', 'https://www.keio.ac.jp/ko/')
 ;
 
 insert into university_table(university_id, long_name, country_code, region, info_page_id) values
-('skku', 'Sungkyunkwan University - SKKU', 'KOR', 'Seoul, Suwon', 'skku_page'),
+('skku', 'Sungkyunkwan University (SKKU)', 'KOR', 'Seoul, Suwon', 'skku_page'),
 ('ntnu', 'Norwegian University of Science and Technology - NTNU', 'NOR', 'Trondheim, Gjøvik, Ålesund', 'ntnu_page'),
 ('uio', 'University of Oslo - UiO', 'NOR', 'Oslo', 'uio_page'),
 ('uib', 'University of Bergen - UiB', 'NOR', 'Bergen', 'uib_page'),
@@ -150,7 +164,8 @@ insert into university_table(university_id, long_name, country_code, region, inf
 ('uib7', 'University of Bergen - UiB - 7', 'NOR', 'Bergen', 'uib_page'),
 ('uib8', 'University of Bergen - UiB - 8', 'NOR', 'Bergen', 'uib_page'),
 ('uib9', 'University of Bergen - UiB - 9', 'NOR', 'Bergen', 'uib_page'),
-('uib10', 'University of Bergen - UiB - 10', 'NOR', 'Bergen', 'uib_page');
+('uib10', 'University of Bergen - UiB - 10', 'NOR', 'Bergen', 'uib_page'),
+('keio', 'Keio University', 'JPN', 'Tokyo', 'keio_page');
 
 insert into partner_universities_table(id, from_university_id, to_university_id) values
 ('skku-ntnu', 'skku', 'ntnu'),
