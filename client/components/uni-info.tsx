@@ -9,13 +9,13 @@ import { objKeyToText, toRomanNumerals } from '@/lib/utils'
 import type { Error } from '@/types/error'
 import type { UniversityInfo } from '@/types/university'
 import {
+  ArrowUpIcon,
   DotsHorizontalIcon,
   SymbolIcon,
-  ArrowUpIcon,
 } from '@radix-ui/react-icons'
 import { Url } from 'next/dist/shared/lib/router/router'
 import Link from 'next/link'
-import React from 'react'
+import { useState } from 'react'
 import Markdown from 'react-markdown'
 import remarkGfm from 'remark-gfm'
 
@@ -114,8 +114,10 @@ function UniInfoNav(props: { data: UniversityInfo | undefined }) {
 }
 
 function UniInfoMobileMenu(props: { data: UniversityInfo | undefined }) {
+  const [open, setOpen] = useState(false)
+
   return (
-    <DropdownMenu>
+    <DropdownMenu open={open} onOpenChange={setOpen}>
       <DropdownMenuTrigger asChild>
         <div className="sticky top-20 mx-auto flex w-1/3 justify-center rounded-lg bg-background lg:hidden">
           <Button
@@ -134,7 +136,10 @@ function UniInfoMobileMenu(props: { data: UniversityInfo | undefined }) {
         {Object.entries(props.data!).map(([key, _], index) => {
           if (key === 'webpage') return
           return (
-            <DropdownMenuItem key={index}>
+            <DropdownMenuItem 
+              key={index}
+              onClick={() => setOpen(false)}
+            >
               <Link
                 href={`#${key}`}
                 className={`mx-auto w-2/3 text-base font-medium text-accent-foreground`}
@@ -196,5 +201,6 @@ export {
   UniInfoError,
   UniInfoLoading,
   UniInfoMobileMenu,
-  UniInfoNav,
+  UniInfoNav
 }
+
