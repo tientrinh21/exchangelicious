@@ -1,19 +1,20 @@
+https://www.northpark.edu/admissions-aid/undergraduate-admissions/international-students/international-exchange-or-study-abroad-students/
+
 # University
-**[Exchange Students Website](https://www.northpark.edu/admissions-aid/undergraduate-admissions/international-students/international-exchange-or-study-abroad-students/)**
 
 Founded by Swedish immigrants in 1891, North Park University now enrolls about 3,200 students, including approximately 200 international students from almost 50 countries. International students are an important part of the University’s commitment to being purposefully multicultural.
 
 North Park is sponsored by the Evangelical Covenant Church, and this Christian affiliation drives the University’s values-oriented, liberal arts education program. All students are encouraged to explore how a perspective of faith can impact their studies and career, but our students are not required to ascribe to a particular religious tradition or participate in religious activities. North Park welcomes students who are committed to learning with and from people of diverse cultural, social and faith backgrounds.
 
-
 ### Admitted Students
+
 Welcome to North Park! The items listed here will help guide you through your transition. The list is laid out step-by-step; you can start at the top as soon as you receive your acceptance letter, and some items must be completed before others can be started. Don’t hesitate to talk to your recruiter if anything is confusing or you need more information about a step. For more information contact [medrake@northpark.edu](mailto:medrake@northpark.edu).
 
 North Park maintains bilateral exchange partnerships with number universities around the world and is also a member of the [International Student Exchange Program](https://www.isepstudyabroad.org/) (ISEP)
 
 [Click here](https://www.northpark.edu/admissions-aid/undergraduate-admissions/international-students/international-exchange-or-study-abroad-students/exchange-and-study-abroad-partners/) to see if your school is a current university partner.
 
-To participate in the exchange program with North Park, you must first be nominated by your home university.  This process must be handled with your outbound advisor; he/she will submit your formal nomination.
+To participate in the exchange program with North Park, you must first be nominated by your home university. This process must be handled with your outbound advisor; he/she will submit your formal nomination.
 
 # Location
 
@@ -27,35 +28,27 @@ Experience North Park’s beautiful park-like campus where you will enjoy state-
 
 At North Park, we say “Chicago is our classroom,” because our city offers endless opportunities for hands-on learning, entertainment, and service experiences.
 
-
 [Explore Chicago](https://www.northpark.edu/about-north-park-university/chicago/)
 
-
-
-
-
-
-
 # Semester
-* Fall Semester (August - December)
 
-* Summer (June - August)
+-   Fall Semester (August - December)
 
-* Calendar Year (January - December)
+-   Summer (June - August)
 
-* Academic Year (August - May)
+-   Calendar Year (January - December)
 
-* Spring Semester (January - May)
+-   Academic Year (August - May)
+
+-   Spring Semester (January - May)
 
 # Application Deadlines
+
 Once your nomination has been submitted to North Park, you are then eligible to apply for the semester in which you intend to study.
 
 [APPLY](https://npu.force.com/app/TX_SiteLogin?startURL=%2Fapp%2FTargetX_Portal__PB)
 
-
 #### Spring course registration is open.
-
-
 
 # Courses
 
@@ -70,9 +63,11 @@ North Park cannot guarantee you will be placed in all the courses you’ve reque
 Please be checking your North Park email for the course registration form.
 
 # Tuition
+
 No data provided on website
 
 # Housing
+
 ## Future North Parkers
 
 I’m about to enroll at North Park and want to learn more about living on campus.
@@ -262,4 +257,3 @@ Your application will not be complete until we have received the required supple
 -   Copy of Passport Identification Page
 -   Bank Statement
 -   Financial Affidavit of Support
-

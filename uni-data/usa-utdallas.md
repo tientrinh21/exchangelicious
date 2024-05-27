@@ -1,5 +1,6 @@
+https://ie.utdallas.edu/go-abroad/incoming-exchange/
+
 # University
-**[Exchange Students Website](https://ie.utdallas.edu/go-abroad/incoming-exchange/)**
 
 Thank you for your interest in participating as an exchange student at The University of Texas at Dallas (UT Dallas). UT Dallas is a research-oriented university with emphasis on interdisciplinary and applied programs with a large international population.
 
@@ -13,6 +14,7 @@ Office of International Education
 Phone: [972-883-4715](tel:+1972-883-4715)
 
 # Location
+
 The University of Texas at Dallas is located at:
 
 [800 W. Campbell Road, Richardson, TX 75080-3021](https://maps.google.com/maps/place?cid=15639184231805621041)
@@ -23,18 +25,18 @@ Visit the [campus map](https://map.utdallas.edu/) for an interactive map of th
 
 Check the [pardon our progress page](https://utdallas.edu/pardonourprogress/) to see the latest disrupted areas around campus.
 
-
 # Semester
-See the Academic Calendar for each semester at utdallas.edu/academics/calendar  
+
+See the Academic Calendar for each semester at utdallas.edu/academics/calendar
 
 Fall Semester: August - December
 Spring Semester: January - May
 
-
 # Application Deadlines
-Your home institution is required to nominate you as an exchange student to the UT Dallas Office of International Education at [EducationAbroad@utdallas.edu](mailto:EducationAbroad@utdallas.edu). 
 
-Nomination deadline:  
+Your home institution is required to nominate you as an exchange student to the UT Dallas Office of International Education at [EducationAbroad@utdallas.edu](mailto:EducationAbroad@utdallas.edu).
+
+Nomination deadline:
 
 -   Fall Semester – April 1
 -   Spring Semester – September 1
@@ -52,8 +54,8 @@ UT Dallas International Center
 800 W. Campbell Rd. SSB34  
 Richardson, TX  75080, USA
 
-
 # Courses
+
 Students may choose any open classes that they are eligible for in the course book
 coursebook.utdallas.edu
 There is a wide variety of courses available for both undergraduate and graduate
@@ -68,25 +70,27 @@ demand (especially courses in the school of Engineering and Computer Science). W
 recommend students have flexibility and consider additional courses in case their first
 options are not available.
 
-
 # Tuition
+
 Generally, exchange students must pay the following fees:
 
-| Fee | Amount |
-| --- | --- |
-| Exchange Application and Foreign Credential Fee | $150 |
-| International Student Fee  | $150 |
-| International Orientation Fee  | $50 |
-| Health Insurance Fee  | $1,500 (approx.) |
-| Transcript Fee  | $10 (end of semester) |
-| Housing (Application Fee required)  | Cost varies |
- 
+| Fee                                             | Amount                |
+| ----------------------------------------------- | --------------------- |
+| Exchange Application and Foreign Credential Fee | $150                  |
+| International Student Fee                       | $150                  |
+| International Orientation Fee                   | $50                   |
+| Health Insurance Fee                            | $1,500 (approx.)      |
+| Transcript Fee                                  | $10 (end of semester) |
+| Housing (Application Fee required)              | Cost varies           |
+
 # Housing
-Arrangements are made for exchange students to live in furnished on-campus apartments. See details and price at: housing.utdallas.edu  
+
+Arrangements are made for exchange students to live in furnished on-campus apartments. See details and price at: housing.utdallas.edu
 
 Living expenses include housing, food, books, transportation, and other costs. It is estimated that exchange students spend approximately $9,000 per semester
 
 # Visa
+
 Once your admission is approved, the International Student Services Office (ISSO) will contact you for more documentation that is required to issue your immigration documents needed for your student visa.
 
 -   See more information about immigration requirements on the [J-1 Students page.](https://isso.utdallas.edu/joining-ut-dallas/ds-2019/)
@@ -95,9 +99,10 @@ Once your admission is approved, the International Student Services Office (ISSO
 -   Other requirements are listed on the [Checklist](https://icp.utdallas.edu/resources/checklist/) of important assignments you must complete as you prepare to register for classes.
 
 # Eligibility
+
 ### English Proficiency
 
-The ability to read, write, speak and understand English is essential for success in graduate programs at UT Dallas. If your native language is not English and you have been educated outside of the United States, you must demonstrate English proficiency. 
+The ability to read, write, speak and understand English is essential for success in graduate programs at UT Dallas. If your native language is not English and you have been educated outside of the United States, you must demonstrate English proficiency.
 
 You have met the English proficiency requirement and do not need to submit an English proficiency exam for admission if:
 
@@ -126,7 +131,7 @@ Official test scores must be delivered directly from the testing agency, and mus
 -   Submit Duolingo, IELTS and PTE scores electronically or by mail directly from the testing agency.
 -   Submit TOEFL scores using UT Dallas school code 6897.
 
-If your testing agency does not support sending official test score documents electronically, the documents should be mailed by the issuing institution in a sealed envelope to our mailing address: 
+If your testing agency does not support sending official test score documents electronically, the documents should be mailed by the issuing institution in a sealed envelope to our mailing address:
 
 The University of Texas at Dallas  
 Admission and Enrollment  
@@ -134,6 +139,7 @@ Admission and Enrollment
 Richardson, TX 75080-3021
 
 # Requirements
+
 Undergraduate exchange students must to register for at least 12 credit hours during the fall or spring semester. Graduate exchange students must to register for at least 9 credit hours during the fall or spring semester.
 
 You cannot register for classes until holds on your account are removed. This includes: International Student Orientation hold, TB test hold, and Cannot Register Online hold.  These actions must be completed after arriving to the U.S. More details are available on the [New International Student Checklist.](https://icp.utdallas.edu/resources/checklist/)

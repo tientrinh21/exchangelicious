@@ -1,5 +1,6 @@
+https://issp.ucsc.edu/students/exchange/
+
 # University
-**[Exchange Students Website](https://issp.ucsc.edu/students/exchange/)**
 
 UC Santa Cruz hosts exchange students (who typically come to the U.S. on J-1 Status) through two different programs:
 
@@ -9,14 +10,13 @@ UC Santa Cruz hosts exchange students (who typically come to the U.S. on J-1 Sta
 
 #### **Applying via the UCSC Exchange Student** **Program**
 
-1.  Seek a nomination through your home university 
+1.  Seek a nomination through your home university
 2.  Upon acceptance of your nomination, complete the application for exchange in the UCSC iGlobal system
 
 #### **Applying via University of California’s Education Abroad Program (UCEAP)**
 
-1.  Complete an application with [UCEAP online](https://reciprocity.uceap.universityofcalifornia.edu/apply-exchange) and select UC Santa Cruz as your preferred campus placement  
-      
-    _Detailed information and instructions for undergraduate and graduate students are available on the_ [_UCEAP Reciprocal Exchanges webpage_](https://reciprocity.uceap.universityofcalifornia.edu/)_._ 
+1.  Complete an application with [UCEAP online](https://reciprocity.uceap.universityofcalifornia.edu/apply-exchange) and select UC Santa Cruz as your preferred campus placement
+    *Detailed information and instructions for undergraduate and graduate students are available on the* [_UCEAP Reciprocal Exchanges webpage_](https://reciprocity.uceap.universityofcalifornia.edu/)_._
 
 #### **Post-Application Questions**
 
@@ -25,37 +25,39 @@ For questions about the UCSC Exchange Student Program, contact ISSP.
 For questions about UCEAP, see the [after you apply webpage](https://reciprocity.uceap.universityofcalifornia.edu/after-you-apply).
 
 # Location
-UC Santa Cruz, located just above Monterey Bay on California’s Central Coast, is uniquely positioned at the intersection of technology and agriculture. Just 45 minutes from the high-tech center of Silicon Valley and 25 minutes from the fertile farmlands of Watsonville, our geographic placement has helped us practice our social justice values as we seek to develop technology for the social good. 
+
+UC Santa Cruz, located just above Monterey Bay on California’s Central Coast, is uniquely positioned at the intersection of technology and agriculture. Just 45 minutes from the high-tech center of Silicon Valley and 25 minutes from the fertile farmlands of Watsonville, our geographic placement has helped us practice our social justice values as we seek to develop technology for the social good.
 
 In addition, the Santa Cruz area’s diverse community and vibrant cultural scene mean students live among towering redwoods and misty ocean fog while also being close to city happenings, social engagement, cultural events, and opportunities for learning, growth, and recreation.
 
-
 # Semester
+
 UC Santa Cruz operates on a quarter system. A full academic year consists of three quarters: fall, winter, and spring. Each quarter consists of approximately ten weeks of instruction and one week of final exams. The summer quarter is an optional term.
 
-| Quarter | Arrival/Housing Move-in/Orientation | Instruction | Transcripts Sent |
-| --- | --- | --- | --- |
-| Fall | Mid-September | Late September to mid-December | January |
-| Winter | Early January | Early January to late March | April |
-| Spring | Late March | Late March/Early April to mid-June | July |
-| Summer\* | Mid-June | Late June to late August (multiple sessions) | September |
+| Quarter  | Arrival/Housing Move-in/Orientation | Instruction                                  | Transcripts Sent |
+| -------- | ----------------------------------- | -------------------------------------------- | ---------------- |
+| Fall     | Mid-September                       | Late September to mid-December               | January          |
+| Winter   | Early January                       | Early January to late March                  | April            |
+| Spring   | Late March                          | Late March/Early April to mid-June           | July             |
+| Summer\* | Mid-June                            | Late June to late August (multiple sessions) | September        |
 
 \*See [Summer Session](https://global.ucsc.edu/opportunities/summer.html) for more details
 
 For additional calendars, visit [https://registrar.ucsc.edu/calendar/future.html](https://registrar.ucsc.edu/calendar/future.html).
 
-
 # Application Deadlines
+
 | Starting Quarter | Nomination Deadline | Application Deadline | Application Review Period | Application Result Email Sent | Acceptance Package Sent |
-| --- | --- | --- | --- | --- | --- |
-| Fall | February 15 | March 15 | February – April | Late April | May |
-| Winter | August 15 | September 15 | August – October | Late October | November |
-| Spring | October 15 | November 15 | October – December | Late January | February |
+| ---------------- | ------------------- | -------------------- | ------------------------- | ----------------------------- | ----------------------- |
+| Fall             | February 15         | March 15             | February – April          | Late April                    | May                     |
+| Winter           | August 15           | September 15         | August – October          | Late October                  | November                |
+| Spring           | October 15          | November 15          | October – December        | Late January                  | February                |
 
 Application timeline by quarter.
 
 # Courses
-Exchange and visiting students have the opportunity to enroll in their courses before arrival on the UC Santa Cruz campus. Students are encouraged to work with their home university advisors beforehand to explore course options at UC Santa Cruz and develop a study plan that allows for flexibility in case first choices are not available. 
+
+Exchange and visiting students have the opportunity to enroll in their courses before arrival on the UC Santa Cruz campus. Students are encouraged to work with their home university advisors beforehand to explore course options at UC Santa Cruz and develop a study plan that allows for flexibility in case first choices are not available.
 
 -   Visit the [**General Catalog**](https://registrar.ucsc.edu/catalog/index.html) to see all courses offered at UC Santa Cruz, along with brief course descriptions, and an indication of which quarter(s) each course will be taught.  
     _Note: courses are subject to change._
@@ -65,9 +67,9 @@ You can search for classes using the [class search database](http://pisa.ucsc.e
 
 -   Fall classes, posted by early May
 -   Winter classes, posted by mid-November
--   Spring classes, posted by mid-February 
+-   Spring classes, posted by mid-February
 
-_All students at UCSC are given an enrollment appointment – a designated time to sign up for classes. You can view your appointment time and enroll in classes through the_ [_MyUCSC system (student portal)_](https://my.ucsc.edu/)_._
+*All students at UCSC are given an enrollment appointment – a designated time to sign up for classes. You can view your appointment time and enroll in classes through the* [_MyUCSC system (student portal)_](https://my.ucsc.edu/)_._
 
 Exchange students are given enrollment appointments during the “priority enrollment period” before their first quarter. Enrollment begins mid-July for fall classes, and late November for winter. The UCSC Registrar has [Student Enrollment FAQs](http://registrar.ucsc.edu/faqs/students/enrollment/index.html) and [Enrollment Appointment FAQs](http://registrar.ucsc.edu/faqs/students/enrollment-appointments.html) to help you navigate the MyUCSC system.
 
@@ -85,29 +87,31 @@ _Note: You can use the following templates to help explain you have the backgro
 -   **Math:** Complete the Math Department’s [online Enrollment Request and Permission Code form](https://www.math.ucsc.edu/undergraduate/advising-resources-tools-forms/enrollment-request-form1.html).
 -   **Physics:** Email [physicsadvising@ucsc.edu](mailto:physicsadvising@ucsc.edu) with detailed information (syllabus, textbook title, class outline, etc) that demonstrates you have the background for the class. Physics will post any applicable prerequisites to your MyUCSC account.
 
-
 # Tuition
+
 While exchange students are exempt from certain fees, you may need to make payments to UCSC for housing (if on-campus), health insurance, or other miscellaneous fees. Payments to UCSC are handled by the Student Business Services (SBS) office. More detailed information can be found on the [Making Payments page](https://issp.ucsc.edu/resources/livinginus/) in the Resources section of our site.
 
-
 # Housing
-View our [Living in the U.S.](https://issp.ucsc.edu/resources/livinginus/) webpage for information and tips. 
+
+View our [Living in the U.S.](https://issp.ucsc.edu/resources/livinginus/) webpage for information and tips.
 
 **UCEAP Reciprocity Students –** you can also consult the [UCEAP](https://reciprocity.uceap.universityofcalifornia.edu/before-you-arrive) website, including the [Reciprocity Student Guide](https://reciprocity.uceap.universityofcalifornia.edu/while-at-uc) for additional specific information about housing, enrollment, obtaining your J-1 visa, and more.
 
 Fall-starting exchange students who will live on campus can only move in the Thursday before the International Student Orientation. Winter-starting exchange students living on campus can only move in during the regular [move-in schedule](https://housing.ucsc.edu/move-in/index.html). If you arrive earlier, plan to stay at a hotel, friends’ houses, or the Santa Cruz hostel in the interim.
 
 # Visa
+
 ### **Requesting Certificate of Eligibility for F/J Visa**
 
 Once you have been accepted as an exchange student and accepted your offer, ISSP will contact you and provide information on the next steps. Upon submission of the required paperwork, ISSP will issue your DS-2019 (J-1 status) or, I-20 (F-1 status). You will need your DS-2019/I-20 to apply for an F-1/J-1 visa stamp at the US Consulate/Embassy.
 
--   **UCSC Exchange Student Program** students will submit documents to ISSP. 
--   **UCEAP Reciprocity** students will submit documents to both UCEAP Systemwide and to ISSP once placed at UCSC. 
+-   **UCSC Exchange Student Program** students will submit documents to ISSP.
+-   **UCEAP Reciprocity** students will submit documents to both UCEAP Systemwide and to ISSP once placed at UCSC.
 
 In either case, see the [Request I-20/DS 2019 page](https://issp.ucsc.edu/students/new/requesting-i-ds/) for more information.
 
 # Eligibility
+
 The following are minimum eligibility requirements established by UC Santa Cruz. Partner universities may elect to enforce additional requirements on their students as part of their nomination process.
 
 -   Currently enrolled and successfully completed at least one (1) academic year of coursework in a recognized degree-granting program at home institution.
@@ -117,8 +121,8 @@ The following are minimum eligibility requirements established by UC Santa Cruz.
     -   IELTS (Academic): Overall band score of 6.5 or higher -or-
     -   Additional tests recognized by the UC Santa Cruz Office of Admissions may also be considered for demonstrating English proficiency. A full list can be seen [here](https://admissions.ucsc.edu/apply/international-students/english-proficiency.html).
 
-
 # Requirements
+
 ### **Health Insurance**
 
 Visit the [Living in the U.S.](https://issp.ucsc.edu/resources/livinginus/) webpage for more information.
