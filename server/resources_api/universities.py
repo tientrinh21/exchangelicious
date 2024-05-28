@@ -1,7 +1,9 @@
 from database.database_setup import db
 from database.models import CountryTable, InfoPageTable, UniversityTable
 from flask_restful import Resource, abort, marshal_with, reqparse
-from sqlalchemy import select
+from sqlalchemy import select, exc
+
+import uuid
 
 from resources_api.resource_fields_definitions import (
     search_universities_resource_fields, university_meta_table_resource_fields,
@@ -38,13 +40,141 @@ class UniversityWithInfoRes(Resource):
             description=f"No university with the ID '{university_id}'.",
         )
 
+uni_put_args = reqparse.RequestParser()
+uni_put_args.add_argument(
+    "university_id", type=str, location="args", help="University ID to create university"
+)
+uni_put_args.add_argument(
+    "country_code", type=str, location="args", help="Uni country code"
+)
+uni_put_args.add_argument(
+    "region", type=str, location="args", help="Uni region"
+)
+uni_put_args.add_argument(
+    "long_name", type=str, location="args", help="Full name of university"
+)
+uni_put_args.add_argument(
+    "ranking", type=str, location="args", help="Ranking of a university"
+)
+uni_put_args.add_argument(
+    "info_page_id", type=str, location="args", help="Information of a university"
+)
+uni_put_args.add_argument(
+    "campus", type=str, location="args", help="Campus of a university"
+)
+uni_put_args.add_argument(
+    "housing", type=str, location="args", help="Housing availability of a university"
+)
 
+uni_update_args = reqparse.RequestParser()
+uni_update_args.add_argument(
+    "university_id", type=str, location="args", help="University ID to create university"
+)
+uni_update_args.add_argument(
+    "country_code", type=str, location="args", help="Uni country code"
+)
+uni_update_args.add_argument(
+    "region", type=str, location="args", help="Uni region"
+)
+uni_update_args.add_argument(
+    "long_name", type=str, location="args", help="Full name of university"
+)
+uni_update_args.add_argument(
+    "ranking", type=str, location="args", help="Ranking of a university"
+)
+uni_update_args.add_argument(
+    "info_page_id", type=str, location="args", help="Information of a university"
+)
+uni_update_args.add_argument(
+    "campus", type=str, location="args", help="Campus of a university"
+)
+uni_update_args.add_argument(
+    "housing", type=str, location="args", help="Housing availability of a university"
+)
+
+uni_delete_args = reqparse.RequestParser()
+uni_delete_args.add_argument(
+    "university_id", type=str, location="args", help="Uni ID to delete university"
+)
 
 class UniversityAllRes(Resource):
     @marshal_with(university_meta_table_resource_fields)
     def get(self):
         unis = UniversityTable.query.order_by(UniversityTable.long_name).all()
         return [uni for uni in unis], 200
+    
+    @marshal_with(university_meta_table_resource_fields)
+    def post(self):
+        try:
+            args = uni_put_args.parse_args()
+            uniid = str(uuid.uuid4())
+
+            new_uni = UniversityTable(
+                university_id=uniid,
+                country_code=args["country_code"]
+                if args["region"]
+                else None,
+                long_name=args["long_name"]
+                if args["ranking"]
+                else None
+                if args["info_page_id"]
+                else None
+                if args["campus"]
+                else None
+                if args["housing"]
+                else None,
+            )
+            db.session.add(new_uni)
+            db.session.commit()
+            return new_uni, 200
+        except exc.SQLAlchemyError as e:
+            print(e)
+            abort(message=str(e.__dict__.get("orig")), http_status_code=400)
+
+    @marshal_with(university_meta_table_resource_fields)
+    def patch(self):
+        try:
+            args = uni_update_args.parse_args()
+            uniid = args["university_id"]
+            uni = db.session.query(UniversityTable).filter_by(university_id=uniid).first()
+            if 'university_id' in args and args['university_id'] != None:
+                uni.university_id = args['university_id']
+            if 'country_code' in args and args['country_code'] != None:
+                uni.country_code = args["country_code"]
+            if 'region' in args and args['region'] != None:
+                uni.region = args["region"]
+            if 'long_name' in args and args['long_name'] != None:
+                uni.long_name = args["long_name"]
+            if 'ranking' in args and args['ranking'] != None:
+                uni.ranking = args["ranking"]
+            if 'info_page_id' in args and args["info_page_id"] != None:
+                uni.info_page_id = args["info_page_id"]
+            if 'campus' in args and args["campus"] != None:
+                uni.campus = args["campus"]
+            if 'housing' in args and args["housing"] != None:
+                uni.housing = args["housing"]
+            db.session.commit()
+            return uni, 200
+
+        except exc.SQLAlchemyError as e:
+            print(e)
+            abort(message=str(e.__dict__.get("orig")), http_status_code=400)
+
+    @marshal_with(university_meta_table_resource_fields)
+    def delete(self):
+        try:
+            args = uni_delete_args.parse_args()
+            uniid = args["university_id"]
+            uni = db.get_or_404(
+                UniversityTable, uniid, description=f"No Univerisity with the ID '{uniid}'."
+            )
+            db.session.delete(uni)
+            db.session.commit()
+            print(f"University with uni_id '{uniid}' deleted successfully")
+            return {"message": f"University with uni_id '{uniid}' deleted successfully"}, 200
+        except Exception as e:
+            print(f"An error occurred: {e}")
+            abort(message=str(e), http_status_code=500)
 
 class UniversityPagination(Resource):
     def __init__(self) -> None:
