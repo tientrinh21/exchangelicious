@@ -6,13 +6,12 @@ import Link from 'next/link'
 import { usePathname } from 'next/navigation'
 
 function EditInfoButton() {
-  // TODO: depends on university_id
   const uniPathname = usePathname().replace('/reviews', '')
 
   return (
     <Button
       size="icon"
-      className="fixed bottom-8 right-5 h-9 w-9 rounded-lg sm:right-8 md:h-10 md:w-10"
+      className="fixed bottom-8 right-5 h-9 w-9 rounded-2xl sm:right-8 md:h-10 md:w-10"
     >
       <Link href={`${uniPathname}/edit`}>
         <Pencil1Icon />
