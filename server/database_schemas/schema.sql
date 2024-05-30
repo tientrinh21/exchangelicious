@@ -427,7 +427,7 @@ insert into university_table(university_id, long_name, country_code, region, inf
   ('uio', 'University of Oslo', 'NOR', 'Oslo', 'uio_page', "Oslo Campus", 0, "117"),
   ('uib', 'University of Bergen', 'NOR', 'Bergen', 'uib_page', "Bergen Campus", 0, "281"),
   ('ut_dallas', 'University of Texas at Dallas', 'USA', 'Richardson, Texas', 'skku_page', "Dallas Campus", 1, "520"),
-  ('umass_boston', 'University of Massachusetts', 'USA', 'Boston, Massachusetts', 'skku_page', "Boston Campus", 1, "801-850"),
+  ('umass_boston', 'University of Massachusetts Boston', 'USA', 'Boston, Massachusetts', 'skku_page', "Boston Campus", 1, "801-850"),
   ('umanitoba', 'University of Manitoba', 'CAN', 'Winnipeg, Manitoba', 'skku_page', "Winnipeg Campus", 0, "671-680"),
   ('utoronto', 'University of Toronto', 'CAN', 'Toronto, Ontarion', 'skku_page', "Toronto Campus", 0, "21"),
   ('usask', 'University of Saskatchewan', 'CAN', 'Saskatoon, Saskatchewan', 'skku_page', "Saskatoon Campus", 1, "345"),

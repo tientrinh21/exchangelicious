@@ -112,18 +112,8 @@
         "summary": "Create an university",
         "parameters": [
           {
-            "name": "university_id",
-            "in": "path",
-            "description": "ID of University to create",
-            "required": false,
-            "schema": {
-              "type": "string",
-              "maxLength": 36
-            }
-          },
-          {
             "name": "country_code",
-            "in": "path",
+            "in": "query",
             "description": "country code of university to create",
             "required": true,
             "schema": {
@@ -133,7 +123,7 @@
           },
           {
             "name": "region",
-            "in": "path",
+            "in": "query",
             "description": "Region of university to create",
             "required": false,
             "schema": {
@@ -143,7 +133,7 @@
           },
           {
             "name": "long_name",
-            "in": "path",
+            "in": "query",
             "description": "Full name of university to create",
             "required": true,
             "schema": {
@@ -153,7 +143,7 @@
           },
           {
             "name": "campus",
-            "in": "path",
+            "in": "query",
             "description": "Campus of the university to create",
             "required": false,
             "schema": {
@@ -163,7 +153,7 @@
           },
           {
             "name": "housing",
-            "in": "path",
+            "in": "query",
             "description": "Housing of the university to create",
             "required": false,
             "schema": {
@@ -172,7 +162,7 @@
           },
           {
             "name": "info_page_id",
-            "in": "path",
+            "in": "query",
             "description": "Information of the university to create",
             "required": false,
             "schema": {

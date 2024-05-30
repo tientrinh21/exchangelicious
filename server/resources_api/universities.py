@@ -9,37 +9,6 @@ from resources_api.resource_fields_definitions import (
     search_universities_resource_fields, university_meta_table_resource_fields,
     university_resource_fields, university_with_info_resource_fields)
 
-
-class UniversityRes(Resource):
-    @marshal_with(university_resource_fields)
-    def get(self, university_id):
-        stmt = (
-            select(UniversityTable, CountryTable)
-            .join(CountryTable, UniversityTable.country_code == CountryTable.country_code)
-            .where(UniversityTable.university_id == university_id)
-        )
-        res = db.session.execute(stmt).first()
-        if res is None:
-            abort(
-                message=f"No university with the ID '{university_id}'.",
-                http_status_code=404,
-            )
-
-        parent, child = res
-        result = parent.__dict__
-        result.update(child.__dict__)
-        return result, 200
-
-
-class UniversityWithInfoRes(Resource):
-    @marshal_with(university_with_info_resource_fields)
-    def get(self, university_id):
-        return db.get_or_404(
-            InfoPageTable,
-            f"{university_id}_page",
-            description=f"No university with the ID '{university_id}'.",
-        )
-
 uni_put_args = reqparse.RequestParser()
 uni_put_args.add_argument(
     "university_id", type=str, location="args", help="University ID to create university"
@@ -96,6 +65,36 @@ uni_delete_args = reqparse.RequestParser()
 uni_delete_args.add_argument(
     "university_id", type=str, location="args", help="Uni ID to delete university"
 )
+
+class UniversityRes(Resource):
+    @marshal_with(university_resource_fields)
+    def get(self, university_id):
+        stmt = (
+            select(UniversityTable, CountryTable)
+            .join(CountryTable, UniversityTable.country_code == CountryTable.country_code)
+            .where(UniversityTable.university_id == university_id)
+        )
+        res = db.session.execute(stmt).first()
+        if res is None:
+            abort(
+                message=f"No university with the ID '{university_id}'.",
+                http_status_code=404,
+            )
+
+        parent, child = res
+        result = parent.__dict__
+        result.update(child.__dict__)
+        return result, 200
+
+
+class UniversityWithInfoRes(Resource):
+    @marshal_with(university_with_info_resource_fields)
+    def get(self, university_id):
+        return db.get_or_404(
+            InfoPageTable,
+            f"{university_id}_page",
+            description=f"No university with the ID '{university_id}'.",
+        )
 
 class UniversityAllRes(Resource):
     @marshal_with(university_meta_table_resource_fields)
