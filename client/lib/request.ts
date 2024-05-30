@@ -1,4 +1,10 @@
-import type { LoginFormSchema, RegisterFormSchema } from '@/types/schema'
+import type {
+  LoginFormSchema,
+  ProfileFormSchema,
+  RegisterFormSchema,
+  UniHeaderFormSchema,
+  UniInfoFormSchema,
+} from '@/types/schema'
 import type { University, UniversityInfo } from '@/types/university'
 import type { User } from '@/types/user'
 import axios from 'axios'
@@ -19,6 +25,34 @@ export async function fetchUniversity(id: string) {
 export async function fetchUniversityInfo(id: string) {
   return axios
     .get<UniversityInfo>(`${BASE_URL}/universities/${id}/info`)
+    .then((r) => r.data)
+}
+
+export async function updateUniversity({
+  id,
+  values,
+}: {
+  id: string
+  values: UniHeaderFormSchema
+}) {
+  return axios
+    .patch<University>(`${BASE_URL}/universities/${id}`, null, {
+      params: values,
+    })
+    .then((r) => r.data)
+}
+
+export async function updateUniversityInfo({
+  id,
+  values,
+}: {
+  id: string
+  values: UniInfoFormSchema
+}) {
+  return axios
+    .patch<University>(`${BASE_URL}/universities/${id}/info`, null, {
+      params: values,
+    })
     .then((r) => r.data)
 }
 
@@ -53,7 +87,7 @@ export async function createUser({
 
 export async function updateUser(
   user: User,
-  { password, nationality, home_university }: RegisterFormSchema,
+  { password, nationality, home_university }: ProfileFormSchema,
 ) {
   return axios
     .patch<User>(`${BASE_URL}/users`, null, {
