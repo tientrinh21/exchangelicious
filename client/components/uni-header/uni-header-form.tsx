@@ -11,13 +11,28 @@ import {
   FormMessage,
 } from '@/components/ui/form'
 import { Input } from '@/components/ui/input'
-import { updateUser } from '@/lib/request'
+import { updateUniversity } from '@/lib/request'
 import { cn } from '@/lib/utils'
 import { useForm } from 'react-hook-form'
 import { toast } from 'sonner'
-import type { University, UniversityInfo } from '@/types/university'
+import type { University } from '@/types/university'
+import { uniHeaderFormSchema, type UniHeaderFormSchema } from '@/types/schema'
+import { zodResolver } from '@hookform/resolvers/zod'
 
-export default function UniHeaderForm() {
+export default function UniHeaderForm(data: University) {
+  // Define form
+  const form = useForm<UniHeaderFormSchema>({
+    resolver: zodResolver(uniHeaderFormSchema),
+    defaultValues: {
+      long_name: '',
+      country_code: '',
+      region: '',
+      campus: '',
+      ranking: '',
+      housing: '',
+    },
+  })
+
   return (
     <div>Test</div>
   )
