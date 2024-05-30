@@ -7,7 +7,6 @@ drop table if exists university_table;
 drop table if exists info_page_table;
 drop table if exists favorites_table;
 drop table if exists review_table;
--- drop table if exists uni_ranking_table;
 
 
 -- uuid is 36 characters
@@ -99,12 +98,6 @@ create table exchange_university_table (
     foreign key (university_id) references university_table (university_id)
     on delete cascade on update cascade
 );
-
--- CREATE TABLE uni_ranking_table (
---     uni_name VARCHAR(200) NOT NULL PRIMARY KEY,
---     uni_rank VARCHAR(10) NOT NULL,
---     uni_url VARCHAR(200)
--- );
 
 DELIMITER //
 
