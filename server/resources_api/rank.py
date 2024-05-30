@@ -3,7 +3,7 @@ import os
 from sqlalchemy import create_engine, text, Table, MetaData, URL, insert, Column
 from sqlalchemy.dialects.mysql import VARCHAR
 from dotenv import load_dotenv
-
+from sqlalchemy.dialects.mysql import insert as mysql_insert
 
 # loads the variables in the .env file so we can access them
 load_dotenv()
@@ -29,9 +29,12 @@ sql_create = """CREATE TABLE IF NOT EXISTS uni_ranking_table (
     uni_url VARCHAR(200)
 );"""
 
+sql_drop = """drop table if exists uni_ranking_table;"""
+
 # Execute the SQL statement
 with engine.connect() as connection:
     try:
+        connection.execute(text(sql_drop))
         connection.execute(text(sql_create))
         print("Table created successfully!")
     except Exception as e:
@@ -56,7 +59,6 @@ for index, row in ranking_data.iterrows():
     }
 
     rank_data.append(uni_info)
-# print(rank_data)
 
 # Insert data into the table
 metadata = MetaData()
@@ -66,14 +68,11 @@ uni_ranking_table = Table('uni_ranking_table', metadata,
     Column('uni_url', VARCHAR(100))
 )
 
-# str = "INSERT INTO uni_ranking_table (uni_name, uni_rank, uni_url) VALUES (:uni_name, :uni_rank, :uni_url)"
 
 with engine.begin() as connection:
     try:
         for dt in rank_data:
-            # print(dt)
             connection.execute(insert(uni_ranking_table), dt)
         print("Data inserted successfully!")
     except Exception as e:
         print(f"An error occurred: {e}")
-

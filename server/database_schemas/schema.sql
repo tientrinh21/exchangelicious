@@ -7,6 +7,7 @@ drop table if exists university_table;
 drop table if exists info_page_table;
 drop table if exists favorites_table;
 drop table if exists review_table;
+-- drop table if exists uni_ranking_table;
 
 
 -- uuid is 36 characters
@@ -98,6 +99,12 @@ create table exchange_university_table (
     foreign key (university_id) references university_table (university_id)
     on delete cascade on update cascade
 );
+
+-- CREATE TABLE uni_ranking_table (
+--     uni_name VARCHAR(200) NOT NULL PRIMARY KEY,
+--     uni_rank VARCHAR(10) NOT NULL,
+--     uni_url VARCHAR(200)
+-- );
 
 DELIMITER //
 
@@ -422,12 +429,12 @@ Source: [https://utdallas.box.com/s/aa0wbsjdkpm7kuvrm5pxybhsg00svgi4](https://ut
   );
 
 insert into university_table(university_id, long_name, country_code, region, info_page_id, campus, housing, ranking) values
-  ('skku', 'Sungkyunkwan University (SKKU)', 'KOR', 'Seoul, Suwon', 'skku_page', "Suwon Campus" , 1, "145"),
+  ('skku', 'Sungkyunkwan University', 'KOR', 'Seoul, Suwon', 'skku_page', "Suwon Campus" , 1, "145"),
   ('ntnu', 'Norwegian University of Science and Technology', 'NOR', 'Trondheim, Gjøvik, Ålesund', 'ntnu_page', "Ålesund Campus", 0, "292"),
   ('uio', 'University of Oslo', 'NOR', 'Oslo', 'uio_page', "Oslo Campus", 0, "117"),
   ('uib', 'University of Bergen', 'NOR', 'Bergen', 'uib_page', "Bergen Campus", 0, "281"),
   ('ut_dallas', 'University of Texas at Dallas', 'USA', 'Richardson, Texas', 'skku_page', "Dallas Campus", 1, "520"),
-  ('umass_boston', 'University of Massachusetts Boston', 'USA', 'Boston, Massachusetts', 'skku_page', "Boston Campus", 1, "801-850"),
+  ('umass_boston', 'University of Massachusetts', 'USA', 'Boston, Massachusetts', 'skku_page', "Boston Campus", 1, "801-850"),
   ('umanitoba', 'University of Manitoba', 'CAN', 'Winnipeg, Manitoba', 'skku_page', "Winnipeg Campus", 0, "671-680"),
   ('utoronto', 'University of Toronto', 'CAN', 'Toronto, Ontarion', 'skku_page', "Toronto Campus", 0, "21"),
   ('usask', 'University of Saskatchewan', 'CAN', 'Saskatoon, Saskatchewan', 'skku_page', "Saskatoon Campus", 1, "345"),

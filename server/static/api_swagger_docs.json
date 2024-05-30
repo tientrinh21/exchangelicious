@@ -38,6 +38,74 @@
             "description": "ID not found"
           }
         }
+      }
+    },
+    "/api/universities/{university_id}": {
+      "get": {
+        "tags": ["University"],
+        "summary": "Find university by ID",
+        "description": "Returns a single university (with out info)",
+        "parameters": [
+          {
+            "name": "university_id",
+            "in": "path",
+            "description": "ID of University to return",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "maxLength": 36
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "successful operation",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/University"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "ID not found"
+          }
+        }
+      }
+    },
+    "/api/universities/{university_id}/info": {
+      "get": {
+        "tags": ["University"],
+        "summary": "Find university by ID with info page",
+        "description": "Returns a single university with info",
+        "parameters": [
+          {
+            "name": "university_id",
+            "in": "path",
+            "description": "ID of University to return",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "maxLength": 36
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "successful operation",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/InfoPage"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "ID not found"
+          }
+        }
       },
       "post": {
         "tags": ["University"],
@@ -218,74 +286,6 @@
         "responses": {
           "200": {
             "description": "Deletion of university"
-          }
-        }
-      }
-    },
-    "/api/universities/{university_id}": {
-      "get": {
-        "tags": ["University"],
-        "summary": "Find university by ID",
-        "description": "Returns a single university (with out info)",
-        "parameters": [
-          {
-            "name": "university_id",
-            "in": "path",
-            "description": "ID of University to return",
-            "required": true,
-            "schema": {
-              "type": "string",
-              "maxLength": 36
-            }
-          }
-        ],
-        "responses": {
-          "200": {
-            "description": "successful operation",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/University"
-                }
-              }
-            }
-          },
-          "404": {
-            "description": "ID not found"
-          }
-        }
-      }
-    },
-    "/api/universities/{university_id}/info": {
-      "get": {
-        "tags": ["University"],
-        "summary": "Find university by ID with info page",
-        "description": "Returns a single university with info",
-        "parameters": [
-          {
-            "name": "university_id",
-            "in": "path",
-            "description": "ID of University to return",
-            "required": true,
-            "schema": {
-              "type": "string",
-              "maxLength": 36
-            }
-          }
-        ],
-        "responses": {
-          "200": {
-            "description": "successful operation",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/InfoPage"
-                }
-              }
-            }
-          },
-          "404": {
-            "description": "ID not found"
           }
         }
       }
