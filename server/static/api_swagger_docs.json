@@ -38,6 +38,176 @@
             "description": "ID not found"
           }
         }
+      },
+      "post": {
+        "tags": ["University"],
+        "summary": "Create an university",
+        "parameters": [
+          {
+            "name": "country_code",
+            "in": "query",
+            "description": "country code of university to create",
+            "required": false,
+            "schema": {
+              "type": "string",
+              "maxLength": 3
+            }
+          },
+          {
+            "name": "region",
+            "in": "query",
+            "description": "Region of university to create",
+            "required": false,
+            "schema": {
+              "type": "string",
+              "maxLength": 40
+            }
+          },
+          {
+            "name": "long_name",
+            "in": "query",
+            "description": "Full name of university to create",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "maxLength": 255
+            }
+          },
+          {
+            "name": "campus",
+            "in": "query",
+            "description": "Campus of the university to create",
+            "required": false,
+            "schema": {
+              "type": "string",
+              "maxLength": 255
+            }
+          },
+          {
+            "name": "housing",
+            "in": "query",
+            "description": "Housing of the university to create",
+            "required": false,
+            "schema": {
+              "type": "integer"
+            }
+          },
+          {
+            "name": "info_page_id",
+            "in": "query",
+            "description": "Information of the university to create",
+            "required": false,
+            "schema": {
+              "type": "string",
+              "maxLength": 36
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Creation of user",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/UniversityMeta"
+                  }
+                }
+              }
+            }
+          }
+        }
+      },
+      "patch": {
+        "tags": ["University"],
+        "summary": "Update an university",
+        "parameters": [
+          {
+            "name": "university_id",
+            "in": "query",
+            "description": "ID of University to update",
+            "required": false,
+            "schema": {
+              "type": "string",
+              "maxLength": 36
+            }
+          },
+          {
+            "name": "country_code",
+            "in": "query",
+            "description": "country code of university to create",
+            "required": false,
+            "schema": {
+              "type": "string",
+              "maxLength": 3
+            }
+          },
+          {
+            "name": "region",
+            "in": "query",
+            "description": "Region of university to create",
+            "required": false,
+            "schema": {
+              "type": "string",
+              "maxLength": 40
+            }
+          },
+          {
+            "name": "long_name",
+            "in": "query",
+            "description": "Full name of university to create",
+            "required": false,
+            "schema": {
+              "type": "string",
+              "maxLength": 255
+            }
+          },
+          {
+            "name": "campus",
+            "in": "query",
+            "description": "Campus of the university to create",
+            "required": false,
+            "schema": {
+              "type": "string",
+              "maxLength": 255
+            }
+          },
+          {
+            "name": "housing",
+            "in": "query",
+            "description": "Housing of the university to create",
+            "required": false,
+            "schema": {
+              "type": "integer"
+            }
+          },
+          {
+            "name": "info_page_id",
+            "in": "query",
+            "description": "Information of the university to create",
+            "required": false,
+            "schema": {
+              "type": "string",
+              "maxLength": 36
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "successful operation",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/UniversityMeta"
+                  }
+                }
+              }
+            }
+          }
+        }
       }
     },
     "/api/universities/{university_id}": {
@@ -112,10 +282,20 @@
         "summary": "Create an university",
         "parameters": [
           {
+            "name": "university_id",
+            "in": "query",
+            "description": "ID of University to update",
+            "required": false,
+            "schema": {
+              "type": "string",
+              "maxLength": 36
+            }
+          },
+          {
             "name": "country_code",
             "in": "query",
             "description": "country code of university to create",
-            "required": true,
+            "required": false,
             "schema": {
               "type": "string",
               "maxLength": 3
@@ -157,7 +337,7 @@
             "description": "Housing of the university to create",
             "required": false,
             "schema": {
-              "type": "boolean"
+              "type": "integer"
             }
           },
           {
@@ -193,7 +373,7 @@
         "parameters": [
           {
             "name": "university_id",
-            "in": "path",
+            "in": "query",
             "description": "ID of University to update",
             "required": false,
             "schema": {
@@ -203,7 +383,7 @@
           },
           {
             "name": "country_code",
-            "in": "path",
+            "in": "query",
             "description": "country code of university to create",
             "required": false,
             "schema": {
@@ -213,7 +393,7 @@
           },
           {
             "name": "region",
-            "in": "path",
+            "in": "query",
             "description": "Region of university to create",
             "required": false,
             "schema": {
@@ -223,7 +403,7 @@
           },
           {
             "name": "long_name",
-            "in": "path",
+            "in": "query",
             "description": "Full name of university to create",
             "required": false,
             "schema": {
@@ -233,7 +413,7 @@
           },
           {
             "name": "campus",
-            "in": "path",
+            "in": "query",
             "description": "Campus of the university to create",
             "required": false,
             "schema": {
@@ -243,16 +423,16 @@
           },
           {
             "name": "housing",
-            "in": "path",
+            "in": "query",
             "description": "Housing of the university to create",
             "required": false,
             "schema": {
-              "type": "boolean"
+              "type": "integer"
             }
           },
           {
             "name": "info_page_id",
-            "in": "path",
+            "in": "query",
             "description": "Information of the university to create",
             "required": false,
             "schema": {

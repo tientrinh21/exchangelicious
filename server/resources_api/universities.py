@@ -95,6 +95,60 @@ class UniversityWithInfoRes(Resource):
             f"{university_id}_page",
             description=f"No university with the ID '{university_id}'.",
         )
+    
+    @marshal_with(university_meta_table_resource_fields)
+    def post(self, university_id):
+        try:
+            args = uni_put_args.parse_args()
+            uniid = str(uuid.uuid4())
+            # university_id=args["university_id"]
+
+            new_uni = UniversityTable(
+                # university_id=university_id,
+                university_id=uniid,
+                country_code=args["country_code"],
+                region=args["region"],
+                long_name=args["long_name"],
+                ranking=args["ranking"],
+                info_page_id=args["info_page_id"],
+                campus=args["campus"],
+                housing=args["housing"],
+            )
+            db.session.add(new_uni)
+            db.session.commit()
+            return new_uni, 200
+        except exc.SQLAlchemyError as e:
+            print(e)
+            abort(message=str(e.__dict__.get("orig")), http_status_code=400)
+
+    @marshal_with(university_meta_table_resource_fields)
+    def patch(self):
+        try:
+            args = uni_update_args.parse_args()
+            uniid = args["university_id"]
+            uni = db.session.query(UniversityTable).filter_by(university_id=uniid).first()
+            # if 'university_id' in args and args['university_id'] != None:
+            #     uni.university_id = args['university_id']
+            if 'country_code' in args and args['country_code'] != None:
+                uni.country_code = args["country_code"]
+            if 'region' in args and args['region'] != None:
+                uni.region = args["region"]
+            if 'long_name' in args and args['long_name'] != None:
+                uni.long_name = args["long_name"]
+            if 'ranking' in args and args['ranking'] != None:
+                uni.ranking = args["ranking"]
+            if 'info_page_id' in args and args["info_page_id"] != None:
+                uni.info_page_id = args["info_page_id"]
+            if 'campus' in args and args["campus"] != None:
+                uni.campus = args["campus"]
+            if 'housing' in args and args["housing"] != None:
+                uni.housing = args["housing"]
+            db.session.commit()
+            return uni, 200
+
+        except exc.SQLAlchemyError as e:
+            print(e)
+            abort(message=str(e.__dict__.get("orig")), http_status_code=400)
 
 class UniversityAllRes(Resource):
     @marshal_with(university_meta_table_resource_fields)
@@ -110,18 +164,13 @@ class UniversityAllRes(Resource):
 
             new_uni = UniversityTable(
                 university_id=uniid,
-                country_code=args["country_code"]
-                if args["region"]
-                else None,
-                long_name=args["long_name"]
-                if args["ranking"]
-                else None
-                if args["info_page_id"]
-                else None
-                if args["campus"]
-                else None
-                if args["housing"]
-                else None,
+                country_code=args["country_code"],
+                region=args["region"],
+                long_name=args["long_name"],
+                ranking=args["ranking"],
+                info_page_id=args["info_page_id"],
+                campus=args["campus"],
+                housing=args["housing"],
             )
             db.session.add(new_uni)
             db.session.commit()
@@ -134,10 +183,10 @@ class UniversityAllRes(Resource):
     def patch(self):
         try:
             args = uni_update_args.parse_args()
-            uniid = args["university_id"]
+            uniid = args['university_id']
             uni = db.session.query(UniversityTable).filter_by(university_id=uniid).first()
-            if 'university_id' in args and args['university_id'] != None:
-                uni.university_id = args['university_id']
+            # if 'university_id' in args and args['university_id'] != None:
+            #     uni.university_id = args['university_id']
             if 'country_code' in args and args['country_code'] != None:
                 uni.country_code = args["country_code"]
             if 'region' in args and args['region'] != None:
