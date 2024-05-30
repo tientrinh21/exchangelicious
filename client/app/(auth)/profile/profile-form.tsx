@@ -12,7 +12,6 @@ import { CommandList } from 'cmdk'
 import {
   Form,
   FormControl,
-  FormDescription,
   FormField,
   FormItem,
   FormLabel,
@@ -116,7 +115,6 @@ export default function ProfileForm() {
                 <Input type="password" {...field} />
               </FormControl>
               <FormMessage />
-              <FormDescription></FormDescription>
             </FormItem>
           )}
         />
@@ -159,6 +157,7 @@ export default function ProfileForm() {
                       className="h-9"
                     />
                     <ScrollArea className="h-[200px]">
+                      <CommandEmpty>No country found.</CommandEmpty>
                       <CommandGroup heading="Frequently">
                         <CommandList>
                           {frequentlyCountries.map((country) => (

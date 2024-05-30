@@ -8,7 +8,7 @@ export const uniHeaderFormSchema = z.object({
   region: z.string().optional(),
   campus: z.string().optional(),
   ranking: z.string().optional(),
-  housing: z.string().optional(),
+  housing: z.boolean().optional(),
 })
 
 export type UniHeaderFormSchema = z.infer<typeof uniHeaderFormSchema>

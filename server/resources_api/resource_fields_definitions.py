@@ -3,6 +3,7 @@ from flask_restful import fields
 # handle serialization
 university_resource_fields = {
     "university_id": fields.String,
+    "country_code": fields.String,
     "country_name": fields.String,
     "region": fields.String,
     "long_name": fields.String,

@@ -156,6 +156,7 @@ export function RegisterForm() {
                       className="h-9"
                     />
                     <ScrollArea className="h-[200px]">
+                      <CommandEmpty>No country found.</CommandEmpty>
                       <CommandGroup heading="Frequently">
                         <CommandList>
                           {frequentlyCountries.map((country) => (

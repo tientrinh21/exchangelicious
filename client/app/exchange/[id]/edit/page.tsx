@@ -1,8 +1,7 @@
 import {
   UniHeaderContainer,
+  UniHeaderForm,
   UniHeaderImgWrapper,
-  UniHeaderMeta,
-  UniHeaderName,
 } from '@/components/uni-header'
 import {
   UniInfoContent,
@@ -24,10 +23,7 @@ export default async function InfoEditPage({
     <div className="flex flex-col gap-4 md:gap-8">
       <UniHeaderImgWrapper imgSrc={`/${uniData.university_id}.jpg`}>
         <UniHeaderContainer>
-          <UniHeaderName name={uniData.long_name} />
-          <UniHeaderMeta meta={uniData.region} />
-          <UniHeaderMeta meta={uniData.country_name} />
-          <UniHeaderMeta meta={`World Rank: ${uniData.ranking}`} />
+          <UniHeaderForm data={uniData} />
         </UniHeaderContainer>
       </UniHeaderImgWrapper>
 

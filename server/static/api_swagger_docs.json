@@ -464,6 +464,11 @@
             "maxLength": 36,
             "example": "ea6ac0be-29e1-4da2-8e69-bf784d9c8859"
           },
+          "country_code": {
+            "type": "string",
+            "maxLength": 3,
+            "example": "KOR"
+          },
           "country_name": {
             "type": "string",
             "maxLength": 200,

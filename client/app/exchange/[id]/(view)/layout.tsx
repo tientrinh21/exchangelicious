@@ -21,8 +21,8 @@ export default async function ExchangeLayout({
       <UniHeaderImgWrapper imgSrc={`/${data.university_id}.jpg`}>
         <UniHeaderContainer>
           <UniHeaderName name={data.long_name} />
-          <UniHeaderMeta meta={`${data.region}`} />
-          <UniHeaderMeta meta={data.country_name} />
+          <UniHeaderMeta meta={data.campus} />
+          <UniHeaderMeta meta={`${data.region} - ${data.country_name}`} />
           <UniHeaderMeta meta={`World Rank: ${data.ranking}`} />
         </UniHeaderContainer>
       </UniHeaderImgWrapper>

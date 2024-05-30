@@ -4,8 +4,11 @@ from flask_restful import Resource, abort, marshal_with, reqparse
 from sqlalchemy import select
 
 from resources_api.resource_fields_definitions import (
-    search_universities_resource_fields, university_meta_table_resource_fields,
-    university_resource_fields, university_with_info_resource_fields)
+    search_universities_resource_fields,
+    university_meta_table_resource_fields,
+    university_resource_fields,
+    university_with_info_resource_fields,
+)
 
 
 class UniversityRes(Resource):
@@ -13,7 +16,9 @@ class UniversityRes(Resource):
     def get(self, university_id):
         stmt = (
             select(UniversityTable, CountryTable)
-            .join(CountryTable, UniversityTable.country_code == CountryTable.country_code)
+            .join(
+                CountryTable, UniversityTable.country_code == CountryTable.country_code
+            )
             .where(UniversityTable.university_id == university_id)
         )
         res = db.session.execute(stmt).first()
@@ -39,12 +44,12 @@ class UniversityWithInfoRes(Resource):
         )
 
 
-
 class UniversityAllRes(Resource):
     @marshal_with(university_meta_table_resource_fields)
     def get(self):
         unis = UniversityTable.query.order_by(UniversityTable.long_name).all()
         return [uni for uni in unis], 200
+
 
 class UniversityPagination(Resource):
     def __init__(self) -> None:
@@ -69,5 +74,11 @@ class UniversityPagination(Resource):
         if search_word == "":
             res = db.paginate(select(UniversityTable), per_page=5, page=page_number)
         else:
-            res = db.paginate(select(UniversityTable).where(UniversityTable.long_name.contains(search_word)), per_page=5, page=page_number)
+            res = db.paginate(
+                select(UniversityTable).where(
+                    UniversityTable.long_name.contains(search_word)
+                ),
+                per_page=5,
+                page=page_number,
+            )
         return {"hasMore": res.has_next, "items": [r for r in res]}, 200
