@@ -1,4 +1,5 @@
 import json
+from typing import Dict, List
 from flask_restful import Resource, marshal_with, reqparse, abort
 from resources_api.resource_fields_definitions import review_resource_fields, review_paginate_resource_fields, upvote_resource_fields, downvote_resource_fields
 from database.database_setup import db
@@ -39,8 +40,9 @@ class ReviewPerUniPaginateRes(Resource):
         self.reqparse.add_argument(
             "page_number", type=int, default=1, location="args", required=True
         )
-        self.reqparse.add_argument('university_id', type=str, location = "args", required=True, help='ID of the review to be fetched')
+        self.reqparse.add_argument('university_id', type=str, location = "args", required=True)
         self.reqparse.add_argument('order_by', type=str, location = "args", required=False)
+        self.reqparse.add_argument('user_id', type=str, location = "args", required=False)
 
     @marshal_with(review_paginate_resource_fields)
     def get(self):
@@ -48,7 +50,8 @@ class ReviewPerUniPaginateRes(Resource):
         university_id = args["university_id"]
         page_number = args["page_number"]
         order_by = args["order_by"]
-        # TODO: Should be able to order based on votes or new/old
+        # TODO: Shoul
+        # d be able to order based on votes or new/old
         if order_by == "new":
             order_stmt = ReviewTable.submit_datetime.desc()
         elif order_by == "old":
@@ -62,7 +65,29 @@ class ReviewPerUniPaginateRes(Resource):
             per_page=4,
             page=page_number
         )
-        return {"hasMore": res.has_next, "items": [r for r in res]}, 200
+        items = res
+        if 'user_id' in args and args['user_id'] != None:
+            user_id = args['user_id']
+            items: list[dict[str, any]] = []
+            r: ReviewTable
+            for r in res:
+                # check if the user has upvoted the current review
+                stmt = (select(UpvoteTable).where(UpvoteTable.user_id == user_id, UpvoteTable.review_id == r.review_id).limit(1))
+                ans_upvoted = db.session.scalar(stmt)
+                has_upvoted = True if (ans_upvoted is not None) else False
+                # check if the user has downvoted the current review
+                # A user can either upvote or downvote, not both
+                ans_downvoted = None
+                if not has_upvoted:
+                    stmt = (select(DownvoteTable).where(DownvoteTable.user_id == user_id, DownvoteTable.review_id == r.review_id).limit(1))
+                    ans_downvoted = db.session.scalar(stmt)
+                has_downvoted = True if (ans_downvoted is not None) else False
+                # add the newfound information to the return
+                r_dict: dict = r.__dict__
+                r_dict["has_upvoted"] = has_upvoted
+                r_dict["has_downvoted"] = has_downvoted
+                items.append(r_dict)
+        return {"hasMore": res.has_next, "items": [i for i in items]}, 200
         
 class ReviewRes(Resource):
     @marshal_with(review_resource_fields)

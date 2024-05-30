@@ -505,12 +505,14 @@ insert into partner_universities_table(id, from_university_id, to_university_id)
   ('skku-uib', 'skku', 'uib'),
   ('ntnu-skku', 'ntnu', 'skku');
 
+# Note: the user dont have a password here, so you cant log in with them
 insert into user_table(user_id, username) values
 ("9d9ed250-c3a5-4b9c-9d11-4ccecbde5c5c", "scanlan"),
 ("be8b46a1-b6f7-46da-8945-60a624190181", "grog"),
 ("d94b17fa-9546-43b7-b01e-191d402a0603", "percy"),
 ("9245ba10-726f-48db-89c4-e3490eb17ba2", "keyleth"),
-("0d35f39b-181a-4a6d-8def-a789fc99ba7c", "pike");
+("0d35f39b-181a-4a6d-8def-a789fc99ba7c", "pike"),
+("48072e43-bf19-4486-867d-d9f355cb10f1", "vax");
   
 insert into review_table(review_id, university_id, user_id, title, content, submit_datetime ,last_edit_datetime,
     mood_score) values
@@ -531,6 +533,6 @@ insert into upvote_table(review_id, user_id) values
 ("8056c629-e9ee-4fac-96ae-90bdd01f1190", "0d35f39b-181a-4a6d-8def-a789fc99ba7c");
 
 insert into downvote_table(review_id, user_id) values
-("8056c629-e9ee-4fac-96ae-90bdd01f1190", "9245ba10-726f-48db-89c4-e3490eb17ba2"),
-("8056c629-e9ee-4fac-96ae-90bdd01f1190", "0d35f39b-181a-4a6d-8def-a789fc99ba7c");
+("8056c629-e9ee-4fac-96ae-90bdd01f1190", "48072e43-bf19-4486-867d-d9f355cb10f1"),
+("8056c629-e9ee-4fac-96ae-90bdd01f1190", "d94b17fa-9546-43b7-b01e-191d402a0603");
 

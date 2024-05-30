@@ -1,4 +1,4 @@
-import { getUserData } from '@/lib/auth'
+import { getUserData, isAuthenticated } from '@/lib/auth'
 import { Review } from '@/types/review-section'
 import axios from 'axios'
 import React, { useEffect, useState } from 'react'
@@ -7,7 +7,7 @@ import InfiniteScroll from 'react-infinite-scroll-component'
 const BASE_URL = 'http://127.0.0.1:8080/api'
 
 function MakeComment(props: { university_id: string }) {
-  console.log(getUserData())
+  // console.log(getUserData())
 
   function createReview(formData: any) {
     axios({
@@ -44,7 +44,7 @@ function MakeComment(props: { university_id: string }) {
         <option value="good">good</option>
         <option value="very good">very good</option>
       </select>
-      <button type="submit">Search</button>
+      <button type="submit">Commit</button>
     </form>
   )
 }
@@ -58,13 +58,18 @@ export default function CommentSectionDemo(props: { university_id: string }) {
   // fetch initial data
   useEffect(() => {
     setIsLoading(true)
+
     axios({
       method: 'GET',
       url: `${BASE_URL}/reviews/paginate`,
       headers: {
         'Content-Type': 'application/json',
       },
-      params: { university_id: props.university_id, page_number: 1 },
+      params: {
+        university_id: props.university_id,
+        page_number: 1,
+        user_id: isAuthenticated() ? getUserData().user_id : null,
+      },
     })
       .then((res) => {
         setHasMore(res.data['hasMore'])
@@ -85,7 +90,11 @@ export default function CommentSectionDemo(props: { university_id: string }) {
       headers: {
         'Content-Type': 'application/json',
       },
-      params: { university_id: props.university_id, page_number: pageNumber },
+      params: {
+        university_id: props.university_id,
+        page_number: pageNumber,
+        user_id: isAuthenticated() ? getUserData().user_id : null,
+      },
     })
       .then((res) => {
         setHasMore(res.data['hasMore'])
@@ -131,11 +140,13 @@ export default function CommentSectionDemo(props: { university_id: string }) {
             <ul>
               {reviews.map((review) => (
                 // TODO: Make pretty review cards
-                <>
+                <div key={review.review_id}>
                   <li key={review.review_id}>
                     Author: {review.user_id} + {review.title} +{' '}
                     {review.mood_score} + {review.content} + {review.upvotes} -{' '}
-                    {review.downvotes} = {review.upvotes - review.downvotes}{' '}
+                    {review.downvotes} = {review.upvotes - review.downvotes} +
+                    has_upvoted: {String(review.has_upvoted)} + has_downvoted:{' '}
+                    {String(review.has_downvoted)}{' '}
                   </li>
                   <ul>
                     {/* TODO: A user can either upvote or downvote a review */}
@@ -146,7 +157,7 @@ export default function CommentSectionDemo(props: { university_id: string }) {
                       <button name="downvote">Down vote</button>
                     </li>
                   </ul>
-                </>
+                </div>
               ))}
             </ul>
           </div>

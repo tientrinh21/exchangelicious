@@ -691,6 +691,14 @@
             "schema": {
               "type": "string"
             }
+          },
+          {
+            "name": "user_id",
+            "description": "The user_id of the logged in user",
+            "in": "query",
+            "schema": {
+              "type": "string"
+            }
           }
         ],
         "responses": {
@@ -825,7 +833,7 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/UpvoteRow"
+                  "$ref": "#/components/schemas/DownvoteRow"
                 }
               }
             }
@@ -1111,7 +1119,22 @@
           "items": {
             "type": "array",
             "items": {
-              "$ref": "#/components/schemas/Review"
+              "allOf": [
+                {
+                  "$ref": "#/components/schemas/Review"
+                },
+                {
+                  "type": "object",
+                  "properties": {
+                    "has_upvoted": {
+                      "type": "boolean"
+                    },
+                    "has_downvoted": {
+                      "type": "boolean"
+                    }
+                  }
+                }
+              ]
             }
           }
         }

@@ -6,7 +6,7 @@ import axios from 'axios'
 
 export const authAtom = atom(false)
 
-function isAuthenticated() {
+export function isAuthenticated() {
   return localStorage.hasOwnProperty('user')
 }
 
