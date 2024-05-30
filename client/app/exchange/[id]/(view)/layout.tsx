@@ -23,7 +23,7 @@ export default async function ExchangeLayout({
           <UniHeaderName name={data.long_name} />
           <UniHeaderMeta meta={`${data.region}`} />
           <UniHeaderMeta meta={data.country_name} />
-          <UniHeaderMeta meta={`QS Ranking #${data.ranking}`} />
+          <UniHeaderMeta meta={`World Rank: ${data.ranking}`} />
         </UniHeaderContainer>
       </UniHeaderImgWrapper>
 
