@@ -1,22 +1,34 @@
-'use client'
+import {
+  UniHeaderContainer,
+  UniHeaderImgWrapper,
+  UniHeaderMeta,
+  UniHeaderName,
+} from '@/components/uni-header'
+import { fetchUniversity, fetchUniversityInfo } from '@/lib/request'
+import type { University, UniversityInfo } from '@/types/university'
 
-import data from '@/lib/seed.json'
-import { usePathname } from 'next/navigation'
+export default async function InfoEditPage({
+  params,
+}: {
+  params: { id: string }
+}) {
+  const uniData: University = await fetchUniversity(params.id)
+  const infoData: UniversityInfo = await fetchUniversityInfo(params.id)
 
-export default function InfoEditPage() {
-  // TODO: To be change soon
-  const uniName: string = usePathname()
-    .replace('/reviews', '')
-    .replace('/exchange/', '')
-
-  const uniData = data[uniName as keyof Object]
   return (
-    <>
-      <div>
-        <span className="text-xl font-bold text-foreground md:text-2xl">
-          Webpage
-        </span>
+    <div className="flex flex-col gap-4 md:gap-8">
+      <UniHeaderImgWrapper imgSrc={`/${uniData.university_id}.jpg`}>
+        <UniHeaderContainer>
+          <UniHeaderName name={uniData.long_name} />
+          <UniHeaderMeta meta={`${uniData.region}`} />
+          <UniHeaderMeta meta={uniData.country_name} />
+          <UniHeaderMeta meta={`QS Ranking #${uniData.ranking}`} />
+        </UniHeaderContainer>
+      </UniHeaderImgWrapper>
+
+      <div className="container flex max-w-screen-lg flex-col items-center gap-6 lg:items-baseline lg:gap-10">
+        Testing
       </div>
-    </>
+    </div>
   )
 }

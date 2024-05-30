@@ -7,8 +7,6 @@ import {
 import { fetchUniversity } from '@/lib/request'
 import type { University } from '@/types/university'
 
-const BASE_URL = process.env.BASE_URL || 'http://localhost:8080/api'
-
 export default async function ExchangeLayout({
   children,
   params,
@@ -20,12 +18,12 @@ export default async function ExchangeLayout({
 
   return (
     <div className="flex flex-col gap-4 md:gap-8">
-      <UniHeaderImgWrapper imgSrc={`/${data!.university_id}.jpg`}>
+      <UniHeaderImgWrapper imgSrc={`/${data.university_id}.jpg`}>
         <UniHeaderContainer>
-          <UniHeaderName name={data!.long_name} />
-          <UniHeaderMeta meta={`${data!.region}`} />
-          <UniHeaderMeta meta={data!.country_name} />
-          <UniHeaderMeta meta={`QS Ranking #${data!.ranking}`} />
+          <UniHeaderName name={data.long_name} />
+          <UniHeaderMeta meta={`${data.region}`} />
+          <UniHeaderMeta meta={data.country_name} />
+          <UniHeaderMeta meta={`QS Ranking #${data.ranking}`} />
         </UniHeaderContainer>
       </UniHeaderImgWrapper>
 
