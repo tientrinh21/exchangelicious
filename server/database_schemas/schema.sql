@@ -20,7 +20,7 @@ create table info_page_table (
   introduction TEXT,
   location TEXT,
   semester TEXT,
-  application_deadline TEXT,
+  application_deadlines TEXT,
   courses TEXT,
   housing TEXT,
   tuition TEXT,
@@ -116,7 +116,7 @@ CREATE TABLE favorites (
 );
 */
 
-insert into info_page_table(info_page_id, webpage, introduction, location, semester, application_deadline, courses, housing, tuition, visa, eligibility, requirements) values
+insert into info_page_table(info_page_id, webpage, introduction, location, semester, application_deadlines, courses, housing, tuition, visa, eligibility, requirements) values
   (
   "skku_page",
   "https://www.skku.edu/eng/",

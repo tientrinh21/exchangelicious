@@ -9,7 +9,7 @@ export default function UniInfoContent(props: {
   data: UniversityInfo | undefined
 }) {
   return (
-    <div className="lg:order-1">
+    <div className="w-full lg:order-1">
       {Object.entries(props.data!).map(([key, value], index) => {
         if (key === 'webpage')
           return (
@@ -41,7 +41,7 @@ export default function UniInfoContent(props: {
             </h2>
             <Markdown
               remarkPlugins={[remarkGfm]}
-              className="prose font-medium text-secondary-foreground"
+              className="prose max-w-none font-medium text-secondary-foreground"
               components={{
                 a: ({ node, href, ...props }) => (
                   <Link

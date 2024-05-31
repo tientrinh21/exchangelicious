@@ -4,7 +4,7 @@ import {
   UniHeaderImgWrapper,
 } from '@/components/uni-header'
 import {
-  UniInfoContent,
+  UniInfoForm,
   UniInfoMobileMenu,
   UniInfoNav,
 } from '@/components/uni-info'
@@ -23,15 +23,15 @@ export default async function InfoEditPage({
     <div className="flex flex-col gap-4 md:gap-8">
       <UniHeaderImgWrapper imgSrc={`/${uniData.university_id}.jpg`}>
         <UniHeaderContainer>
-          <UniHeaderForm data={uniData} />
+          <UniHeaderForm id={params.id} data={uniData} />
         </UniHeaderContainer>
       </UniHeaderImgWrapper>
 
-      <div className="container flex max-w-screen-lg flex-col items-center gap-6 lg:items-baseline lg:gap-10">
-        <div className="flex flex-col gap-3 lg:flex-row lg:gap-14">
+      <div className="container flex w-full max-w-screen-lg flex-col items-center gap-6 lg:items-baseline lg:gap-10">
+        <div className="flex w-full flex-col gap-3 lg:flex-row lg:gap-14">
           <UniInfoNav data={infoData} />
           <UniInfoMobileMenu data={infoData} />
-          <UniInfoContent data={infoData} />
+          <UniInfoForm id={params.id} data={infoData} />
         </div>
       </div>
     </div>

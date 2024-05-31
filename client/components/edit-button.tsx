@@ -11,7 +11,7 @@ function EditInfoButton() {
   return (
     <Button
       size="icon"
-      className="fixed bottom-8 right-5 h-9 w-9 rounded-2xl sm:right-8 md:h-10 md:w-10"
+      className="fixed bottom-8 right-5 h-9 w-9 sm:right-8 md:h-10 md:w-10"
     >
       <Link href={`${uniPathname}/edit`}>
         <Pencil1Icon />

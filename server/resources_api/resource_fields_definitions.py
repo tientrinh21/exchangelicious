@@ -28,7 +28,7 @@ university_with_info_resource_fields = {
     "introduction": fields.String,
     "location": fields.String,
     "semester": fields.String,
-    "application_deadline": fields.String,
+    "application_deadlines": fields.String,
     "courses": fields.String,
     "housing": fields.String,
     "tuition": fields.String,

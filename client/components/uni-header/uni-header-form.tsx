@@ -1,12 +1,6 @@
 'use client'
 
 import { Button } from '@/components/ui/button'
-import { CaretSortIcon, CheckIcon } from '@radix-ui/react-icons'
-import {
-  Popover,
-  PopoverContent,
-  PopoverTrigger,
-} from '@/components/ui/popover'
 import {
   Command,
   CommandEmpty,
@@ -14,7 +8,6 @@ import {
   CommandInput,
   CommandItem,
 } from '@/components/ui/command'
-import { CommandList } from 'cmdk'
 import {
   Form,
   FormControl,
@@ -23,18 +16,31 @@ import {
   FormMessage,
 } from '@/components/ui/form'
 import { Input } from '@/components/ui/input'
+import {
+  Popover,
+  PopoverContent,
+  PopoverTrigger,
+} from '@/components/ui/popover'
+import { ScrollArea } from '@/components/ui/scroll-area'
+import countries from '@/lib/countries.json'
 import { updateUniversity } from '@/lib/request'
 import { cn } from '@/lib/utils'
+import { uniHeaderFormSchema, type UniHeaderFormSchema } from '@/types/schema'
+import type { University } from '@/types/university'
+import { zodResolver } from '@hookform/resolvers/zod'
+import { CaretSortIcon, UpdateIcon, CheckIcon } from '@radix-ui/react-icons'
+import { CommandList } from 'cmdk'
+import { useState } from 'react'
 import { useForm } from 'react-hook-form'
 import { toast } from 'sonner'
-import type { University } from '@/types/university'
-import { uniHeaderFormSchema, type UniHeaderFormSchema } from '@/types/schema'
-import { zodResolver } from '@hookform/resolvers/zod'
-import countries from '@/lib/countries.json'
-import { useState } from 'react'
-import { ScrollArea } from '../ui/scroll-area'
 
-export default function UniHeaderForm({ data }: { data: University }) {
+export default function UniHeaderForm({
+  id,
+  data,
+}: {
+  id: string
+  data: University
+}) {
   const [countryOpen, setCountryOpen] = useState(false)
   const [countryValue, setCountryValue] = useState(data.country_code)
 
@@ -56,7 +62,7 @@ export default function UniHeaderForm({ data }: { data: University }) {
     const toastId = toast.loading('Updating university header...')
 
     try {
-      const newData = await updateUniversity({ id: data.university_id, values })
+      const newData = await updateUniversity({ id, values })
       console.log(newData)
       toast.success('Updated successfully!', { id: toastId })
     } catch (error: any) {
@@ -228,9 +234,9 @@ export default function UniHeaderForm({ data }: { data: University }) {
         {/* Two update button, one for mobile, one for desktop */}
         <Button
           type="submit"
-          className="absolute bottom-[-40px] right-0 hidden md:flex"
+          className="absolute bottom-[-40px] right-0 hidden border-primary md:flex"
         >
-          <CheckIcon className="mr-2 h-4 w-4" />
+          <UpdateIcon className="mr-2 h-4 w-4" />
           Update
         </Button>
         <Button
@@ -238,10 +244,9 @@ export default function UniHeaderForm({ data }: { data: University }) {
           className="absolute bottom-[-40px] right-0 md:hidden"
           size="icon"
         >
-          <CheckIcon />
+          <UpdateIcon />
         </Button>
       </form>
     </Form>
   )
 }
-

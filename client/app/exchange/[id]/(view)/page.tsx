@@ -15,7 +15,7 @@ export default async function InfoPage({ params }: { params: { id: string } }) {
     <>
       <InfoReviewsNav />
 
-      <div className="flex flex-col gap-3 lg:flex-row lg:gap-14">
+      <div className="flex w-full flex-col gap-3 lg:flex-row lg:gap-14">
         <UniInfoNav data={data} />
         <UniInfoMobileMenu data={data} />
         <UniInfoContent data={data} />

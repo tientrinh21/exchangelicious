@@ -27,7 +27,7 @@ export default async function ExchangeLayout({
         </UniHeaderContainer>
       </UniHeaderImgWrapper>
 
-      <div className="container flex max-w-screen-lg flex-col items-center gap-6 lg:items-baseline lg:gap-10">
+      <div className="container flex w-full max-w-screen-lg flex-col items-center gap-6 lg:items-baseline lg:gap-10">
         {children}
       </div>
     </div>
