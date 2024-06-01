@@ -125,13 +125,16 @@ export default function UniInfoForm({
           )
         })}
         {/* Two update button, one for mobile, one for desktop */}
-        <Button type="submit" className="fixed bottom-5 right-6 hidden md:flex">
+        <Button
+          type="submit"
+          className="fixed bottom-10 right-6 hidden md:flex"
+        >
           <CheckIcon className="mr-2 h-4 w-4" />
           Save
         </Button>
         <Button
           type="submit"
-          className="fixed bottom-5 right-4 md:hidden"
+          className="fixed bottom-8 right-4 sm:bottom-10 md:hidden"
           size="icon"
         >
           <CheckIcon />

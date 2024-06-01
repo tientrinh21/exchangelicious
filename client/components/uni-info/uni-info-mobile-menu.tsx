@@ -12,6 +12,7 @@ import type { UniversityInfo } from '@/types/university'
 import { ArrowUpIcon, DotsHorizontalIcon } from '@radix-ui/react-icons'
 import Link from 'next/link'
 import { useState } from 'react'
+import { ScrollArea } from '@/components/ui/scroll-area'
 
 export default function UniInfoMobileMenu(props: {
   data: UniversityInfo | undefined
@@ -33,31 +34,33 @@ export default function UniInfoMobileMenu(props: {
       </DropdownMenuTrigger>
       <DropdownMenuContent
         align="center"
-        className="w-[65vw] space-y-2 rounded-lg px-4 py-4 shadow-xl sm:w-[40vw]"
+        className="w-[65vw] rounded-lg px-4 py-4 shadow-xl sm:w-[40vw]"
       >
-        {Object.entries(props.data!).map(([key, _], index) => {
-          if (key === 'webpage') return
-          return (
-            <DropdownMenuItem key={index} onClick={() => setOpen(false)}>
-              <Link
-                href={`#${key}`}
-                className={`mx-auto w-2/3 text-base font-medium text-accent-foreground`}
-              >
-                <span className="mr-1 inline-block w-8">{`${toRomanNumerals(index)}.`}</span>
-                <span>{objKeyToText(key)}</span>
-              </Link>
-            </DropdownMenuItem>
-          )
-        })}
-        <DropdownMenuItem>
-          <Link
-            href=""
-            className={`mx-auto w-2/3 text-base font-medium text-accent-foreground`}
-          >
-            <ArrowUpIcon className="mr-4 inline-block h-5 w-5" />
-            <span>Back to top</span>
-          </Link>
-        </DropdownMenuItem>
+        <ScrollArea className="h-[300px]">
+          {Object.entries(props.data!).map(([key, _], index) => {
+            if (key === 'webpage') return
+            return (
+              <DropdownMenuItem key={index} onClick={() => setOpen(false)}>
+                <Link
+                  href={`#${key}`}
+                  className={`mx-auto my-1 w-full text-base font-medium text-accent-foreground`}
+                >
+                  <span className="ml-14 mr-1 inline-block w-8">{`${toRomanNumerals(index)}.`}</span>
+                  <span>{objKeyToText(key)}</span>
+                </Link>
+              </DropdownMenuItem>
+            )
+          })}
+          <DropdownMenuItem onClick={() => setOpen(false)}>
+            <Link
+              href=""
+              className={`mx-auto my-1 w-full text-base font-medium text-accent-foreground`}
+            >
+              <ArrowUpIcon className="ml-14 mr-4 inline-block h-5 w-5" />
+              <span>Back to top</span>
+            </Link>
+          </DropdownMenuItem>
+        </ScrollArea>
       </DropdownMenuContent>
     </DropdownMenu>
   )

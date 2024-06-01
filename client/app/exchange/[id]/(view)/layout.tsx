@@ -1,3 +1,4 @@
+import { InfoReviewsNav } from '@/components/info-reviews-nav'
 import {
   UniHeaderContainer,
   UniHeaderImgWrapper,
@@ -28,6 +29,8 @@ export default async function ExchangeLayout({
       </UniHeaderImgWrapper>
 
       <div className="container flex w-full max-w-screen-lg flex-col items-center gap-6 lg:items-baseline lg:gap-10">
+        <InfoReviewsNav uniId={params.id} />
+
         {children}
       </div>
     </div>

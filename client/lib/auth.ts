@@ -11,7 +11,7 @@ export const frequentlyUniversities = [
   { long_name: 'Sungkyunkwan University', university_id: 'skku' },
 ]
 
-function isAuthenticated() {
+export function isAuthenticated() {
   return localStorage.hasOwnProperty('user')
 }
 
