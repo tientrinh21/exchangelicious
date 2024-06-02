@@ -53,7 +53,7 @@ export default function UniInfoContent(props: {
                 ),
               }}
             >
-              {value}
+              {value ? value : 'No information provided yet.'}
             </Markdown>
           </div>
         )

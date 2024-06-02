@@ -18,6 +18,7 @@ import { zodResolver } from '@hookform/resolvers/zod'
 import { CheckIcon } from '@radix-ui/react-icons'
 import { useForm } from 'react-hook-form'
 import { toast } from 'sonner'
+import UniInfoEditor from './uni-info-editor'
 
 export default function UniInfoForm({
   id,
@@ -111,10 +112,10 @@ export default function UniInfoForm({
                       <h2 className="text-xl font-bold text-foreground md:text-2xl">
                         {`${toRomanNumerals(index)}. ${objKeyToText(key)}`}
                       </h2>
-                      <AutosizeTextarea
+                      <UniInfoEditor
                         {...field}
                         placeholder={`Information about ${objKeyToText(key)}`}
-                        className="prose-lg text-base font-medium text-secondary-foreground"
+                        index={index}
                       />
                     </div>
                   </FormControl>
