@@ -1,3 +1,11 @@
-export default function ReviewsPage() {
-  return <div className="">Hello from Reviews Page</div>
+import { InfoReviewsNav } from '@/components/info-reviews-nav'
+
+export default function ReviewsPage({ params }: { params: { id: string } }) {
+  return (
+    <>
+      <InfoReviewsNav uniId={params.id} />
+
+      <div className="">Hello from Reviews Page</div>
+    </>
+  )
 }
