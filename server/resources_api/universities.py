@@ -66,9 +66,91 @@ uni_delete_args.add_argument(
     "university_id", type=str, location="args", help="Uni ID to delete university"
 )
 
+info_get_args = reqparse.RequestParser()
+info_get_args.add_argument(
+    "university_id", type=str, location="args", required=True
+)
+
+info_post_args = reqparse.RequestParser()
+info_post_args.add_argument(
+    "university_id", type=str, location="args", required=True
+)
+info_post_args.add_argument(
+    "webpage", type=str, location="args", help="Webpage to create info"
+)
+info_post_args.add_argument(
+    "introduction", type=str, location="args", help="Introduction to create info"
+)
+info_post_args.add_argument(
+    "location", type=str, location="args", help="location to create info"
+)
+info_post_args.add_argument(
+    "semester", type=str, location="args", help="semester to create info"
+)
+info_post_args.add_argument(
+    "application_deadline", type=str, location="args", help="Application deadline to create info"
+)
+info_post_args.add_argument(
+    "courses", type=str, location="args", help="courses to create info"
+)
+info_post_args.add_argument(
+    "housing", type=str, location="args", help="housing to create info"
+)
+info_post_args.add_argument(
+    "tuition", type=str, location="args", help="tuition to create info"
+)
+info_post_args.add_argument(
+    "visa", type=str, location="args", help="visa to create info"
+)
+info_post_args.add_argument(
+    "eligibility", type=str, location="args", help="eligibility to create info"
+)
+info_post_args.add_argument(
+    "requirements", type=str, location="args", help="requirements to create info"
+)
+
+info_patch_args = reqparse.RequestParser()
+info_patch_args.add_argument(
+    "info_page_id", type=str, location="args", required=True, help="Info page ID to update info"
+)
+info_patch_args.add_argument(
+    "webpage", type=str, location="args", help="Webpage to create info"
+)
+info_patch_args.add_argument(
+    "introduction", type=str, location="args", help="Introduction to create info"
+)
+info_patch_args.add_argument(
+    "location", type=str, location="args", help="location to create info"
+)
+info_patch_args.add_argument(
+    "semester", type=str, location="args", help="semester to create info"
+)
+info_patch_args.add_argument(
+    "application_deadline", type=str, location="args", help="Application deadline to create info"
+)
+info_patch_args.add_argument(
+    "courses", type=str, location="args", help="courses to create info"
+)
+info_patch_args.add_argument(
+    "housing", type=str, location="args", help="housing to create info"
+)
+info_patch_args.add_argument(
+    "tuition", type=str, location="args", help="tuition to create info"
+)
+info_patch_args.add_argument(
+    "visa", type=str, location="args", help="visa to create info"
+)
+info_patch_args.add_argument(
+    "eligibility", type=str, location="args", help="eligibility to create info"
+)
+info_patch_args.add_argument(
+    "requirements", type=str, location="args", help="requirements to create info"
+)
+
 class UniversityRes(Resource):
     @marshal_with(university_resource_fields)
     def get(self, university_id):
+
         stmt = (
             select(UniversityTable, CountryTable)
             .join(CountryTable, UniversityTable.country_code == CountryTable.country_code)
@@ -89,62 +171,91 @@ class UniversityRes(Resource):
 
 class UniversityWithInfoRes(Resource):
     @marshal_with(university_with_info_resource_fields)
-    def get(self, university_id):
+    def get(self):
+        args = info_get_args.parse_args()
+        university_id = args['university_id']
+        
+        # TODO: using 'university_id', get 'info_page_id' from the 'university_table'
+        # stmt = select(InfoPageTable, UniversityTable)
+        # info_page_id = ...
+        uni = db.get_or_404(
+            UniversityTable, university_id, description=f"No Univerisity with the ID '{university_id}'."
+        )
+
         return db.get_or_404(
             InfoPageTable,
-            f"{university_id}_page",
+            uni.info_page_id,
             description=f"No university with the ID '{university_id}'.",
         )
     
-    @marshal_with(university_meta_table_resource_fields)
-    def post(self, university_id):
+    @marshal_with(university_with_info_resource_fields)
+    def post(self):
         try:
-            args = uni_put_args.parse_args()
-            uniid = str(uuid.uuid4())
-            # university_id=args["university_id"]
+            args = info_post_args.parse_args()
+            university_id = args['university_id']
 
-            new_uni = UniversityTable(
-                # university_id=university_id,
-                university_id=uniid,
-                country_code=args["country_code"],
-                region=args["region"],
-                long_name=args["long_name"],
-                ranking=args["ranking"],
-                info_page_id=args["info_page_id"],
-                campus=args["campus"],
-                housing=args["housing"],
+            new = InfoPageTable(
+                info_page_id = str(uuid.uuid4()),
+                webpage = args["webpage"],
+                introduction = args["introduction"],
+                location = args["location"],
+                semester = args["semester"],
+                application_deadline = args["application_deadline"],
+                courses = args["courses"],
+                housing = args["housing"],
+                tuition = args["tuition"],
+                visa = args["visa"],
+                eligibility = args["eligibility"],
+                requirements = args["requirements"]
             )
-            db.session.add(new_uni)
+
+            db.session.add(new)
             db.session.commit()
-            return new_uni, 200
+
+            uni = db.session.query(UniversityTable).filter_by(university_id=university_id).first()
+            if uni is not None:
+                uni.info_page_id = new.info_page_id
+            db.session.commit()
+
+            return new, 200
         except exc.SQLAlchemyError as e:
             print(e)
             abort(message=str(e.__dict__.get("orig")), http_status_code=400)
 
-    @marshal_with(university_meta_table_resource_fields)
+    @marshal_with(university_with_info_resource_fields)
     def patch(self):
         try:
-            args = uni_update_args.parse_args()
-            uniid = args["university_id"]
-            uni = db.session.query(UniversityTable).filter_by(university_id=uniid).first()
-            # if 'university_id' in args and args['university_id'] != None:
-            #     uni.university_id = args['university_id']
-            if 'country_code' in args and args['country_code'] != None:
-                uni.country_code = args["country_code"]
-            if 'region' in args and args['region'] != None:
-                uni.region = args["region"]
-            if 'long_name' in args and args['long_name'] != None:
-                uni.long_name = args["long_name"]
-            if 'ranking' in args and args['ranking'] != None:
-                uni.ranking = args["ranking"]
-            if 'info_page_id' in args and args["info_page_id"] != None:
-                uni.info_page_id = args["info_page_id"]
-            if 'campus' in args and args["campus"] != None:
-                uni.campus = args["campus"]
+            args = info_patch_args.parse_args()
+            info_page_id = args['info_page_id']
+            info_page = db.session.query(InfoPageTable).filter_by(info_page_id=info_page_id).first()
+            
+            if 'info_page_id' in args and args['info_page_id'] != None:
+                info_page.info_page_id = args["info_page_id"]
+            if 'webpage' in args and args['webpage'] != None:
+                info_page.webpage = args["webpage"]
+            if 'introduction' in args and args['introduction'] != None:
+                info_page.introduction = args["introduction"]
+            if 'location' in args and args['location'] != None:
+                info_page.location = args["location"]
+            if 'semester' in args and args["semester"] != None:
+                info_page.semester = args["semester"]
+            if 'application_deadline' in args and args["application_deadline"] != None:
+                info_page.application_deadline = args["application_deadline"]
+            if 'courses' in args and args["courses"] != None:
+                info_page.courses = args["courses"]
             if 'housing' in args and args["housing"] != None:
-                uni.housing = args["housing"]
+                info_page.housing = args["housing"]
+            if 'tuition' in args and args["tuition"] != None:
+                info_page.tuition = args["tuition"]
+            if 'visa' in args and args["visa"] != None:
+                info_page.visa = args["visa"]
+            if 'eligibility' in args and args["eligibility"] != None:
+                info_page.eligibility = args["eligibility"]
+            if 'requirements' in args and args["requirements"] != None:
+                info_page.requirements = args["requirements"]
+
             db.session.commit()
-            return uni, 200
+            return info_page, 200
 
         except exc.SQLAlchemyError as e:
             print(e)
@@ -212,14 +323,14 @@ class UniversityAllRes(Resource):
     def delete(self):
         try:
             args = uni_delete_args.parse_args()
-            uniid = args["university_id"]
+            university_id = args["university_id"]
             uni = db.get_or_404(
-                UniversityTable, uniid, description=f"No Univerisity with the ID '{uniid}'."
+                UniversityTable, university_id, description=f"No Univerisity with the ID '{university_id}'."
             )
             db.session.delete(uni)
             db.session.commit()
-            print(f"University with uni_id '{uniid}' deleted successfully")
-            return {"message": f"University with uni_id '{uniid}' deleted successfully"}, 200
+            print(f"University with uni_id '{university_id}' deleted successfully")
+            return {"message": f"University with uni_id '{university_id}' deleted successfully"}, 200
         except Exception as e:
             print(f"An error occurred: {e}")
             abort(message=str(e), http_status_code=500)
