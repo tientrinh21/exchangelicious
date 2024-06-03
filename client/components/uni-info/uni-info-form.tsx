@@ -9,9 +9,8 @@ import {
   FormMessage,
 } from '@/components/ui/form'
 import { Input } from '@/components/ui/input'
-import { AutosizeTextarea } from '@/components/ui/autosize-textarea'
 import { updateUniversityInfo } from '@/lib/request'
-import { cn, objKeyToText, toRomanNumerals } from '@/lib/utils'
+import { objKeyToText, toRomanNumerals } from '@/lib/utils'
 import { uniInfoFormSchema, type UniInfoFormSchema } from '@/types/schema'
 import type { UniversityInfo } from '@/types/university'
 import { zodResolver } from '@hookform/resolvers/zod'
