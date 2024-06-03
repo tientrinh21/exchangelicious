@@ -175,9 +175,6 @@ class UniversityWithInfoRes(Resource):
         args = info_get_args.parse_args()
         university_id = args['university_id']
         
-        # TODO: using 'university_id', get 'info_page_id' from the 'university_table'
-        # stmt = select(InfoPageTable, UniversityTable)
-        # info_page_id = ...
         uni = db.get_or_404(
             UniversityTable, university_id, description=f"No Univerisity with the ID '{university_id}'."
         )
