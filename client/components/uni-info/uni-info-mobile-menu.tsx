@@ -22,7 +22,7 @@ export default function UniInfoMobileMenu(props: {
   return (
     <DropdownMenu open={open} onOpenChange={setOpen}>
       <DropdownMenuTrigger asChild>
-        <div className="sticky top-20 mx-auto flex w-1/3 justify-center rounded-lg bg-background lg:hidden">
+        <div className="sticky top-[4.5rem] z-[200] mx-auto flex w-1/3 justify-center rounded-lg bg-background sm:w-1/4 lg:hidden">
           <Button
             variant="outline"
             className="w-full bg-muted-foreground/15 text-foreground/65"
@@ -34,7 +34,7 @@ export default function UniInfoMobileMenu(props: {
       </DropdownMenuTrigger>
       <DropdownMenuContent
         align="center"
-        className="w-[65vw] rounded-lg px-4 py-4 shadow-xl sm:w-[40vw]"
+        className="md-[80vw] z-[200] rounded-lg px-4 py-4 shadow-xl sm:w-[40vw] lg:hidden"
       >
         <ScrollArea className="h-[300px]">
           {Object.entries(props.data!).map(([key, _], index) => {
@@ -45,7 +45,7 @@ export default function UniInfoMobileMenu(props: {
                   href={`#${key}`}
                   className={`mx-auto my-1 w-full text-base font-medium text-accent-foreground`}
                 >
-                  <span className="ml-14 mr-1 inline-block w-8">{`${toRomanNumerals(index)}.`}</span>
+                  <span className="mr-1 inline-block w-8 md:ml-14">{`${toRomanNumerals(index)}.`}</span>
                   <span>{objKeyToText(key)}</span>
                 </Link>
               </DropdownMenuItem>
@@ -56,7 +56,7 @@ export default function UniInfoMobileMenu(props: {
               href=""
               className={`mx-auto my-1 w-full text-base font-medium text-accent-foreground`}
             >
-              <ArrowUpIcon className="ml-14 mr-4 inline-block h-5 w-5" />
+              <ArrowUpIcon className="mr-4 inline-block h-5 w-5 md:ml-14" />
               <span>Back to top</span>
             </Link>
           </DropdownMenuItem>

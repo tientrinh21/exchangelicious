@@ -15,7 +15,7 @@ export default function UniInfoContent(props: {
           return (
             <div
               key={index}
-              className="mb-4 mt-2 flex w-full items-center justify-center gap-2 font-medium lg:mb-8 lg:mt-0 lg:justify-normal"
+              className="mb-4 mt-2 w-full items-center gap-2 text-center font-medium lg:mb-8 lg:mt-0 lg:text-left"
             >
               <span className="font-semibold text-foreground sm:text-lg">
                 Webpage:
@@ -23,7 +23,7 @@ export default function UniInfoContent(props: {
               <Link
                 href={value}
                 target="_blank"
-                className="text-primary underline underline-offset-2 hover:text-primary/80"
+                className="break-words text-primary underline underline-offset-2 hover:text-primary/80"
               >
                 {value}
               </Link>
@@ -48,7 +48,7 @@ export default function UniInfoContent(props: {
                     {...props}
                     href={href as Url}
                     target="_blank"
-                    className="text-primary underline underline-offset-4 hover:text-primary/80"
+                    className="break-words text-primary underline underline-offset-4 hover:text-primary/80"
                   />
                 ),
               }}

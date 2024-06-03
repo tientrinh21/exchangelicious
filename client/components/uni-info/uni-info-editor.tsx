@@ -48,7 +48,7 @@ const UniInfoEditor = React.forwardRef<AutosizeTextAreaRef, UniInfoEditorProps>(
                   {...props}
                   href={href as Url}
                   target="_blank"
-                  className="text-primary underline underline-offset-4 hover:text-primary/80"
+                  className="break-words text-primary underline underline-offset-4 hover:text-primary/80"
                 />
               ),
             }}
