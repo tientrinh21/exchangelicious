@@ -32,6 +32,14 @@ export async function fetchUniversityInfo(id: string) {
     .then((r) => r.data)
 }
 
+export async function createUniversity(values: UniHeaderFormSchema) {
+  return axios
+    .post<University>(`${BASE_URL}/universities`, null, {
+      params: values,
+    })
+    .then((r) => r.data)
+}
+
 export async function updateUniversity({
   id,
   values,

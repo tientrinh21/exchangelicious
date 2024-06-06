@@ -1,6 +1,8 @@
 import React from 'react'
 import Link from 'next/link'
 import type { University } from '@/types/university'
+import countries from '@/lib/countries.json'
+import { getCountryName } from '@/lib/utils'
 
 export function UniCard(props: { university: University }) {
   return (
@@ -13,9 +15,12 @@ export function UniCard(props: { university: University }) {
               {props.university.long_name}
             </h2>
             <p className="flex flex-col font-medium text-muted sm:flex-row">
-              <span>{props.university.region ?? 'N/A'}</span>
-              <span className="mx-1.5 hidden sm:inline">|</span>
               <span>{props.university.campus ?? 'N/A'}</span>
+              <span className="mx-1.5 hidden sm:inline">|</span>
+              <span>
+                {props.university.region ?? 'N/A'} -{' '}
+                {getCountryName(props.university.country_code)}
+              </span>
             </p>
           </div>
 

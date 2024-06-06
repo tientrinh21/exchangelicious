@@ -293,11 +293,6 @@ export default function UniHeaderForm({ data }: { data: University }) {
                       </Command>
                     </PopoverContent>
                   </Popover>
-                  {/* <Input */}
-                  {/*   placeholder="Housing" */}
-                  {/*   className="h-7 max-w-[15rem] text-xs font-medium leading-5 text-primary-foreground placeholder:text-muted sm:max-w-[21.5rem] sm:text-sm sm:leading-6 md:max-w-[21.75rem] md:text-base md:leading-7" */}
-                  {/*   {...field} */}
-                  {/* /> */}
                 </div>
               </FormControl>
               <FormMessage />

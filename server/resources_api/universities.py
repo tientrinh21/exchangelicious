@@ -304,11 +304,11 @@ class UniversityAllRes(Resource):
             new_uni = UniversityTable(
                 university_id=str(uuid4()),
                 country_code=args["country_code"],
-                region=args["region"],
+                region=args["region"] if args["region"] != "" else None,
                 long_name=args["long_name"],
-                ranking=args["ranking"],
+                ranking=args["ranking"] if args["ranking"] != "" else None,
                 info_page_id=args["info_page_id"],
-                campus=args["campus"],
+                campus=args["campus"] if args["campus"] != "" else None,
                 housing=args["housing"],
             )
 
