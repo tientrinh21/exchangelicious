@@ -16,18 +16,194 @@ Oslo, the capital of Norway, is known for its green spaces, museums, and modern 
 
 
 # Semester
+The academic year at the University of Oslo is divided into two semesters: Autumn and Spring.
 
+## Semester duration
+
+-   Autumn semester: from the middle of August to the middle of December.
+-   Spring semester: from early January to the middle of June.
+
+### Formal dates:
+
+-   Autumn 2024: 12 August–20 December
+-   Spring 2024: 2 January–14 June
+-   Autumn 2023: 14 August–21 December
+-   Spring 2023: 9 January–16 June
+-   Autumn 2022: 15 August–21 December
+-   Spring 2022: 3 January–17 June
+-   Autumn 2021: 16 August–17 December
+-   Spring 2021: 4 January–18 June
+-   Autumn 2020: 10 August–18 December
+-   Spring 2020: 2 January–19 June (originally 12 June)
+-   Autumn 2019: 12 August–20 December
+-   Spring 2019: 2 January–14 June
+-   Autumn 2018: 13 August–21 December
+-   Spring 2018: 2 January–15 June
+-   Autumn 2017: 14 August–22 December
+-   Spring 2017: 2 January–15 June
+-   The study programmes Medicine, Dentistry, Clinical Nutrition and Psychology have other semester dates.
+
+### Autumn 2024
+
+[The autumn semester for new international students starts Monday 12 August.](https://www.uio.no/english/studies/international-students/)
+
+### Vacations
+
+-   Summer vacation: from the middle of June to the middle of August.
+-   Christmas vacation: from the middle of December to early January.
+-   Easter vacation from the Monday after Palm Sunday until the Tuesday after Easter Sunday.
+
+## Exact start and end of studies
+
+The exact dates for the start and end of each semester may vary between the different study programmes and courses. The course descriptions will give you detailed information about each course, when it is taught, time and place of the exam(s) etc. The list is updated for the coming semester in late November/middle of May.
 
 
 # Application Deadlines
+Students must be nominated by their home institution in the UiO system before they can apply for exchange.
 
+## Application for exchange studies in 2024/2025 
+
+The deadline for nomination and application for exchange in Autumn 2024 was **1 May**, and the application service is now closed.
+
+Students who will come for exchange in Spring 2025, must be nominated by their university and do their application when our systems open in September 2024. The deadline for Spring 2025 is 15 October.
+
+Please read this page to see the detailted process after admission. 
+
+## Courses and documents
+
+Exchange students at the University of Oslo may take courses across faculties and departments, depending on their academic background. See the [list of courses offered in English](https://www.uio.no/english/studies/courses/) to find courses.
+
+**Nominated students must indicate which courses they wish to take in the application:**
+
+-   The intended courses must be listed in the application in Søknadsweb. The list is a preliminary indication and not the actual course registration. 
+-   In the application students may list courses at other faculties than the one they will be admitted to. More than three courses (30 ECTS credits) may be listed. 
+-   It is the faculty you are nominated to, or to which you apply, which is in charge of processing your course wishes.
+-   All nominated students must upload their **Transcript of Records** (document which shows previous courses taken in your university) to complete their application. The faculty will use the documents when processing course choices, to facilitate the course registration when this opens in June/December.
+-   **The courses listed in the application are preliminary**. Students will be able to register for more/other courses when the course registration opens in the beginning of December/June.
+
+The University of Oslo will make effort to enroll students into the selected courses. Uploading the sufficient documents and indication the courses in the application will facilitate the course registration process.
+
+However, the availability of all courses that are requested at the time of admission cannot be guaranteed. The enrollment can only be confirmed after arrival, and is dependent upon the timetabling of the courses and the number of places available in each course.
+
+Questions about courses must be directed to the faculty to which you are nominated. See [courses and documents for exchange students](https://www.uio.no/english/studies/registrations/exchange-students/) for faculty contact information and for further information about course selection and registration.
+
+## How to log in to the application service (Søknadsweb)
+
+Use the link in the email sent to you after nomination to go to the online application service:
+
+-   Log in with your username (registered email-address) and password. The password is sent in a separate email upon nomination.
+-   If you did not receive the email with the password you may order a new password on the login page (do also check the spam filter).
+-   The registered email address is your username. Please note that if you register a new email address after logging in, you must use this email address as username and order a new password to log in the next time.
+
+## Step 1 : My profile (contact information)
+
+Choose _International format_ and enter your correct postal address in your home country.
+
+Please make sure to enter your complete home address (and not address of your university):
+
+-   Address Line 1: Register your **street address and house number** correctly.
+-   Postal Code - City: Enter **both postal code / zip code AND name of city.** Please also enter **state/province** if applicable.
+-   Country: Choose **your country** from the list**.**
+-   Mobile: Register **mobile phone number** with country code.
+
+Click on "Save" to continue. You will then be directed to the application page.
+
+Please note:
+
+-   If it is not the first time you log in, you must go to the "My profile" section from the top menu.
+-   If you change your email address on the My profile page, the address you register will become your username. You must use the email address which you registered the next time you log in, after ordering a new password to this username.
+
+## Step 2: My application
+
+To complete the application you must choose/confirm the faculty and the level for your courses and list the courses you plan to take:
+
+-   **Choose faculty and level:** Choose the correct faculty and level (bachelor or master) from the menu. The choices available will depend on which exchange agreement you are nominated on (some students will have only one choice, others will have several).
+-   **Enter list of courses:** Write the courses you wish to take in order of preference in the box called **"Extra Information"** (at the bottom of the page). Example: "1. ENG0111, 2. ARK2120, 3. NORINT0110", etc..
+-   **PhD/Traineeship/Joint Degree:** If you are a PhD-student, a traineeship student or Joint Degree student, please indicate this in writing in the text box (write "PhD/Research" or "traineeship/joint degree", etc.).
+
+Please note:
+
+-   If it is not the first time you log in you will find the "My application" section in the top menu. Click on "Change application" if you see the receipt page and not the application page (page with the box at the bottom).
+-   We do not use application numbers for the applications (so it is normal that this is missing from the email receipt).
+-   There is no final submit button in the application service. Saving the application means that it is submitted. You may however log in again and change it until the deadline (click on "Change application").
+
+## Step 3: Upload documents
+
+**All students must upload their Transcript of Records to complete their application.**
+
+When uploading the Transcript of Records you enter the name of the institution and the approximate date for when you started the education the document refers to, before clicking on the upload-button.
+
+Please note: applications without documents will not be processed.
+
+### Documents for Erasmus+  and Nordplus/Nordlys students
+
+-   Erasmus+ and Nordplus/Nordlys students only have to upload their Transcript(s) of Records in English (official document showing previous courses at university level).
+-   Erasmus+ students DO NOT have to upload the Learning Agreement (LA) for studies with their online application, but may submit it to their host faculty upon the start of the semester.
+
+Please note: It is the faculty you are admitted to which signs the Learning Agreement (LA/OLA). Your faculty/department will sign the agreement and return it to you upon request, or when you have completed your course registration and have been admitted to courses at UiO.
+
+See [list of responsible persons and correct email addresses for each faculty](https://www.uio.no/english/studies/admission/exchange/erasmus/online-learning-agreement.html).
+
+### Documents for Bilateral students
+
+-   Students nominated on bilateral agreements (and not coming through programmes like Erasmus+ or Nordplus/Nordlys), must upload their Transcript(s) of Records in English or a Scandinavian language (official document showing previous courses at university level).
+-   Students who are not native speakers of English must upload a copy of an English test as described on the website [English proficiency requirements for exchange students](https://www.uio.no/english/studies/admission/exchange/english-requirements.html).
+-   Bilateral students must upload a copy of the identification page of their passport (for visa/immigration purposes).
+-   Bilateral students may also upload a Statement of purpose/letter of intent (a few lines or maximum one page about yourself, your academic interests and why you wish to study at UiO), if requested in the agreement in question.
+
+### How to upload documents
+
+The first time you go through the application sequence, you come to the page called "Uploading documents" after choosing faculty/level and indicating course wishes as described above.
+
+You upload documents by clicking on the grey button on the middle of the page (called "+ Upload new document" (under the headline "Submission deadline").
+
+Transcripts may be uploaded as "Transcript of Records or Diploma" (in the menu Choose Document Type). Then you must indicate the name of institution and the approximate date for when you started the education the document refers to. Documents may also be uploaded as "Other" (without indicating name of institution and start date).
+
+Please note: If it is not the first time you log in, you must go to the "My documents" section in the top menu (the 'step by step' process is only active the first time you log in).
+
+If you have documents stored in the "My documents" folder from previous applications, you don't have to upload the same documents again. If you for example upload a new motivation letter or an English test, we will always check the date and consider the newest one.
+
+Problems with uploading, or questions? [See our guidelines for uploading documents](https://www.uio.no/english/studies/admission/exchange/application.htmlguidelines-uploading.html)
+
+## Deadlines
+
+Applications should be completed online well before:
+
+-   **1 May** for studies starting in the autumn semester (August - December or August - June)
+-   **15 October** for studies starting in the spring semester (January - May or January - December)
+
+Please note that you may log in again to change the application or upload more documents until the deadline.
+
+Your application will have the status "Under consideration" until we have finalized the processing of all the applications (about one week after the deadline 1 May / 15 October).
+
+## Admission letter
+
+Admission letters will be available for applicants who have complete applications about one week after the deadline (before mid May / late October). The admission letter is electronically approved and valid without a signature, and must be downloaded from Søknadsweb.
+
+We do not send letters on paper.
+
+All applications will have the status "Under consideration" until all the applications are processed, and students who have been granted admission will receive an email with information when the admission letters are published.
+
+## PhD candidates
+
+Søknadsweb is not facilitated for PhD applicants. Please note that exchange students on the PhD level will not be given student status at the University of Oslo. Students on PhD level are treated as [guest researchers](https://www.uio.no/english/research/) and will not receive the regular admission letter. We kindly ask you to contact your host department for academic and practical follow up.
 
 # Courses
+### [Courses in English](https://www.uio.no/english/studies/courses)
 
+Exchange students at UiO may choose from a wide range of courses taught in English.
+
+Questions about courses must be [directed to the relevant faculty](https://www.uio.no/english/studies/registrations/exchange-students/).
+
+### [Language courses](https://www.hf.uio.no/iln/english/studies/international/courses-and-registration/)
+
+Admitted exchange students may apply for Norwegian Language courses on foundation or advanced level. UiO also offers an [online introduction course (MOOC)](https://www.hf.uio.no/iln/english/studies/international/introduction-to-norwegian/).
+
+[Norwegian Language courses](https://www.hf.uio.no/iln/english/studies/international/courses-and-registration/)
 
 
 # Tuition
-
+The tuition fees will not affect students admitted to a study programme prior to 2023 at UiO, or exchange students from partner universities.
 
 
 # Housing
@@ -148,6 +324,46 @@ Students with dual citizenship (EU passport and non-EU passport) must either:
 
 # Eligibility
 
+A good command of English is required of all students attending the University of Oslo.
+
+Students nominated on bilateral agreements who are not native speakers of English must document their proficiency in English.
+
+## Admission to courses on bachelor level
+
+**IELTS academic - International English Language Testing System**
+
+Minimum score: 5.0
+
+**TOEFL - Test of English as a Foreign Language, internet-based test (iBT)**
+
+Minimum score: 60
+
+-   UiO accepts the TOEFL iBT Special Home Edition.
+-   UiO does not accept TOEFL MyBest Score to meet our English language requirements.
+
+### Exemptions
+
+Applicants from some countries will have an adequate command of English and satisfy this requirement with the English they have taken at secondary school in their home country.
+
+Please see the website about [Minimum requirements for admission to Norwegian higher education/ GSU list](http://www.nokut.no/en/Facts-and-statistics/Surveys-and-databases/GSU-list/) (pdf) for further information about language requirements  and exemptions.
+
+The GSU-list has been compiled by [NOKUT](http://nokut.no/en/) (the Norwegian Agency for Quality Assurance in Education) in order to show the minimum requirements to Norwegian universities/higher education for applicants with qualifications from abroad.
+
+## Admission to courses on master level
+
+**IELTS academic - International English Language Testing System**
+
+Minimum score: 6.5
+
+**TOEFL - Test of English as a Foreign Language, internet-based test (iBT)**
+
+Minimum score: 90
+
+This includes TOEFL iBT Special Home Edition. We do not accept TOEFL MyBest Score to meet our English language requirements.
+
+### Exemptions
+
+For further information about the requirements and exemptions for admission to courses on Master level, please see [English proficiency required for master's degree admission](http://www.uio.no/english/studies/admission/master/english-proficiency-master.html)
 
 # Requirements
 ## Health insurance
@@ -214,3 +430,17 @@ If you are staying in Norway between 3 and 12 months, [you can apply for **volu
 ### Students staying in Norway for less than 3 months
 
 Students staying for less than 3 months can **not** become members of the National Insurance scheme and should have private or public social security coverage from their home country.
+
+## After admission
+
+-   [Apply for residence permit](https://www.uio.no/english/studies/international-students/before-arrival/visa/)
+    
+-   [Registration in Studentweb](https://www.uio.no/english/studies/registrations/exchange-students/course-registration.html)
+    
+-   [Erasmus+ Learning Agreement](https://www.uio.no/english/studies/registrations/exchange-students/learning-agreement.html)
+    
+-   [Erasmus+ confirmations](https://www.uio.no/english/studies/registrations/exchange-students/certificates.html)
+    
+-   [Special needs facilitation](https://www.uio.no/english/studies/special-needs-leave-part-time/)
+    
+-   [Academic calendar](https://www.uio.no/english/studies/about/academic-calendar/)

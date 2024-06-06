@@ -1,4 +1,3 @@
-**[Exchange Students Website]()**
 
 # University
 
