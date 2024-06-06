@@ -24,7 +24,7 @@ export function UniCard(props: { university: University }) {
               QS Ranking: {props.university.ranking ?? 'N/A'}
             </p>
             <p className="font-medium text-muted">
-              Dormitory: {props.university.housing}
+              Housing: {props.university.housing}
             </p>
           </div>
         </div>

@@ -9,7 +9,7 @@ university_resource_fields = {
     "long_name": fields.String,
     "ranking": fields.String,
     "campus": fields.String,
-    "housing": fields.Boolean,
+    "housing": fields.String,
 }
 
 university_meta_table_resource_fields = {
@@ -63,5 +63,5 @@ user_with_university_resource_fields = {
     "info_page_id": fields.String,
     "campus": fields.String,
     "ranking": fields.Integer,
-    "housing": fields.Boolean,
+    "housing": fields.String,
 }

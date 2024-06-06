@@ -26,6 +26,7 @@ export default async function ExchangeLayout({
             meta={`${data.region ?? 'N/A'} - ${data.country_name}`}
           />
           <UniHeaderMeta meta={`World Rank: ${data.ranking ?? 'N/A'}`} />
+          <UniHeaderMeta meta={`Housing: ${data.housing}`} />
         </UniHeaderContainer>
       </UniHeaderImgWrapper>
 

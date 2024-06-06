@@ -1,7 +1,7 @@
 // Data fetching
 // https://www.youtube.com/watch?v=00lxm_doFYw
 
-enum Housing {
+export enum Housing {
   'On-campus' = 'On-campus',
   'Off-campus' = 'Off-campus',
   'No housing' = 'No housing',

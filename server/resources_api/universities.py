@@ -338,19 +338,24 @@ class UniversityAllRes(Resource):
             # if 'university_id' in args and args['university_id'] is not None:
             #     uni.university_id = args['university_id']
             if "country_code" in args and args["country_code"] is not None:
-                uni.country_code = args["country_code"]
+                uni.country_code = (
+                    args["country_code"] if args["country_code"] != "" else None
+                )
             if "region" in args and args["region"] is not None:
-                uni.region = args["region"]
+                uni.region = args["region"] if args["region"] else None
             if "long_name" in args and args["long_name"] is not None:
-                uni.long_name = args["long_name"]
+                uni.long_name = args["long_name"] if args["long_name"] else None
             if "ranking" in args and args["ranking"] is not None:
-                uni.ranking = args["ranking"]
+                uni.ranking = args["ranking"] if args["ranking"] else None
             if "info_page_id" in args and args["info_page_id"] is not None:
-                uni.info_page_id = args["info_page_id"]
+                uni.info_page_id = (
+                    args["info_page_id"] if args["info_page_id"] else None
+                )
             if "campus" in args and args["campus"] is not None:
-                uni.campus = args["campus"]
+                uni.campus = args["campus"] if args["campus"] else None
             if "housing" in args and args["housing"] is not None:
-                uni.housing = args["housing"]
+                uni.housing = args["housing"] if args["housing"] else "N/A"
+
             db.session.commit()
             return uni, 200
 

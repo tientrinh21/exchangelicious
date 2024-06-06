@@ -59,7 +59,7 @@ export async function updateUniversityInfo({
   return axios
     .patch<University>(`${BASE_URL}/universities/info`, null, {
       params: {
-        university_id: id,
+        info_page_id: id,
         ...values,
       },
     })

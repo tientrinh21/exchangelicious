@@ -26,7 +26,7 @@ import countries from '@/lib/countries.json'
 import { updateUniversity } from '@/lib/request'
 import { cn } from '@/lib/utils'
 import { uniHeaderFormSchema, type UniHeaderFormSchema } from '@/types/schema'
-import type { University } from '@/types/university'
+import { Housing, type University } from '@/types/university'
 import { zodResolver } from '@hookform/resolvers/zod'
 import { CaretSortIcon, UpdateIcon, CheckIcon } from '@radix-ui/react-icons'
 import { CommandList } from 'cmdk'
@@ -34,15 +34,14 @@ import { useState } from 'react'
 import { useForm } from 'react-hook-form'
 import { toast } from 'sonner'
 
-export default function UniHeaderForm({
-  id,
-  data,
-}: {
-  id: string
-  data: University
-}) {
+const housingOptions = Object.values(Housing)
+
+export default function UniHeaderForm({ data }: { data: University }) {
   const [countryOpen, setCountryOpen] = useState(false)
   const [countryValue, setCountryValue] = useState(data.country_code)
+
+  const [housingOpen, setHousingOpen] = useState(false)
+  const [housingValue, setHousingValue] = useState(data.housing)
 
   // Define form
   const form = useForm<UniHeaderFormSchema>({
@@ -62,7 +61,7 @@ export default function UniHeaderForm({
     const toastId = toast.loading('Updating university header...')
 
     try {
-      const newData = await updateUniversity({ id, values })
+      const newData = await updateUniversity({ id: data.university_id, values })
       console.log(newData)
       toast.success('Updated successfully!', { id: toastId })
     } catch (error: any) {
@@ -163,7 +162,7 @@ export default function UniHeaderForm({
                       </Button>
                     </FormControl>
                   </PopoverTrigger>
-                  <PopoverContent className="w-[80vw] max-w-64 p-0">
+                  <PopoverContent className="z-[200] w-[80vw] max-w-64 p-0">
                     <Command>
                       <CommandInput
                         placeholder="Search country..."
@@ -217,14 +216,88 @@ export default function UniHeaderForm({
             <FormItem>
               <FormControl>
                 <div className="flex items-center">
-                  <span className="mr-1 min-w-20 text-sm font-medium text-primary-foreground sm:text-sm md:text-base">
+                  <span className="mr-1 min-w-20 text-sm font-medium text-primary-foreground sm:text-sm md:min-w-24 md:text-base">
                     World Rank:
                   </span>
                   <Input
                     placeholder="Ranking"
-                    className="h-7 max-w-[15rem] text-xs font-medium leading-5 text-primary-foreground placeholder:text-muted sm:max-w-[21.5rem] sm:text-sm sm:leading-6 md:max-w-[22.25rem] md:text-base md:leading-7"
+                    className="h-7 max-w-[15rem] text-xs font-medium leading-5 text-primary-foreground placeholder:text-muted sm:max-w-[21.5rem] sm:text-sm sm:leading-6 md:max-w-[21.75rem] md:text-base md:leading-7"
                     {...field}
                   />
+                </div>
+              </FormControl>
+              <FormMessage />
+            </FormItem>
+          )}
+        />
+        <FormField
+          control={form.control}
+          name="housing"
+          render={({ field }) => (
+            <FormItem>
+              <FormControl>
+                <div className="flex items-center">
+                  <span className="mr-1 min-w-20 text-sm font-medium text-primary-foreground sm:text-sm md:min-w-24 md:text-base">
+                    Housing:
+                  </span>
+                  <Popover open={housingOpen} onOpenChange={setHousingOpen}>
+                    <PopoverTrigger asChild>
+                      <FormControl>
+                        <Button
+                          variant="outline"
+                          role="combobox"
+                          className={cn(
+                            'flex h-7 w-full max-w-64 justify-between rounded-lg border border-input bg-transparent px-3 py-1 text-xs shadow-sm transition-colors focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-ring sm:min-w-48 sm:text-sm md:text-base',
+                            housingValue !== Housing['N/A']
+                              ? 'text-primary-foreground'
+                              : 'text-muted',
+                          )}
+                        >
+                          {housingValue
+                            ? housingOptions.find(
+                                (option) => option === housingValue,
+                              )
+                            : 'Select your country'}
+                          <CaretSortIcon className="ml-2 h-4 w-4 shrink-0 opacity-50" />
+                        </Button>
+                      </FormControl>
+                    </PopoverTrigger>
+                    <PopoverContent className="z-[200] w-[80vw] max-w-64 p-0">
+                      <Command>
+                        <CommandGroup>
+                          <CommandList>
+                            {housingOptions.map((option) => (
+                              <CommandItem
+                                key={option}
+                                value={option}
+                                onSelect={() => {
+                                  const val = option
+                                  form.setValue('housing', val)
+                                  setHousingValue(val)
+                                  setHousingOpen(false)
+                                }}
+                              >
+                                {option}
+                                <CheckIcon
+                                  className={cn(
+                                    'ml-auto h-4 w-4',
+                                    housingValue == option
+                                      ? 'opacity-100'
+                                      : 'opacity-0',
+                                  )}
+                                />
+                              </CommandItem>
+                            ))}
+                          </CommandList>
+                        </CommandGroup>
+                      </Command>
+                    </PopoverContent>
+                  </Popover>
+                  {/* <Input */}
+                  {/*   placeholder="Housing" */}
+                  {/*   className="h-7 max-w-[15rem] text-xs font-medium leading-5 text-primary-foreground placeholder:text-muted sm:max-w-[21.5rem] sm:text-sm sm:leading-6 md:max-w-[21.75rem] md:text-base md:leading-7" */}
+                  {/*   {...field} */}
+                  {/* /> */}
                 </div>
               </FormControl>
               <FormMessage />
