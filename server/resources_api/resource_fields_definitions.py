@@ -81,3 +81,8 @@ favorite_university_resource_fields = {
     "campus": fields.String,
     "housing": fields.Boolean,
 }
+
+favorite_paginate_resource_fields = {
+    "hasMore": fields.Boolean,
+    "items": fields.List(fields.Nested(favorite_university_resource_fields)),
+}

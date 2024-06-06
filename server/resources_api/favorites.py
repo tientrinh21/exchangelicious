@@ -4,14 +4,17 @@ from flask import jsonify
 from database.database_setup import db
 from database.models import UniversityTable, FavoriteTable, CountryTable
 from flask_restful import Resource, abort, marshal_with, reqparse
-from resources_api.resource_fields_definitions import favorite_university_resource_fields, favorite_table_resource_fields
+from resources_api.resource_fields_definitions import favorite_university_resource_fields, favorite_table_resource_fields, favorite_paginate_resource_fields
 from sqlalchemy import func, select, exc, Row
 
 class FavoriteRes(Resource):
     def __init__(self) -> None:
         super().__init__()
-        self.get_args = reqparse.RequestParser()
-        self.get_args.add_argument("favorite_id", type=str, location="args", required=True)
+        self.paginate_args = reqparse.RequestParser()
+        self.paginate_args.add_argument(
+            "page_number", type=int, default=1, location="args", required=True
+        )
+        self.paginate_args.add_argument('user_id', type=str, location = "args", required=False)
 
         self.post_args = reqparse.RequestParser()
         self.post_args.add_argument("user_id", type=str, location="json", required=True)
@@ -20,34 +23,42 @@ class FavoriteRes(Resource):
         self.delete_args = reqparse.RequestParser()
         self.delete_args.add_argument("favorite_id", type=str, location="args", required=True)
 
-    
-    @marshal_with(favorite_university_resource_fields)
+    @marshal_with(favorite_paginate_resource_fields)
     def get(self):
-        args = self.get_args.parse_args()
-        favorite_id = args["favorite_id"]
+        args = self.paginate_args.parse_args()
+        page_number = args["page_number"]
+        user_id = args['user_id']
 
-        stmt = (
-            select(FavoriteTable, UniversityTable, CountryTable).select_from(FavoriteTable)
-            .join(UniversityTable, FavoriteTable.university_id == UniversityTable.university_id)
-            .join(CountryTable, CountryTable.country_code == UniversityTable.country_code)
-            .where(FavoriteTable.favorite_id == favorite_id)
-            .limit(1)
+        # it proved hard to join tables in this paginate function, therefore I had to join the table in several steps below
+        # Paginate over the favorite table
+        pagination_results = db.paginate(
+            select(FavoriteTable).where(FavoriteTable.user_id == user_id),
+            per_page=2,
+            page=page_number
         )
-        res = db.session.execute(stmt).first()
 
-        if res is None:
-            abort(
-                message=f"No favorite-combination with the ID '{favorite_id}'.",
-                http_status_code=404,
+        # For all rows in pagination_result join with more UniversityTable and CountryTable so we get all information
+        full_page_joined = []
+        for favorite_table_row in pagination_results:
+            stmt = (
+                select(FavoriteTable, UniversityTable, CountryTable)
+                .join(UniversityTable, FavoriteTable.university_id == UniversityTable.university_id)
+                .join(CountryTable, CountryTable.country_code == UniversityTable.country_code)
+                .where(FavoriteTable.university_id == favorite_table_row.university_id)
             )
+            res_row_joined = db.session.execute(stmt).first()
+            full_page_joined.append(res_row_joined)
 
-        # fix serialization 
-        output: dict = {}
-        for r in res:
-            for key, value in r.__dict__.items():
-                output[key] = value
+        # Handel serialization
+        full_output: list = []
+        for table_type in full_page_joined:
+            output: dict = {}
+            for table in table_type:
+                for key, value in table.__dict__.items():
+                    output[key] = value
+            full_output.append(output)
 
-        return output, 200
+        return {"hasMore": pagination_results.has_next, "items": [full_output]}, 200
 
     @marshal_with(favorite_table_resource_fields)
     def post(self):
