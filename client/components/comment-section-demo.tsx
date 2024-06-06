@@ -16,7 +16,7 @@ function MakeComment(props: { university_id: string }) {
       headers: {
         'Content-Type': 'application/json',
       },
-      params: {
+      data: {
         user_id: getUserData().user_id,
         university_id: props.university_id,
         title: formData.get('title'),
