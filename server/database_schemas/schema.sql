@@ -7,7 +7,7 @@ drop table if exists university_table;
 drop table if exists info_page_table;
 drop table if exists favorites_table;
 drop table if exists review_table;
-
+drop table if exists favorite_table;
 
 -- uuid is 36 characters
 -- TODO: Add not null or nullable to everything
@@ -45,23 +45,6 @@ create table university_table (
     foreign key (info_page_id) references info_page_table (info_page_id)
 );
 
--- Many-to-Many relation
-create table partner_universities_table (
-  id varchar(36) default (uuid()) primary key,
-  -- Not all partnerships har bilateral, this always for unidirectional partnerships
-  -- From means home uni
-  from_university_id varchar(36), 
-  to_university_id varchar(36),
-  -- If university.university_id gets deleted, deleate all accorences of that university in this table
-  -- same with update
-  constraint from_university_id_fk_con
-    foreign key (from_university_id) references university_table (university_id)
-    on delete cascade on update cascade,
-  constraint to_university_id_fk_con
-    foreign key (to_university_id) references university_table (university_id)
-    on delete cascade on update cascade
-);
-
 CREATE TABLE user_table
 (
 	user_id varchar(36) default (uuid()) PRIMARY KEY,
@@ -84,37 +67,22 @@ CREATE TABLE user_table
     -- FOREIGN KEY (nationality) REFERENCES Country(countryCode)
 );
 
--- Some stundents exchanges to multiple universities
--- And a university has many exchange students
--- Therefore many-to-many
-create table exchange_university_table (
-  id varchar(36) default (uuid()) primary key,
-  user_id varchar(36) not null,
-  university_id varchar(36) not null,
-  constraint user_id_fk_con
-    foreign key (user_id) references user_table (user_id)
-    on delete cascade on update cascade,
-  constraint university_id_fk_con
-    foreign key (university_id) references university_table (university_id)
-    on delete cascade on update cascade
-);
-
 -- Many-to-Many
 -- https://dba.stackexchange.com/questions/74627/difference-between-on-delete-cascade-on-update-cascade-in-mysql
 -- ^ ON DELETE CASCADE ON UPDATE CASCADE
-/*
-CREATE TABLE favorites (
-  user INTEGER NOT NULL,
-  university INTEGER NOT NULL,
-  PRIMARY KEY (user, university),
-  CONSTRAINT user_fk_con
-  FOREIGN KEY (user) REFERENCES User (userID)
-  ON DELETE CASCADE ON UPDATE CASCADE,
-  CONSTRAINT university_fk_con
-  FOREIGN KEY (university) REFERENCES University (universityID)
-  ON DELETE CASCADE ON UPDATE CASCADE,
+CREATE TABLE favorite_table (
+	favorite_id varchar(36) default (uuid()) PRIMARY KEY,
+    user_id varchar(36) not null,
+    university_id varchar(36) not null,
+	constraint user_id_fk_con_favorite
+		foreign key (user_id) references user_table (user_id)
+		on delete cascade on update cascade,
+	constraint university_id_fk_con_favorite
+		foreign key (university_id) references university_table (university_id)
+		on delete cascade on update cascade,
+	unique key only_one_favorite_connection (user_id, university_id)
 );
-*/
+
 
 insert into info_page_table(info_page_id, webpage, introduction, location, semester, application_deadline, courses, housing, tuition, visa, eligibility, requirements) values
   (
@@ -403,8 +371,3 @@ insert into university_table(university_id, long_name, country_code, region, inf
   ('ets', 'Ecole de technolgie superieure', 'CAN', 'Montreal, Quebec', 'skku_page', "Montreal Campus", 1, "671-680"),
   ('ntu', 'Nanyang Technological University', 'SGP', 'Nanyang Ave', 'skku_page', "Singapore Campus", 1, "26");
 
-insert into partner_universities_table(id, from_university_id, to_university_id) values
-  ('skku-ntnu', 'skku', 'ntnu'),
-  ('skku-uio', 'skku', 'uio'),
-  ('skku-uib', 'skku', 'uib'),
-  ('ntnu-skku', 'ntnu', 'skku');

@@ -63,3 +63,21 @@ user_with_university_resource_fields = {
     "ranking": fields.Integer,
     "housing": fields.Boolean,
 }
+
+favorite_table_resource_fields = {
+    "favorite_id": fields.String,
+    "user_id": fields.String,
+    "university_id": fields.String
+}
+
+favorite_university_resource_fields = {
+    "favorite_id": fields.String,
+    "user_id": fields.String,
+    "university_id": fields.String,
+    "country_name": fields.String,
+    "region": fields.String,
+    "long_name": fields.String,
+    "ranking": fields.String,
+    "campus": fields.String,
+    "housing": fields.Boolean,
+}

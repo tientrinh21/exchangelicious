@@ -38,8 +38,6 @@ class UniversityWithInfoRes(Resource):
             description=f"No university with the ID '{university_id}'.",
         )
 
-
-
 class UniversityAllRes(Resource):
     @marshal_with(university_meta_table_resource_fields)
     def get(self):

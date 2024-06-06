@@ -10,6 +10,9 @@ from resources_api.universities import (
     UniversityWithInfoRes,
     UniversityAllRes,
 )
+from resources_api.favorites import (
+    FavoriteRes
+)
 
 
 def initialize_routes(api):
@@ -25,3 +28,5 @@ def initialize_routes(api):
     api.add_resource(UserWithUniversityRes, "/api/users/<string:user_id>/uni")
     api.add_resource(UniversityPagination, "/api/universities/search")
     api.add_resource(UserLoginRes, "/api/users/login")
+    # Favorites
+    api.add_resource(FavoriteRes, "/api/favorites")
