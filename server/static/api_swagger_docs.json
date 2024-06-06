@@ -47,7 +47,7 @@
             "name": "country_code",
             "in": "query",
             "description": "country code of university to create",
-            "required": false,
+            "required": true,
             "schema": {
               "type": "string",
               "maxLength": 3
@@ -89,7 +89,7 @@
             "description": "Housing of the university to create",
             "required": false,
             "schema": {
-              "type": "integer"
+              "type": "string"
             }
           },
           {
@@ -179,7 +179,7 @@
             "description": "Housing of the university to create",
             "required": false,
             "schema": {
-              "type": "integer"
+              "type": "string"
             }
           },
           {
@@ -285,7 +285,7 @@
             "name": "university_id",
             "in": "query",
             "description": "University ID to create information",
-            "required": false,
+            "required": true,
             "schema": {
               "type": "string"
             }
@@ -302,7 +302,7 @@
           {
             "name": "introduction",
             "in": "query",
-            "description": "introduction to create",
+            "description": "Introduction to create",
             "required": false,
             "schema": {
               "type": "string"
@@ -311,7 +311,7 @@
           {
             "name": "location",
             "in": "query",
-            "description": "location to create",
+            "description": "Location to create",
             "required": false,
             "schema": {
               "type": "string"
@@ -320,16 +320,16 @@
           {
             "name": "semester",
             "in": "query",
-            "description": "semester to create",
+            "description": "Semester to create",
             "required": false,
             "schema": {
               "type": "string"
             }
           },
           {
-            "name": "application_deadline",
+            "name": "application_deadlines",
             "in": "query",
-            "description": "application deadline to create",
+            "description": "Application deadlines to create",
             "required": false,
             "schema": {
               "type": "string"
@@ -338,7 +338,7 @@
           {
             "name": "courses",
             "in": "query",
-            "description": "courses to create",
+            "description": "Courses to create",
             "required": false,
             "schema": {
               "type": "string"
@@ -347,7 +347,7 @@
           {
             "name": "housing",
             "in": "query",
-            "description": "housing to create",
+            "description": "Housing to create",
             "required": false,
             "schema": {
               "type": "string"
@@ -356,7 +356,7 @@
           {
             "name": "tuition",
             "in": "query",
-            "description": "tuition to create",
+            "description": "Tuition to create",
             "required": false,
             "schema": {
               "type": "string"
@@ -365,7 +365,7 @@
           {
             "name": "visa",
             "in": "query",
-            "description": "visa to create",
+            "description": "Visa to create",
             "required": false,
             "schema": {
               "type": "string"
@@ -374,7 +374,7 @@
           {
             "name": "eligibility",
             "in": "query",
-            "description": "eligibility to create",
+            "description": "Eligibility to create",
             "required": false,
             "schema": {
               "type": "string"
@@ -383,7 +383,7 @@
           {
             "name": "requirements",
             "in": "query",
-            "description": "requirements to create",
+            "description": "Requirements to create",
             "required": false,
             "schema": {
               "type": "string"
@@ -414,7 +414,7 @@
             "name": "info_page_id",
             "in": "query",
             "description": "Info page id of information to create",
-            "required": false,
+            "required": true,
             "schema": {
               "type": "string"
             }
@@ -456,9 +456,9 @@
             }
           },
           {
-            "name": "application_deadline",
+            "name": "application_deadlines",
             "in": "query",
-            "description": "application deadline to create",
+            "description": "application deadlines to create",
             "required": false,
             "schema": {
               "type": "string"
@@ -945,8 +945,8 @@
             "example": "Suwon Campus"
           },
           "housing": {
-            "type": "boolean",
-            "example": true
+            "type": "string",
+            "example": "On-campus"
           }
         }
       },
@@ -989,8 +989,8 @@
             "example": "Suwon Campus"
           },
           "housing": {
-            "type": "boolean",
-            "example": true
+            "type": "string",
+            "example": "On-campus"
           }
         }
       },

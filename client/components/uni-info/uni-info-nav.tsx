@@ -12,6 +12,7 @@ export default function UniInfoNav(props: {
       <div className="sticky top-20 z-40">
         <ScrollArea className="mb-10 h-[80vh]">
           {Object.entries(props.data!).map(([key, _], index) => {
+            if (key === 'info_page_id') return
             if (key === 'webpage') return
             return (
               <div

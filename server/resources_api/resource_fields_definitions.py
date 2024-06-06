@@ -20,11 +20,10 @@ university_meta_table_resource_fields = {
     "ranking": fields.String,
     "info_page_id": fields.String,
     "campus": fields.String,
-    "housing": fields.Boolean,
+    "housing": fields.String,
 }
 
 university_with_info_resource_fields = {
-    "info_page_id": fields.String,
     "webpage": fields.String,
     "introduction": fields.String,
     "location": fields.String,
@@ -36,6 +35,7 @@ university_with_info_resource_fields = {
     "visa": fields.String,
     "eligibility": fields.String,
     "requirements": fields.String,
+    "info_page_id": fields.String,
 }
 
 search_universities_resource_fields = {

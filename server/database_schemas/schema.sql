@@ -32,11 +32,11 @@ create table info_page_table (
 create table university_table (
   university_id varchar(36) default (uuid()) primary key,
   country_code char(3),
-  region varchar(40), -- Is this the correct way to do this?
-  long_name varchar(255),
+  region varchar(40),
+  long_name varchar(255) unique,
   info_page_id varchar(36),
-  ranking varchar(10),
-  housing boolean,
+  ranking varchar(10) default 'N/A',
+  housing enum('On-campus', 'Off-campus', 'No housing', 'N/A') not null default 'N/A',
   campus varchar(255),
   constraint country_code_fk_con
     foreign key (country_code) references country_table (country_code)
@@ -422,13 +422,13 @@ Source: [https://utdallas.box.com/s/aa0wbsjdkpm7kuvrm5pxybhsg00svgi4](https://ut
   );
 
 insert into university_table(university_id, long_name, country_code, region, info_page_id, campus, housing, ranking) values
-  ('7ec48895-84fc-479c-9d9f-94c243148c0d', 'Sungkyunkwan University', 'KOR', 'Seoul, Suwon', 'fe5c72da-bf4c-4e8d-9851-903de8fe7d01', "Suwon Campus" , 1, "145"),
-  ('82577908-cbee-4b1c-9a98-13efa48be3a7', 'Norwegian University of Science and Technology', 'NOR', 'Trondheim, Gjøvik, Ålesund', 'ef3d8c9a-5482-4a70-888d-e739ad31f5da', "Ålesund Campus", 0, "292"),
-  ('b534a0dc-68fd-4d95-a012-a315198fc9d6', 'University of Oslo', 'NOR', 'Oslo', 'a2bc84b3-0fef-4e0d-a9da-019812338ab7', "Oslo Campus", 0, "117"),
-  ('0a34e2df-6cb5-43df-bb67-441eac1ea273', 'University of Bergen', 'NOR', 'Bergen', 'a664f903-2323-4f43-b390-f659a43be3b7', "Bergen Campus", 0, "281"),
-  ('86a608f2-08ae-45e6-b680-8273680fe129', 'University of Texas at Dallas', 'USA', 'Richardson, Texas', '9f2cea0c-9c0c-4566-92e0-e4b55c02af9b', "Dallas Campus", 1, "520"),
+  ('7ec48895-84fc-479c-9d9f-94c243148c0d', 'Sungkyunkwan University', 'KOR', 'Seoul, Suwon', 'fe5c72da-bf4c-4e8d-9851-903de8fe7d01', "Suwon Campus" , "On-campus", "145"),
+  ('82577908-cbee-4b1c-9a98-13efa48be3a7', 'Norwegian University of Science and Technology', 'NOR', 'Trondheim, Gjøvik, Ålesund', 'ef3d8c9a-5482-4a70-888d-e739ad31f5da', "Ålesund Campus", "No housing", "292"),
+  ('b534a0dc-68fd-4d95-a012-a315198fc9d6', 'University of Oslo', 'NOR', 'Oslo', 'a2bc84b3-0fef-4e0d-a9da-019812338ab7', "Oslo Campus", "No housing", "117"),
+  ('0a34e2df-6cb5-43df-bb67-441eac1ea273', 'University of Bergen', 'NOR', 'Bergen', 'a664f903-2323-4f43-b390-f659a43be3b7', "Bergen Campus", "No housing", "281"),
+  ('86a608f2-08ae-45e6-b680-8273680fe129', 'University of Texas at Dallas', 'USA', 'Richardson, Texas', '9f2cea0c-9c0c-4566-92e0-e4b55c02af9b', "Dallas Campus", "Off-campus", "520"),
   ('umass_boston', 'University of Massachusetts Boston', 'USA', 'Boston, Massachusetts', 'fe5c72da-bf4c-4e8d-9851-903de8fe7d01', "Boston Campus", 1, "801-850"),
-  ('umanitoba', 'University of Manitoba', 'CAN', 'Winnipeg, Manitoba', 'fe5c72da-bf4c-4e8d-9851-903de8fe7d01', "Winnipeg Campus", 0, "671-680"),
-  ('utoronto', 'University of Toronto', 'CAN', 'Toronto, Ontarion', 'fe5c72da-bf4c-4e8d-9851-903de8fe7d01', "Toronto Campus", 0, "21"),
-  ('usask', 'University of Saskatchewan', 'CAN', 'Saskatoon, Saskatchewan', 'fe5c72da-bf4c-4e8d-9851-903de8fe7d01', "Saskatoon Campus", 1, "345"),
-  ('ntu', 'Nanyang Technological University', 'SGP', 'Nanyang Ave', 'fe5c72da-bf4c-4e8d-9851-903de8fe7d01', "Singapore Campus", 1, "26");
+  ('umanitoba', 'University of Manitoba', 'CAN', 'Winnipeg, Manitoba', 'fe5c72da-bf4c-4e8d-9851-903de8fe7d01', "Winnipeg Campus", "N/A", "671-680"),
+  ('utoronto', 'University of Toronto', 'CAN', 'Toronto, Ontarion', 'fe5c72da-bf4c-4e8d-9851-903de8fe7d01', "Toronto Campus", "N/A", "21"),
+  ('usask', 'University of Saskatchewan', 'CAN', 'Saskatoon, Saskatchewan', 'fe5c72da-bf4c-4e8d-9851-903de8fe7d01', "Saskatoon Campus", "Off-campus", "345"),
+  ('ntu', 'Nanyang Technological University', 'SGP', 'Nanyang Ave', 'fe5c72da-bf4c-4e8d-9851-903de8fe7d01', "Singapore Campus", "On-campus", "26");

@@ -1,68 +1,67 @@
+from uuid import uuid4
+
 from database.database_setup import db
 from database.models import CountryTable, InfoPageTable, UniversityTable
 from flask_restful import Resource, abort, marshal_with, reqparse
-from sqlalchemy import select, exc
-
-import uuid
-
 from resources_api.resource_fields_definitions import (
     search_universities_resource_fields,
     university_meta_table_resource_fields,
     university_resource_fields,
     university_with_info_resource_fields,
 )
+from sqlalchemy import exc, select
 
-uni_put_args = reqparse.RequestParser()
-uni_put_args.add_argument(
+uni_post_args = reqparse.RequestParser()
+uni_post_args.add_argument(
     "university_id",
     type=str,
     location="args",
     help="University ID to create university",
 )
-uni_put_args.add_argument(
+uni_post_args.add_argument(
     "country_code", type=str, location="args", help="Uni country code"
 )
-uni_put_args.add_argument("region", type=str, location="args", help="Uni region")
-uni_put_args.add_argument(
+uni_post_args.add_argument("region", type=str, location="args", help="Uni region")
+uni_post_args.add_argument(
     "long_name", type=str, location="args", help="Full name of university"
 )
-uni_put_args.add_argument(
+uni_post_args.add_argument(
     "ranking", type=str, location="args", help="Ranking of a university"
 )
-uni_put_args.add_argument(
+uni_post_args.add_argument(
     "info_page_id", type=str, location="args", help="Information of a university"
 )
-uni_put_args.add_argument(
+uni_post_args.add_argument(
     "campus", type=str, location="args", help="Campus of a university"
 )
-uni_put_args.add_argument(
+uni_post_args.add_argument(
     "housing", type=str, location="args", help="Housing availability of a university"
 )
 
-uni_update_args = reqparse.RequestParser()
-uni_update_args.add_argument(
+uni_patch_args = reqparse.RequestParser()
+uni_patch_args.add_argument(
     "university_id",
     type=str,
     location="args",
     help="University ID to create university",
 )
-uni_update_args.add_argument(
+uni_patch_args.add_argument(
     "country_code", type=str, location="args", help="Uni country code"
 )
-uni_update_args.add_argument("region", type=str, location="args", help="Uni region")
-uni_update_args.add_argument(
+uni_patch_args.add_argument("region", type=str, location="args", help="Uni region")
+uni_patch_args.add_argument(
     "long_name", type=str, location="args", help="Full name of university"
 )
-uni_update_args.add_argument(
+uni_patch_args.add_argument(
     "ranking", type=str, location="args", help="Ranking of a university"
 )
-uni_update_args.add_argument(
+uni_patch_args.add_argument(
     "info_page_id", type=str, location="args", help="Information of a university"
 )
-uni_update_args.add_argument(
+uni_patch_args.add_argument(
     "campus", type=str, location="args", help="Campus of a university"
 )
-uni_update_args.add_argument(
+uni_patch_args.add_argument(
     "housing", type=str, location="args", help="Housing availability of a university"
 )
 
@@ -89,10 +88,10 @@ info_post_args.add_argument(
     "semester", type=str, location="args", help="semester to create info"
 )
 info_post_args.add_argument(
-    "application_deadline",
+    "application_deadlines",
     type=str,
     location="args",
-    help="Application deadline to create info",
+    help="Application deadlines to create info",
 )
 info_post_args.add_argument(
     "courses", type=str, location="args", help="courses to create info"
@@ -134,10 +133,10 @@ info_patch_args.add_argument(
     "semester", type=str, location="args", help="semester to create info"
 )
 info_patch_args.add_argument(
-    "application_deadline",
+    "application_deadlines",
     type=str,
     location="args",
-    help="Application deadline to create info",
+    help="Application deadlines to create info",
 )
 info_patch_args.add_argument(
     "courses", type=str, location="args", help="courses to create info"
@@ -165,7 +164,8 @@ class UniversityRes(Resource):
         stmt = (
             select(UniversityTable, CountryTable)
             .join(
-                CountryTable, UniversityTable.country_code == CountryTable.country_code
+                CountryTable,
+                UniversityTable.country_code == CountryTable.country_code,
             )
             .where(UniversityTable.university_id == university_id)
         )
@@ -217,13 +217,13 @@ class UniversityWithInfoRes(Resource):
                     http_status_code=400,
                 )
 
-            new = InfoPageTable(
-                info_page_id=str(uuid.uuid4()),
+            new_info = InfoPageTable(
+                info_page_id=str(uuid4()),
                 webpage=args["webpage"],
                 introduction=args["introduction"],
                 location=args["location"],
                 semester=args["semester"],
-                application_deadline=args["application_deadline"],
+                application_deadlines=args["application_deadlines"],
                 courses=args["courses"],
                 housing=args["housing"],
                 tuition=args["tuition"],
@@ -232,10 +232,10 @@ class UniversityWithInfoRes(Resource):
                 requirements=args["requirements"],
             )
 
-            db.session.add(new)
+            db.session.add(new_info)
             db.session.commit()
 
-            uni.info_page_id = new.info_page_id
+            uni.info_page_id = new_info.info_page_id
             db.session.commit()
 
             return new, 200
@@ -265,10 +265,10 @@ class UniversityWithInfoRes(Resource):
             if "semester" in args and args["semester"] is not None:
                 info_page.semester = args["semester"]
             if (
-                "application_deadline" in args
-                and args["application_deadline"] is not None
+                "application_deadlines" in args
+                and args["application_deadlines"] is not None
             ):
-                info_page.application_deadline = args["application_deadline"]
+                info_page.application_deadlines = args["application_deadlines"]
             if "courses" in args and args["courses"] is not None:
                 info_page.courses = args["courses"]
             if "housing" in args and args["housing"] is not None:
@@ -289,6 +289,7 @@ class UniversityWithInfoRes(Resource):
             print(e)
             abort(message=str(e.__dict__.get("orig")), http_status_code=400)
 
+
 class UniversityAllRes(Resource):
     @marshal_with(university_meta_table_resource_fields)
     def get(self):
@@ -298,11 +299,10 @@ class UniversityAllRes(Resource):
     @marshal_with(university_meta_table_resource_fields)
     def post(self):
         try:
-            args = uni_put_args.parse_args()
-            uniid = str(uuid.uuid4())
+            args = uni_post_args.parse_args()
 
             new_uni = UniversityTable(
-                university_id=uniid,
+                university_id=str(uuid4()),
                 country_code=args["country_code"],
                 region=args["region"],
                 long_name=args["long_name"],
@@ -311,7 +311,16 @@ class UniversityAllRes(Resource):
                 campus=args["campus"],
                 housing=args["housing"],
             )
+
+            new_info = InfoPageTable(
+                info_page_id=str(uuid4()),
+                webpage="https://example.com/",
+            )
+
+            new_uni.info_page_id = new_info.info_page_id
+
             db.session.add(new_uni)
+            db.session.add(new_info)
             db.session.commit()
             return new_uni, 200
         except exc.SQLAlchemyError as e:
@@ -321,7 +330,7 @@ class UniversityAllRes(Resource):
     @marshal_with(university_meta_table_resource_fields)
     def patch(self):
         try:
-            args = uni_update_args.parse_args()
+            args = uni_patch_args.parse_args()
             uniid = args["university_id"]
             uni = (
                 db.session.query(UniversityTable).filter_by(university_id=uniid).first()

@@ -1,4 +1,3 @@
-import { InfoReviewsNav } from '@/components/info-reviews-nav'
 import {
   UniHeaderContainer,
   UniHeaderImgWrapper,
@@ -22,9 +21,11 @@ export default async function ExchangeLayout({
       <UniHeaderImgWrapper imgSrc={`/${data.university_id}.jpg`}>
         <UniHeaderContainer>
           <UniHeaderName name={data.long_name} />
-          <UniHeaderMeta meta={data.campus} />
-          <UniHeaderMeta meta={`${data.region} - ${data.country_name}`} />
-          <UniHeaderMeta meta={`World Rank: ${data.ranking}`} />
+          <UniHeaderMeta meta={data.campus ?? 'N/A'} />
+          <UniHeaderMeta
+            meta={`${data.region ?? 'N/A'} - ${data.country_name}`}
+          />
+          <UniHeaderMeta meta={`World Rank: ${data.ranking ?? 'N/A'}`} />
         </UniHeaderContainer>
       </UniHeaderImgWrapper>
 
