@@ -208,6 +208,22 @@
             }
           }
         }
+      },
+      "delete":{
+        "tags": ["University"],
+        "summary": "Delete university by ID",
+        "description": "Deletes a single university",
+        "parameters": [
+          {
+            "name": "university_id",
+            "in": "query",
+            "description": "ID to delete an university",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ]
       }
     },
     "/api/universities/{university_id}": {
@@ -281,15 +297,6 @@
         "tags": ["University"],
         "summary": "Create an information",
         "parameters": [
-          {
-            "name": "university_id",
-            "in": "query",
-            "description": "University ID to create information",
-            "required": false,
-            "schema": {
-              "type": "string"
-            }
-          },
           {
             "name": "webpage",
             "in": "query",
@@ -532,28 +539,6 @@
                 }
               }
             }
-          }
-        }
-      },
-      "delete": {
-        "tags": ["University"],
-        "summary": "Delete a university",
-        "description": "Delete university with provided uni_id. \n",
-        "parameters": [
-          {
-            "name": "university_id",
-            "in": "query",
-            "description": "university id of the uni to delete",
-            "required": true,
-            "schema": {
-              "type": "string",
-              "maxLength": 64
-            }
-          }
-        ],
-        "responses": {
-          "200": {
-            "description": "Deletion of university"
           }
         }
       }
