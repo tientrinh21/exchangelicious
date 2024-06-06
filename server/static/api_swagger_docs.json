@@ -993,7 +993,7 @@
             "type": "string",
             "example": "From January to December"
           },
-          "application_deadlines": {
+          "application_deadline": {
             "type": "string",
             "example": "June 16th"
           },

@@ -1,16 +1,15 @@
+from uuid import uuid4
+
 from database.database_setup import db
 from database.models import CountryTable, InfoPageTable, UniversityTable
 from flask_restful import Resource, abort, marshal_with, reqparse
-from sqlalchemy import select, exc
-
-import uuid
-
 from resources_api.resource_fields_definitions import (
     search_universities_resource_fields,
     university_meta_table_resource_fields,
     university_resource_fields,
     university_with_info_resource_fields,
 )
+from sqlalchemy import exc, select
 
 uni_put_args = reqparse.RequestParser()
 uni_put_args.add_argument(
@@ -218,7 +217,7 @@ class UniversityWithInfoRes(Resource):
                 )
 
             new = InfoPageTable(
-                info_page_id=str(uuid.uuid4()),
+                info_page_id=str(uuid4()),
                 webpage=args["webpage"],
                 introduction=args["introduction"],
                 location=args["location"],
@@ -300,10 +299,9 @@ class UniversityAllRes(Resource):
     def post(self):
         try:
             args = uni_put_args.parse_args()
-            uniid = str(uuid.uuid4())
 
             new_uni = UniversityTable(
-                university_id=uniid,
+                university_id=str(uuid4()),
                 country_code=args["country_code"],
                 region=args["region"],
                 long_name=args["long_name"],
@@ -350,7 +348,6 @@ class UniversityAllRes(Resource):
             print(e)
             abort(message=str(e.__dict__.get("orig")), http_status_code=400)
 
-    @marshal_with(university_meta_table_resource_fields)
     def delete(self):
         try:
             args = uni_delete_args.parse_args()

@@ -65,13 +65,11 @@ create table partner_universities_table (
 CREATE TABLE user_table
 (
 	user_id varchar(36) default (uuid()) PRIMARY KEY,
-    username varchar(40) unique,
-    -- Need to fix some password security
-    pwd varchar(64), 
-    salt varchar(32),
-    nationality char(3),
-    home_university varchar(40),
-    -- UNIQUE(username),
+  username varchar(40) unique,
+  pwd varchar(64), 
+  salt varchar(32),
+  nationality char(3),
+  home_university varchar(40),
 	constraint home_university_fk_con
     -- if the home university is deleted, then home_university should be set to null
     -- if the home university is updated, then update the relevant info in this table too
