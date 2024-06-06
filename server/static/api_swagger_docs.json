@@ -244,7 +244,7 @@
         }
       }
     },
-    "/api/universities/{university_id}/info": {
+    "/api/universities/info": {
       "get": {
         "tags": ["University"],
         "summary": "Find university by ID with info page",
@@ -252,7 +252,7 @@
         "parameters": [
           {
             "name": "university_id",
-            "in": "path",
+            "in": "query",
             "description": "ID of University to return",
             "required": true,
             "schema": {
@@ -282,9 +282,9 @@
         "summary": "Create an information",
         "parameters": [
           {
-            "name": "info_page_id",
+            "name": "university_id",
             "in": "query",
-            "description": "Info page id of information to create",
+            "description": "University ID to create information",
             "required": false,
             "schema": {
               "type": "string"
