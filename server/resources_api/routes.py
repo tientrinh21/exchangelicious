@@ -14,7 +14,6 @@ from resources_api.favorites import (
     FavoriteRes
 )
 
-
 def initialize_routes(api):
     # register the resource at a certain route
     # beware. The address should not end with a slash

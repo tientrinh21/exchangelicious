@@ -13,6 +13,10 @@
     {
       "name": "User",
       "description": "Operations about user"
+    },
+    {
+      "name": "Favorites",
+      "description": "<3"
     }
   ],
   "paths": {
@@ -452,6 +456,123 @@
           }
         }
       }
+    },
+    "/api/favorites": {
+      "get": {
+        "tags": ["Favorites"],
+        "summary": "Get paginated favorite universities",
+        "parameters": [
+          {
+            "name": "user_id",
+            "in": "query",
+            "required": false,
+            "description": "ID of the user to filter favorites",
+            "schema": {
+              "type": "string",
+              "format": "uuid"
+            }
+          },
+          {
+            "name": "page_number",
+            "in": "query",
+            "required": true,
+            "description": "Page number for pagination",
+            "schema": {
+              "type": "integer"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Paginated favorite universities",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/FavoritePaginate"
+                }
+              }
+            }
+          }
+        }
+      },
+      "post": {
+        "tags": ["Favorites"],
+        "summary": "Add a new favorite university",
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "university_id": {
+                    "type": "string",
+                    "description": "Identifier for the university associated with the review"
+                  },
+                  "user_id": {
+                    "type": "string",
+                    "format": "uuid",
+                    "description": "Identifier for the user who submitted the review"
+                  }
+                },
+                "required": ["university_id", "user_id"]
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Successfully added a new favorite",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/FavoriteTable"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Error adding the favorite"
+          }
+        }
+      },
+      "delete": {
+        "tags": ["Favorites"],
+        "summary": "Delete a favorite university",
+        "parameters": [
+          {
+            "name": "favorite_id",
+            "in": "query",
+            "required": true,
+            "description": "ID of the favorite to delete",
+            "schema": {
+              "type": "string",
+              "format": "uuid"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successfully deleted the favorite",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "message": {
+                      "type": "string",
+                      "description": "Deletion message"
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Error deleting the favorite"
+          }
+        }
+      }
     }
   },
   "components": {
@@ -624,6 +745,46 @@
             "$ref": "#/components/schemas/University"
           }
         ]
+      },
+      "FavoriteTable": {
+        "type": "object",
+        "properties": {
+          "favorite_id": {
+            "type": "string",
+            "format": "uuid"
+          },
+          "user_id": {
+            "type": "string",
+            "format": "uuid"
+          },
+          "university_id": {
+            "type": "string"
+          }
+        }
+      },
+      "FavoriteUniversityMeta": {
+        "allOf": [
+          {
+            "$ref": "#/components/schemas/FavoriteTable"
+          },
+          {
+            "$ref": "#/components/schemas/UniversityMeta"
+          }
+        ]
+      },
+      "FavoritePaginate": {
+        "type": "object",
+        "properties": {
+          "hasMore": {
+            "type": "boolean"
+          },
+          "items": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/FavoriteUniversityMeta"
+            }
+          }
+        }
       }
     }
   }
