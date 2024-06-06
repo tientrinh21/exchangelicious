@@ -24,7 +24,19 @@ export async function fetchUniversity(id: string) {
 
 export async function fetchUniversityInfo(id: string) {
   return axios
-    .get<UniversityInfo>(`${BASE_URL}/universities/${id}/info`)
+    .get<UniversityInfo>(`${BASE_URL}/universities/info`, {
+      params: {
+        university_id: id,
+      },
+    })
+    .then((r) => r.data)
+}
+
+export async function createUniversity(values: UniHeaderFormSchema) {
+  return axios
+    .post<University>(`${BASE_URL}/universities`, null, {
+      params: values,
+    })
     .then((r) => r.data)
 }
 
@@ -36,8 +48,11 @@ export async function updateUniversity({
   values: UniHeaderFormSchema
 }) {
   return axios
-    .patch<University>(`${BASE_URL}/universities/${id}`, null, {
-      params: values,
+    .patch<University>(`${BASE_URL}/universities`, null, {
+      params: {
+        university_id: id,
+        ...values,
+      },
     })
     .then((r) => r.data)
 }
@@ -50,8 +65,11 @@ export async function updateUniversityInfo({
   values: UniInfoFormSchema
 }) {
   return axios
-    .patch<University>(`${BASE_URL}/universities/${id}/info`, null, {
-      params: values,
+    .patch<University>(`${BASE_URL}/universities/info`, null, {
+      params: {
+        info_page_id: id,
+        ...values,
+      },
     })
     .then((r) => r.data)
 }

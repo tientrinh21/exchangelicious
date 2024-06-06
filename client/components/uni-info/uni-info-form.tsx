@@ -18,14 +18,11 @@ import { CheckIcon } from '@radix-ui/react-icons'
 import { useForm } from 'react-hook-form'
 import { toast } from 'sonner'
 import UniInfoEditor from './uni-info-editor'
+import { useRouter } from 'next/navigation'
 
-export default function UniInfoForm({
-  id,
-  data,
-}: {
-  id: string
-  data: UniversityInfo
-}) {
+export default function UniInfoForm({ data }: { data: UniversityInfo }) {
+  const router = useRouter()
+
   // Define form
   const form = useForm<UniInfoFormSchema>({
     resolver: zodResolver(uniInfoFormSchema),
@@ -48,9 +45,14 @@ export default function UniInfoForm({
     const toastId = toast.loading('Saving university information...')
 
     try {
-      const newData = await updateUniversityInfo({ id, values })
+      const newData = await updateUniversityInfo({
+        id: data.info_page_id,
+        values,
+      })
       console.log(newData)
       toast.success('Saved!', { id: toastId })
+      router.back()
+      router.refresh()
     } catch (error: any) {
       const errMsg: string = error.response.data.message
       console.error(errMsg)

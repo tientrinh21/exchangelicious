@@ -38,6 +38,7 @@ export default function UniInfoMobileMenu(props: {
       >
         <ScrollArea className="h-[300px]">
           {Object.entries(props.data!).map(([key, _], index) => {
+            if (key === 'info_page_id') return
             if (key === 'webpage') return
             return (
               <DropdownMenuItem key={index} onClick={() => setOpen(false)}>

@@ -23,7 +23,7 @@ export default async function InfoEditPage({
     <div className="flex flex-col gap-4 md:gap-8">
       <UniHeaderImgWrapper imgSrc={`/${uniData.university_id}.jpg`}>
         <UniHeaderContainer>
-          <UniHeaderForm id={params.id} data={uniData} />
+          <UniHeaderForm data={uniData} />
         </UniHeaderContainer>
       </UniHeaderImgWrapper>
 
@@ -31,7 +31,7 @@ export default async function InfoEditPage({
         <div className="flex w-full flex-col gap-3 lg:flex-row lg:gap-14">
           <UniInfoNav data={infoData} />
           <UniInfoMobileMenu data={infoData} />
-          <UniInfoForm id={params.id} data={infoData} />
+          <UniInfoForm data={infoData} />
         </div>
       </div>
     </div>
