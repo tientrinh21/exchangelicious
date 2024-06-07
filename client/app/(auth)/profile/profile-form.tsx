@@ -51,16 +51,6 @@ export default function ProfileForm() {
   const [uniOpen, setUniOpen] = useState(false)
   const [uniValue, setUniValue] = useState('')
 
-  // Define form
-  const form = useForm<ProfileFormSchema>({
-    resolver: zodResolver(profileFormSchema),
-    defaultValues: {
-      password: '',
-      nationality: '',
-      home_university: '',
-    },
-  })
-
   // Load data from localStorage
   useEffect(() => {
     const user = getUserData()
@@ -72,6 +62,16 @@ export default function ProfileForm() {
     form.setValue('home_university', user.home_university ?? '')
     setUniValue(user.home_university ?? '')
   }, [typeof window !== 'undefined'])
+
+  // Define form
+  const form = useForm<ProfileFormSchema>({
+    resolver: zodResolver(profileFormSchema),
+    defaultValues: {
+      password: '',
+      nationality: '',
+      home_university: '',
+    },
+  })
 
   // Submit handler
   async function onSubmit(values: ProfileFormSchema) {

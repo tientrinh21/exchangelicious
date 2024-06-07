@@ -1,7 +1,9 @@
+import type { Review } from '@/types/review-section'
 import type {
   LoginFormSchema,
   ProfileFormSchema,
   RegisterFormSchema,
+  ReviewFormSchema,
   UniHeaderFormSchema,
   UniInfoFormSchema,
 } from '@/types/schema'
@@ -11,6 +13,7 @@ import axios from 'axios'
 
 const BASE_URL = process.env.BASE_URL || 'http://localhost:8080/api'
 
+/* UNIVERSITY */
 export async function fetchUniversities() {
   return axios.get<University[]>(`${BASE_URL}/universities`).then((r) => r.data)
 }
@@ -85,6 +88,25 @@ export async function fetchUser({ username, password }: LoginFormSchema) {
     .then((r) => r.data)
 }
 
+export async function createReview({
+  user_id,
+  university_id,
+  values,
+}: {
+  user_id: string
+  university_id: string
+  values: ReviewFormSchema
+}) {
+  return axios
+    .post<Review>(`${BASE_URL}/review`, {
+      user_id,
+      university_id,
+      ...values,
+    })
+    .then((r) => r.data)
+}
+
+/* USER */
 export async function createUser({
   username,
   password,

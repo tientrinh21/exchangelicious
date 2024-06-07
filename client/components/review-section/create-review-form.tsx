@@ -1,42 +1,104 @@
-import { User } from "@/types/user";
+'use client'
 
-export function CreateReviewForm(props: { university_id: String, user: User }) {
+import { getUserData, isAuthenticated } from '@/lib/auth'
+import { createReview } from '@/lib/request'
+import { cn } from '@/lib/utils'
+import { MoodScore } from '@/types/review-section'
+import { type ReviewFormSchema, reviewFormSchema } from '@/types/schema'
+import type { User } from '@/types/user'
+import { zodResolver } from '@hookform/resolvers/zod'
+import { useRouter } from 'next/navigation'
+import React, { useEffect, useState } from 'react'
+import { useForm } from 'react-hook-form'
+import { toast } from 'sonner'
+import {
+  Form,
+  FormControl,
+  FormField,
+  FormItem,
+  FormMessage,
+} from '@/components/ui/form'
+import { Button } from '@/components/ui/button'
+import { Input } from '@/components/ui/input'
 
-    return (
-        <div className="flex w-full justify-between border rounded-md">
+const moods = Object.values(MoodScore)
 
-            <div className="p-3">
-                <div className="flex gap-3 items-center">
-                    <img src="https://avatars.githubusercontent.com/u/22263436?v=4"
-                            className="object-cover w-10 h-10 rounded-full border-2 border-emerald-400  shadow-emerald-400" />
-                    <h3 className="font-bold">
-                        {props.user.username}
-                        <br/>
-                        <span className="text-sm text-gray-400 font-normal">Level 1</span>
-                    </h3>
-                </div>
-                <p className="text-gray-600 mt-2">
-                    this is sample commnent
-                </p>
-                <button className="text-right text-blue-500">Reply</button>
-            </div>
+export function CreateReviewForm({ university_id }: { university_id: string }) {
+  const router = useRouter()
 
+  // TODO: Fix cannot use useAuth because its parent is RSC
+  const [isAuth, setIsAuth] = useState(false)
+  const [user, setUser] = useState<User>()
 
-            <div className="flex flex-col items-end gap-3 pr-3 py-3">
-                <div>
-                    <svg className="w-6 h-6 text-gray-600" xmlns="http://www.w3.org/2000/svg" fill="none"
-                        viewBox="0 0 24 24" stroke-width="5" stroke="currentColor">
-                        <path stroke-linecap="round" stroke-linejoin="round" d="M4.5 15.75l7.5-7.5 7.5 7.5" />
-                    </svg>
-                </div>
-                <div>
-                    <svg className="w-6 h-6 text-gray-600" xmlns="http://www.w3.org/2000/svg" fill="none"
-                        viewBox="0 0 24 24" stroke-width="5" stroke="currentColor">
-                        <path stroke-linecap="round" stroke-linejoin="round" d="M19.5 8.25l-7.5 7.5-7.5-7.5" />
-                    </svg>
-                </div>
-            </div>
+  useEffect(() => {
+    setIsAuth(isAuthenticated())
+    const user = getUserData()
+    setUser(user)
+  }, [typeof window !== 'undefined'])
 
+  // Define form
+  const form = useForm<ReviewFormSchema>({
+    resolver: zodResolver(reviewFormSchema),
+    defaultValues: {
+      title: '',
+      content: '',
+      mood_score: '',
+    },
+  })
+
+  // Submit handler
+  async function onSubmit(values: ReviewFormSchema) {
+    const toastId = toast.loading('Creating review...')
+
+    try {
+      const review = await createReview({
+        user_id: user!.user_id,
+        university_id,
+        values,
+      })
+      console.log(review)
+      toast.success('Created successfully!', { id: toastId })
+      router.refresh()
+    } catch (error: any) {
+      const errMsg: string = error.response.data.message
+      console.error(errMsg)
+
+      // TODO: handle more exceptions
+      let toastMsg = 'Something went wrong!'
+
+      toast.error(toastMsg, {
+        id: toastId,
+        duration: 2000,
+      })
+    }
+  }
+
+  return (
+    <Form {...form}>
+      <form
+        onSubmit={form.handleSubmit(onSubmit)}
+        className={cn('font-medium', !isAuth && 'hidden')}
+      >
+        <div className="flex w-full">
+          <FormField
+            control={form.control}
+            name="title"
+            render={({ field }) => (
+              <FormItem>
+                <FormControl>
+                  <Input
+                    placeholder="Title"
+                    className="h-9 text-base placeholder:text-muted"
+                    {...field}
+                  />
+                </FormControl>
+                <FormMessage />
+              </FormItem>
+            )}
+          />
+          <Button type="submit">Done</Button>
         </div>
-    )
+      </form>
+    </Form>
+  )
 }

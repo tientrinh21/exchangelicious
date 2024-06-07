@@ -12,8 +12,8 @@ export interface Review {
   user_id: string
   title: string
   content: string
-  submit_datetime: Date // datetime??
-  last_edit_datetime: Date // datetime??
+  submit_datetime: Date
+  last_edit_datetime: Date
   mood_score: MoodScore
   upvotes: number
   downvotes: number
