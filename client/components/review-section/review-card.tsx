@@ -18,9 +18,14 @@ export function ReviewCard({ review }: { review: Review }) {
         <span className="truncate font-medium">{review.user_id}</span>
       </div>
 
-      <span className="font-medium text-secondary-foreground">
-        {review.content}
-      </span>
+      <div>
+        <h2 className="text-lg font-bold text-secondary-foreground">
+          {review.title}
+        </h2>
+        <span className="font-medium text-secondary-foreground">
+          {review.content}
+        </span>
+      </div>
 
       <div className="flex gap-1">
         <Button variant="outline" size="icon" className="w-11">
