@@ -81,11 +81,12 @@ export default function ExchangePage() {
         </div>
 
         <div className="flex flex-col items-start justify-between lg:flex-row">
-          <div className="mb-4 w-full rounded-lg border border-gray-200 bg-white p-4 shadow-md lg:mb-0 lg:w-1/4">
-            <div className="text-center">Filter Container</div>
-          </div>
+          {/* <div className="mb-4 w-full rounded-lg border border-gray-200 bg-white p-4 shadow-md lg:mb-0 lg:w-1/4"> */}
+          {/*   <div className="text-center">Filter Container</div> */}
+          {/* </div> */}
 
-          <div className="flex w-full flex-col p-4 lg:w-3/4">
+          {/* <div className="flex w-full flex-col p-4 lg:w-3/4"> */}
+          <div className="flex w-full flex-col p-4">
             <div className="w-full">
               <form className="mx-auto max-w-full">
                 <label
