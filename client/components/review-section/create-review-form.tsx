@@ -20,6 +20,7 @@ import {
 } from '@/components/ui/form'
 import { Button } from '@/components/ui/button'
 import { Input } from '@/components/ui/input'
+import { AutosizeTextarea } from '../ui/autosize-textarea'
 
 const moods = Object.values(MoodScore)
 
@@ -58,7 +59,7 @@ export function CreateReviewForm({ university_id }: { university_id: string }) {
       })
       console.log(review)
       toast.success('Created successfully!', { id: toastId })
-      router.refresh()
+      window.location.reload()
     } catch (error: any) {
       const errMsg: string = error.response.data.message
       console.error(errMsg)
@@ -79,7 +80,7 @@ export function CreateReviewForm({ university_id }: { university_id: string }) {
         onSubmit={form.handleSubmit(onSubmit)}
         className={cn('font-medium', !isAuth && 'hidden')}
       >
-        <div className="flex w-full">
+        <div className="grid w-full grid-cols-[1fr_max-content_max-content] gap-1">
           <FormField
             control={form.control}
             name="title"
@@ -96,8 +97,42 @@ export function CreateReviewForm({ university_id }: { university_id: string }) {
               </FormItem>
             )}
           />
-          <Button type="submit">Done</Button>
+          <FormField
+            control={form.control}
+            name="mood_score"
+            render={({ field }) => (
+              <FormItem>
+                <FormControl>
+                  <Input
+                    placeholder="Mood"
+                    className="h-9 text-base placeholder:text-muted"
+                    {...field}
+                  />
+                </FormControl>
+                <FormMessage />
+              </FormItem>
+            )}
+          />
+          <Button type="submit" className="">
+            Done
+          </Button>
         </div>
+        <FormField
+          control={form.control}
+          name="content"
+          render={({ field }) => (
+            <FormItem>
+              <FormControl>
+                <AutosizeTextarea
+                  placeholder="Content"
+                  className="mt-2 text-base placeholder:text-muted"
+                  {...field}
+                />
+              </FormControl>
+              <FormMessage />
+            </FormItem>
+          )}
+        />
       </form>
     </Form>
   )

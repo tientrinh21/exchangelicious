@@ -24,10 +24,16 @@ export function ReviewCard({ review }: { review: Review }) {
 
       <div className="flex gap-1">
         <Button variant="outline" size="icon" className="w-11">
-          <ThickArrowUpIcon className={cn('h-4 w-4')} /> {review.upvotes}
+          <ThickArrowUpIcon
+            className={cn('h-4 w-4', review.has_upvoted && 'text-primary')}
+          />{' '}
+          {review.upvotes}
         </Button>
         <Button variant="outline" size="icon" className="w-11">
-          <ThickArrowDownIcon className={cn('h-4 w-4')} /> {review.downvotes}
+          <ThickArrowDownIcon
+            className={cn('h-4 w-4', review.has_downvoted && 'text-primary')}
+          />{' '}
+          {review.downvotes}
         </Button>
       </div>
     </div>
