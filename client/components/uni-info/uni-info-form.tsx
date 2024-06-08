@@ -33,6 +33,7 @@ export default function UniInfoForm({ data }: { data: UniversityInfo }) {
       semester: data.semester ?? '',
       application_deadlines: data.application_deadlines ?? '',
       courses: data.courses ?? '',
+      housing: data.housing ?? '',
       tuition: data.tuition ?? '',
       visa: data.visa ?? '',
       eligibility: data.eligibility ?? '',

@@ -21,6 +21,7 @@ export const uniInfoFormSchema = z.object({
   semester: z.string().optional(),
   application_deadlines: z.string().optional(),
   courses: z.string().optional(),
+  housing: z.string().optional(),
   tuition: z.string().optional(),
   visa: z.string().optional(),
   eligibility: z.string().optional(),
