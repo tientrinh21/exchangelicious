@@ -10,6 +10,7 @@ export interface Review {
   review_id: string
   university_id: string
   user_id: string
+  username: string
   title: string
   content: string
   submit_datetime: Date

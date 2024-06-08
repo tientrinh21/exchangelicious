@@ -155,8 +155,8 @@ export default function UniHeaderForm({ data }: { data: University }) {
                       >
                         {countryValue
                           ? countries.find(
-                              (country) => country.code === countryValue,
-                            )?.name
+                            (country) => country.code === countryValue,
+                          )?.name
                           : 'Select your country'}
                         <CaretSortIcon className="ml-2 h-4 w-4 shrink-0 opacity-50" />
                       </Button>
@@ -255,9 +255,9 @@ export default function UniHeaderForm({ data }: { data: University }) {
                         >
                           {housingValue
                             ? housingOptions.find(
-                                (option) => option === housingValue,
-                              )
-                            : 'Select your country'}
+                              (option) => option === housingValue,
+                            )
+                            : 'Select housing option'}
                           <CaretSortIcon className="ml-2 h-4 w-4 shrink-0 opacity-50" />
                         </Button>
                       </FormControl>

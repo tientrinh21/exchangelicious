@@ -6,7 +6,7 @@ from resources_api.resource_fields_definitions import (
     downvote_resource_fields,
 )
 from database.database_setup import db
-from database.models import ReviewTable, UpvoteTable, DownvoteTable
+from database.models import ReviewTable, UpvoteTable, DownvoteTable, UserTable
 
 from sqlalchemy import select, exc
 from datetime import datetime
@@ -50,7 +50,17 @@ class ReviewPerUniPaginateRes(Resource):
             per_page=4,
             page=page_number,
         )
+
         items = res
+
+        for i in items:
+            uni = db.get_or_404(
+                UserTable,
+                i.user_id,
+                description=f"No Univerisity with the ID '{university_id}'.",
+            )
+            i.username = uni.username
+
         if "user_id" in args and args["user_id"] != None:
             user_id = args["user_id"]
             items: list[dict[str, any]] = []

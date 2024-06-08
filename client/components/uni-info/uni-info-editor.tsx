@@ -33,7 +33,7 @@ const UniInfoEditor = React.forwardRef<AutosizeTextAreaRef, UniInfoEditorProps>(
         <TabsContent value="editor">
           <AutosizeTextarea
             {...props}
-            className="prose max-w-none px-5 pb-4 pt-6 text-base font-medium text-secondary-foreground"
+            className={cn("prose max-w-none px-5 pb-5 pt-6 text-base font-medium text-secondary-foreground", className)}
             ref={ref}
             value={value}
           />

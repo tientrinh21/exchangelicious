@@ -66,7 +66,7 @@ export function RegisterForm() {
 
     try {
       const user = await createUser(values)
-      console.log(user)
+      // console.log(user)
       toast.success('Done! Please sign in.', { id: toastId })
       router.push('/sign-in')
     } catch (error: any) {
