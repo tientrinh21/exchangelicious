@@ -4,9 +4,6 @@ https://intl.hkbu.edu.hk/student-exchange/incoming-students
 
 Welcome to Hong Kong Baptist University (HKBU)! As a prospective exchange student, you are about to join one of Hong Kong's most prestigious universities, located in the dynamic city of Hong Kong. HKBU is known for its commitment to academic excellence, innovative research, and holistic education. The university provides a supportive environment that prepares students for successful careers and meaningful contributions to society.
 
-# Supported Major
-
-Business Major only
 
 # Location
 

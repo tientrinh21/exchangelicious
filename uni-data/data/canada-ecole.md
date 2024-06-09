@@ -4,9 +4,6 @@ https://www.etsmtl.ca/en/studies/study-in-quebec/student-exchange
 
 Welcome to École de technologie supérieure (ÉTS)! As a prospective exchange student, you are about to join one of Canada's leading engineering schools, located in vibrant Montreal. ÉTS is renowned for its practical, industry-focused education and strong ties with the business community. With state-of-the-art facilities and a dynamic academic environment, ÉTS prepares students to tackle real-world engineering challenges and fosters innovation and entrepreneurship.
 
-# Supported Major
-
-All Major supported
 
 # Location
 

@@ -8,9 +8,6 @@ As an exchange student at Waseda, you will have the opportunity to study in one 
 
 [Exchange Program Overview (e-brochure)](http://www.waseda.jp/nyusi/ebro/as/exchange_en_2018/)
 
-# Supported Major
-
-All Major supported
 
 # Location
 

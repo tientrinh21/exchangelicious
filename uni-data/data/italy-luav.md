@@ -4,9 +4,7 @@ mobilita.studenti@iuav.it
 
 Welcome to Iuav University of Venice! As a prospective exchange student, you are about to join one of Italy's premier universities for architecture, urban planning, and design, located in the historic city of Venice. Iuav University offers a rich academic environment with a focus on innovative design and planning education. The university provides a unique opportunity to study in a city renowned for its artistic and architectural heritage.
 
-# Supported Major
 
-All Major supported
 
 # Location
 

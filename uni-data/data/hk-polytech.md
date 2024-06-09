@@ -4,9 +4,7 @@ https://www.polyu.edu.hk/geo/exchange-and-study-abroad/incoming-students/incomin
 
 Welcome to the Hong Kong Polytechnic University (PolyU)! As a prospective exchange student, you are about to join one of Asia's leading universities, located in the vibrant city of Hong Kong. PolyU is known for its academic excellence, cutting-edge research, and strong industry connections. The university provides a dynamic and supportive environment that prepares students for successful careers and global citizenship.
 
-# Supported Major
 
-All Major supported
 
 # Location
 

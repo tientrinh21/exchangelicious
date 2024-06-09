@@ -4,9 +4,6 @@ https://students.usask.ca/international/exchange-students.php
 
 Welcome to the University of Saskatchewan! As a prospective exchange student, you are about to join one of Canada's leading research-intensive universities, located in the vibrant city of Saskatoon. The University of Saskatchewan (U of S) offers a diverse and inclusive community with a strong emphasis on academic excellence, innovation, and student success. The university provides an enriching environment that prepares students for successful careers and global citizenship.
 
-# Supported Major
-
-All Major supported
 
 # Location
 

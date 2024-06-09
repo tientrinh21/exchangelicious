@@ -4,9 +4,6 @@ https://feb.kuleuven.be/eng/international/coming-to-feb-ku-leuven/coming-to-feb-
 
 Welcome to KU Leuven! As a prospective exchange student, you are about to join one of Europe’s most renowned research universities, situated in the heart of Belgium. KU Leuven offers a rich academic tradition and a vibrant international community to enhance your educational experience. Known for its cutting-edge research and high-quality education, KU Leuven provides an intellectually stimulating environment that prepares students for global challenges. With a commitment to excellence and innovation, KU Leuven is the perfect place to advance your academic career.
 
-# Supported Major
-
-Business Major only
 
 # Location
 
