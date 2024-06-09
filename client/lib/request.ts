@@ -88,6 +88,7 @@ export async function fetchUser({ username, password }: LoginFormSchema) {
     .then((r) => r.data)
 }
 
+/* REVIEW */
 export async function createReview({
   user_id,
   university_id,
@@ -102,6 +103,33 @@ export async function createReview({
       user_id,
       university_id,
       ...values,
+    })
+    .then((r) => r.data)
+}
+
+export async function upvote({
+  user_id,
+  review,
+}: {
+  user_id: string
+  review: Review
+}) {
+  if (review.has_upvoted)
+    return axios
+      .delete(`${BASE_URL}/review/upvote`, {
+        params: {
+          user_id: user_id,
+          review_id: review.review_id,
+        },
+      })
+      .then((r) => r.data)
+
+  return axios
+    .post(`${BASE_URL}/review/upvote`, null, {
+      params: {
+        user_id: user_id,
+        review_id: review.review_id,
+      },
     })
     .then((r) => r.data)
 }

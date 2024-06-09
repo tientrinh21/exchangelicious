@@ -42,9 +42,11 @@ export function CreateReviewForm({ university_id }: { university_id: string }) {
   const [user, setUser] = useState<User>()
 
   useEffect(() => {
-    setIsAuth(isAuthenticated())
-    const user = getUserData()
-    setUser(user)
+    if (isAuthenticated()) {
+      setIsAuth(true)
+      const user = getUserData()
+      setUser(user)
+    }
   }, [typeof window !== 'undefined'])
 
   // Define form
@@ -177,7 +179,7 @@ export function CreateReviewForm({ university_id }: { university_id: string }) {
               <FormControl>
                 <UniInfoEditor
                   placeholder="Content"
-                  className="text-base placeholder:text-muted"
+                  className="px-3 text-base placeholder:text-muted"
                   {...field}
                 />
               </FormControl>

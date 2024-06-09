@@ -1,8 +1,4 @@
-import {
-  ArrowDownCircleIcon,
-  ArrowUpCircleIcon,
-  ArrowUpCircleSolidIcon,
-} from '@/components/icons'
+import { ArrowDownCircleIcon } from '@/components/icons'
 import { Avatar, AvatarFallback, AvatarImage } from '@/components/ui/avatar'
 import { Button } from '@/components/ui/button'
 import { displayMood, hashIDToNumber } from '@/lib/utils'
@@ -11,6 +7,7 @@ import { Url } from 'next/dist/shared/lib/router/router'
 import Link from 'next/link'
 import Markdown from 'react-markdown'
 import remarkGfm from 'remark-gfm'
+import { UpvoteButton } from './upvote-button'
 
 export function ReviewCard({ review }: { review: Review }) {
   return (
@@ -57,14 +54,7 @@ export function ReviewCard({ review }: { review: Review }) {
       </div>
 
       <div className="flex gap-1">
-        <Button variant="outline" size="icon" className="w-12">
-          {review.has_upvoted ? (
-            <ArrowUpCircleSolidIcon className="mr-px size-5 text-primary" />
-          ) : (
-            <ArrowUpCircleIcon className="mr-px size-5" />
-          )}
-          <span className="mt-0.5">{review.upvotes}</span>
-        </Button>
+        <UpvoteButton review={review} />
         <Button variant="outline" size="icon" className="w-12">
           {review.has_downvoted ? (
             <ArrowDownCircleIcon className="mr-px size-5 text-primary" />

@@ -91,7 +91,7 @@ export default function ReviewSection(props: { university_id: string }) {
         )}
 
         {/* TODO: Make a sort by button */}
-        {!isLoading && reviews.length > 0 && (
+        {reviews.length > 0 && (
           <InfiniteScroll
             dataLength={reviews.length}
             next={fetchMoreData}
