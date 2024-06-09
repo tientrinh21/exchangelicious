@@ -1,4 +1,3 @@
-# Canada - Toronto
 https://learningabroad.utoronto.ca/schools/sungkyunkwan-university-skku/
 
 # University
@@ -17,10 +16,12 @@ The University of Toronto is located in Toronto, Ontario, Canada's largest city,
 27 King's College Circle, Toronto, ON M5S 1A1, Canada
 
 **Contact Information:**
+
 - **Email**: learningabroad@utoronto.ca
 - **Phone**: +1 416-978-2190
 
 **International Office Hours:**
+
 - **Hours**: 8:30am - 4:30pm (Monday to Friday)
 
 # Semester
