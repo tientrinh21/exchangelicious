@@ -64,7 +64,6 @@ export function AddUniDialog() {
       country_code: '',
       region: '',
       campus: '',
-      ranking: '',
       housing: Housing['N/A'],
     },
   })
@@ -242,27 +241,6 @@ export function AddUniDialog() {
                 )}
               />
             </div>
-            <FormField
-              control={form.control}
-              name="ranking"
-              render={({ field }) => (
-                <FormItem>
-                  <FormControl>
-                    <div className="flex items-center">
-                      <span className="mr-1 min-w-20 text-sm font-medium  sm:text-sm md:min-w-24 md:text-base">
-                        World Rank:
-                      </span>
-                      <Input
-                        placeholder="Ranking"
-                        className="h-7 max-w-[15rem] text-xs font-medium leading-5  placeholder:text-muted sm:max-w-[21.5rem] sm:text-sm sm:leading-6 md:max-w-[21.75rem] md:text-base md:leading-7"
-                        {...field}
-                      />
-                    </div>
-                  </FormControl>
-                  <FormMessage />
-                </FormItem>
-              )}
-            />
             <FormField
               control={form.control}
               name="housing"
