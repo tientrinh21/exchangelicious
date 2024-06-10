@@ -76,7 +76,6 @@ export default function ReviewSection(props: { university_id: string }) {
 
   return (
     <div className="w-full">
-      {/* TODO: Should only be visible if the user is logged in */}
       <CreateReviewForm university_id={props.university_id} />
 
       <div>

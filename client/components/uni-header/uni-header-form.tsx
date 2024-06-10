@@ -28,7 +28,7 @@ import { cn } from '@/lib/utils'
 import { uniHeaderFormSchema, type UniHeaderFormSchema } from '@/types/schema'
 import { Housing, type University } from '@/types/university'
 import { zodResolver } from '@hookform/resolvers/zod'
-import { CaretSortIcon, UpdateIcon, CheckIcon } from '@radix-ui/react-icons'
+import { CaretSortIcon, CheckIcon, UpdateIcon } from '@radix-ui/react-icons'
 import { CommandList } from 'cmdk'
 import { useState } from 'react'
 import { useForm } from 'react-hook-form'
@@ -138,7 +138,7 @@ export default function UniHeaderForm({ data }: { data: University }) {
           <FormField
             control={form.control}
             name="country_code"
-            render={({ field }) => (
+            render={() => (
               <FormItem className="flex flex-col">
                 <Popover open={countryOpen} onOpenChange={setCountryOpen}>
                   <PopoverTrigger asChild>
@@ -155,8 +155,8 @@ export default function UniHeaderForm({ data }: { data: University }) {
                       >
                         {countryValue
                           ? countries.find(
-                            (country) => country.code === countryValue,
-                          )?.name
+                              (country) => country.code === countryValue,
+                            )?.name
                           : 'Select your country'}
                         <CaretSortIcon className="ml-2 h-4 w-4 shrink-0 opacity-50" />
                       </Button>
@@ -233,7 +233,7 @@ export default function UniHeaderForm({ data }: { data: University }) {
         <FormField
           control={form.control}
           name="housing"
-          render={({ field }) => (
+          render={() => (
             <FormItem>
               <FormControl>
                 <div className="flex items-center">
@@ -255,8 +255,8 @@ export default function UniHeaderForm({ data }: { data: University }) {
                         >
                           {housingValue
                             ? housingOptions.find(
-                              (option) => option === housingValue,
-                            )
+                                (option) => option === housingValue,
+                              )
                             : 'Select housing option'}
                           <CaretSortIcon className="ml-2 h-4 w-4 shrink-0 opacity-50" />
                         </Button>

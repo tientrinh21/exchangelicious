@@ -65,8 +65,7 @@ export function RegisterForm() {
     const toastId = toast.loading('Creating new account...')
 
     try {
-      const user = await createUser(values)
-      // console.log(user)
+      await createUser(values)
       toast.success('Done! Please sign in.', { id: toastId })
       router.push('/sign-in')
     } catch (error: any) {
@@ -120,7 +119,7 @@ export function RegisterForm() {
         <FormField
           control={form.control}
           name="nationality"
-          render={({ field }) => (
+          render={() => (
             <FormItem className="flex flex-col">
               <FormLabel>
                 Nationality
@@ -227,7 +226,7 @@ export function RegisterForm() {
         <FormField
           control={form.control}
           name="home_university"
-          render={({ field }) => (
+          render={() => (
             <FormItem>
               <FormLabel>
                 Home University

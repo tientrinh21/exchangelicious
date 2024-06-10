@@ -8,7 +8,6 @@ import {
   CommandInput,
   CommandItem,
 } from '@/components/ui/command'
-import { CommandList } from 'cmdk'
 import {
   Form,
   FormControl,
@@ -34,12 +33,13 @@ import countries from '@/lib/countries.json'
 import { updateUser } from '@/lib/request'
 import { cn } from '@/lib/utils'
 import { profileFormSchema, type ProfileFormSchema } from '@/types/schema'
+import { type User } from '@/types/user'
 import { zodResolver } from '@hookform/resolvers/zod'
 import { CaretSortIcon, CheckIcon } from '@radix-ui/react-icons'
+import { CommandList } from 'cmdk'
 import { useEffect, useState } from 'react'
 import { useForm } from 'react-hook-form'
 import { toast } from 'sonner'
-import { type User } from '@/types/user'
 
 export default function ProfileForm() {
   const [user, setUser] = useState<User>()
@@ -81,7 +81,6 @@ export default function ProfileForm() {
       const updatedUser = await updateUser(user as User, values)
       localStorage.setItem('user', btoa(JSON.stringify(updatedUser)))
       setUser(updatedUser)
-      console.log(updatedUser)
 
       form.setValue('password', '') // clean input on successful update
       toast.success('Updated successfullly!', { id: toastId })
@@ -121,7 +120,7 @@ export default function ProfileForm() {
         <FormField
           control={form.control}
           name="nationality"
-          render={({ field }) => (
+          render={() => (
             <FormItem className="flex flex-col">
               <FormLabel>
                 Nationality
@@ -228,7 +227,7 @@ export default function ProfileForm() {
         <FormField
           control={form.control}
           name="home_university"
-          render={({ field }) => (
+          render={() => (
             <FormItem>
               <FormLabel>
                 Home University

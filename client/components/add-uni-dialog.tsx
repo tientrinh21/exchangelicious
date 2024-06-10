@@ -1,15 +1,5 @@
 'use client'
 
-import {
-  Dialog,
-  DialogContent,
-  DialogHeader,
-  DialogTitle,
-  DialogTrigger,
-} from '@/components/ui/dialog'
-import { useAuth } from '@/lib/auth'
-import { cn } from '@/lib/utils'
-import { PlusIcon } from '@radix-ui/react-icons'
 import { Button } from '@/components/ui/button'
 import {
   Command,
@@ -18,6 +8,13 @@ import {
   CommandInput,
   CommandItem,
 } from '@/components/ui/command'
+import {
+  Dialog,
+  DialogContent,
+  DialogHeader,
+  DialogTitle,
+  DialogTrigger,
+} from '@/components/ui/dialog'
 import {
   Form,
   FormControl,
@@ -32,17 +29,19 @@ import {
   PopoverTrigger,
 } from '@/components/ui/popover'
 import { ScrollArea } from '@/components/ui/scroll-area'
+import { useAuth } from '@/lib/auth'
 import countries from '@/lib/countries.json'
 import { createUniversity } from '@/lib/request'
+import { cn } from '@/lib/utils'
 import { uniHeaderFormSchema, type UniHeaderFormSchema } from '@/types/schema'
 import { Housing } from '@/types/university'
 import { zodResolver } from '@hookform/resolvers/zod'
-import { CaretSortIcon, CheckIcon } from '@radix-ui/react-icons'
+import { CaretSortIcon, CheckIcon, PlusIcon } from '@radix-ui/react-icons'
 import { CommandList } from 'cmdk'
+import { usePathname, useRouter } from 'next/navigation'
 import { useState } from 'react'
 import { useForm } from 'react-hook-form'
 import { toast } from 'sonner'
-import { usePathname, useRouter } from 'next/navigation'
 
 const housingOptions = Object.values(Housing)
 
@@ -174,7 +173,7 @@ export function AddUniDialog() {
               <FormField
                 control={form.control}
                 name="country_code"
-                render={({ field }) => (
+                render={() => (
                   <FormItem className="flex flex-col">
                     <Popover open={countryOpen} onOpenChange={setCountryOpen}>
                       <PopoverTrigger asChild>
@@ -267,7 +266,7 @@ export function AddUniDialog() {
             <FormField
               control={form.control}
               name="housing"
-              render={({ field }) => (
+              render={() => (
                 <FormItem>
                   <FormControl>
                     <div className="flex items-center">

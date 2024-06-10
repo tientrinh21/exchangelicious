@@ -9,16 +9,16 @@ import {
   FormMessage,
 } from '@/components/ui/form'
 import { Input } from '@/components/ui/input'
+import { MarkdownEditor } from '@/components/ui/markdown-editor'
 import { updateUniversityInfo } from '@/lib/request'
 import { objKeyToText, toRomanNumerals } from '@/lib/utils'
 import { uniInfoFormSchema, type UniInfoFormSchema } from '@/types/schema'
 import type { UniversityInfo } from '@/types/university'
 import { zodResolver } from '@hookform/resolvers/zod'
 import { CheckIcon } from '@radix-ui/react-icons'
+import { useRouter } from 'next/navigation'
 import { useForm } from 'react-hook-form'
 import { toast } from 'sonner'
-import UniInfoEditor from './uni-info-editor'
-import { useRouter } from 'next/navigation'
 
 export default function UniInfoForm({ data }: { data: UniversityInfo }) {
   const router = useRouter()
@@ -114,7 +114,7 @@ export default function UniInfoForm({ data }: { data: UniversityInfo }) {
                       <h2 className="text-xl font-bold text-foreground md:text-2xl">
                         {`${toRomanNumerals(index)}. ${objKeyToText(key)}`}
                       </h2>
-                      <UniInfoEditor
+                      <MarkdownEditor
                         {...field}
                         placeholder={`Information about ${objKeyToText(key)}`}
                         index={index}

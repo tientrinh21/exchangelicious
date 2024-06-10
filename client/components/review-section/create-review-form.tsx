@@ -15,12 +15,12 @@ import {
   FormMessage,
 } from '@/components/ui/form'
 import { Input } from '@/components/ui/input'
+import { MarkdownEditor } from '@/components/ui/markdown-editor'
 import {
   Popover,
   PopoverContent,
   PopoverTrigger,
 } from '@/components/ui/popover'
-import { UniInfoEditor } from '@/components/uni-info'
 import { getUserData, isAuthenticated } from '@/lib/auth'
 import { createReview } from '@/lib/request'
 import { cn, displayMood, moods } from '@/lib/utils'
@@ -114,7 +114,7 @@ export function CreateReviewForm({ university_id }: { university_id: string }) {
         <FormField
           control={form.control}
           name="mood_score"
-          render={({ field }) => (
+          render={() => (
             <FormItem>
               <FormControl>
                 <Popover open={moodOpen} onOpenChange={setMoodOpen}>
@@ -177,7 +177,7 @@ export function CreateReviewForm({ university_id }: { university_id: string }) {
           render={({ field }) => (
             <FormItem className="col-span-3 mt-3">
               <FormControl>
-                <UniInfoEditor
+                <MarkdownEditor
                   placeholder="Content"
                   className="px-3 text-base placeholder:text-muted"
                   {...field}
