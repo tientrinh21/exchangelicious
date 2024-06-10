@@ -6,6 +6,7 @@ import { getUserData } from '@/lib/auth'
 import { upvote } from '@/lib/request'
 import { Review } from '@/types/review-section'
 import { useState } from 'react'
+import { toast } from 'sonner'
 
 export function UpvoteButton({ review }: { review: Review }) {
   const [hasUpvoted, setHasUpvoted] = useState(review.has_upvoted)
@@ -13,19 +14,18 @@ export function UpvoteButton({ review }: { review: Review }) {
 
   const handleUpvote = async () => {
     try {
-      const res = await upvote({ user_id: getUserData().user_id, review })
+      await upvote({ user_id: getUserData().user_id, review })
 
       review.has_upvoted = !review.has_upvoted
       setHasUpvoted(review.has_upvoted)
 
-      review.upvotes = review.has_upvoted
-        ? review.upvotes + 1
-        : review.upvotes - 1
+      review.has_upvoted ? review.upvotes++ : review.upvotes--
       setUpvotes(review.upvotes)
-      console.log(review.upvotes)
-      return res
     } catch (error: any) {
-      console.log(error)
+      // Not logged in user pressed upvote
+      if (String(error).includes('Unexpected end of JSON input'))
+        toast.error('You need to log in first')
+      else console.log(error)
     }
   }
   return (

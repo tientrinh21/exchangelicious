@@ -8,6 +8,7 @@ import Link from 'next/link'
 import Markdown from 'react-markdown'
 import remarkGfm from 'remark-gfm'
 import { UpvoteButton } from './upvote-button'
+import { DownvoteButton } from './downvote-button'
 
 export function ReviewCard({ review }: { review: Review }) {
   return (
@@ -55,14 +56,7 @@ export function ReviewCard({ review }: { review: Review }) {
 
       <div className="flex gap-1">
         <UpvoteButton review={review} />
-        <Button variant="outline" size="icon" className="w-12">
-          {review.has_downvoted ? (
-            <ArrowDownCircleIcon className="mr-px size-5 text-primary" />
-          ) : (
-            <ArrowDownCircleIcon className="mr-px size-5" />
-          )}
-          <span className="mt-0.5">{review.downvotes}</span>
-        </Button>
+        <DownvoteButton review={review} />
       </div>
     </div>
   )

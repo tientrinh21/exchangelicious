@@ -134,6 +134,32 @@ export async function upvote({
     .then((r) => r.data)
 }
 
+export async function downvote({
+  user_id,
+  review,
+}: {
+  user_id: string
+  review: Review
+}) {
+  if (review.has_downvoted)
+    return axios
+      .delete(`${BASE_URL}/review/downvote`, {
+        params: {
+          user_id: user_id,
+          review_id: review.review_id,
+        },
+      })
+      .then((r) => r.data)
+
+  return axios
+    .post(`${BASE_URL}/review/downvote`, null, {
+      params: {
+        user_id: user_id,
+        review_id: review.review_id,
+      },
+    })
+    .then((r) => r.data)
+}
 /* USER */
 export async function createUser({
   username,
