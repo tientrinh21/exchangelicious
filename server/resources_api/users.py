@@ -8,7 +8,10 @@ from flask_restful import Resource, abort, marshal_with, reqparse
 from sqlalchemy import exc, text
 
 from resources_api.resource_fields_definitions import (
-    user_resource_fields, user_with_university_resource_fields)
+    user_resource_fields,
+    user_with_university_resource_fields,
+)
+
 
 class UserRes(Resource):
     @marshal_with(user_resource_fields)
@@ -62,6 +65,7 @@ user_delete_args.add_argument(
 def generate_salt():
     return secrets.token_hex(16)
 
+
 # Function to hash a password
 def hash_password(password, salt):
     # Concatenate password and salt
@@ -70,7 +74,7 @@ def hash_password(password, salt):
     hashed_password = hashlib.sha256(salted_password.encode()).hexdigest()
     return hashed_password
 
-  
+
 class UsersAllRes(Resource):
     @marshal_with(user_resource_fields)
     def get(self):
@@ -100,7 +104,6 @@ class UsersAllRes(Resource):
                 if args["home_university"]
                 else None,
             )
-            
             db.session.add(new_user)
             db.session.commit()
             return new_user, 200
@@ -112,22 +115,27 @@ class UsersAllRes(Resource):
     def patch(self):
         try:
             args = user_update_args.parse_args()
-            user_id = args['user_id']
+            user_id = args["user_id"]
             user = db.session.query(UserTable).filter_by(user_id=user_id).first()
             # Update the user attributes if they are present in the args
-            if 'username' in args and args['username'] != None:
-                user.username = args['username']
-            if 'pwd' in args and args['pwd'] != None:
+            if "username" in args and args["username"] is not None:
+                user.username = args["username"]
+            if "pwd" in args and args["pwd"] is not None and args["pwd"] != "":
                 salt = generate_salt()
                 # Hash the new password with the generated salt
-                hashed_password = hash_password(args['pwd'], salt)
+                hashed_password = hash_password(args["pwd"], salt)
+
                 # Update the hashed password and salt columns
                 user.pwd = hashed_password
                 user.salt = salt
-            if 'nationality' in args and args['nationality'] != None:
-                user.nationality = args['nationality']
-            if 'home_university' in args and args['home_university'] != None:
-                user.home_university = args['home_university']
+            if "nationality" in args and args["nationality"] is not None:
+                user.nationality = (
+                    args["nationality"] if args["nationality"] != "" else None
+                )
+            if "home_university" in args and args["home_university"] is not None:
+                user.home_university = (
+                    args["home_university"] if args["home_university"] != "" else None
+                )
             db.session.commit()
             return user, 200
         except exc.SQLAlchemyError as e:
@@ -144,10 +152,13 @@ class UsersAllRes(Resource):
             db.session.delete(user)
             db.session.commit()
             print(f"User with user_id '{user_id}' deleted successfully")
-            return {"message": f"User with user_id '{user_id}' deleted successfully"}, 200
+            return {
+                "message": f"User with user_id '{user_id}' deleted successfully"
+            }, 200
         except Exception as e:
             print(f"An error occurred: {e}")
             abort(message=str(e), http_status_code=500)
+
 
 class UserWithUniversityRes(Resource):
     @marshal_with(user_with_university_resource_fields)
@@ -157,13 +168,14 @@ class UserWithUniversityRes(Resource):
         res = db.session.execute(text(sql_raw), {"val": user_id}).first()
         return res
 
+
 class UserLoginRes(Resource):
     @marshal_with(user_resource_fields)
     def get(self):
         try:
             args = user_put_args.parse_args()
-            username = args['username']
-            password = args['pwd']
+            username = args["username"]
+            password = args["pwd"]
 
             # Retrieve user from the database based on the provided username
             user = UserTable.query.filter_by(username=username).first()
