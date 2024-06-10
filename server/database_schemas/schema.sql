@@ -428,18 +428,18 @@ Source: [https://utdallas.box.com/s/aa0wbsjdkpm7kuvrm5pxybhsg00svgi4](https://ut
     - Undergraduate - 12 credit hours
     - Graduate - 9 credit hours
 - Maximum credits to take:
-    - Undergraduate - 15 credit hours
+    - Undergraduate - university_table15 credit hours
     - Graduate - 12 credit hours"
   );
 
 insert into university_table(university_id, long_name, country_code, region, info_page_id, campus, housing, ranking) values
-  ('7ec48895-84fc-479c-9d9f-94c243148c0d', 'Sungkyunkwan University', 'KOR', 'Seoul, Suwon', 'fe5c72da-bf4c-4e8d-9851-903de8fe7d01', "Suwon Campus" , 1, "145"),
-  ('82577908-cbee-4b1c-9a98-13efa48be3a7', 'Norwegian University of Science and Technology', 'NOR', 'Trondheim, Gjøvik, Ålesund', 'ef3d8c9a-5482-4a70-888d-e739ad31f5da', "Ålesund Campus", 0, "292"),
-  ('b534a0dc-68fd-4d95-a012-a315198fc9d6', 'University of Oslo', 'NOR', 'Oslo', 'a2bc84b3-0fef-4e0d-a9da-019812338ab7', "Oslo Campus", 0, "117"),
-  ('0a34e2df-6cb5-43df-bb67-441eac1ea273', 'University of Bergen', 'NOR', 'Bergen', 'a664f903-2323-4f43-b390-f659a43be3b7', "Bergen Campus", 0, "281"),
-  ('86a608f2-08ae-45e6-b680-8273680fe129', 'University of Texas at Dallas', 'USA', 'Richardson, Texas', '9f2cea0c-9c0c-4566-92e0-e4b55c02af9b', "Dallas Campus", 1, "520"),
-  ('umass_boston', 'University of Massachusetts Boston', 'USA', 'Boston, Massachusetts', 'fe5c72da-bf4c-4e8d-9851-903de8fe7d01', "Boston Campus", 1, "801-850"),
-  ('umanitoba', 'University of Manitoba', 'CAN', 'Winnipeg, Manitoba', 'fe5c72da-bf4c-4e8d-9851-903de8fe7d01', "Winnipeg Campus", 0, "671-680"),
-  ('utoronto', 'University of Toronto', 'CAN', 'Toronto, Ontarion', 'fe5c72da-bf4c-4e8d-9851-903de8fe7d01', "Toronto Campus", 0, "21"),
-  ('usask', 'University of Saskatchewan', 'CAN', 'Saskatoon, Saskatchewan', 'fe5c72da-bf4c-4e8d-9851-903de8fe7d01', "Saskatoon Campus", 1, "345"),
-  ('ntu', 'Nanyang Technological University', 'SGP', 'Nanyang Ave', 'fe5c72da-bf4c-4e8d-9851-903de8fe7d01', "Singapore Campus", 1, "26");
+  ('7ec48895-84fc-479c-9d9f-94c243148c0d', 'Sungkyunkwan University', 'KOR', 'Seoul, Suwon', 'fe5c72da-bf4c-4e8d-9851-903de8fe7d01', "Suwon Campus" , 1, "None"),
+  ('82577908-cbee-4b1c-9a98-13efa48be3a7', 'Norwegian University of Science and Technology', 'NOR', 'Trondheim, Gjøvik, Ålesund', 'ef3d8c9a-5482-4a70-888d-e739ad31f5da', "Ålesund Campus", 0, "None"),
+  ('b534a0dc-68fd-4d95-a012-a315198fc9d6', 'University of Oslo', 'NOR', 'Oslo', 'a2bc84b3-0fef-4e0d-a9da-019812338ab7', "Oslo Campus", 0, "None"),
+  ('0a34e2df-6cb5-43df-bb67-441eac1ea273', 'University of Bergen', 'NOR', 'Bergen', 'a664f903-2323-4f43-b390-f659a43be3b7', "Bergen Campus", 0, "None"),
+  ('86a608f2-08ae-45e6-b680-8273680fe129', 'University of Texas at Dallas', 'USA', 'Richardson, Texas', '9f2cea0c-9c0c-4566-92e0-e4b55c02af9b', "Dallas Campus", 1, "None"),
+  ('umass_boston', 'University of Massachusetts Boston', 'USA', 'Boston, Massachusetts', 'fe5c72da-bf4c-4e8d-9851-903de8fe7d01', "Boston Campus", 1, "None"),
+  ('umanitoba', 'University of Manitoba', 'CAN', 'Winnipeg, Manitoba', 'fe5c72da-bf4c-4e8d-9851-903de8fe7d01', "Winnipeg Campus", 0, "None"),
+  ('utoronto', 'University of Toronto', 'CAN', 'Toronto, Ontarion', 'fe5c72da-bf4c-4e8d-9851-903de8fe7d01', "Toronto Campus", 0, "None"),
+  ('usask', 'University of Saskatchewan', 'CAN', 'Saskatoon, Saskatchewan', 'fe5c72da-bf4c-4e8d-9851-903de8fe7d01', "Saskatoon Campus", 1, "None"),
+  ('ntu', 'Nanyang Technological University', 'SGP', 'Nanyang Ave', 'fe5c72da-bf4c-4e8d-9851-903de8fe7d01', "Singapore Campus", 1, "None");

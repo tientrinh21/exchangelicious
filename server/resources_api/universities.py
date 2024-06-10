@@ -15,153 +15,6 @@ from resources_api.resource_fields_definitions import (
 )
 from sqlalchemy import exc, select
 
-uni_put_args = reqparse.RequestParser()
-uni_put_args.add_argument(
-    "university_id",
-    type=str,
-    location="args",
-    help="University ID to create university",
-)
-uni_put_args.add_argument(
-    "country_code", type=str, location="args", help="Uni country code"
-)
-uni_put_args.add_argument("region", type=str, location="args", help="Uni region")
-uni_put_args.add_argument(
-    "long_name", type=str, location="args", help="Full name of university"
-)
-uni_put_args.add_argument(
-    "ranking", type=str, location="args", help="Ranking of a university"
-)
-uni_put_args.add_argument(
-    "info_page_id", type=str, location="args", help="Information of a university"
-)
-uni_put_args.add_argument(
-    "campus", type=str, location="args", help="Campus of a university"
-)
-uni_put_args.add_argument(
-    "housing", type=str, location="args", help="Housing availability of a university"
-)
-
-uni_update_args = reqparse.RequestParser()
-uni_update_args.add_argument(
-    "university_id",
-    type=str,
-    location="args",
-    help="University ID to create university",
-)
-uni_update_args.add_argument(
-    "country_code", type=str, location="args", help="Uni country code"
-)
-uni_update_args.add_argument("region", type=str, location="args", help="Uni region")
-uni_update_args.add_argument(
-    "long_name", type=str, location="args", help="Full name of university"
-)
-uni_update_args.add_argument(
-    "ranking", type=str, location="args", help="Ranking of a university"
-)
-uni_update_args.add_argument(
-    "info_page_id", type=str, location="args", help="Information of a university"
-)
-uni_update_args.add_argument(
-    "campus", type=str, location="args", help="Campus of a university"
-)
-uni_update_args.add_argument(
-    "housing", type=str, location="args", help="Housing availability of a university"
-)
-
-uni_delete_args = reqparse.RequestParser()
-uni_delete_args.add_argument(
-    "university_id", type=str, location="args", help="Uni ID to delete university"
-)
-
-info_get_args = reqparse.RequestParser()
-info_get_args.add_argument("university_id", type=str, location="args", required=True)
-
-info_post_args = reqparse.RequestParser()
-info_post_args.add_argument("university_id", type=str, location="args", required=True)
-info_post_args.add_argument(
-    "webpage", type=str, location="args", help="Webpage to create info"
-)
-info_post_args.add_argument(
-    "introduction", type=str, location="args", help="Introduction to create info"
-)
-info_post_args.add_argument(
-    "location", type=str, location="args", help="location to create info"
-)
-info_post_args.add_argument(
-    "semester", type=str, location="args", help="semester to create info"
-)
-info_post_args.add_argument(
-    "application_deadline",
-    type=str,
-    location="args",
-    help="Application deadline to create info",
-)
-info_post_args.add_argument(
-    "courses", type=str, location="args", help="courses to create info"
-)
-info_post_args.add_argument(
-    "housing", type=str, location="args", help="housing to create info"
-)
-info_post_args.add_argument(
-    "tuition", type=str, location="args", help="tuition to create info"
-)
-info_post_args.add_argument(
-    "visa", type=str, location="args", help="visa to create info"
-)
-info_post_args.add_argument(
-    "eligibility", type=str, location="args", help="eligibility to create info"
-)
-info_post_args.add_argument(
-    "requirements", type=str, location="args", help="requirements to create info"
-)
-
-info_patch_args = reqparse.RequestParser()
-info_patch_args.add_argument(
-    "info_page_id",
-    type=str,
-    location="args",
-    required=True,
-    help="Info page ID to update info",
-)
-info_patch_args.add_argument(
-    "webpage", type=str, location="args", help="Webpage to create info"
-)
-info_patch_args.add_argument(
-    "introduction", type=str, location="args", help="Introduction to create info"
-)
-info_patch_args.add_argument(
-    "location", type=str, location="args", help="location to create info"
-)
-info_patch_args.add_argument(
-    "semester", type=str, location="args", help="semester to create info"
-)
-info_patch_args.add_argument(
-    "application_deadline",
-    type=str,
-    location="args",
-    help="Application deadline to create info",
-)
-info_patch_args.add_argument(
-    "courses", type=str, location="args", help="courses to create info"
-)
-info_patch_args.add_argument(
-    "housing", type=str, location="args", help="housing to create info"
-)
-info_patch_args.add_argument(
-    "tuition", type=str, location="args", help="tuition to create info"
-)
-info_patch_args.add_argument(
-    "visa", type=str, location="args", help="visa to create info"
-)
-info_patch_args.add_argument(
-    "eligibility", type=str, location="args", help="eligibility to create info"
-)
-info_patch_args.add_argument(
-    "requirements", type=str, location="args", help="requirements to create info"
-)
-
-
 class UniversityRes(Resource):
     @marshal_with(university_resource_fields)
     def get(self, university_id):
@@ -173,6 +26,7 @@ class UniversityRes(Resource):
             .where(UniversityTable.university_id == university_id)
         )
         res = db.session.execute(stmt).first()
+
         if res is None:
             abort(
                 message=f"No university with the ID '{university_id}'.",
@@ -186,9 +40,99 @@ class UniversityRes(Resource):
 
 
 class UniversityWithInfoRes(Resource):
+    def __init__(self) -> None:
+        super().__init__()
+        self.get_args = reqparse.RequestParser()
+        self.get_args.add_argument("university_id", type=str, location="args", required=True)
+
+        self.post_args = reqparse.RequestParser()
+        self.post_args.add_argument("university_id", type=str, location="args", required=True)
+        self.post_args.add_argument(
+            "webpage", type=str, location="args", help="Webpage to create info"
+        )
+        self.post_args.add_argument(
+            "introduction", type=str, location="args", help="Introduction to create info"
+        )
+        self.post_args.add_argument(
+            "location", type=str, location="args", help="location to create info"
+        )
+        self.post_args.add_argument(
+            "semester", type=str, location="args", help="semester to create info"
+        )
+        self.post_args.add_argument(
+            "application_deadline",
+            type=str,
+            location="args",
+            help="Application deadline to create info",
+        )
+        self.post_args.add_argument(
+            "courses", type=str, location="args", help="courses to create info"
+        )
+        self.post_args.add_argument(
+            "housing", type=str, location="args", help="housing to create info"
+        )
+        self.post_args.add_argument(
+            "tuition", type=str, location="args", help="tuition to create info"
+        )
+        self.post_args.add_argument(
+            "visa", type=str, location="args", help="visa to create info"
+        )
+        self.post_args.add_argument(
+            "eligibility", type=str, location="args", help="eligibility to create info"
+        )
+        self.post_args.add_argument(
+            "requirements", type=str, location="args", help="requirements to create info"
+        )
+
+        self.patch_args = reqparse.RequestParser()
+        self.patch_args.add_argument(
+            "info_page_id",
+            type=str,
+            location="args",
+            required=True,
+            help="Info page ID to update info",
+        )
+        self.patch_args.add_argument(
+            "webpage", type=str, location="args", help="Webpage to create info"
+        )
+        self.patch_args.add_argument(
+            "introduction", type=str, location="args", help="Introduction to create info"
+        )
+        self.patch_args.add_argument(
+            "location", type=str, location="args", help="location to create info"
+        )
+        self.patch_args.add_argument(
+            "semester", type=str, location="args", help="semester to create info"
+        )
+        self.patch_args.add_argument(
+            "application_deadline",
+            type=str,
+            location="args",
+            help="Application deadline to create info",
+        )
+        self.patch_args.add_argument(
+            "courses", type=str, location="args", help="courses to create info"
+        )
+        self.patch_args.add_argument(
+            "housing", type=str, location="args", help="housing to create info"
+        )
+        self.patch_args.add_argument(
+            "tuition", type=str, location="args", help="tuition to create info"
+        )
+        self.patch_args.add_argument(
+            "visa", type=str, location="args", help="visa to create info"
+        )
+        self.patch_args.add_argument(
+            "eligibility", type=str, location="args", help="eligibility to create info"
+        )
+        self.patch_args.add_argument(
+            "requirements", type=str, location="args", help="requirements to create info"
+        )
+
+
     @marshal_with(university_with_info_resource_fields)
     def get(self):
-        args = info_get_args.parse_args()
+        args = self.get_args.parse_args()
         university_id = args["university_id"]
 
         uni = db.get_or_404(
@@ -206,7 +150,7 @@ class UniversityWithInfoRes(Resource):
     @marshal_with(university_with_info_resource_fields)
     def post(self):
         try:
-            args = info_post_args.parse_args()
+            args = self.post_args.parse_args()
             university_id = args["university_id"]
 
             uni = db.get_or_404(
@@ -249,7 +193,7 @@ class UniversityWithInfoRes(Resource):
     @marshal_with(university_with_info_resource_fields)
     def patch(self):
         try:
-            args = info_patch_args.parse_args()
+            args = self.patch_args.parse_args()
             info_page_id = args["info_page_id"]
             info_page = (
                 db.session.query(InfoPageTable)
@@ -295,6 +239,66 @@ class UniversityWithInfoRes(Resource):
 
 
 class UniversityAllRes(Resource):
+    def __init__(self) -> None:
+        super().__init__()
+        self.put_args = reqparse.RequestParser()
+        self.put_args.add_argument(
+            "university_id",
+            type=str,
+            location="args",
+            help="University ID to create university",
+        )
+        self.put_args.add_argument(
+            "country_code", type=str, location="args", help="Uni country code"
+        )
+        self.put_args.add_argument("region", type=str, location="args", help="Uni region")
+        self.put_args.add_argument(
+            "long_name", type=str, location="args", help="Full name of university"
+        )
+        self.put_args.add_argument(
+            "ranking", type=str, location="args", help="Ranking of a university"
+        )
+        self.put_args.add_argument(
+            "info_page_id", type=str, location="args", help="Information of a university"
+        )
+        self.put_args.add_argument(
+            "campus", type=str, location="args", help="Campus of a university"
+        )
+        self.put_args.add_argument(
+            "housing", type=str, location="args", help="Housing availability of a university"
+        )
+
+        self.update_args = reqparse.RequestParser()
+        self.update_args.add_argument(
+            "university_id",
+            type=str,
+            location="args",
+            help="University ID to create university",
+        )
+        self.update_args.add_argument(
+            "country_code", type=str, location="args", help="Uni country code"
+        )
+        self.update_args.add_argument("region", type=str, location="args", help="Uni region")
+        self.update_args.add_argument(
+            "long_name", type=str, location="args", help="Full name of university"
+        )
+        self.update_args.add_argument(
+            "ranking", type=str, location="args", help="Ranking of a university"
+        )
+        self.update_args.add_argument(
+            "info_page_id", type=str, location="args", help="Information of a university"
+        )
+        self.update_args.add_argument(
+            "campus", type=str, location="args", help="Campus of a university"
+        )
+        self.update_args.add_argument(
+            "housing", type=str, location="args", help="Housing availability of a university"
+        )
+
+        self.delete_args = reqparse.RequestParser()
+        self.delete_args.add_argument(
+            "university_id", type=str, location="args", help="Uni ID to delete university"
+        )
     @marshal_with(university_meta_table_resource_fields)
     def get(self):
         unis = UniversityTable.query.order_by(UniversityTable.long_name).all()
@@ -303,7 +307,7 @@ class UniversityAllRes(Resource):
     @marshal_with(university_meta_table_resource_fields)
     def post(self):
         try:
-            args = uni_put_args.parse_args()
+            args = self.put_args.parse_args()
 
             new_uni = UniversityTable(
                 university_id=str(uuid4()),
@@ -325,7 +329,7 @@ class UniversityAllRes(Resource):
     @marshal_with(university_meta_table_resource_fields)
     def patch(self):
         try:
-            args = uni_update_args.parse_args()
+            args = self.update_args.parse_args()
             uniid = args["university_id"]
             uni = (
                 db.session.query(UniversityTable).filter_by(university_id=uniid).first()
@@ -356,7 +360,7 @@ class UniversityAllRes(Resource):
 
     def delete(self):
         try:
-            args = uni_delete_args.parse_args()
+            args = self.delete_args.parse_args()
             university_id = args["university_id"]
             uni = db.get_or_404(
                 UniversityTable,
