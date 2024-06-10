@@ -347,6 +347,7 @@ class UniversityAllRes(Resource):
             if "housing" in args and args["housing"] is not None:
                 uni.housing = args["housing"]
             db.session.commit()
+
             return uni, 200
 
         except exc.SQLAlchemyError as e:

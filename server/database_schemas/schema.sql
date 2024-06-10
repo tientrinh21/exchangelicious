@@ -124,6 +124,19 @@ BEGIN
     SET NEW.ranking = var;
 END//
 
+CREATE TRIGGER before_uni_update
+BEFORE UPDATE ON university_table
+FOR EACH ROW
+BEGIN
+    DECLARE var varchar(10);
+    SELECT uni_rank INTO var
+    FROM uni_ranking_table
+    WHERE uni_name LIKE CONCAT('%', NEW.long_name, '%')
+    LIMIT 1;
+
+    SET NEW.ranking = var;
+END//
+
 
 
 DELIMITER ;
