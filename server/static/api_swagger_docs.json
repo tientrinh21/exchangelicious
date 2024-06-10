@@ -298,6 +298,15 @@
         "summary": "Create an information",
         "parameters": [
           {
+            "name": "university_id",
+            "in": "query",
+            "description": "university id",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
             "name": "webpage",
             "in": "query",
             "description": "Webpage to create",

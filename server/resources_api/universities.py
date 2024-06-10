@@ -165,24 +165,29 @@ info_patch_args.add_argument(
 class UniversityRes(Resource):
     @marshal_with(university_resource_fields)
     def get(self, university_id):
-        stmt = (
-            select(UniversityTable, CountryTable)
-            .join(
-                CountryTable, UniversityTable.country_code == CountryTable.country_code
-            )
-            .where(UniversityTable.university_id == university_id)
-        )
-        res = db.session.execute(stmt).first()
-        if res is None:
-            abort(
-                message=f"No university with the ID '{university_id}'.",
-                http_status_code=404,
-            )
+        # stmt = (
+        #     select(UniversityTable, CountryTable)
+        #     .join(
+        #         CountryTable, UniversityTable.country_code == CountryTable.country_code
+        #     )
+        #     .where(UniversityTable.university_id == university_id)
+        # )
+        # res = db.session.execute(stmt).first()
+        # if res is None:
+        #     abort(
+        #         message=f"No university with the ID '{university_id}'.",
+        #         http_status_code=404,
+        #     )
 
-        parent, child = res
-        result = parent.__dict__
-        result.update(child.__dict__)
-        return result, 200
+        # parent, child = res
+        # result = parent.__dict__
+        # result.update(child.__dict__)
+        # return result, 200
+        # unis = UniversityTable.query.order_by(UniversityTable.university_id)
+        args = info_get_args.parse_args()
+        uniid = args["university_id"]
+        unis = db.session.query(UniversityTable).filter_by(university_id=uniid).first()
+        return [uni for uni in unis], 200
 
 
 class UniversityWithInfoRes(Resource):
