@@ -5,12 +5,21 @@ import { Button } from '@/components/ui/button'
 import { getUserData } from '@/lib/auth'
 import { upvote } from '@/lib/request'
 import { Review } from '@/types/review-section'
-import { useState } from 'react'
+import { useAtom } from 'jotai'
 import { toast } from 'sonner'
+import {
+  atomDownvotes,
+  atomHasDownvoted,
+  atomHasUpvoted,
+  atomUpvotes,
+} from './review-card'
 
 export function UpvoteButton({ review }: { review: Review }) {
-  const [hasUpvoted, setHasUpvoted] = useState(review.has_upvoted)
-  const [upvotes, setUpvotes] = useState(review.upvotes)
+  const [hasUpvoted, setHasUpvoted] = useAtom(atomHasUpvoted)
+  const [upvotes, setUpvotes] = useAtom(atomUpvotes)
+
+  const [hasDownvoted, setHasDownVoted] = useAtom(atomHasDownvoted)
+  const [_, setDownvotes] = useAtom(atomDownvotes)
 
   const handleUpvote = async () => {
     try {
@@ -19,7 +28,17 @@ export function UpvoteButton({ review }: { review: Review }) {
       review.has_upvoted = !review.has_upvoted
       setHasUpvoted(review.has_upvoted)
 
-      review.has_upvoted ? review.upvotes++ : review.upvotes--
+      if (review.has_upvoted) {
+        review.upvotes++
+
+        if (hasDownvoted) {
+          review.has_downvoted = false
+          setHasDownVoted(false)
+
+          review.downvotes--
+          setDownvotes(review.downvotes)
+        }
+      } else review.upvotes--
       setUpvotes(review.upvotes)
     } catch (error: any) {
       // Not logged in user pressed upvote

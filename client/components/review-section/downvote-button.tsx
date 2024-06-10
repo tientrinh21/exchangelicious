@@ -8,12 +8,21 @@ import { Button } from '@/components/ui/button'
 import { getUserData } from '@/lib/auth'
 import { downvote } from '@/lib/request'
 import { Review } from '@/types/review-section'
-import { useState } from 'react'
+import { useAtom } from 'jotai'
 import { toast } from 'sonner'
+import {
+  atomDownvotes,
+  atomHasDownvoted,
+  atomHasUpvoted,
+  atomUpvotes,
+} from './review-card'
 
 export function DownvoteButton({ review }: { review: Review }) {
-  const [hasDownvoted, setHasDownVoted] = useState(review.has_downvoted)
-  const [downvotes, setDownvotes] = useState(review.downvotes)
+  const [hasUpvoted, setHasUpvoted] = useAtom(atomHasUpvoted)
+  const [_, setUpvotes] = useAtom(atomUpvotes)
+
+  const [hasDownvoted, setHasDownVoted] = useAtom(atomHasDownvoted)
+  const [downvotes, setDownvotes] = useAtom(atomDownvotes)
 
   const handleDownvote = async () => {
     try {
@@ -22,7 +31,17 @@ export function DownvoteButton({ review }: { review: Review }) {
       review.has_downvoted = !review.has_downvoted
       setHasDownVoted(review.has_downvoted)
 
-      review.has_downvoted ? review.downvotes++ : review.downvotes--
+      if (review.has_downvoted) {
+        review.downvotes++
+
+        if (hasUpvoted) {
+          review.has_upvoted = false
+          setHasUpvoted(false)
+
+          review.upvotes--
+          setUpvotes(review.upvotes)
+        }
+      } else review.downvotes--
       setDownvotes(review.downvotes)
     } catch (error: any) {
       // Not logged in user pressed downvote

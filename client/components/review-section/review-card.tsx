@@ -1,14 +1,38 @@
-import { ArrowDownCircleIcon } from '@/components/icons'
 import { Avatar, AvatarFallback, AvatarImage } from '@/components/ui/avatar'
-import { Button } from '@/components/ui/button'
 import { displayMood, hashIDToNumber } from '@/lib/utils'
 import { Review } from '@/types/review-section'
+import { Provider, atom } from 'jotai'
+import { useHydrateAtoms } from 'jotai/utils'
 import { Url } from 'next/dist/shared/lib/router/router'
 import Link from 'next/link'
+import type { ReactNode } from 'react'
 import Markdown from 'react-markdown'
 import remarkGfm from 'remark-gfm'
-import { UpvoteButton } from './upvote-button'
 import { DownvoteButton } from './downvote-button'
+import { UpvoteButton } from './upvote-button'
+
+export const atomHasUpvoted = atom(false)
+export const atomUpvotes = atom(0)
+
+export const atomHasDownvoted = atom(false)
+export const atomDownvotes = atom(0)
+
+// Hydrate atom with each review's data
+function AtomsHydrator({
+  review,
+  children,
+}: {
+  review: Review
+  children: ReactNode
+}) {
+  useHydrateAtoms([
+    [atomHasUpvoted, review.has_upvoted],
+    [atomUpvotes, review.upvotes],
+    [atomHasDownvoted, review.has_downvoted],
+    [atomDownvotes, review.downvotes],
+  ])
+  return children
+}
 
 export function ReviewCard({ review }: { review: Review }) {
   return (
@@ -55,8 +79,12 @@ export function ReviewCard({ review }: { review: Review }) {
       </div>
 
       <div className="flex gap-1">
-        <UpvoteButton review={review} />
-        <DownvoteButton review={review} />
+        <Provider>
+          <AtomsHydrator review={review}>
+            <UpvoteButton review={review} />
+            <DownvoteButton review={review} />
+          </AtomsHydrator>
+        </Provider>
       </div>
     </div>
   )
