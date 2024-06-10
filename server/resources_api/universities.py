@@ -183,7 +183,6 @@ class UniversityRes(Resource):
         result = parent.__dict__
         result.update(child.__dict__)
         return result, 200
-        unis = UniversityTable.query.order_by(UniversityTable.university_id)
 
 
 class UniversityWithInfoRes(Resource):
