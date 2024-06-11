@@ -83,10 +83,7 @@ export function CreateReviewForm({ university_id }: { university_id: string }) {
       // TODO: handle more exceptions
       let toastMsg = 'Something went wrong!'
 
-      toast.error(toastMsg, {
-        id: toastId,
-        duration: 2000,
-      })
+      toast.error(toastMsg, { id: toastId })
     }
   }
 

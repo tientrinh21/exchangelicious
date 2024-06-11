@@ -19,6 +19,10 @@ export function EditDeleteReview({ review }: { review: Review }) {
     }
   }, [typeof window !== 'undefined'])
 
+  function handleDeleteReview() {
+    throw new Error('Function not implemented.')
+  }
+
   return (
     <div
       className={cn(
@@ -30,7 +34,7 @@ export function EditDeleteReview({ review }: { review: Review }) {
         <Pencil1Icon className="h-4 w-4 text-primary" />
         <span className="sr-only">Edit review</span>
       </Button>
-      <Button size="icon" variant="ghost">
+      <Button size="icon" variant="ghost" onClick={handleDeleteReview}>
         <TrashIcon className="h-4 w-4 text-destructive" />
         <span className="sr-only">Delete review</span>
       </Button>

@@ -80,10 +80,7 @@ export function RegisterForm() {
       else if (errMsg.includes('FOREIGN KEY (`home_university`)'))
         toastMsg = 'The input university does not exist'
 
-      toast.error(toastMsg, {
-        id: toastId,
-        duration: 2000,
-      })
+      toast.error(toastMsg, { id: toastId })
     }
   }
 

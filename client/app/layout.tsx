@@ -34,7 +34,7 @@ export default function RootLayout({ children }: RootLayoutProps) {
           <SiteHeader />
           <main className="min-h-[82vh] flex-1">{children}</main>
           <SiteFooter />
-          <Toaster position="bottom-right" richColors />
+          <Toaster position="bottom-right" richColors duration={1500} />
         </Provider>
       </body>
     </html>

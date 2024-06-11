@@ -85,10 +85,7 @@ export function AddUniDialog() {
       if (errMsg.includes('FOREIGN KEY (`country_code`)'))
         toastMsg = 'The input country does not exist'
 
-      toast.error(toastMsg, {
-        id: toastId,
-        duration: 2000,
-      })
+      toast.error(toastMsg, { id: toastId })
     }
   }
 

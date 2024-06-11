@@ -61,10 +61,7 @@ export default function UniInfoForm({ data }: { data: UniversityInfo }) {
       let toastMsg = 'Something went wrong!'
       if (errMsg.includes('FOREIGN KEY')) toastMsg = 'The input is not valid.'
 
-      toast.error(toastMsg, {
-        id: toastId,
-        duration: 2000,
-      })
+      toast.error(toastMsg, { id: toastId })
     }
   }
   return (
