@@ -24,8 +24,6 @@ export default function ReviewSection(props: { university_id: string }) {
   // fetch initial data
   useEffect(() => {
     setIsLoading(true)
-    setPageNumber(2)
-
     axios({
       method: 'GET',
       url: `${BASE_URL}/reviews/paginate`,
@@ -48,6 +46,8 @@ export default function ReviewSection(props: { university_id: string }) {
         setIsLoading(false)
       })
 
+    // Needed when new review added
+    setPageNumber(2)
     setReloadReviews(false)
   }, [reloadReviews])
 

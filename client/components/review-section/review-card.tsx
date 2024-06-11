@@ -10,6 +10,7 @@ import Markdown from 'react-markdown'
 import remarkGfm from 'remark-gfm'
 import { DownvoteButton } from './downvote-button'
 import { UpvoteButton } from './upvote-button'
+import { EditDeleteReview } from './edit-delete-review'
 
 export const atomHasUpvoted = atom(false)
 export const atomUpvotes = atom(0)
@@ -78,13 +79,17 @@ export function ReviewCard({ review }: { review: Review }) {
         </Markdown>
       </div>
 
-      <div className="flex gap-1">
-        <Provider>
-          <AtomsHydrator review={review}>
-            <UpvoteButton review={review} />
-            <DownvoteButton review={review} />
-          </AtomsHydrator>
-        </Provider>
+      <div className="flex justify-between">
+        <div className="flex gap-1">
+          <Provider>
+            <AtomsHydrator review={review}>
+              <UpvoteButton review={review} />
+              <DownvoteButton review={review} />
+            </AtomsHydrator>
+          </Provider>
+        </div>
+
+        <EditDeleteReview review={review} />
       </div>
     </div>
   )
