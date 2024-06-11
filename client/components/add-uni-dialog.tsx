@@ -29,7 +29,7 @@ import {
   PopoverTrigger,
 } from '@/components/ui/popover'
 import { ScrollArea } from '@/components/ui/scroll-area'
-import { useAuth } from '@/lib/auth'
+import { useAuthAtom } from '@/lib/auth'
 import countries from '@/lib/countries.json'
 import { createUniversity } from '@/lib/request'
 import { cn } from '@/lib/utils'
@@ -46,7 +46,7 @@ import { toast } from 'sonner'
 const housingOptions = Object.values(Housing)
 
 export function AddUniDialog() {
-  const isAuth = useAuth()
+  const isAuth = useAuthAtom()
   const router = useRouter()
   const pathname = usePathname()
 

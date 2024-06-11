@@ -6,7 +6,7 @@ import {
   DropdownMenuItem,
   DropdownMenuTrigger,
 } from '@/components/ui/dropdown-menu'
-import { authAtom, getUserData, useAuth } from '@/lib/auth'
+import { authAtom, getUserData, useAuthAtom } from '@/lib/auth'
 import { ExitIcon, FileTextIcon, PersonIcon } from '@radix-ui/react-icons'
 import { useSetAtom } from 'jotai/react'
 import Link from 'next/link'
@@ -19,7 +19,7 @@ export function AccountButton() {
   const router = useRouter()
   const [open, setOpen] = useState(false)
 
-  const isAuth = useAuth()
+  const isAuth = useAuthAtom()
   const setIsAuth = useSetAtom(authAtom)
   const user = isAuth ? getUserData() : undefined
 

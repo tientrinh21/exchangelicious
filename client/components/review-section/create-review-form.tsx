@@ -21,7 +21,7 @@ import {
   PopoverContent,
   PopoverTrigger,
 } from '@/components/ui/popover'
-import { getUserData, isAuthenticated } from '@/lib/auth'
+import { getUserData, isAuthenticated, useUser } from '@/lib/auth'
 import { createReview } from '@/lib/request'
 import { cn, displayMood, moods } from '@/lib/utils'
 import { MoodScore } from '@/types/review-section'
@@ -41,17 +41,7 @@ export function CreateReviewForm({ university_id }: { university_id: string }) {
 
   const setReloadReviews = useSetAtom(atomReloadReviews)
 
-  // TODO: Fix cannot use useAuth because its parent is RSC
-  const [isAuth, setIsAuth] = useState(false)
-  const [user, setUser] = useState<User>()
-
-  useEffect(() => {
-    if (isAuthenticated()) {
-      setIsAuth(true)
-      const user = getUserData()
-      setUser(user)
-    }
-  }, [typeof window !== 'undefined'])
+  const user = useUser()
 
   // Define form
   const form = useForm<ReviewFormSchema>({
@@ -80,9 +70,7 @@ export function CreateReviewForm({ university_id }: { university_id: string }) {
       const errMsg: string = error.response.data.message
       console.error(errMsg)
 
-      // TODO: handle more exceptions
       let toastMsg = 'Something went wrong!'
-
       toast.error(toastMsg, { id: toastId })
     }
   }
@@ -93,7 +81,7 @@ export function CreateReviewForm({ university_id }: { university_id: string }) {
         onSubmit={form.handleSubmit(onSubmit)}
         className={cn(
           'grid w-full grid-cols-1 gap-y-2 font-medium sm:grid-cols-[1fr_max-content_max-content] sm:gap-x-1',
-          !isAuth && 'hidden',
+          !user && 'hidden',
         )}
       >
         <FormField
