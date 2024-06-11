@@ -29,13 +29,17 @@ import { reviewFormSchema, type ReviewFormSchema } from '@/types/schema'
 import type { User } from '@/types/user'
 import { zodResolver } from '@hookform/resolvers/zod'
 import { CaretSortIcon, CheckIcon } from '@radix-ui/react-icons'
+import { useSetAtom } from 'jotai'
 import { useEffect, useState } from 'react'
 import { useForm } from 'react-hook-form'
 import { toast } from 'sonner'
+import { atomReloadReviews } from './review-section'
 
 export function CreateReviewForm({ university_id }: { university_id: string }) {
   const [moodOpen, setMoodOpen] = useState(false)
   const [moodValue, setMoodValue] = useState('')
+
+  const setReloadReviews = useSetAtom(atomReloadReviews)
 
   // TODO: Fix cannot use useAuth because its parent is RSC
   const [isAuth, setIsAuth] = useState(false)
@@ -64,14 +68,14 @@ export function CreateReviewForm({ university_id }: { university_id: string }) {
     const toastId = toast.loading('Creating review...')
 
     try {
-      const review = await createReview({
+      await createReview({
         user_id: user!.user_id,
         university_id,
         values,
       })
-      console.log(review)
       toast.success('Created successfully!', { id: toastId })
-      window.location.reload()
+      setReloadReviews(true)
+      form.reset()
     } catch (error: any) {
       const errMsg: string = error.response.data.message
       console.error(errMsg)

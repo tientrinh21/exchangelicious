@@ -7,8 +7,11 @@ import React, { useEffect, useState } from 'react'
 import InfiniteScroll from 'react-infinite-scroll-component'
 import { CreateReviewForm } from './create-review-form'
 import { ReviewCard } from './review-card'
+import { atom, useAtom } from 'jotai'
 
 const BASE_URL = 'http://127.0.0.1:8080/api'
+
+export const atomReloadReviews = atom(false)
 
 export default function ReviewSection(props: { university_id: string }) {
   const [reviews, setReviews] = useState<Review[]>([])
@@ -16,9 +19,12 @@ export default function ReviewSection(props: { university_id: string }) {
   const [hasMore, setHasMore] = useState(true)
   const [pageNumber, setPageNumber] = useState(2)
 
+  const [reloadReviews, setReloadReviews] = useAtom(atomReloadReviews)
+
   // fetch initial data
   useEffect(() => {
     setIsLoading(true)
+    setPageNumber(2)
 
     axios({
       method: 'GET',
@@ -41,7 +47,9 @@ export default function ReviewSection(props: { university_id: string }) {
         console.log(err)
         setIsLoading(false)
       })
-  }, [])
+
+    setReloadReviews(false)
+  }, [reloadReviews])
 
   const fetchMoreData = () => {
     setIsLoading(true)
@@ -70,8 +78,6 @@ export default function ReviewSection(props: { university_id: string }) {
         console.log(err)
         setIsLoading(false)
       })
-    // TODO: After a the comment has been added. You need to reset the infinite scroll
-    // (or something, so that the new comment shows up)
   }
 
   return (
