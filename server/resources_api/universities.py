@@ -27,15 +27,17 @@ class UniversityRes(Resource):
         )
         res = db.session.execute(stmt).first()
 
+        # None can happens if UniversityTable.country_code is null
         if res is None:
-            abort(
-                message=f"No university with the ID '{university_id}'.",
-                http_status_code=404,
-            )
-
-        parent, child = res
-        result = parent.__dict__
-        result.update(child.__dict__)
+            result = db.get_or_404(
+            UniversityTable,
+            university_id,
+            description=f"No univerisity with the ID '{university_id}'.",
+        )
+        else:
+            parent, child = res
+            result = parent.__dict__
+            result.update(child.__dict__)
         return result, 200
 
 
@@ -195,14 +197,12 @@ class UniversityWithInfoRes(Resource):
         try:
             args = self.patch_args.parse_args()
             info_page_id = args["info_page_id"]
-            info_page = (
-                db.session.query(InfoPageTable)
-                .filter_by(info_page_id=info_page_id)
-                .first()
+            info_page = db.get_or_404(
+                InfoPageTable,
+                info_page_id,
+                description=f"No InfoPage with the ID '{info_page_id}'.",
             )
 
-            if "info_page_id" in args and args["info_page_id"] is not None:
-                info_page.info_page_id = args["info_page_id"]
             if "webpage" in args and args["webpage"] is not None:
                 info_page.webpage = args["webpage"]
             if "introduction" in args and args["introduction"] is not None:
