@@ -1,12 +1,16 @@
 use exchangeDB;
 -- reset the tables metioned in this file
-drop table if exists partner_universities_table;
-drop table if exists exchange_university_table;
+drop table if exists upvote_table;
+drop table if exists downvote_table;
+drop table if exists review_table;
 drop table if exists user_table;
 drop table if exists university_table;
 drop table if exists info_page_table;
 drop table if exists favorites_table;
-drop table if exists review_table;
+drop trigger if exists update_upvotes_post;
+drop trigger if exists update_upvotes_delete;
+drop trigger if exists update_downvotes_post;
+drop trigger if exists update_downvotes_delete;
 
 
 -- uuid is 36 characters
@@ -45,74 +49,8 @@ create table university_table (
     foreign key (info_page_id) references info_page_table (info_page_id)
 );
 
--- Many-to-Many relation
-create table partner_universities_table (
-  id varchar(36) default (uuid()) primary key,
-  -- Not all partnerships har bilateral, this always for unidirectional partnerships
-  -- From means home uni
-  from_university_id varchar(36), 
-  to_university_id varchar(36),
-  -- If university.university_id gets deleted, deleate all accorences of that university in this table
-  -- same with update
-  constraint from_university_id_fk_con
-    foreign key (from_university_id) references university_table (university_id)
-    on delete cascade on update cascade,
-  constraint to_university_id_fk_con
-    foreign key (to_university_id) references university_table (university_id)
-    on delete cascade on update cascade
-);
-
-CREATE TABLE user_table
-(
-	user_id varchar(36) default (uuid()) PRIMARY KEY,
-    username varchar(40) unique,
-    -- Need to fix some password security
-    pwd varchar(64), 
-    salt varchar(32),
-    nationality char(3),
-    home_university varchar(40),
-    -- UNIQUE(username),
-	constraint home_university_fk_con
-    -- if the home university is deleted, then home_university should be set to null
-    -- if the home university is updated, then update the relevant info in this table too
-    foreign key (home_university) references university_table (university_id)
-    on delete set null on update cascade,
-  constraint nationality_fk_con
-    foreign key (nationality) references country_table (country_code)
-    on delete set null on update cascade
-    -- FOREIGN KEY (exchangeUniversity) REFERENCES University(UniversityID), 
-    -- FOREIGN KEY (nationality) REFERENCES Country(countryCode)
-);
-
--- Some stundents exchanges to multiple universities
--- And a university has many exchange students
--- Therefore many-to-many
-create table exchange_university_table (
-  id varchar(36) default (uuid()) primary key,
-  user_id varchar(36) not null,
-  university_id varchar(36) not null,
-  constraint user_id_fk_con
-    foreign key (user_id) references user_table (user_id)
-    on delete cascade on update cascade,
-  constraint university_id_fk_con
-    foreign key (university_id) references university_table (university_id)
-    on delete cascade on update cascade
-);
-
 DELIMITER //
 
--- CREATE TRIGGER before_uni_insert
--- BEFORE INSERT ON university_table
--- FOR EACH ROW
--- BEGIN
---     DECLARE var varchar(10);
---     SELECT uni_rank INTO var
---     FROM uni_ranking_table
---     WHERE uni_name = NEW.long_name
---     LIMIT 1;
-
---     SET NEW.ranking = var;
--- END//
 CREATE TRIGGER before_uni_insert
 BEFORE INSERT ON university_table
 FOR EACH ROW
@@ -126,30 +64,131 @@ BEGIN
     SET NEW.ranking = var;
 END//
 
+CREATE TRIGGER before_uni_update
+BEFORE UPDATE ON university_table
+FOR EACH ROW
+BEGIN
+    DECLARE var varchar(10);
+    SELECT uni_rank INTO var
+    FROM uni_ranking_table
+    WHERE uni_name LIKE CONCAT('%', NEW.long_name, '%')
+    LIMIT 1;
 
+    SET NEW.ranking = var;
+END//
 
 DELIMITER ;
 
--- Many-to-Many
--- https://dba.stackexchange.com/questions/74627/difference-between-on-delete-cascade-on-update-cascade-in-mysql
--- ^ ON DELETE CASCADE ON UPDATE CASCADE
-/*
-CREATE TABLE favorites (
-  user INTEGER NOT NULL,
-  university INTEGER NOT NULL,
-  PRIMARY KEY (user, university),
-  CONSTRAINT user_fk_con
-  FOREIGN KEY (user) REFERENCES User (userID)
-  ON DELETE CASCADE ON UPDATE CASCADE,
-  CONSTRAINT university_fk_con
-  FOREIGN KEY (university) REFERENCES University (universityID)
-  ON DELETE CASCADE ON UPDATE CASCADE,
+CREATE TABLE user_table
+(
+	user_id varchar(36) default (uuid()) PRIMARY KEY,
+  username varchar(40) unique,
+  pwd varchar(64), 
+  salt varchar(32),
+  nationality char(3),
+  home_university varchar(40),
+	constraint home_university_fk_con
+    -- if the home university is deleted, then home_university should be set to null
+    -- if the home university is updated, then update the relevant info in this table too
+    foreign key (home_university) references university_table (university_id)
+    on delete set null on update cascade,
+  constraint nationality_fk_con
+    foreign key (nationality) references country_table (country_code)
+    on delete set null on update cascade
+    -- FOREIGN KEY (exchangeUniversity) REFERENCES University(UniversityID), 
+    -- FOREIGN KEY (nationality) REFERENCES Country(countryCode)
 );
-*/
+
+create table review_table (
+	review_id varchar(36) default (uuid()) primary key,
+	# A university can have many reviews
+    university_id varchar(36) not null,
+	user_id varchar(36) not null,
+    title varchar(100) not null,
+	content text,
+    submit_datetime datetime,
+    last_edit_datetime datetime,
+    mood_score ENUM('very bad', 'bad', 'neutral', 'good', 'very good'),
+	upvotes int default 0,
+    downvotes int default 0,
+	constraint user_id_fk_con_review
+		foreign key (user_id) references user_table (user_id)
+		on delete cascade on update cascade,
+	constraint university_id_fk_con_review
+		foreign key (university_id) references university_table (university_id)
+		on delete cascade on update cascade
+);
+
+create table upvote_table (
+	upvote_id varchar(36) default (uuid()) primary key,
+    user_id varchar(36) not null,
+    review_id varchar(36) not null,
+	constraint user_id_up_fk_con
+		foreign key (user_id) references user_table (user_id)
+		on delete cascade on update cascade,
+	constraint review_id_up_fk_con
+		foreign key (review_id) references review_table (review_id)
+		on delete cascade on update cascade,
+	unique key only_one_upvote (user_id, review_id)
+);
+
+create table downvote_table (
+	downvote_id varchar(36) default (uuid()) primary key,
+    user_id varchar(36) not null,
+    review_id varchar(36) not null,
+	constraint user_id_down_fk_con
+		foreign key (user_id) references user_table (user_id)
+		on delete cascade on update cascade,
+	constraint review_id_down_fk_con
+		foreign key (review_id) references review_table (review_id)
+		on delete cascade on update cascade,
+	unique key only_one_downvote (user_id, review_id)
+);
+
+delimiter //
+CREATE TRIGGER update_upvotes_post
+AFTER INSERT ON upvote_table
+FOR EACH ROW
+BEGIN
+    UPDATE review_table
+    SET upvotes = upvotes + 1
+    WHERE review_id = NEW.review_id;
+END;
+// 
+
+CREATE TRIGGER update_upvotes_delete
+AFTER DELETE ON upvote_table
+FOR EACH ROW
+BEGIN
+    UPDATE review_table
+    SET upvotes = upvotes - 1
+    WHERE review_id = OLD.review_id;
+END;
+//
+CREATE TRIGGER update_downvotes_post
+AFTER INSERT ON downvote_table
+FOR EACH ROW
+BEGIN
+    UPDATE review_table
+    SET downvotes = downvotes + 1
+    WHERE review_id = NEW.review_id;
+END;
+// 
+
+CREATE TRIGGER update_downvotes_delete
+AFTER DELETE ON downvote_table
+FOR EACH ROW
+BEGIN
+    UPDATE review_table
+    SET downvotes = downvotes - 1
+    WHERE review_id = OLD.review_id;
+END;
+//
+delimiter ;
 
 insert into info_page_table(info_page_id, webpage, introduction, location, semester, application_deadlines, courses, housing, tuition, visa, eligibility, requirements) values
   (
-  "fe5c72da-bf4c-4e8d-9851-903de8fe7d01",
+  "skku_page",
   "https://www.skku.edu/eng/",
   "Sungkyunkwan University is a national university with 625 years of glorious history and shining tradition and is a representative symbol of a leading university which leads the new era. At the same time, the university has led the development of higher education in Korea by challenging and innovating with a mind for sharing and coexistence. We strive to newly form our own brand worthy of our name which actively embraces global social issues through pioneering of global management.",
   "Seoul, officially Seoul Special City, and formerly known as Hanseong and Keijō, is the capital of the Republic of Korea (ROK), commonly known as South Korea, and the country's most extensive urban center. The broader Seoul Capital Area, encompassing Gyeonggi province and Incheon metropolitan city, emerged as the world's fourth largest metropolitan economy in 2014, trailing only Tokyo, New York City, and Los Angeles, hosting more than half of South Korea's population. Although Seoul's population peaked at slightly over 10 million, it has gradually decreased since 2014, standing at approximately 9.97 million residents as of 2020. Seoul is the seat of the South Korean government.",
@@ -167,7 +206,7 @@ insert into info_page_table(info_page_id, webpage, introduction, location, semes
   ""
   ),
   (
-  "ef3d8c9a-5482-4a70-888d-e739ad31f5da",
+  "ntnu_page",
   "https://www.ntnu.edu/studies/exchange",
   "NTNU in Numbers: approximate 9,000 employees and 42,000 students.
 
@@ -250,7 +289,7 @@ You can read more about the process and apply on The Norwegian Directorate of Im
   ""
   ),
   (
-  "a2bc84b3-0fef-4e0d-a9da-019812338ab7",
+  "uio_page",
   "https://www.uio.no/english/",
   "Founded in 1811, UiO is the countrys largest and oldest university, renowned for its world-class research and commitment to scholarly advancement. At UiO, students have access to a wide range of programs across disciplines, including humanities, social sciences, natural sciences, law, and medicine.",
   "Oslo, the capital of Norway, is a vibrant city where modernity meets rich cultural heritage. Set against the backdrop of the Oslofjord and surrounded by lush forests, Oslo offers a perfect blend of urban excitement and natural tranquility. Explore its bustling streets lined with trendy cafes, boutiques, and museums, including the iconic Viking Ship Museum and the striking Opera House. Immerse yourself in the city's diverse culinary scene, from traditional Norwegian delicacies to international flavors. Whether you're strolling through the historic streets of Karl Johans gate or hiking in the nearby forests, Oslo captivates with its beauty, charm, and endless opportunities for adventure.",
@@ -301,7 +340,7 @@ You can read more about the process and apply on The Norwegian Directorate of Im
   ""
   ),
   (
-  "a664f903-2323-4f43-b390-f659a43be3b7",
+  "uib_page",
   "https://www.uib.no/en",
   "The University of Bergen (UiB) stands proudly on Norways picturesque western coast, overlooking the stunning fjords and surrounded by breathtaking natural beauty. The university was established in 1946.",
   "As Norway's second-largest city, Bergen is a vibrant hub of activity, offering a unique blend of old-world charm and modern sophistication. Its colorful wooden houses, cobblestone streets, and historic Hanseatic wharf, simply known as Bryggen, transport visitors back in time to the days of the medieval trading empire.
@@ -349,7 +388,7 @@ You can read more about the process and apply on The Norwegian Directorate of Im
   ""
   ),
   (
-  "9f2cea0c-9c0c-4566-92e0-e4b55c02af9b",
+  "utdallas_page",
   "https://ie.utdallas.edu/education-abroad/incoming-exchange",
   "Created by bold visionaries and tech pioneers, UT Dallas has nurtured generations of innovators in its first 50 years. Our roots go back to the 1960s when the three founders of Texas Instruments — Eugene McDermott, Erik Jonsson and Cecil Green — established the Graduate Research Center of the Southwest as a source of advanced research and trained scientists to benefit the state and the nation. Our creativity and enterprising spirit has been — and will continue to be — UT Dallas' guiding light.
 
@@ -422,13 +461,46 @@ Source: [https://utdallas.box.com/s/aa0wbsjdkpm7kuvrm5pxybhsg00svgi4](https://ut
   );
 
 insert into university_table(university_id, long_name, country_code, region, info_page_id, campus, housing, ranking) values
-  ('7ec48895-84fc-479c-9d9f-94c243148c0d', 'Sungkyunkwan University', 'KOR', 'Seoul, Suwon', 'fe5c72da-bf4c-4e8d-9851-903de8fe7d01', "Suwon Campus" , "On-campus", "145"),
-  ('82577908-cbee-4b1c-9a98-13efa48be3a7', 'Norwegian University of Science and Technology', 'NOR', 'Trondheim, Gjøvik, Ålesund', 'ef3d8c9a-5482-4a70-888d-e739ad31f5da', "Ålesund Campus", "No housing", "292"),
-  ('b534a0dc-68fd-4d95-a012-a315198fc9d6', 'University of Oslo', 'NOR', 'Oslo', 'a2bc84b3-0fef-4e0d-a9da-019812338ab7', "Oslo Campus", "No housing", "117"),
-  ('0a34e2df-6cb5-43df-bb67-441eac1ea273', 'University of Bergen', 'NOR', 'Bergen', 'a664f903-2323-4f43-b390-f659a43be3b7', "Bergen Campus", "No housing", "281"),
-  ('86a608f2-08ae-45e6-b680-8273680fe129', 'University of Texas at Dallas', 'USA', 'Richardson, Texas', '9f2cea0c-9c0c-4566-92e0-e4b55c02af9b', "Dallas Campus", "Off-campus", "520"),
-  ('umass_boston', 'University of Massachusetts Boston', 'USA', 'Boston, Massachusetts', 'fe5c72da-bf4c-4e8d-9851-903de8fe7d01', "Boston Campus", 1, "801-850"),
-  ('umanitoba', 'University of Manitoba', 'CAN', 'Winnipeg, Manitoba', 'fe5c72da-bf4c-4e8d-9851-903de8fe7d01', "Winnipeg Campus", "N/A", "671-680"),
-  ('utoronto', 'University of Toronto', 'CAN', 'Toronto, Ontarion', 'fe5c72da-bf4c-4e8d-9851-903de8fe7d01', "Toronto Campus", "N/A", "21"),
-  ('usask', 'University of Saskatchewan', 'CAN', 'Saskatoon, Saskatchewan', 'fe5c72da-bf4c-4e8d-9851-903de8fe7d01', "Saskatoon Campus", "Off-campus", "345"),
-  ('ntu', 'Nanyang Technological University', 'SGP', 'Nanyang Ave', 'fe5c72da-bf4c-4e8d-9851-903de8fe7d01', "Singapore Campus", "On-campus", "26");
+  ('skku', 'Sungkyunkwan University', 'KOR', 'Seoul, Suwon', 'skku_page', "Suwon Campus" , "On-campus", "None"),
+  ('ntnu', 'Norwegian University of Science and Technology', 'NOR', 'Trondheim, Gjøvik, Ålesund', 'ntnu_page', "Ålesund Campus", "No housing", "None"),
+  ('uio', 'University of Oslo', 'NOR', 'Oslo', 'uio_page', "Oslo Campus", "No housing", "None"),
+  ('uib', 'University of Bergen', 'NOR', 'Bergen', 'uib_page', "Bergen Campus", "No housing", "None"),
+  ('ut_dallas', 'University of Texas at Dallas', 'USA', 'Richardson, Texas', 'skku_page', "Dallas Campus", "Off-campus", "None"),
+  ('umass_boston', 'University of Massachusetts Boston', 'USA', 'Boston, Massachusetts', 'skku_page', "Boston Campus", "Off-campus", "None"),
+  ('umanitoba', 'University of Manitoba', 'CAN', 'Winnipeg, Manitoba', 'skku_page', "Winnipeg Campus", "N/A", "None"),
+  ('utoronto', 'University of Toronto', 'CAN', 'Toronto, Ontarion', 'skku_page', "Toronto Campus", "N/A", "None"),
+  ('usask', 'University of Saskatchewan', 'CAN', 'Saskatoon, Saskatchewan', 'skku_page', "Saskatoon Campus", "On-campus", "None"),
+  ('ets', 'Ecole de technolgie superieure', 'CAN', 'Montreal, Quebec', 'skku_page', "Montreal Campus", "On-campus", "None"),
+  ('ntu', 'Nanyang Technological University', 'SGP', 'Nanyang Ave', 'skku_page', "Singapore Campus", "On-campus", "None");
+
+# Note: the user dont have a password here, so you cant log in with them
+insert into user_table(user_id, username) values
+("9d9ed250-c3a5-4b9c-9d11-4ccecbde5c5c", "scanlan"),
+("be8b46a1-b6f7-46da-8945-60a624190181", "grog"),
+("d94b17fa-9546-43b7-b01e-191d402a0603", "percy"),
+("9245ba10-726f-48db-89c4-e3490eb17ba2", "keyleth"),
+("0d35f39b-181a-4a6d-8def-a789fc99ba7c", "pike"),
+("48072e43-bf19-4486-867d-d9f355cb10f1", "vax");
+  
+insert into review_table(review_id, university_id, user_id, title, content, submit_datetime ,last_edit_datetime,
+    mood_score) values
+("6df62b4d-d31-4f6a-8c8e-2d22fb805446", "ntnu", "9d9ed250-c3a5-4b9c-9d11-4ccecbde5c5c", "NTNU for life", "NTNU is the best evah", "2024-05-22 13:41:14", null, "very good"),
+("7df62b4d-2e10-421a-aeae-8d08a1613db4", "skku", "9d9ed250-c3a5-4b9c-9d11-4ccecbde5c5c", "We love skku - alfa",	"skkuuu is fantastic - alfa", "2024-05-23 15:41:49", null, "neutral"),
+("8056c629-e9ee-4fac-96ae-90bdd01f1190", "skku", "9d9ed250-c3a5-4b9c-9d11-4ccecbde5c5c", "We love skku - beta",	"skkuuu is fantastic - beta", "2024-05-23 13:41:49", null, "neutral"),
+("8e420f12-2546-4fc9-8a70-800e5d1ebf0d", "skku", "9245ba10-726f-48db-89c4-e3490eb17ba2", "We love skku - echo",	"skkuuu is fantastic - echo", "2024-05-23 12:41:49", null, "neutral"),
+("e3cabc1e-4e84-4a8b-b00b-bb22fff8ab98", "skku", "9245ba10-726f-48db-89c4-e3490eb17ba2", "We love skku - charlie",	"skkuuu is fantastic - charlie", "2024-05-23 11:41:49", null, "neutral"),
+("e6ee153a-b592-4a29-94f2-f41d6fdd445c", "skku", "9245ba10-726f-48db-89c4-e3490eb17ba2", "We love skku - delta",	"skkuuu is fantastic - delta", "2024-05-23 11:45:49", null, "neutral");
+
+insert into upvote_table(review_id, user_id) values
+("7df62b4d-2e10-421a-aeae-8d08a1613db4", "9d9ed250-c3a5-4b9c-9d11-4ccecbde5c5c"),
+("7df62b4d-2e10-421a-aeae-8d08a1613db4", "be8b46a1-b6f7-46da-8945-60a624190181"),
+("7df62b4d-2e10-421a-aeae-8d08a1613db4", "d94b17fa-9546-43b7-b01e-191d402a0603"),
+("8056c629-e9ee-4fac-96ae-90bdd01f1190", "9d9ed250-c3a5-4b9c-9d11-4ccecbde5c5c"),
+("8056c629-e9ee-4fac-96ae-90bdd01f1190", "be8b46a1-b6f7-46da-8945-60a624190181"),
+("8056c629-e9ee-4fac-96ae-90bdd01f1190", "9245ba10-726f-48db-89c4-e3490eb17ba2"),
+("8056c629-e9ee-4fac-96ae-90bdd01f1190", "0d35f39b-181a-4a6d-8def-a789fc99ba7c");
+
+insert into downvote_table(review_id, user_id) values
+("8056c629-e9ee-4fac-96ae-90bdd01f1190", "48072e43-bf19-4486-867d-d9f355cb10f1"),
+("8056c629-e9ee-4fac-96ae-90bdd01f1190", "d94b17fa-9546-43b7-b01e-191d402a0603");
+

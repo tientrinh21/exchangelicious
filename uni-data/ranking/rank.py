@@ -3,7 +3,7 @@ import os
 from sqlalchemy import create_engine, text, Table, MetaData, URL, insert, Column
 from sqlalchemy.dialects.mysql import VARCHAR
 from dotenv import load_dotenv
-from sqlalchemy.dialects.mysql import insert as mysql_insert
+from sqlalchemy.dialects.mysql import insert
 
 # loads the variables in the .env file so we can access them
 load_dotenv()
@@ -40,7 +40,7 @@ with engine.connect() as connection:
     except Exception as e:
         print(f"An error occurred: {e}")
 
-ranking_data = pd.read_csv('ranking.csv', usecols=[0, 1, 16], header=0)
+ranking_data = pd.read_csv('uni-data/ranking/ranking.csv', usecols=[0, 1, 16], header=0)
 # print(ranking_data)
 rank_data = []
 

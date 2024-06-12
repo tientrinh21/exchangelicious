@@ -120,7 +120,7 @@ class UsersAllRes(Resource):
             # Update the user attributes if they are present in the args
             if "username" in args and args["username"] is not None:
                 user.username = args["username"]
-            if "pwd" in args and args["pwd"] is not None:
+            if "pwd" in args and args["pwd"] is not None and args["pwd"] != "":
                 salt = generate_salt()
                 # Hash the new password with the generated salt
                 hashed_password = hash_password(args["pwd"], salt)

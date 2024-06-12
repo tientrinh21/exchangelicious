@@ -10,7 +10,12 @@ from resources_api.universities import (
     UniversityWithInfoRes,
     UniversityAllRes,
 )
-
+from resources_api.review_section import (
+    ReviewPerUniPaginateRes, 
+    ReviewRes, 
+    UpvoteRes,
+    DownvoteRes
+)
 
 def initialize_routes(api):
     # register the resource at a certain route
@@ -23,3 +28,8 @@ def initialize_routes(api):
     api.add_resource(UserWithUniversityRes, "/api/users/<string:user_id>/uni")
     api.add_resource(UniversityPagination, "/api/universities/search")
     api.add_resource(UserLoginRes, "/api/users/login")
+    # Reviews
+    api.add_resource(ReviewRes, "/api/review")
+    api.add_resource(ReviewPerUniPaginateRes, "/api/reviews/paginate")
+    api.add_resource(UpvoteRes, "/api/review/upvote")
+    api.add_resource(DownvoteRes, "/api/review/downvote")
