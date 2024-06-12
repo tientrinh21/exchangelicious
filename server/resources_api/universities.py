@@ -303,6 +303,7 @@ class UniversityAllRes(Resource):
     def get(self):
         unis = UniversityTable.query.order_by(UniversityTable.long_name).all()
         return [uni for uni in unis], 200
+        # return universities_schema.dump(unis)
 
     @marshal_with(university_meta_table_resource_fields)
     def post(self):
@@ -409,3 +410,4 @@ class UniversityPagination(Resource):
                 page=page_number,
             )
         return {"hasMore": res.has_next, "items": [r for r in res]}, 200
+
