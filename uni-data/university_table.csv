@@ -1,27 +1,27 @@
 filename,university_id,country_code,region,long_name,info_page_id,ranking,housing,campus
-uni-data\data\belgium-brussel.md,iche,BEL,"Brussels","ICHEC Brussels Management School","belgium-brussel",nothing,housing_available,"Brussels Campus"
-uni-data\data\belgium-leuven.md,ku_leuven,BEL,"Leuven, Brussel","KU Leuven","belgium-leuven",nothing,housing_available,"Leuven Campus, Brussel Campus"
-uni-data\data\canada-ecole.md,new_ets,CAN,"Montreal, Quebec","Ecole de technolgie superieure","skku_page",nothing,housing_available,"Montreal Campus"
-uni-data\data\canada-hec.md,hec_monteral,CAN,"Montreal","HEC Montréal","canada-hec",nothing,housing_available,"Montréal Campus"
-uni-data\data\canada-manitoba.md,uni_manitoba,CAN,"Winnipeg, Manitoba","University of Manitoba","canada-manitoba",nothing,housing_available,"Winnipeg Campus"
-uni-data\data\canada-newfoundland.md,uni_newfoundland,CAN,"St. John's, Newfoundland",Memorial University of Newfoundland,"canada-newfoundland",nothing,housing_available,"St. John's Campus"
-uni-data\data\canada-okanagan.md,okanagan_collage,CAN,"Okanagan Valley, British Columbia",Okanagan College,"canada-okanagan",nothing,housing_available,"Okanagan Valley Campus"
-uni-data\data\canada-saska.md,uni_saskatchewan,CAN,"Saskatoon, Saskatchewan",University of Saskatchewan,"canada-saska",nothing,housing_available,Saskatoon Campus
-uni-data\data\canada-toronto.md,uni_toronto,CAN,"Toronto, Ontario",University of Toronto,"canada-toronto",nothing,housing_available,Toronto Campus
-uni-data\data\hk-baptist.md,hkbu,HKG,"Kowloon Tong, Hong Kong",Hong Kong Baptist University,"hk-baptist",nothing,housing_available,nothing
-uni-data\data\hk-hongkong.md,cityu,HKG,"Kowloon, Hong Kong",City University of Hong Kong,"hk-hongkong",nothing,housing_available,nothing
-uni-data\data\hk-polytech.md,polyu,HKG,"Hung Hom, Kowloon, Hong Kong",Hong Kong Polytechnic University,"hk-polytech",nothing,housing_available,nothing
-uni-data\data\italy-luav.md,uni_venice,ITA,"Venice",Iuav University of Venice,"italy-luav",nothing,housing_available,Venice campus
-uni-data\data\japan-waseda.md,waseda_uni,JPN,"Tokyo",Waseda University,"japan-waseda",nothing,housing_available,"Waseda Campus, Nishi-Waseda Campus, Toyama Campus, Tokorozawa Campus"
-uni-data\data\norway-ntnu.md,new_ntnu,NOR,"Trondheim, Gjøvik, Ålesund","Norwegian University of Science and Technology","norway-ntnu",nothing,housing_available,"Trondheim campus, Gjøvik campus, Ålesund campus"
-uni-data\data\norway-oslo.md,new_uio,NOR,"Oslo",University of Oslo,"norway-oslo",nothing,off_campus,Oslo Campus
-uni-data\data\usa-clarkson.md,clarkson_uni,USA,"Potsdam",Clarkson University,"usa-clarkson",nothing,on_campus,Postdam Campus
-uni-data\data\usa-houston.md,houston_reep,USA,"Houston",University of Houston,"usa-houston",nothing,on_campus,Houston Campus
-uni-data\data\usa-kelly.md,kelly,USA,Indiana,"Indiana University Bloomington","usa-kelly",nothing,housing_available,IU Bloomington campus
-uni-data\data\usa-mbu.md,umass,USA,"Boston, Massachusetts",UMass Boston,"usa-mbu",nothing,off_campus,Boston Campus
-uni-data\data\usa-northpark.md,northpark,USA,Chicago,North Park University,"usa-northpark",nothing,housing_available,North Park Campus
-uni-data\data\usa-pennstate.md,pennsate,USA,"Penn state, Germany",Penn State University,"usa-pennstate",nothing,on_campus,Several
+uni-data\data\belgium-brussel.md,iche,BEL,"Brussels","ICHEC Brussels Management School","belgium-brussel",nothing,"housing available","Brussels Campus"
+uni-data\data\belgium-leuven.md,ku_leuven,BEL,"Leuven, Brussel","KU Leuven","belgium-leuven",nothing,"housing available","Leuven Campus, Brussel Campus"
+uni-data\data\canada-ecole.md,new_ets,CAN,"Montreal, Quebec","Ecole de technolgie superieure","skku_page",nothing,"housing available","Montreal Campus"
+uni-data\data\canada-hec.md,hec_monteral,CAN,"Montreal","HEC Montréal","canada-hec",nothing,"housing available","Montréal Campus"
+uni-data\data\canada-manitoba.md,uni_manitoba,CAN,"Winnipeg, Manitoba","University of Manitoba","canada-manitoba",nothing,"housing available","Winnipeg Campus"
+uni-data\data\canada-newfoundland.md,uni_newfoundland,CAN,"St. John's, Newfoundland",Memorial University of Newfoundland,"canada-newfoundland",nothing,"housing available","St. John's Campus"
+uni-data\data\canada-okanagan.md,okanagan_collage,CAN,"Okanagan Valley, British Columbia",Okanagan College,"canada-okanagan",nothing,"housing available","Okanagan Valley Campus"
+uni-data\data\canada-saska.md,uni_saskatchewan,CAN,"Saskatoon, Saskatchewan",University of Saskatchewan,"canada-saska",nothing,"housing available",Saskatoon Campus
+uni-data\data\canada-toronto.md,uni_toronto,CAN,"Toronto, Ontario",University of Toronto,"canada-toronto",nothing,"housing available",Toronto Campus
+uni-data\data\hk-baptist.md,hkbu,HKG,"Kowloon Tong, Hong Kong",Hong Kong Baptist University,"hk-baptist",nothing,"housing available",nothing
+uni-data\data\hk-hongkong.md,cityu,HKG,"Kowloon, Hong Kong",City University of Hong Kong,"hk-hongkong",nothing,"housing available",nothing
+uni-data\data\hk-polytech.md,polyu,HKG,"Hung Hom, Kowloon, Hong Kong",Hong Kong Polytechnic University,"hk-polytech",nothing,"housing available",nothing
+uni-data\data\italy-luav.md,uni_venice,ITA,"Venice",Iuav University of Venice,"italy-luav",nothing,"housing available",Venice campus
+uni-data\data\japan-waseda.md,waseda_uni,JPN,"Tokyo",Waseda University,"japan-waseda",nothing,"housing available","Waseda Campus, Nishi-Waseda Campus, Toyama Campus, Tokorozawa Campus"
+uni-data\data\norway-ntnu.md,new_ntnu,NOR,"Trondheim, Gjøvik, Ålesund","Norwegian University of Science and Technology","norway-ntnu",nothing,"housing available","Trondheim campus, Gjøvik campus, Ålesund campus"
+uni-data\data\norway-oslo.md,new_uio,NOR,"Oslo",University of Oslo,"norway-oslo",nothing,"off-campus",Oslo Campus
+uni-data\data\usa-clarkson.md,clarkson_uni,USA,"Potsdam",Clarkson University,"usa-clarkson",nothing,"on-campus",Postdam Campus
+uni-data\data\usa-houston.md,houston_reep,USA,"Houston",University of Houston,"usa-houston",nothing,"on-campus",Houston Campus
+uni-data\data\usa-kelly.md,kelly,USA,Indiana,"Indiana University Bloomington","usa-kelly",nothing,"housing available",IU Bloomington campus
+uni-data\data\usa-mbu.md,umass,USA,"Boston, Massachusetts",UMass Boston,"usa-mbu",nothing,"off-campus",Boston Campus
+uni-data\data\usa-northpark.md,northpark,USA,Chicago,North Park University,"usa-northpark",nothing,"housing available",North Park Campus
+uni-data\data\usa-pennstate.md,pennsate,USA,"Penn state, Germany",Penn State University,"usa-pennstate",nothing,"on-campus",Several
 uni-data\data\usa-sjsu.md,san_jose,USA,"San Jose, California",San Jose State University,"usa-sjsu",nothing,no_info,San Jose Campus
-uni-data\data\usa-ucsc.md,ucsc,USA,"California",UC Santa Cruz,"usa-ucsc",nothing,on_campus,campus
-uni-data\data\usa-unf.md,unf,USA,"Jacksonville, Florida",University of North Florida,"usa-unf",nothing,on_campus,campus
-uni-data\data\usa-utdallas.md,new_ut_dallas,USA,"Richardson, Texas","University of Texas at Dallas","usa-utdallas",nothing,on_campus,"Dallas Campus"
+uni-data\data\usa-ucsc.md,ucsc,USA,"California",UC Santa Cruz,"usa-ucsc",nothing,"on-campus",campus
+uni-data\data\usa-unf.md,unf,USA,"Jacksonville, Florida",University of North Florida,"usa-unf",nothing,"on-campus",campus
+uni-data\data\usa-utdallas.md,new_ut_dallas,USA,"Richardson, Texas","University of Texas at Dallas","usa-utdallas",nothing,"on-campus","Dallas Campus"

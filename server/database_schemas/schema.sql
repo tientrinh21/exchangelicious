@@ -12,7 +12,6 @@ drop trigger if exists update_upvotes_delete;
 drop trigger if exists update_downvotes_post;
 drop trigger if exists update_downvotes_delete;
 
-
 -- uuid is 36 characters
 -- TODO: Add not null or nullable to everything
 
@@ -40,7 +39,7 @@ create table university_table (
   long_name varchar(255),
   info_page_id varchar(36),
   ranking varchar(10),
-  housing boolean,
+  housing enum('On-campus', 'Off-campus', 'housing available' ,'No housing', 'N/A') not null default 'N/A',
   campus varchar(255),
   constraint country_code_fk_con
     foreign key (country_code) references country_table (country_code)
@@ -461,17 +460,17 @@ Source: [https://utdallas.box.com/s/aa0wbsjdkpm7kuvrm5pxybhsg00svgi4](https://ut
   );
 
 insert into university_table(university_id, long_name, country_code, region, info_page_id, campus, housing, ranking) values
-  ('skku', 'Sungkyunkwan University', 'KOR', 'Seoul, Suwon', 'skku_page', "Suwon Campus" , 1, "None"),
-  ('ntnu', 'Norwegian University of Science and Technology', 'NOR', 'Trondheim, Gjøvik, Ålesund', 'ntnu_page', "Ålesund Campus", 0, "None"),
-  ('uio', 'University of Oslo', 'NOR', 'Oslo', 'uio_page', "Oslo Campus", 0, "None"),
-  ('uib', 'University of Bergen', 'NOR', 'Bergen', 'uib_page', "Bergen Campus", 0, "None"),
-  ('ut_dallas', 'University of Texas at Dallas', 'USA', 'Richardson, Texas', 'skku_page', "Dallas Campus", 1, "None"),
-  ('umass_boston', 'University of Massachusetts Boston', 'USA', 'Boston, Massachusetts', 'skku_page', "Boston Campus", 1, "None"),
-  ('umanitoba', 'University of Manitoba', 'CAN', 'Winnipeg, Manitoba', 'skku_page', "Winnipeg Campus", 0, "None"),
-  ('utoronto', 'University of Toronto', 'CAN', 'Toronto, Ontarion', 'skku_page', "Toronto Campus", 0, "None"),
-  ('usask', 'University of Saskatchewan', 'CAN', 'Saskatoon, Saskatchewan', 'skku_page', "Saskatoon Campus", 1, "None"),
-  ('ets', 'Ecole de technolgie superieure', 'CAN', 'Montreal, Quebec', 'skku_page', "Montreal Campus", 1, "None"),
-  ('ntu', 'Nanyang Technological University', 'SGP', 'Nanyang Ave', 'skku_page', "Singapore Campus", 1, "None");
+  ('skku', 'Sungkyunkwan University', 'KOR', 'Seoul, Suwon', 'skku_page', "Suwon Campus" , "On-campus", "None"),
+  ('ntnu', 'Norwegian University of Science and Technology', 'NOR', 'Trondheim, Gjøvik, Ålesund', 'ntnu_page', "Ålesund Campus", "No housing", "None"),
+  ('uio', 'University of Oslo', 'NOR', 'Oslo', 'uio_page', "Oslo Campus", "No housing", "None"),
+  ('uib', 'University of Bergen', 'NOR', 'Bergen', 'uib_page', "Bergen Campus", "No housing", "None"),
+  ('ut_dallas', 'University of Texas at Dallas', 'USA', 'Richardson, Texas', 'skku_page', "Dallas Campus", "Off-campus", "None"),
+  ('umass_boston', 'University of Massachusetts Boston', 'USA', 'Boston, Massachusetts', 'skku_page', "Boston Campus", "Off-campus", "None"),
+  ('umanitoba', 'University of Manitoba', 'CAN', 'Winnipeg, Manitoba', 'skku_page', "Winnipeg Campus", "N/A", "None"),
+  ('utoronto', 'University of Toronto', 'CAN', 'Toronto, Ontarion', 'skku_page', "Toronto Campus", "N/A", "None"),
+  ('usask', 'University of Saskatchewan', 'CAN', 'Saskatoon, Saskatchewan', 'skku_page', "Saskatoon Campus", "On-campus", "None"),
+  ('ets', 'Ecole de technolgie superieure', 'CAN', 'Montreal, Quebec', 'skku_page', "Montreal Campus", "On-campus", "None"),
+  ('ntu', 'Nanyang Technological University', 'SGP', 'Nanyang Ave', 'skku_page', "Singapore Campus", "On-campus", "None");
 
 # Note: the user dont have a password here, so you cant log in with them
 insert into user_table(user_id, username) values

@@ -40,7 +40,7 @@ with engine.connect() as connection:
     except Exception as e:
         print(f"An error occurred: {e}")
 
-ranking_data = pd.read_csv('uni-data/ranking/ranking.csv', usecols=[0, 1, 16], header=0)
+ranking_data = pd.read_csv('./uni-data/ranking/ranking.csv', usecols=[0, 1, 16], header=0)
 # print(ranking_data)
 rank_data = []
 

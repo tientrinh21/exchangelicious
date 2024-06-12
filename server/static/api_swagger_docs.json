@@ -213,7 +213,7 @@
           }
         }
       },
-      "delete":{
+      "delete": {
         "tags": ["University"],
         "summary": "Delete university by ID",
         "description": "Deletes a single university",

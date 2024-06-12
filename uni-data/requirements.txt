@@ -15,3 +15,4 @@ six==1.16.0
 soupsieve==2.5
 tzdata==2024.1
 urllib3==2.2.1
+SQLAlchemy==2.0.29
