@@ -185,6 +185,7 @@ END;
 //
 delimiter ;
 
+/*
 insert into info_page_table(info_page_id, webpage, introduction, location, semester, application_deadline, courses, housing, tuition, visa, eligibility, requirements) values
   (
   "skku_page",
@@ -502,4 +503,4 @@ insert into upvote_table(review_id, user_id) values
 insert into downvote_table(review_id, user_id) values
 ("8056c629-e9ee-4fac-96ae-90bdd01f1190", "48072e43-bf19-4486-867d-d9f355cb10f1"),
 ("8056c629-e9ee-4fac-96ae-90bdd01f1190", "d94b17fa-9546-43b7-b01e-191d402a0603");
-
+*/

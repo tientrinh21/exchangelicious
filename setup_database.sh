@@ -11,7 +11,7 @@ else
 fi
 
 # Check if required environment variables are set
-if [ -z "$DB_USERNAME" ] || [ -z "$DB_PASSWORD" ] || [ -z "$DB_SERVER" ] || [ -z "$DB_NAME" ] || [ -z "$DB_PORT" ]; then
+if [ -z "$DB_USERNAME" ] || [ -z "$DB_PASSWORD" ]; then
   echo "One or more required environment variables are missing!"
   exit 1
 fi
@@ -30,7 +30,7 @@ execute_sql_file() {
   fi
 }
 
-# Run the setup - the path maybe differtent on a different computer
+# Run the setup - the paths may be different on a different computer
 execute_sql_file ./server/database_schemas/countries.sql
 source ./uni-data/.venv/Scripts/activate
 python ./uni-data/ranking/rank.py

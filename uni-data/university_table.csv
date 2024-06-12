@@ -1,7 +1,7 @@
 filename,university_id,country_code,region,long_name,info_page_id,ranking,housing,campus
 uni-data\data\belgium-brussel.md,iche,BEL,"Brussels","ICHEC Brussels Management School","belgium-brussel",nothing,"housing available","Brussels Campus"
 uni-data\data\belgium-leuven.md,ku_leuven,BEL,"Leuven, Brussel","KU Leuven","belgium-leuven",nothing,"housing available","Leuven Campus, Brussel Campus"
-uni-data\data\canada-ecole.md,new_ets,CAN,"Montreal, Quebec","Ecole de technolgie superieure","skku_page",nothing,"housing available","Montreal Campus"
+uni-data\data\canada-ecole.md,new_ets,CAN,"Montreal, Quebec","Ecole de technolgie superieure","canada-ecole",nothing,"housing available","Montreal Campus"
 uni-data\data\canada-hec.md,hec_monteral,CAN,"Montreal","HEC Montréal","canada-hec",nothing,"housing available","Montréal Campus"
 uni-data\data\canada-manitoba.md,uni_manitoba,CAN,"Winnipeg, Manitoba","University of Manitoba","canada-manitoba",nothing,"housing available","Winnipeg Campus"
 uni-data\data\canada-newfoundland.md,uni_newfoundland,CAN,"St. John's, Newfoundland",Memorial University of Newfoundland,"canada-newfoundland",nothing,"housing available","St. John's Campus"
@@ -11,17 +11,63 @@ uni-data\data\canada-toronto.md,uni_toronto,CAN,"Toronto, Ontario",University of
 uni-data\data\hk-baptist.md,hkbu,HKG,"Kowloon Tong, Hong Kong",Hong Kong Baptist University,"hk-baptist",nothing,"housing available",nothing
 uni-data\data\hk-hongkong.md,cityu,HKG,"Kowloon, Hong Kong",City University of Hong Kong,"hk-hongkong",nothing,"housing available",nothing
 uni-data\data\hk-polytech.md,polyu,HKG,"Hung Hom, Kowloon, Hong Kong",Hong Kong Polytechnic University,"hk-polytech",nothing,"housing available",nothing
+uni-data\data\italy-foscari.md,unive,ITA,"Venice","Ca' Foscari University of Venice","italy-foscari",nothing,"housing available",Venice campus
+uni-data\data\italy-polytech.md,polimi,ITA,"Milan",Polytechnic University of Milan,italy-polytech,nothing,housing available,Milan campus
+uni-data\data\italy-verona.md,univr,ITA,"Verona",University of Verona,italy-verona,nothing,housing available,Verona campus
 uni-data\data\italy-luav.md,uni_venice,ITA,"Venice",Iuav University of Venice,"italy-luav",nothing,"housing available",Venice campus
+uni-data\data\japan-aoyoma.md,aoyama,JPN,"Tokyo",Aoyama Gakuin University,japan-aoyoma,nothing,housing available,Tokyo campus
+uni-data\data\japan-chuo.md,chuo,JPN,"Tokyo",Chuo University,japan-chuo,nothing,housing available,Tokyo campus
+uni-data\data\japan-daito.md,daito,JPN,"Tokyo",Daito Bunka University,japan-daito,nothing,housing available,Tokyo campus
+uni-data\data\japan-hitot.md,hito,JPN,"Tokyo",Hitotsubashi University,japan-hitot,nothing,housing available,Tokyo campus
+uni-data\data\japan-kyoto.md,kyoto_uni,JPN,"Kyoto",Kyoto University,japan-kyoto,nothing,housing available,Kyoto campus
+uni-data\data\japan-kyushu.md,kyushu,JPN,"Fukuoka",Kyushu University,japan-kyushu,nothing,housing available,Fukuoka campus
+uni-data\data\japan-nagasaki.md,nagasaki,JPN,"Nagasaki","Nagasaki University",japan-nagasaki,nothing,housing available,Nagasaki campus
+uni-data\data\japan-nagoya.md,nagoya,JPN,"Nagoya",Nagoya University,japan-nagoya,nothing,housing available,Nagoya campus
+uni-data\data\japan-nishoga.md,nishogakusha,JPN,"Tokyo",Nishogakusha University,japan-nishoga,nothing,housing available,Tokyo Campus
+uni-data\data\japan-okayama.md,okayama,JPN,"Okayama",Okayama University,japan-okayama,nothing,housing available,Okayama campus
+uni-data\data\japan-ritsumeikan.md,ritsumei,JPN,"Kyoto",Ritsumeikan University,japan-ritsumeikan,nothing,housing available,Kyoto campus
+uni-data\data\japan-soka.md,soka,JPN,"Tokyo",Soka University,japan-soka,nothing,housing available,Tokyo campus
+uni-data\data\japan-toyo.md,toyo,JPN,"Tokyo",Toyo University,japan-toyo,nothing,housing available,Tokyo campus
 uni-data\data\japan-waseda.md,waseda_uni,JPN,"Tokyo",Waseda University,"japan-waseda",nothing,"housing available","Waseda Campus, Nishi-Waseda Campus, Toyama Campus, Tokorozawa Campus"
+uni-data\data\nether-amsterdam.md,vunl,NLD,"Amsterdam",Vrije Universiteit Amsterdam,"nether-amsterdam",nothing,housing available,Amsterdam campus
+uni-data\data\nether-erasmus.md,eurnl,NLD,"Rotterdam",Erasmus University Rotterdam,"nether-erasmus",nothing,housing available,Rotterdam campus
+uni-data\data\nether-fontys.md,fontys,NLD,"Eindhoven",Fontys University of Applied Sciences,"nether-fontys",nothing,housing available,Eindhoven campus
+uni-data\data\nether-hague.md,thuas,NLD,"The Hague",The Hague University of Applied Sciences,"nether-hague",nothing,housing available,The Hague campus
+uni-data\data\nether-hanze.md,hanze,NLD,"Groningen",Hanze University of Applied Sciences Groningen,"nether-hanze",nothing,housing available,Groningen campus
+uni-data\data\nether-hu.md,internationalhu,NLD,"Utrecht",HU University of Applied Sciences Utrecht,"nether-hu",nothing,housing available,Utrecht campus
+uni-data\data\nether-maastri.md,maastrichtuniversity,NLD,"Maastricht",Maastricht University,"nether-maastri",nothing,housing available,Maastricht campus
+uni-data\data\nether-nhl.md,nhlstenden,NLD,"Leeuwarden","NHL Stenden University of Applied Sciences","nether-nhl",nothing,housing available,Leeuwarden campus
+uni-data\data\nether-radboud.md,runl,NLD,"Nijmegen",Radboud University,"nether-radboud",nothing,housing available,Nijmegen campus
+uni-data\data\nether-tilburg.md,tilburguniversity,NLD,"Tilburg",Tilburg University,"nether-tilburg",nothing,housing available,Tilburg campus
 uni-data\data\norway-ntnu.md,new_ntnu,NOR,"Trondheim, Gjøvik, Ålesund","Norwegian University of Science and Technology","norway-ntnu",nothing,"housing available","Trondheim campus, Gjøvik campus, Ålesund campus"
 uni-data\data\norway-oslo.md,new_uio,NOR,"Oslo",University of Oslo,"norway-oslo",nothing,"off-campus",Oslo Campus
+uni-data\data\singapore-nanyang.md,ntusg,SGP,"Singapore",Nanyang Technological University,"singapore-nanyang",nothing,housing available,Singapore campus
+uni-data\data\singapore-tech.md,sutdsg,SGP,"Singapore",Singapore University of Technology and Design,"singapore-tech",nothing,housing available,Singapore campus
+uni-data\data\spain-alicante.md,uni_alicante,ESP,"Alicante",University of Alicante,"spain-alicante",nothing,housing available,Alicante campus
+uni-data\data\spain-barcelona.md,uni_barcelona,ESP,"Barcelona",University of Barcelona,"spain-barcelona",nothing,housing available,Barcelona campus
+uni-data\data\spain-madrid.md,uni_madrid,ESP,"Madrid",Autonomous University of Madrid,"spain-madrid",nothing,housing available,Madrid campus
+uni-data\data\spain-polytech.md,upv,ESP,"Valencia",Polytechnic University of Valencia,"spain-polytech",nothing,housing available,Valencia campus
+uni-data\data\sweden-linkoping.md,liuse,SWE,"Linköping","Linköping University","sweden-linkoping",nothing,housing available,Linköping campus
+uni-data\data\sweden-umea.md,umuse,SWE,"Umeå","Umeå University","sweden-umea",nothing,housing available,Umeå campus
+uni-data\data\switz-applied.md,fhnw,CHE,"Olten","University of Applied Sciences and Arts Northwestern Switzerland","switz-applied",nothing,housing available,Olten campus
+uni-data\data\switz-bern.md,unibe,CHE,"Bern","University of Bern","switz-bern",nothing,housing available,Bern campus
+uni-data\data\uk-bristol.md,bristol,GBR,"Bristol","University of Bristol","uk-bristol",nothing,housing available,Bristol campus
+uni-data\data\uk-hertfordshire.md,herts,GBR,"Hertfordshire","University of Hertfordshire","uk-hertfordshire",nothing,housing available,Hertfordshire campus
+uni-data\data\uk-lancashire.md,uclan,GBR,"Preston","University of Central Lancashire","uk-lancashire",nothing,housing available,Preston campus
+uni-data\data\uk-leeds.md,leeds,GBR,"Leeds","University of Leeds","uk-leeds",nothing,housing available,Leeds campus
+uni-data\data\uk-leicester.md,leacuk,GBR,"Leicester","University of Leicester","uk-leicester",nothing,housing available,Leeds campus
+uni-data\data\uk-northumbria.md,northumbria,GBR,"Newcastle upon Tyne","Northumbria University","uk-northumbria",nothing,housing available,Newcastle upon Tyne campus
+uni-data\data\uk-reading.md,reading,GBR,"Reading","University of Reading","uk-reading",nothing,housing available,Reading campus
+uni-data\data\uk-sheffield.md,Sheffield,GBR,"Sheffield","University of Sheffield","uk-sheffield",nothing,housing available,Sheffield campus
+uni-data\data\uk-westeng.md,uweuk,GBR,"Bristol","University of the West of England","uk-westeng",nothing,housing available,Bristol campus
+uni-data\data\uk-york.md,yorksj,GBR,"York","York St John University","uk-york",nothing,housing available,York campus
 uni-data\data\usa-clarkson.md,clarkson_uni,USA,"Potsdam",Clarkson University,"usa-clarkson",nothing,"on-campus",Postdam Campus
 uni-data\data\usa-houston.md,houston_reep,USA,"Houston",University of Houston,"usa-houston",nothing,"on-campus",Houston Campus
 uni-data\data\usa-kelly.md,kelly,USA,Indiana,"Indiana University Bloomington","usa-kelly",nothing,"housing available",IU Bloomington campus
 uni-data\data\usa-mbu.md,umass,USA,"Boston, Massachusetts",UMass Boston,"usa-mbu",nothing,"off-campus",Boston Campus
 uni-data\data\usa-northpark.md,northpark,USA,Chicago,North Park University,"usa-northpark",nothing,"housing available",North Park Campus
 uni-data\data\usa-pennstate.md,pennsate,USA,"Penn state, Germany",Penn State University,"usa-pennstate",nothing,"on-campus",Several
-uni-data\data\usa-sjsu.md,san_jose,USA,"San Jose, California",San Jose State University,"usa-sjsu",nothing,no_info,San Jose Campus
+uni-data\data\usa-sjsu.md,san_jose,USA,"San Jose, California",San Jose State University,"usa-sjsu",nothing,"N/A",San Jose Campus
 uni-data\data\usa-ucsc.md,ucsc,USA,"California",UC Santa Cruz,"usa-ucsc",nothing,"on-campus",campus
 uni-data\data\usa-unf.md,unf,USA,"Jacksonville, Florida",University of North Florida,"usa-unf",nothing,"on-campus",campus
 uni-data\data\usa-utdallas.md,new_ut_dallas,USA,"Richardson, Texas","University of Texas at Dallas","usa-utdallas",nothing,"on-campus","Dallas Campus"

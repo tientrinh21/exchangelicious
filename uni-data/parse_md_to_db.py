@@ -41,7 +41,7 @@ def extract_info(file_path):
     # Extract texts under each Heading 1
     heading1_indices = [i for i, line in enumerate(lines) if line.startswith('# ')]
     # ignore this for now
-    if "Supported Major" in heading1_indices:
+    if "Supported Major" in [str(head).strip() for head in heading1_indices]:
         heading1_indices.remove("Supported Major")
         print("Removed supported major")
     else:
@@ -64,7 +64,7 @@ def insert_info_into_mysql(filename, url, headings):
 
     try:
         # Connect to MySQL database
-        cnx = mysql.connector.connect(**config)
+        cnx = mysql.connector.connect(**config, charset='utf8')
         cursor = cnx.cursor()
 
         # Insert the ID, URL and headings into info_page_table
@@ -87,7 +87,7 @@ def insert_info_into_mysql(filename, url, headings):
             print("Database does not exist")
         else:
             print(err)
-    else:
+    finally:
         cnx.close()
 
 def run(path_to_folder):
@@ -106,7 +106,7 @@ def run(path_to_folder):
 # Functions for making the metadata table
 def insert_summary_uni(filepath):
     abs_path = Path(filepath).absolute()
-    df = pd.read_csv(abs_path, header="infer", sep=",")
+    df = pd.read_csv(abs_path, header="infer", sep=",", keep_default_na=False, na_values=['_'], encoding='utf8')
     df = df.reset_index()  # make sure indexes pair with number of rows
 
     print(df.iloc[0])
@@ -122,7 +122,7 @@ def insert_summary_uni(filepath):
             # Insert the ID, URL and headings into info_page_table
             add_info = ("INSERT INTO university_table (university_id, long_name, country_code, region, info_page_id, campus, housing, ranking) VALUES (%s, %s, %s, %s, %s, %s, %s, %s)")
             # cursor.execute(add_info, (str(uuid.uuid4), "name", "code", "region", "id", "camps", 0, "200"))
-            cursor.execute(add_info, (row["university_id"], row["long_name"], row["country_code"],row["region"],str(row["info_page_id"]).replace("-", ""),row["campus"],0,"None"))
+            cursor.execute(add_info, (row["university_id"], row["long_name"], row["country_code"],row["region"],str(row["info_page_id"]).replace("-", ""),row["campus"],row["housing"],"None"))
             
         # Commit the transaction
         cnx.commit()
@@ -140,7 +140,7 @@ def insert_summary_uni(filepath):
             print("Database does not exist")
         else:
             print(err)
-    else:
+    finally:
         cnx.close()
 
 # Main script
