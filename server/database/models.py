@@ -40,13 +40,6 @@ class UniversityTable(db.Model):
     def __repr__(self):
         return f"<University {self.university_id} + {self.long_name}>"
 
-
-class PartnerUniversitiesTable(db.Model):
-    """deal with an existing table"""
-
-    __table__ = db.Model.metadata.tables[f"{DB_NAME}.partner_universities_table"]
-
-
 class UserTable(db.Model):
     """deal with an existing table"""
 
@@ -54,12 +47,6 @@ class UserTable(db.Model):
 
     def __repr__(self):
         return f"<User {self.username}>"
-
-
-class ExchangeUniversityTable(db.Model):
-    """deal with an existing table"""
-
-    __table__ = db.Model.metadata.tables[f"{DB_NAME}.exchange_university_table"]
 
 class ReviewTable(db.Model):
     """deal with an existing table"""

@@ -1,7 +1,5 @@
 use exchangeDB;
 -- reset the tables metioned in this file
-drop table if exists partner_universities_table;
-drop table if exists exchange_university_table;
 drop table if exists upvote_table;
 drop table if exists downvote_table;
 drop table if exists review_table;
@@ -190,7 +188,7 @@ delimiter ;
 
 insert into info_page_table(info_page_id, webpage, introduction, location, semester, application_deadline, courses, housing, tuition, visa, eligibility, requirements) values
   (
-  "fe5c72da-bf4c-4e8d-9851-903de8fe7d01",
+  "skku_page",
   "https://www.skku.edu/eng/",
   "Sungkyunkwan University is a national university with 625 years of glorious history and shining tradition and is a representative symbol of a leading university which leads the new era. At the same time, the university has led the development of higher education in Korea by challenging and innovating with a mind for sharing and coexistence. We strive to newly form our own brand worthy of our name which actively embraces global social issues through pioneering of global management.",
   "Seoul, officially Seoul Special City, and formerly known as Hanseong and Keijō, is the capital of the Republic of Korea (ROK), commonly known as South Korea, and the country's most extensive urban center. The broader Seoul Capital Area, encompassing Gyeonggi province and Incheon metropolitan city, emerged as the world's fourth largest metropolitan economy in 2014, trailing only Tokyo, New York City, and Los Angeles, hosting more than half of South Korea's population. Although Seoul's population peaked at slightly over 10 million, it has gradually decreased since 2014, standing at approximately 9.97 million residents as of 2020. Seoul is the seat of the South Korean government.",
@@ -208,7 +206,7 @@ insert into info_page_table(info_page_id, webpage, introduction, location, semes
   ""
   ),
   (
-  "ef3d8c9a-5482-4a70-888d-e739ad31f5da",
+  "ntnu_page",
   "https://www.ntnu.edu/studies/exchange",
   "NTNU in Numbers: approximate 9,000 employees and 42,000 students.
 
@@ -291,7 +289,7 @@ You can read more about the process and apply on The Norwegian Directorate of Im
   ""
   ),
   (
-  "a2bc84b3-0fef-4e0d-a9da-019812338ab7",
+  "uio_page",
   "https://www.uio.no/english/",
   "Founded in 1811, UiO is the countrys largest and oldest university, renowned for its world-class research and commitment to scholarly advancement. At UiO, students have access to a wide range of programs across disciplines, including humanities, social sciences, natural sciences, law, and medicine.",
   "Oslo, the capital of Norway, is a vibrant city where modernity meets rich cultural heritage. Set against the backdrop of the Oslofjord and surrounded by lush forests, Oslo offers a perfect blend of urban excitement and natural tranquility. Explore its bustling streets lined with trendy cafes, boutiques, and museums, including the iconic Viking Ship Museum and the striking Opera House. Immerse yourself in the city's diverse culinary scene, from traditional Norwegian delicacies to international flavors. Whether you're strolling through the historic streets of Karl Johans gate or hiking in the nearby forests, Oslo captivates with its beauty, charm, and endless opportunities for adventure.",
@@ -342,7 +340,7 @@ You can read more about the process and apply on The Norwegian Directorate of Im
   ""
   ),
   (
-  "a664f903-2323-4f43-b390-f659a43be3b7",
+  "uib_page",
   "https://www.uib.no/en",
   "The University of Bergen (UiB) stands proudly on Norways picturesque western coast, overlooking the stunning fjords and surrounded by breathtaking natural beauty. The university was established in 1946.",
   "As Norway's second-largest city, Bergen is a vibrant hub of activity, offering a unique blend of old-world charm and modern sophistication. Its colorful wooden houses, cobblestone streets, and historic Hanseatic wharf, simply known as Bryggen, transport visitors back in time to the days of the medieval trading empire.
@@ -390,7 +388,7 @@ You can read more about the process and apply on The Norwegian Directorate of Im
   ""
   ),
   (
-  "9f2cea0c-9c0c-4566-92e0-e4b55c02af9b",
+  "utdallas_page",
   "https://ie.utdallas.edu/education-abroad/incoming-exchange",
   "Created by bold visionaries and tech pioneers, UT Dallas has nurtured generations of innovators in its first 50 years. Our roots go back to the 1960s when the three founders of Texas Instruments — Eugene McDermott, Erik Jonsson and Cecil Green — established the Graduate Research Center of the Southwest as a source of advanced research and trained scientists to benefit the state and the nation. Our creativity and enterprising spirit has been — and will continue to be — UT Dallas' guiding light.
 
@@ -474,12 +472,6 @@ insert into university_table(university_id, long_name, country_code, region, inf
   ('usask', 'University of Saskatchewan', 'CAN', 'Saskatoon, Saskatchewan', 'skku_page', "Saskatoon Campus", 1, "None"),
   ('ets', 'Ecole de technolgie superieure', 'CAN', 'Montreal, Quebec', 'skku_page', "Montreal Campus", 1, "None"),
   ('ntu', 'Nanyang Technological University', 'SGP', 'Nanyang Ave', 'skku_page', "Singapore Campus", 1, "None");
-
-insert into partner_universities_table(id, from_university_id, to_university_id) values
-  ('skku-ntnu', 'skku', 'ntnu'),
-  ('skku-uio', 'skku', 'uio'),
-  ('skku-uib', 'skku', 'uib'),
-  ('ntnu-skku', 'ntnu', 'skku');
 
 # Note: the user dont have a password here, so you cant log in with them
 insert into user_table(user_id, username) values
