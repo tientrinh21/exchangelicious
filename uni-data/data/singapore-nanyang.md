@@ -4,7 +4,6 @@ https://gem.ntu.edu.sg/index.cfm?FuseAction=Programs.ViewProgramAngular&id=10006
 
 Welcome to Nanyang Technological University (NTU)! As a prospective exchange student, you are about to join one of Singapore's premier research-intensive universities, known for its excellence in engineering, business, science, and humanities. NTU offers a dynamic and multicultural environment that prepares students for successful careers and global citizenship.
 
-
 # Location
 
 Nanyang Technological University is located in Singapore, a global hub for education, business, and technology. The university's lush and expansive campus provides state-of-the-art facilities and a vibrant community.
@@ -13,10 +12,12 @@ Nanyang Technological University is located in Singapore, a global hub for educa
 50 Nanyang Avenue, Singapore 639798
 
 **Contact Information:**
+
 - **Email**: gem-exchange@ntu.edu.sg
 - **Phone**: +65 6790 6616
 
 **International Office Hours:**
+
 - **Hours**: 8:30am - 5:30pm (Monday to Friday)
 
 # Semester

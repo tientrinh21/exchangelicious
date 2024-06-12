@@ -4,8 +4,6 @@ https://www.kais.kyoto-u.ac.jp/english/international/exchange-programs/
 
 Welcome to Kyoto University! As a prospective exchange student, you are about to join one of Japan's most prestigious national universities, located in the historic city of Kyoto. Kyoto University is known for its academic excellence, innovative research, and diverse student body. The university offers a dynamic environment that prepares students for successful careers and global citizenship.
 
-
-
 # Location
 
 Kyoto University is located in Kyoto, Japan, a city known for its rich cultural heritage, historical significance, and scenic beauty. The campus offers state-of-the-art facilities and is easily accessible by public transportation.
@@ -14,10 +12,12 @@ Kyoto University is located in Kyoto, Japan, a city known for its rich cultural 
 Yoshida-honmachi, Sakyo-ku, Kyoto 606-8501, Japan
 
 **Contact Information:**
+
 - **Email**: ku-oip@mail2.adm.kyoto-u.ac.jp
 - **Phone**: +81-75-753-2571
 
 **International Office Hours:**
+
 - **Hours**: 9:00am - 5:00pm (Monday to Friday)
 
 # Semester

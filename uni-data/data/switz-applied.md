@@ -4,7 +4,6 @@ https://www.fhnw.ch/plattformen/iobusiness/
 
 Welcome to the University of Applied Sciences and Arts Northwestern Switzerland (FHNW)! As a prospective exchange student, you are about to join one of Switzerland's leading universities of applied sciences, known for its strong focus on practical education, innovative research, and interdisciplinary programs. FHNW offers a dynamic environment that prepares students for successful careers and global citizenship.
 
-
 # Location
 
 FHNW is located in Northwestern Switzerland, with campuses in Basel, Brugg, Olten, and Windisch. The university's modern campuses offer state-of-the-art facilities and a welcoming atmosphere.
@@ -13,10 +12,12 @@ FHNW is located in Northwestern Switzerland, with campuses in Basel, Brugg, Olte
 Riggenbachstrasse 16, 4600 Olten, Switzerland
 
 **Contact Information:**
+
 - **Email**: international.business@fhnw.ch
 - **Phone**: +41 62 286 00 00
 
 **International Office Hours:**
+
 - **Hours**: 9:00am - 5:00pm (Monday to Friday)
 
 # Semester

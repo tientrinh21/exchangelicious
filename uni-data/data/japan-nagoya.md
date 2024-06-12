@@ -4,8 +4,6 @@ https://nupace.iee.nagoya-u.ac.jp/en/
 
 Welcome to Nagoya University! As a prospective exchange student, you are about to join one of Japan's leading national universities, located in the vibrant city of Nagoya. Nagoya University is renowned for its academic excellence, innovative research, and diverse student body. The university offers a dynamic environment that prepares students for successful careers and global citizenship.
 
-
-
 # Location
 
 Nagoya University is located in Nagoya, Japan, a city known for its rich culture, technological advancements, and vibrant lifestyle. The campus offers state-of-the-art facilities and is easily accessible by public transportation.
@@ -14,10 +12,12 @@ Nagoya University is located in Nagoya, Japan, a city known for its rich culture
 Furo-cho, Chikusa-ku, Nagoya 464-8601, Japan
 
 **Contact Information:**
+
 - **Email**: nupace@iee.nagoya-u.ac.jp
 - **Phone**: +81-52-789-2191
 
 **International Office Hours:**
+
 - **Hours**: 9:00am - 5:00pm (Monday to Friday)
 
 # Semester

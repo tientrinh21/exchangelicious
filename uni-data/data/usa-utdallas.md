@@ -42,14 +42,14 @@ Your home institution is required to nominate you as an exchange student to the 
 
 Nomination deadline:
 
--   Fall Semester – April 1
--   Spring Semester – September 1
+- Fall Semester – April 1
+- Spring Semester – September 1
 
 After the nomination is approved, the international exchange students coming to UT Dallas are required to complete the admissions application and submit required documents:
 
--   Complete the online exchange application (link will be sent to student after the nomination is approved)
--   Official Transcript(s)
--   Official [Language Proficiency exam](https://graduate-admissions.utdallas.edu/apply-to-ut-dallas/international-students/#:~:text=program%2Dspecific%20requirements.-,English%20Proficiency,-The%20ability%20to) score (sent directly from the testing site to UT Dallas)
+- Complete the online exchange application (link will be sent to student after the nomination is approved)
+- Official Transcript(s)
+- Official [Language Proficiency exam](https://graduate-admissions.utdallas.edu/apply-to-ut-dallas/international-students/#:~:text=program%2Dspecific%20requirements.-,English%20Proficiency,-The%20ability%20to) score (sent directly from the testing site to UT Dallas)
 
 Email official documents to [educationabroad@utdallas.edu](mailto:educationabroad@utdallas.edu) _or_ mail items to:
 
@@ -97,10 +97,10 @@ Living expenses include housing, food, books, transportation, and other costs. I
 
 Once your admission is approved, the International Student Services Office (ISSO) will contact you for more documentation that is required to issue your immigration documents needed for your student visa.
 
--   See more information about immigration requirements on the [J-1 Students page.](https://isso.utdallas.edu/joining-ut-dallas/ds-2019/)
--   Keep in mind that you are required to submit a financial affidavit to confirm your financial resources for living expenses, books, and health insurance during the length of the exchange program.
--   You will be responsible for any immigration fee.
--   Other requirements are listed on the [Checklist](https://icp.utdallas.edu/resources/checklist/) of important assignments you must complete as you prepare to register for classes.
+- See more information about immigration requirements on the [J-1 Students page.](https://isso.utdallas.edu/joining-ut-dallas/ds-2019/)
+- Keep in mind that you are required to submit a financial affidavit to confirm your financial resources for living expenses, books, and health insurance during the length of the exchange program.
+- You will be responsible for any immigration fee.
+- Other requirements are listed on the [Checklist](https://icp.utdallas.edu/resources/checklist/) of important assignments you must complete as you prepare to register for classes.
 
 # Eligibility
 
@@ -110,30 +110,30 @@ The ability to read, write, speak and understand English is essential for succes
 
 You have met the English proficiency requirement and do not need to submit an English proficiency exam for admission if:
 
--   Your bachelor’s or master’s degree (or its equivalent) was earned through instruction and examination in English.
--   Your native country’s primary language is English. UT Dallas recognizes [English as the primary language of these countries](https://graduate-admissions.utdallas.edu/apply-to-ut-dallas/international-student-requirements/english-language-proficiency-recognized-countries-and-territories/).
+- Your bachelor’s or master’s degree (or its equivalent) was earned through instruction and examination in English.
+- Your native country’s primary language is English. UT Dallas recognizes [English as the primary language of these countries](https://graduate-admissions.utdallas.edu/apply-to-ut-dallas/international-student-requirements/english-language-proficiency-recognized-countries-and-territories/).
 
 #### English proficiency requirements can be fulfilled with one of the following: 
 
--   Completion of Level 112 at an [ELS Language Center](https://www.els.edu/destinations)
--   Duolingo English Test
-    -   **Minimum score**: 105
--   International English Language Testing System, Academic (IELTS)
-    -   **Minimum score**: 6.5
--   Pearson Test of English, Academic
-    -   **Minimum score**: 67
--   Test of English as a Foreign Language iBT (Internet-based test)
-    -   **Minimum score**: 80
--   Test of English as a Foreign Language (TOEFL) IBT (including the Home Edition and Paper Edition)
-    -   **Minimum score**: 80
+- Completion of Level 112 at an [ELS Language Center](https://www.els.edu/destinations)
+- Duolingo English Test
+  - **Minimum score**: 105
+- International English Language Testing System, Academic (IELTS)
+  - **Minimum score**: 6.5
+- Pearson Test of English, Academic
+  - **Minimum score**: 67
+- Test of English as a Foreign Language iBT (Internet-based test)
+  - **Minimum score**: 80
+- Test of English as a Foreign Language (TOEFL) IBT (including the Home Edition and Paper Edition)
+  - **Minimum score**: 80
 
 Official test scores must be delivered directly from the testing agency, and must be less than two years old at the time of admission. A minimum score is required for regular admission as a graduate student.
 
 ### Submitting Scores
 
--   Submit the ELS Level 112 certificate by mail directly from the ELS Language center.
--   Submit Duolingo, IELTS and PTE scores electronically or by mail directly from the testing agency.
--   Submit TOEFL scores using UT Dallas school code 6897.
+- Submit the ELS Level 112 certificate by mail directly from the ELS Language center.
+- Submit Duolingo, IELTS and PTE scores electronically or by mail directly from the testing agency.
+- Submit TOEFL scores using UT Dallas school code 6897.
 
 If your testing agency does not support sending official test score documents electronically, the documents should be mailed by the issuing institution in a sealed envelope to our mailing address:
 

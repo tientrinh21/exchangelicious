@@ -4,8 +4,6 @@ https://www.nishogakusha-u.ac.jp/international/study_abroad_application.html
 
 Welcome to Nishogakusha University! As a prospective exchange student, you are about to join one of Japan's distinguished universities, located in the vibrant city of Tokyo. Nishogakusha University is known for its focus on traditional Japanese studies, international exchange, and innovative education. The university provides a nurturing environment that prepares students for successful careers and global citizenship.
 
-
-
 # Location
 
 Nishogakusha University is located in Tokyo, Japan, a bustling metropolis known for its rich culture, technological advancements, and vibrant lifestyle. The campus offers state-of-the-art facilities and is easily accessible by public transportation.
@@ -14,10 +12,12 @@ Nishogakusha University is located in Tokyo, Japan, a bustling metropolis known 
 6-16 Sanbancho, Chiyoda-ku, Tokyo 102-8336, Japan
 
 **Contact Information:**
+
 - **Email**: kokusai@nishogakusha-u.ac.jp
 - **Phone**: +81-3-3264-8901
 
 **International Office Hours:**
+
 - **Hours**: 9:00am - 5:00pm (Monday to Friday)
 
 # Semester

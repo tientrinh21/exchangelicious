@@ -4,8 +4,6 @@ https://www.liaison.nagasaki-u.ac.jp/kr/?page_id=170
 
 Welcome to Nagasaki University! As a prospective exchange student, you are about to join one of Japan's prestigious national universities, located in the historic city of Nagasaki. Nagasaki University is known for its academic excellence, innovative research, and vibrant international community. The university offers a dynamic environment that prepares students for successful careers and global citizenship.
 
-
-
 # Location
 
 Nagasaki University is located in Nagasaki, Japan, a city known for its rich history, cultural heritage, and scenic beauty. The campus offers state-of-the-art facilities and is easily accessible by public transportation.
@@ -14,10 +12,12 @@ Nagasaki University is located in Nagasaki, Japan, a city known for its rich his
 1-14 Bunkyo-machi, Nagasaki 852-8521, Japan
 
 **Contact Information:**
+
 - **Email**: ryugaku@ml.nagasaki-u.ac.jp
 - **Phone**: +81-95-819-2121
 
 **International Office Hours:**
+
 - **Hours**: 9:00am - 5:00pm (Monday to Friday)
 
 # Semester

@@ -4,8 +4,6 @@ https://www.daito.ac.jp/international_exchange/admission/application.html
 
 Welcome to Daito Bunka University! As a prospective exchange student, you are about to join one of Japan's distinguished universities, located in the vibrant city of Tokyo. Daito Bunka University is known for its strong emphasis on liberal arts education, international exchange, and innovative research. The university provides a supportive environment that prepares students for successful careers and global citizenship.
 
-
-
 # Location
 
 Daito Bunka University is located in Tokyo, Japan, a bustling metropolis known for its rich culture, technological advancements, and vibrant lifestyle. The campus offers state-of-the-art facilities and is easily accessible by public transportation.
@@ -14,10 +12,12 @@ Daito Bunka University is located in Tokyo, Japan, a bustling metropolis known f
 1-9-1 Takashimadaira, Itabashi-ku, Tokyo 175-8571, Japan
 
 **Contact Information:**
+
 - **Email**: intl@daito.ac.jp
 - **Phone**: +81-3-5399-7346
 
 **International Office Hours:**
+
 - **Hours**: 9:00am - 5:00pm (Monday to Friday)
 
 # Semester

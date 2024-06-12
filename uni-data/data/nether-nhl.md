@@ -4,7 +4,6 @@ https://www.nhlstenden.com/en/why-nhl-stenden/international-opportunities/exchan
 
 Welcome to NHL Stenden University of Applied Sciences! As a prospective exchange student, you are about to join one of the Netherlands' leading applied sciences universities, located in the vibrant cities of Leeuwarden, Emmen, and Meppel. NHL Stenden is known for its practical approach to education, innovative research, and diverse student body. The university offers a dynamic environment that prepares students for successful careers and global citizenship.
 
-
 # Location
 
 NHL Stenden University of Applied Sciences has campuses in Leeuwarden, Emmen, and Meppel, offering a variety of cultural and educational experiences. The main campus is located in Leeuwarden, a city known for its rich history, cultural diversity, and vibrant community.
@@ -13,10 +12,12 @@ NHL Stenden University of Applied Sciences has campuses in Leeuwarden, Emmen, an
 Rengerslaan 8, 8917 DD Leeuwarden, Netherlands
 
 **Contact Information:**
+
 - **Email**: study@nhlstenden.com
 - **Phone**: +31 58 244 1155
 
 **International Office Hours:**
+
 - **Hours**: 9:00am - 5:00pm (Monday to Friday)
 
 # Semester

@@ -52,7 +52,7 @@ Indiana University Indianapolis provides a net price calculator so that you are 
 
 Your net price is based on IU Indianapolis's current financial aid packaging guidelines, and it's important to keep in mind that this is an *estimate* only. Your final costs may be different.
 
-[Use our net price calculator](https://studentcentral.iupui.edu/npc/index.html?_gl=1*xyi9q*_ga*NDczMTk3ODY3LjE3MTYxNDY4ODE.*_ga_61CH0D2DQW*MTcxNjE0Njg4MS4xLjEuMTcxNjE0NjkyMS4yMC4wLjA. 'Use our net price calculator to find your costs')
+[Use our net price calculator](https://studentcentral.iupui.edu/npc/index.html?_gl=1*xyi9q*_ga*NDczMTk3ODY3LjE3MTYxNDY4ODE.*_ga_61CH0D2DQW*MTcxNjE0Njg4MS4xLjEuMTcxNjE0NjkyMS4yMC4wLjA. "Use our net price calculator to find your costs")
 
 # Housing
 

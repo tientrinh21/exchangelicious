@@ -4,7 +4,6 @@ https://studyabroad.reading.ac.uk/incoming/
 
 Welcome to the University of Reading! As a prospective exchange student, you are about to join one of the United Kingdom's leading universities, known for its strong focus on research, academic excellence, and vibrant student life. The University of Reading offers a dynamic environment that prepares students for successful careers and global citizenship.
 
-
 # Location
 
 The University of Reading is located in Reading, United Kingdom, a city known for its rich history, cultural diversity, and vibrant community. The university's modern campus offers state-of-the-art facilities and a welcoming atmosphere.
@@ -13,10 +12,12 @@ The University of Reading is located in Reading, United Kingdom, a city known fo
 Whiteknights, Reading, RG6 6UR, United Kingdom
 
 **Contact Information:**
+
 - **Email**: studyabroad@reading.ac.uk
 - **Phone**: +44 118 378 7339
 
 **International Office Hours:**
+
 - **Hours**: 9:00am - 5:00pm (Monday to Friday)
 
 # Semester

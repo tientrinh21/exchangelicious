@@ -4,8 +4,6 @@ https://www.univr.it/en/our-services/-/servizi/incoming-students-and-staff
 
 Welcome to the University of Verona! As a prospective exchange student, you are about to join one of Italy's most dynamic universities, located in the historic city of Verona. The University of Verona is known for its strong emphasis on research, innovative teaching methods, and vibrant campus life. The university offers an enriching environment that prepares students for successful careers and meaningful contributions to society.
 
-
-
 # Location
 
 The University of Verona is located in Verona, Italy, a city famous for its rich history, stunning architecture, and cultural heritage. The campus is situated in various parts of the city, providing a unique and inspiring academic setting.
@@ -14,10 +12,12 @@ The University of Verona is located in Verona, Italy, a city famous for its rich
 Via dell'Artigliere, 8, 37129 Verona VR, Italy
 
 **Contact Information:**
+
 - **Email**: relazioni.internazionali@ateneo.univr.it
 - **Phone**: +39 045 802 8770
 
 **International Office Hours:**
+
 - **Hours**: 9:00am - 5:00pm (Monday to Friday)
 
 # Semester

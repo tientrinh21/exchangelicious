@@ -4,8 +4,6 @@ https://www.isc.kyushu-u.ac.jp/invitation/programs/
 
 Welcome to Kyushu University! As a prospective exchange student, you are about to join one of Japan's leading national universities, located in the vibrant city of Fukuoka. Kyushu University is known for its academic excellence, innovative research, and diverse student body. The university offers a dynamic environment that prepares students for successful careers and global citizenship.
 
-
-
 # Location
 
 Kyushu University is located in Fukuoka, Japan, a city known for its rich culture, technological advancements, and vibrant lifestyle. The campus offers state-of-the-art facilities and is easily accessible by public transportation.
@@ -14,10 +12,12 @@ Kyushu University is located in Fukuoka, Japan, a city known for its rich cultur
 744 Motooka, Nishi-ku, Fukuoka 819-0395, Japan
 
 **Contact Information:**
+
 - **Email**: intlr@jimu.kyushu-u.ac.jp
 - **Phone**: +81-92-802-2224
 
 **International Office Hours:**
+
 - **Hours**: 9:00am - 5:00pm (Monday to Friday)
 
 # Semester

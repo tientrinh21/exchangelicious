@@ -4,7 +4,6 @@ https://www.aoyama.ac.jp/en/admission/exchange/
 
 Welcome to Aoyama Gakuin University! As a prospective exchange student, you are about to join one of Japan's leading private universities, located in the vibrant city of Tokyo. Aoyama Gakuin University is known for its academic excellence, innovative research, and vibrant international community. The university offers a dynamic environment that prepares students for successful careers and global citizenship.
 
-
 # Location
 
 Aoyama Gakuin University is located in Tokyo, Japan, a bustling metropolis known for its rich culture, technological advancements, and vibrant lifestyle. The campus offers state-of-the-art facilities and is easily accessible by public transportation.
@@ -13,10 +12,12 @@ Aoyama Gakuin University is located in Tokyo, Japan, a bustling metropolis known
 4-4-25 Shibuya, Shibuya-ku, Tokyo 150-8366, Japan
 
 **Contact Information:**
+
 - **Email**: cie@aoyama.ac.jp
 - **Phone**: +81-3-3409-8111
 
 **International Office Hours:**
+
 - **Hours**: 9:00am - 5:00pm (Monday to Friday)
 
 # Semester

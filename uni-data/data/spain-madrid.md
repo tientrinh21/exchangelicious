@@ -12,10 +12,12 @@ The Autonomous University of Madrid is located in Madrid, Spain, a city known fo
 Ciudad Universitaria de Cantoblanco, 28049 Madrid, Spain
 
 **Contact Information:**
+
 - **Email**: international.welcome@uam.es
 - **Phone**: +34 91 497 5000
 
 **International Office Hours:**
+
 - **Hours**: 9:00am - 2:00pm (Monday to Friday)
 
 # Semester

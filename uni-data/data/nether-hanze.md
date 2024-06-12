@@ -4,8 +4,6 @@ www.hanze.nl/exchange
 
 Welcome to Hanze University of Applied Sciences Groningen! As a prospective exchange student, you are about to join one of the Netherlands' leading applied sciences universities, located in the vibrant city of Groningen. Hanze University is known for its practical approach to education, innovative research, and diverse student body. The university offers a dynamic environment that prepares students for successful careers and global citizenship.
 
-
-
 # Location
 
 Hanze University of Applied Sciences is located in Groningen, Netherlands, a city known for its rich history, cultural diversity, and vibrant community. The campus offers state-of-the-art facilities and a welcoming atmosphere.
@@ -14,10 +12,12 @@ Hanze University of Applied Sciences is located in Groningen, Netherlands, a cit
 Zernikeplein 7, 9747 AS Groningen, Netherlands
 
 **Contact Information:**
+
 - **Email**: exchange@org.hanze.nl
 - **Phone**: +31 50 595 5555
 
 **International Office Hours:**
+
 - **Hours**: 9:00am - 5:00pm (Monday to Friday)
 
 # Semester

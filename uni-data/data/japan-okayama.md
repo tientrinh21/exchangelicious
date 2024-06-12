@@ -4,8 +4,6 @@ https://intl.okayama-u.ac.jp/en/inbound/programs/epok/
 
 Welcome to Okayama University! As a prospective exchange student, you are about to join one of Japan's leading national universities, located in the city of Okayama. Okayama University is known for its academic excellence, innovative research, and vibrant campus life. The university offers a dynamic environment that prepares students for successful careers and meaningful contributions to society.
 
-
-
 # Location
 
 Okayama University is located in Okayama, Japan, a city known for its beautiful gardens, historic castles, and vibrant cultural scene. The campus offers modern facilities and a welcoming atmosphere.
@@ -14,10 +12,12 @@ Okayama University is located in Okayama, Japan, a city known for its beautiful 
 3-1-1 Tsushima-naka, Kita-ku, Okayama 700-8530, Japan
 
 **Contact Information:**
+
 - **Email**: ryugaku@okayama-u.ac.jp
 - **Phone**: +81-86-251-7044
 
 **International Office Hours:**
+
 - **Hours**: 9:00am - 5:00pm (Monday to Friday)
 
 # Semester

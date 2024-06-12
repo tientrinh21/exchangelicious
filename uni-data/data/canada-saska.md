@@ -4,7 +4,6 @@ https://students.usask.ca/international/exchange-students.php
 
 Welcome to the University of Saskatchewan! As a prospective exchange student, you are about to join one of Canada's leading research-intensive universities, located in the vibrant city of Saskatoon. The University of Saskatchewan (U of S) offers a diverse and inclusive community with a strong emphasis on academic excellence, innovation, and student success. The university provides an enriching environment that prepares students for successful careers and global citizenship.
 
-
 # Location
 
 The University of Saskatchewan is located in Saskatoon, Saskatchewan, a city known for its cultural diversity, vibrant arts scene, and picturesque river valley. The campus is known for its beautiful architecture and state-of-the-art facilities.
@@ -13,10 +12,12 @@ The University of Saskatchewan is located in Saskatoon, Saskatchewan, a city kno
 105 Administration Place, Saskatoon, SK S7N 5A2, Canada
 
 **Contact Information:**
+
 - **Email**: international.students@usask.ca
 - **Phone**: +1 306-966-4925
 
 **International Office Hours:**
+
 - **Hours**: 8:30am - 4:30pm (Monday to Friday)
 
 # Semester

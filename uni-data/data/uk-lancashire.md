@@ -4,7 +4,6 @@ https://www.uclan.ac.uk/study/global-opportunities/international-exchange-studen
 
 Welcome to the University of Central Lancashire (UCLan)! As a prospective exchange student, you are about to join one of the United Kingdom's leading universities, known for its strong focus on research, academic excellence, and vibrant student life. UCLan offers a dynamic environment that prepares students for successful careers and global citizenship.
 
-
 # Location
 
 The University of Central Lancashire is located in Preston, United Kingdom, a city known for its rich history, cultural diversity, and vibrant community. The university's modern campus offers state-of-the-art facilities and a welcoming atmosphere.
@@ -13,10 +12,12 @@ The University of Central Lancashire is located in Preston, United Kingdom, a ci
 Fylde Road, Preston, PR1 2HE, United Kingdom
 
 **Contact Information:**
+
 - **Email**: studyabroad@uclan.ac.uk
 - **Phone**: +44 1772 201 201
 
 **International Office Hours:**
+
 - **Hours**: 9:00am - 5:00pm (Monday to Friday)
 
 # Semester

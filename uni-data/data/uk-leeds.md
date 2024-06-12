@@ -4,7 +4,6 @@ https://www.leeds.ac.uk/international-exchange-and-study-abroad
 
 Welcome to the University of Leeds! As a prospective exchange student, you are about to join one of the United Kingdom's leading research universities, known for its strong focus on research, academic excellence, and vibrant student life. The University of Leeds offers a dynamic environment that prepares students for successful careers and global citizenship.
 
-
 # Location
 
 The University of Leeds is located in Leeds, United Kingdom, a city known for its rich industrial heritage, cultural diversity, and vibrant community. The university's modern campus offers state-of-the-art facilities and a welcoming atmosphere.
@@ -13,10 +12,12 @@ The University of Leeds is located in Leeds, United Kingdom, a city known for it
 Woodhouse Lane, Leeds, LS2 9JT, United Kingdom
 
 **Contact Information:**
+
 - **Email**: studyabroad@leeds.ac.uk
 - **Phone**: +44 113 343 4000
 
 **International Office Hours:**
+
 - **Hours**: 9:00am - 5:00pm (Monday to Friday)
 
 # Semester

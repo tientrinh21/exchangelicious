@@ -4,7 +4,6 @@ https://www.umu.se/en/education/exchange-students/
 
 Welcome to Umeå University! As a prospective exchange student, you are about to join one of Sweden's leading universities, known for its strong focus on research, innovative education, and vibrant international community. Umeå University offers a dynamic environment that prepares students for successful careers and global citizenship.
 
-
 # Location
 
 Umeå University is located in Umeå, Sweden, a city known for its rich cultural scene, beautiful natural surroundings, and vibrant student life. The university's modern campus offers state-of-the-art facilities and a welcoming atmosphere.
@@ -13,10 +12,12 @@ Umeå University is located in Umeå, Sweden, a city known for its rich cultural
 901 87 Umeå, Sweden
 
 **Contact Information:**
+
 - **Email**: incoming.io@umu.se
 - **Phone**: +46 90 786 50 00
 
 **International Office Hours:**
+
 - **Hours**: 9:00am - 4:30pm (Monday to Friday)
 
 # Semester

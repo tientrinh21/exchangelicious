@@ -4,7 +4,6 @@ https://www.soka.ac.jp/en/admissions/exchange/
 
 Welcome to Soka University! As a prospective exchange student, you are about to join one of Japan's leading private universities, located in the vibrant city of Tokyo. Soka University is known for its commitment to fostering global citizenship, academic excellence, and humanistic education. The university offers a dynamic environment that prepares students for successful careers and meaningful contributions to society.
 
-
 # Location
 
 Soka University is located in Tokyo, Japan, a bustling metropolis known for its rich culture, technological advancements, and vibrant lifestyle. The campus offers state-of-the-art facilities and is easily accessible by public transportation.
@@ -13,10 +12,12 @@ Soka University is located in Tokyo, Japan, a bustling metropolis known for its 
 1-236 Tangi-machi, Hachioji-shi, Tokyo 192-8577, Japan
 
 **Contact Information:**
+
 - **Email**: intloff@soka.ac.jp
 - **Phone**: +81-42-691-8200
 
 **International Office Hours:**
+
 - **Hours**: 9:00am - 5:00pm (Monday to Friday)
 
 # Semester

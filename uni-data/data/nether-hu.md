@@ -4,8 +4,6 @@ https://www.internationalhu.com/programmes#/typeofprogramme=a90b3191-d174-4155-b
 
 Welcome to HU University of Applied Sciences Utrecht! As a prospective exchange student, you are about to join one of the Netherlands' leading applied sciences universities, located in the vibrant city of Utrecht. HU is known for its practical approach to education, innovative research, and diverse student body. The university offers a dynamic environment that prepares students for successful careers and global citizenship.
 
-
-
 # Location
 
 HU University of Applied Sciences Utrecht is located in Utrecht, Netherlands, a city known for its rich history, cultural diversity, and vibrant community. The campus offers state-of-the-art facilities and a welcoming atmosphere.
@@ -14,10 +12,12 @@ HU University of Applied Sciences Utrecht is located in Utrecht, Netherlands, a 
 Heidelberglaan 15, 3584 CS Utrecht, Netherlands
 
 **Contact Information:**
+
 - **Email**: international@hu.nl
 - **Phone**: +31 88 481 8283
 
 **International Office Hours:**
+
 - **Hours**: 9:00am - 5:00pm (Monday to Friday)
 
 # Semester

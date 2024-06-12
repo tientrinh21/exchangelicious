@@ -4,7 +4,6 @@ https://www.yorksj.ac.uk/international/study-abroad-and-exchange/study-abroad-at
 
 Welcome to York St John University! As a prospective exchange student, you are about to join one of the United Kingdom's leading universities, known for its strong focus on research, academic excellence, and vibrant student life. York St John University offers a dynamic environment that prepares students for successful careers and global citizenship.
 
-
 # Location
 
 York St John University is located in York, United Kingdom, a city known for its rich history, cultural diversity, and vibrant community. The university's modern campus offers state-of-the-art facilities and a welcoming atmosphere.
@@ -13,10 +12,12 @@ York St John University is located in York, United Kingdom, a city known for its
 Lord Mayor's Walk, York, YO31 7EX, United Kingdom
 
 **Contact Information:**
+
 - **Email**: studyabroad@yorksj.ac.uk
 - **Phone**: +44 1904 624624
 
 **International Office Hours:**
+
 - **Hours**: 9:00am - 5:00pm (Monday to Friday)
 
 # Semester

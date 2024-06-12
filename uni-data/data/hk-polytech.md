@@ -4,8 +4,6 @@ https://www.polyu.edu.hk/geo/exchange-and-study-abroad/incoming-students/incomin
 
 Welcome to the Hong Kong Polytechnic University (PolyU)! As a prospective exchange student, you are about to join one of Asia's leading universities, located in the vibrant city of Hong Kong. PolyU is known for its academic excellence, cutting-edge research, and strong industry connections. The university provides a dynamic and supportive environment that prepares students for successful careers and global citizenship.
 
-
-
 # Location
 
 Hong Kong Polytechnic University is located in Hung Hom, Kowloon, Hong Kong, a bustling area known for its shopping, dining, and cultural diversity. The campus is easily accessible by public transportation and offers state-of-the-art facilities.
@@ -14,10 +12,12 @@ Hong Kong Polytechnic University is located in Hung Hom, Kowloon, Hong Kong, a b
 11 Yuk Choi Rd, Hung Hom, Kowloon, Hong Kong
 
 **Contact Information:**
+
 - **Email**: geo.inbound@polyu.edu.hk
 - **Phone**: +852 2766 5111
 
 **International Office Hours:**
+
 - **Hours**: 9:00am - 5:30pm (Monday to Friday)
 
 # Semester

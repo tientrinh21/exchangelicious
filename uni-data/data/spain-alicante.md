@@ -4,7 +4,6 @@ https://sri.ua.es/en/movilidad/incoming-students.html
 
 Welcome to the University of Alicante (UA)! As a prospective exchange student, you are about to join one of Spain's leading universities, known for its strong focus on science, technology, and humanities. UA offers a vibrant and dynamic environment that prepares students for successful careers and global citizenship.
 
-
 # Location
 
 The University of Alicante is located in Alicante, Spain, a city known for its beautiful Mediterranean coastline, rich history, and vibrant cultural scene. The university's modern campus offers state-of-the-art facilities and a welcoming atmosphere.
@@ -13,10 +12,12 @@ The University of Alicante is located in Alicante, Spain, a city known for its b
 Carretera de San Vicente del Raspeig, s/n, 03690 San Vicente del Raspeig, Alicante, Spain
 
 **Contact Information:**
+
 - **Email**: mobility.incoming@ua.es
 - **Phone**: +34 96 590 3400
 
 **International Office Hours:**
+
 - **Hours**: 9:00am - 2:00pm (Monday to Friday)
 
 # Semester

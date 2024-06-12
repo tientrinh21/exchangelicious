@@ -4,7 +4,6 @@ https://www.sheffield.ac.uk/globalopps/inbound
 
 Welcome to the University of Sheffield! As a prospective exchange student, you are about to join one of the United Kingdom's leading research universities, known for its strong focus on research, academic excellence, and vibrant student life. The University of Sheffield offers a dynamic environment that prepares students for successful careers and global citizenship.
 
-
 # Location
 
 The University of Sheffield is located in Sheffield, United Kingdom, a city known for its rich industrial heritage, cultural diversity, and vibrant community. The university's modern campus offers state-of-the-art facilities and a welcoming atmosphere.
@@ -13,10 +12,12 @@ The University of Sheffield is located in Sheffield, United Kingdom, a city know
 Western Bank, Sheffield, S10 2TN, United Kingdom
 
 **Contact Information:**
+
 - **Email**: globalopps@sheffield.ac.uk
 - **Phone**: +44 114 222 2000
 
 **International Office Hours:**
+
 - **Hours**: 9:00am - 5:00pm (Monday to Friday)
 
 # Semester

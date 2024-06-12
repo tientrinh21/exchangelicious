@@ -4,8 +4,6 @@ https://www.unive.it/pag/12574/
 
 Welcome to Ca' Foscari University of Venice! As a prospective exchange student, you are about to join one of Italy's most prestigious universities, located in the historic city of Venice. Ca' Foscari is known for its academic excellence, innovative research, and vibrant international community. The university offers a dynamic environment that prepares students for successful careers and global citizenship.
 
-
-
 # Location
 
 Ca' Foscari University of Venice is located in Venice, Italy, a city renowned for its canals, historic architecture, and rich cultural heritage. The campus is spread across several historic buildings, providing a unique and inspiring academic setting.
@@ -14,10 +12,12 @@ Ca' Foscari University of Venice is located in Venice, Italy, a city renowned fo
 Dorsoduro 3246, 30123 Venice, Italy
 
 **Contact Information:**
+
 - **Email**: incoming.mobility@unive.it
 - **Phone**: +39 041 234 7575
 
 **International Office Hours:**
+
 - **Hours**: 9:00am - 5:00pm (Monday to Friday)
 
 # Semester

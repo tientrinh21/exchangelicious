@@ -4,7 +4,6 @@ https://en.ritsumei.ac.jp/skp/
 
 Welcome to Ritsumeikan University! As a prospective exchange student, you are about to join one of Japan's leading private universities, located in the historic city of Kyoto. Ritsumeikan University is known for its academic excellence, innovative research, and vibrant international community. The university offers a dynamic environment that prepares students for successful careers and global citizenship.
 
-
 # Location
 
 Ritsumeikan University has campuses in Kyoto, Osaka, and Shiga, offering a variety of cultural and educational experiences. The main campus is located in Kyoto, a city known for its rich cultural heritage and historical significance.
@@ -13,10 +12,12 @@ Ritsumeikan University has campuses in Kyoto, Osaka, and Shiga, offering a varie
 56-1 Toji-in Kitamachi, Kita-ku, Kyoto 603-8577, Japan
 
 **Contact Information:**
+
 - **Email**: skp@st.ritsumei.ac.jp
 - **Phone**: +81-75-465-8230
 
 **International Office Hours:**
+
 - **Hours**: 9:00am - 5:00pm (Monday to Friday)
 
 # Semester

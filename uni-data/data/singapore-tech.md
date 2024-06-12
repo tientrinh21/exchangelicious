@@ -4,7 +4,6 @@ https://sutd.edu.sg/Student-Development/Global/Student-Exchange/Inbound/Inbound-
 
 Welcome to the Singapore University of Technology and Design (SUTD)! As a prospective exchange student, you are about to join one of Singapore's innovative and forward-thinking universities, known for its unique curriculum and focus on technology and design. SUTD offers a dynamic and multicultural environment that prepares students for successful careers and global citizenship.
 
-
 # Location
 
 SUTD is located in Singapore, a global hub for education, business, and technology. The university's modern and well-equipped campus provides a conducive environment for learning and innovation.
@@ -13,10 +12,12 @@ SUTD is located in Singapore, a global hub for education, business, and technolo
 8 Somapah Road, Singapore 487372
 
 **Contact Information:**
+
 - **Email**: global@sutd.edu.sg
 - **Phone**: +65 6303 6600
 
 **International Office Hours:**
+
 - **Hours**: 8:30am - 5:30pm (Monday to Friday)
 
 # Semester

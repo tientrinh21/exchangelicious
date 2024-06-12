@@ -4,8 +4,6 @@ https://www.maastrichtuniversity.nl/education/exchange/psychology-and-neuroscien
 
 Welcome to Maastricht University! As a prospective exchange student, you are about to join one of the Netherlands' leading research universities, located in the historic city of Maastricht. Maastricht University is known for its international orientation, innovative research, and student-centered learning. The university offers a dynamic environment that prepares students for successful careers and global citizenship.
 
-
-
 # Location
 
 Maastricht University is located in Maastricht, Netherlands, a city known for its rich history, cultural diversity, and vibrant community. The campus offers state-of-the-art facilities and a welcoming atmosphere.
@@ -14,10 +12,12 @@ Maastricht University is located in Maastricht, Netherlands, a city known for it
 Minderbroedersberg 4-6, 6211 LK Maastricht, Netherlands
 
 **Contact Information:**
+
 - **Email**: exchange-psy@maastrichtuniversity.nl
 - **Phone**: +31 43 388 2222
 
 **International Office Hours:**
+
 - **Hours**: 9:00am - 5:00pm (Monday to Friday)
 
 # Semester

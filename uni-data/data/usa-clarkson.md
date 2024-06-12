@@ -14,10 +14,10 @@ The quintessential college town experience, Potsdam is home to two universities!
 
 ### Academic Highlights
 
--   Majors in: Arts & Sciences, Business, Engineering, and Sustainable Environment
--   One of every five Clarkson graduates is a CEO, president, senior executive or owner of a company.
--   Research intensive
--   Top-Tier national university
+- Majors in: Arts & Sciences, Business, Engineering, and Sustainable Environment
+- One of every five Clarkson graduates is a CEO, president, senior executive or owner of a company.
+- Research intensive
+- Top-Tier national university
 
 # Supported Major
 
@@ -27,10 +27,10 @@ All Major supported
 
 ### Campus Life 
 
--   100+ student-run clubs and organizations where you can easily find other students who share your interests and hobbies. Club sports are popular too - whether it's soccer, hockey or ultimate Frisbee just to name a few.
--   You can meet up with friends at the 56,000-square -foot Student Center located at the center of campus.
--   Listen to a lecture by day or enjoy live performances by night in the three-story atrium theater.
--   The setting lends itself to countless recreational activities including hiking on our own 640-acre campus.
+- 100+ student-run clubs and organizations where you can easily find other students who share your interests and hobbies. Club sports are popular too - whether it's soccer, hockey or ultimate Frisbee just to name a few.
+- You can meet up with friends at the 56,000-square -foot Student Center located at the center of campus.
+- Listen to a lecture by day or enjoy live performances by night in the three-story atrium theater.
+- The setting lends itself to countless recreational activities including hiking on our own 640-acre campus.
 
 ### Postdam Campus(Main)
 
@@ -47,16 +47,16 @@ As a nationally ranked research university, we are the institution of choice for
 
 ### Semester Dates
 
--   Fall Semester (semester 1) - end August through mid-December
--   Spring Semester (semester 2) - early January through mid-May
--   [Academic Calendar](https://www.clarkson.edu/admissions-financial-aid/sas/academic-calendar 'Academic Calendar')
+- Fall Semester (semester 1) - end August through mid-December
+- Spring Semester (semester 2) - early January through mid-May
+- [Academic Calendar](https://www.clarkson.edu/admissions-financial-aid/sas/academic-calendar "Academic Calendar")
 
 # Application Deadlines
 
 If you wish to study at Clarkson University as an exchange student you must be enrolled as a full-time student at one of our partner institutions. The application process starts with your home university submitting your nomination. Our partners are emailed the nomination link each term.
 
--   Nominations Fall Semester/Full Year - March 1 - April 15
--   Nominations for Spring Semester - August 1 - September 15
+- Nominations Fall Semester/Full Year - March 1 - April 15
+- Nominations for Spring Semester - August 1 - September 15
 
 Once we receive the nomination, students will receive an email with a link to the application.
 
@@ -76,9 +76,9 @@ The residences will close by the morning after the last final exam. However, it 
 
 # Courses
 
--   Exchange students may enroll in classes across disciplines provided that they meet the prerequisites required. Please refer to the guide below when making class selection.
--   [Guest Catalog](https://mycu-g.clarkson.edu/psp/guest/EMPLOYEE/SA/c/SA_LEARNER_SERVICES.SSS_BROWSE_CATLG_P.GBL?)
--   [Incoming Exchange Student Guide to Selecting Classes](https://drive.google.com/file/d/1jfJo0QdLVGFTcrhUT-FHqaZN9hgNR_kg/view)
+- Exchange students may enroll in classes across disciplines provided that they meet the prerequisites required. Please refer to the guide below when making class selection.
+- [Guest Catalog](https://mycu-g.clarkson.edu/psp/guest/EMPLOYEE/SA/c/SA_LEARNER_SERVICES.SSS_BROWSE_CATLG_P.GBL?)
+- [Incoming Exchange Student Guide to Selecting Classes](https://drive.google.com/file/d/1jfJo0QdLVGFTcrhUT-FHqaZN9hgNR_kg/view)
 
 # Tuition
 
@@ -105,8 +105,8 @@ Exchange students are eligible to apply for a J-1 or F-1 Visa. We will guide you
 
 Supporting documentation includes:
 
--   Completed Application - Copy of passport for the J-1 scholar and any accompanying dependents.
--   Evidence of English Proficiency - Proof of adequate financial support.
+- Completed Application - Copy of passport for the J-1 scholar and any accompanying dependents.
+- Evidence of English Proficiency - Proof of adequate financial support.
 
 # Requirements
 
@@ -114,21 +114,21 @@ Health Insurance coverage is compulsory. If you are coming as a J-1 there are sp
 
 Students entering the U.S. under the J-Exchange Visitor program to study are required to meet minimum health insurance coverage requirements. We highly advise F-1 visa holders to meet these minimum benefits as well.These include:
 
--   Medical Benefits of at least $100,000 per accident or illness
--   At least $25,000 for Repatriation of Remains
--   At least $50,000 for Medical Evacuation to your home country
--   A deductible of no more than $500 per accident or illness
+- Medical Benefits of at least $100,000 per accident or illness
+- At least $25,000 for Repatriation of Remains
+- At least $50,000 for Medical Evacuation to your home country
+- A deductible of no more than $500 per accident or illness
 
 ### Final Steps
 
 Once your application materials are complete and accepted you will be emailed a username, email address, and pin so you can set up your student account as well as your acceptance letter. You will be assigned a "To Do" list. Some items you will need to complete in your student portal are:
 
--   Student Health Documents
--   Photo for your Student Identification Card
--   Housing Contract
--   AssessAbility Form
--   SF Terms Agreement
--   Health Insurance e-form
+- Student Health Documents
+- Photo for your Student Identification Card
+- Housing Contract
+- AssessAbility Form
+- SF Terms Agreement
+- Health Insurance e-form
 
 Once you have set up your password, you will have access to our intranet site which will provide you with details for arrival. This course will provide you with all of the information you need to know for making your final class selections, prearrival shipping address, and more!
 

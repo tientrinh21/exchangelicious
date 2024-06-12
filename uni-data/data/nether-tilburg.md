@@ -4,7 +4,6 @@ https://www.tilburguniversity.edu/education/exchange-programs
 
 Welcome to Tilburg University! As a prospective exchange student, you are about to join one of the Netherlands' leading universities, located in the vibrant city of Tilburg. Tilburg University is known for its strong focus on social sciences, law, business, economics, humanities, and digital sciences. The university offers a dynamic environment that prepares students for successful careers and global citizenship.
 
-
 # Location
 
 Tilburg University is located in Tilburg, Netherlands, a city known for its cultural diversity, vibrant arts scene, and welcoming community. The campus offers state-of-the-art facilities and a picturesque setting.
@@ -13,10 +12,12 @@ Tilburg University is located in Tilburg, Netherlands, a city known for its cult
 Warandelaan 2, 5037 AB Tilburg, Netherlands
 
 **Contact Information:**
+
 - **Email**: exchange@tilburguniversity.edu
 - **Phone**: +31 13 466 9111
 
 **International Office Hours:**
+
 - **Hours**: 9:00am - 5:00pm (Monday to Friday)
 
 # Semester

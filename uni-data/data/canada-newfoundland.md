@@ -4,7 +4,6 @@ https://www.mun.ca/goabroad/visiting-students-inbound/
 
 Welcome to Memorial University of Newfoundland! As a prospective exchange student, you are about to join one of Canada's most distinguished universities, located in the historic city of St. John's. Memorial University offers a diverse and inclusive community with a strong focus on research, innovation, and academic excellence. The university provides an enriching environment that prepares students for successful careers and lifelong learning.
 
-
 # Location
 
 Memorial University of Newfoundland is located in St. John's, Newfoundland and Labrador, a city known for its rich history, vibrant culture, and breathtaking natural scenery. The university's main campus offers modern facilities and a welcoming community.
@@ -13,10 +12,12 @@ Memorial University of Newfoundland is located in St. John's, Newfoundland and L
 230 Elizabeth Ave, St. John's, NL A1C 5S7, Canada
 
 **Contact Information:**
+
 - **Email**: goabroad@mun.ca
 - **Phone**: +1 709-864-8000
 
 **International Office Hours:**
+
 - **Hours**: 8:30am - 4:30pm (Monday to Friday)
 
 # Semester

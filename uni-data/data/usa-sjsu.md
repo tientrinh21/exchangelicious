@@ -60,29 +60,29 @@ Please contact your home institution about being nominated. After the nomination
 
 Nominated students for exchange to SJSU will receive the application link to the application via email. You will then be required to submit the application and include the following information in your application:
 
--   Complete the Application for a New Exchange Student.
-    -   Indicating your intended major while on exchange. Please review the [undergraduate list of majors](https://catalog.sjsu.edu/content.php?catoid=14&navoid=5107) and select one.
-        -   Impacted majors at SJSU are Computer Science, Engineering (Computer Engineering, Electrical Engineering, Mechanical Engineering) and Graphic Design. Therefore, we cannot have nominated students in these majors.
--   Provide a statement of purpose. Include your proposed program of study while at SJSU. For example, if you want to take an business course, have you completed the prerequisite requirement at your home institution.
-    -   Undergraduate exchange students are not eligible to take 200 level or above courses, since these are graduate level courses.
--   Upload a clear digital copy of your passport biographical page.
--   Upload a recent academic transcript from your home institution in English or translated into English.
-    -   This transcript will need to show the list of courses that you have taken at your home institution and grades received in these courses.
--   Upload documentation of English proficiency (IELTS 6.0 6.5 Engineering Majors, TOEFL 61, 80 Engineering Majors, PTE 44, Duolingo 95), confirm you are a native English speaker or confirm that you are attending a University in a country where English is the spoken language.
+- Complete the Application for a New Exchange Student.
+  - Indicating your intended major while on exchange. Please review the [undergraduate list of majors](https://catalog.sjsu.edu/content.php?catoid=14&navoid=5107) and select one.
+    - Impacted majors at SJSU are Computer Science, Engineering (Computer Engineering, Electrical Engineering, Mechanical Engineering) and Graphic Design. Therefore, we cannot have nominated students in these majors.
+- Provide a statement of purpose. Include your proposed program of study while at SJSU. For example, if you want to take an business course, have you completed the prerequisite requirement at your home institution.
+  - Undergraduate exchange students are not eligible to take 200 level or above courses, since these are graduate level courses.
+- Upload a clear digital copy of your passport biographical page.
+- Upload a recent academic transcript from your home institution in English or translated into English.
+  - This transcript will need to show the list of courses that you have taken at your home institution and grades received in these courses.
+- Upload documentation of English proficiency (IELTS 6.0 6.5 Engineering Majors, TOEFL 61, 80 Engineering Majors, PTE 44, Duolingo 95), confirm you are a native English speaker or confirm that you are attending a University in a country where English is the spoken language.
 
 Approximately 3-4 weeks after the application deadline, ISSS will contact home institutions and applicants regarding their acceptance as well as a link to submit the DS-2019 application. Admitted students will then be required to complete our DS-2019 application.
 
--   Complete SJSU’s DS-2019 request form. After being admitted, the ISSS office will issue you a DS-2019, which is required to apply for a J-1 visa at a U.S. embassy or consulate abroad.
--   Proof of finances.
--   Fall 2024 & Spring 2025: $27,528 USD (One Academic Year)
--   Fall 2024 or Spring 2025: $13,764 USD (One Academic Semester)
--   Source of funding may come from personal funds, funds from a sponsor (parent, relative), government, organization, or a private source. Include a bank letter, statement, or award letter as evidence. The financial document must be dated within the past three months, account amount listed, or converted to U.S. dollars.
+- Complete SJSU’s DS-2019 request form. After being admitted, the ISSS office will issue you a DS-2019, which is required to apply for a J-1 visa at a U.S. embassy or consulate abroad.
+- Proof of finances.
+- Fall 2024 & Spring 2025: $27,528 USD (One Academic Year)
+- Fall 2024 or Spring 2025: $13,764 USD (One Academic Semester)
+- Source of funding may come from personal funds, funds from a sponsor (parent, relative), government, organization, or a private source. Include a bank letter, statement, or award letter as evidence. The financial document must be dated within the past three months, account amount listed, or converted to U.S. dollars.
 
 # Courses
 
 Idicating your intended major while on exchange. Please review the [undergraduate list of majors](https://catalog.sjsu.edu/content.php?catoid=14&navoid=5107) and select one.
 
--   Impacted majors at SJSU are Computer Science, Engineering (Computer Engineering, Electrical Engineering, Mechanical Engineering) and Graphic Design. Therefore, we cannot have nominated students in these majors.
+- Impacted majors at SJSU are Computer Science, Engineering (Computer Engineering, Electrical Engineering, Mechanical Engineering) and Graphic Design. Therefore, we cannot have nominated students in these majors.
 
 # Tuition
 
@@ -126,31 +126,31 @@ By hosting visiting scholars and students, San José State University (SJSU) act
 
 # Eligibility
 
--   There must be a valid exchange agreement between your home institution and SJSU, or you must be part of either CSUIP or ISEP.  All students need to be nominated by their home institution/organization. Students may not self-nominate.
--   Maintain good academic standing at your home institution, with a minimum GPA of 2.75 on a 4.00 scale for undergraduate students and 3.0 on a 4.0 scale for graduate students.
--   Demonstrate adequate English proficiency by providing one of the following as part of your application:
-    -   IELTS  (International English Language Testing System) score of 6.0 or higher for all majors, except Engineering, which requires a scre of 6.5 or higher;
-    -   TOEFL (Test of English as a Foreign Language) score of 61 or higher for all majors, except Engineering, which requires a score of 80 or higher;
-    -   PTE (Pearson English Language Test) score of 44 or higher;
-    -   Duolingo 95.
+- There must be a valid exchange agreement between your home institution and SJSU, or you must be part of either CSUIP or ISEP.  All students need to be nominated by their home institution/organization. Students may not self-nominate.
+- Maintain good academic standing at your home institution, with a minimum GPA of 2.75 on a 4.00 scale for undergraduate students and 3.0 on a 4.0 scale for graduate students.
+- Demonstrate adequate English proficiency by providing one of the following as part of your application:
+  - IELTS  (International English Language Testing System) score of 6.0 or higher for all majors, except Engineering, which requires a scre of 6.5 or higher;
+  - TOEFL (Test of English as a Foreign Language) score of 61 or higher for all majors, except Engineering, which requires a score of 80 or higher;
+  - PTE (Pearson English Language Test) score of 44 or higher;
+  - Duolingo 95.
 
 # Requirements
 
 ### Maintaining J-1 Status
 
--   **Orientation and Document Review**: After arriving on campus, please attend Global Spartan Welcome (GSW), complete the New Student Document Check-in.  You will receive an email from ISSS with detailed instructions to upload your immigration documents into the iSpartan system for review.
--   **Enrollment**: Enroll full-time, with a minimum of 12 units. These courss can be in-person or hybrid, with the allowance of one online course, for each term of your bilateral exchange program at SJSU. Full-time enrollment is strictly enforced.  A student who wants to pursue less than a full course of study will need to receive approval from his/her home university in addition to the ISSS office before reducing their course load. Failure to complete a full course load will result in you falling out of status and end your exchange program.
--   **Health Insurance:** Maintain sufficient [health insurance](https://www.sjsu.edu/isss/resources/health-insurance.php) coverage while studying at SJSU.
--   **Change of Address**: Report any change of address within 10 days of the change via the MySJSU portal (update the Home or Mailing Address type in MySJSU).
--   **Travel**: You may return to your home country or travel outside the U.S. during official school breaks.  Before leaving the U.S., make sure your DS-2019 is signed by a RO/ARO in the ISSS office.  See the travel page for additional information to prepare for your re-entry into the U.S. The travel endorsement on your DS-2019 is valid for one year or till your program end date for those participating in a short-term program.
--   **Grace Period**:  You have 30 days after you complete your program or after the program end date listed on the DS-2019 to depart the U.S.  You may not exit and re-enter the U.S. in J-1 status during the grace period.
-    -   If you plan to withdraw before the end of your program, please contact ISSS. You will need approval from your home university before we can take action to complete your SEVIS record.
--   **Program Extension**: If you would like to extend your exchange program for one additional semester, then you may be eligible for a program extension. You would need to get the approval of your home university and extend your DS-2019 before it expires, showing additional funds for the extended term. If you would like to extend your exchange prorgam at SJSU for another semester, please contact the ISSS office at j1-visa@sjsu.edu or meet with an advisor for more information.
+- **Orientation and Document Review**: After arriving on campus, please attend Global Spartan Welcome (GSW), complete the New Student Document Check-in.  You will receive an email from ISSS with detailed instructions to upload your immigration documents into the iSpartan system for review.
+- **Enrollment**: Enroll full-time, with a minimum of 12 units. These courss can be in-person or hybrid, with the allowance of one online course, for each term of your bilateral exchange program at SJSU. Full-time enrollment is strictly enforced.  A student who wants to pursue less than a full course of study will need to receive approval from his/her home university in addition to the ISSS office before reducing their course load. Failure to complete a full course load will result in you falling out of status and end your exchange program.
+- **Health Insurance:** Maintain sufficient [health insurance](https://www.sjsu.edu/isss/resources/health-insurance.php) coverage while studying at SJSU.
+- **Change of Address**: Report any change of address within 10 days of the change via the MySJSU portal (update the Home or Mailing Address type in MySJSU).
+- **Travel**: You may return to your home country or travel outside the U.S. during official school breaks.  Before leaving the U.S., make sure your DS-2019 is signed by a RO/ARO in the ISSS office.  See the travel page for additional information to prepare for your re-entry into the U.S. The travel endorsement on your DS-2019 is valid for one year or till your program end date for those participating in a short-term program.
+- **Grace Period**:  You have 30 days after you complete your program or after the program end date listed on the DS-2019 to depart the U.S.  You may not exit and re-enter the U.S. in J-1 status during the grace period.
+  - If you plan to withdraw before the end of your program, please contact ISSS. You will need approval from your home university before we can take action to complete your SEVIS record.
+- **Program Extension**: If you would like to extend your exchange program for one additional semester, then you may be eligible for a program extension. You would need to get the approval of your home university and extend your DS-2019 before it expires, showing additional funds for the extended term. If you would like to extend your exchange prorgam at SJSU for another semester, please contact the ISSS office at j1-visa@sjsu.edu or meet with an advisor for more information.
 
 ### Employment
 
--   **On-Campus Employment**: You may work [on-campus](https://www.sjsu.edu/isss/current-students/employment/campus.php). Any on-campus job is limited to 20 hours per week during the academic semester but can be full-time during official school breaks. After obtaining a job offer, request a [work permit](https://drive.google.com/file/d/17HakgT9ZYKY57MMdoONmLCZy5bZPDaai/view?usp=sharing) from the ISSS office. You will need to get on-campus employment authorization from ISSS before you can start working. You may also need to apply for a [Social Security number](https://www.sjsu.edu/isss/resources/ssn.php) (SSN).
--   **Off-campus Employment**: [Academic Training](https://drive.google.com/file/d/1CwX9YY7E0xdg1GHw9X-VMbVSW28_Z4bu/view?usp=sharing) (AT) provides an opportunity for J-1 students to participate in experiential learning that is an integral part of the program of study.  Training can be paid or unpaid. One semester exchange students will be limited to four months of Academic Training authorization. If participating in a full academic year exchange program, up to 9 months of AT is allowed. You will need to obtain authorization from ISSS before starting work.
+- **On-Campus Employment**: You may work [on-campus](https://www.sjsu.edu/isss/current-students/employment/campus.php). Any on-campus job is limited to 20 hours per week during the academic semester but can be full-time during official school breaks. After obtaining a job offer, request a [work permit](https://drive.google.com/file/d/17HakgT9ZYKY57MMdoONmLCZy5bZPDaai/view?usp=sharing) from the ISSS office. You will need to get on-campus employment authorization from ISSS before you can start working. You may also need to apply for a [Social Security number](https://www.sjsu.edu/isss/resources/ssn.php) (SSN).
+- **Off-campus Employment**: [Academic Training](https://drive.google.com/file/d/1CwX9YY7E0xdg1GHw9X-VMbVSW28_Z4bu/view?usp=sharing) (AT) provides an opportunity for J-1 students to participate in experiential learning that is an integral part of the program of study.  Training can be paid or unpaid. One semester exchange students will be limited to four months of Academic Training authorization. If participating in a full academic year exchange program, up to 9 months of AT is allowed. You will need to obtain authorization from ISSS before starting work.
 
 **Pre-Completion**. Training is authorized during your studies before the exchance program ends. Limited to part-time, 20 hours per week or less, during the academic term.
 
@@ -162,5 +162,5 @@ Prior to the start of your exchange program, we will email you more details rega
 
 **Information to help you prepare for your program and coming to SJSU:**
 
--   [Post-Arrival Information](https://www.sjsu.edu/isss/new-students/post-arrival/index.php)
--   [Health Insurance](https://www.sjsu.edu/isss/resources/health-insurance.php)
+- [Post-Arrival Information](https://www.sjsu.edu/isss/new-students/post-arrival/index.php)
+- [Health Insurance](https://www.sjsu.edu/isss/resources/health-insurance.php)

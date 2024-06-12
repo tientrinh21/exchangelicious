@@ -4,7 +4,6 @@ www.herts.ac.uk/studyabroad
 
 Welcome to the University of Hertfordshire! As a prospective exchange student, you are about to join one of the United Kingdom's leading universities, known for its strong focus on research, academic excellence, and vibrant student life. The University of Hertfordshire offers a dynamic environment that prepares students for successful careers and global citizenship.
 
-
 # Location
 
 The University of Hertfordshire is located in Hatfield, United Kingdom, a town known for its rich history, cultural diversity, and vibrant community. The university's modern campus offers state-of-the-art facilities and a welcoming atmosphere.
@@ -13,10 +12,12 @@ The University of Hertfordshire is located in Hatfield, United Kingdom, a town k
 College Lane, Hatfield, Hertfordshire, AL10 9AB, United Kingdom
 
 **Contact Information:**
+
 - **Email**: studyabroad@herts.ac.uk
 - **Phone**: +44 1707 284000
 
 **International Office Hours:**
+
 - **Hours**: 9:00am - 5:00pm (Monday to Friday)
 
 # Semester

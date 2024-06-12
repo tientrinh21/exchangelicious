@@ -4,8 +4,6 @@ https://www.chuo-u.ac.jp/english/admissions/exchange/semester-or-full-year/
 
 Welcome to Chuo University! As a prospective exchange student, you are about to join one of Japan's leading universities, located in the vibrant city of Tokyo. Chuo University is renowned for its academic excellence, innovative research, and diverse student body. The university provides a dynamic and supportive environment that prepares students for successful careers and global citizenship.
 
-
-
 # Location
 
 Chuo University is located in Tokyo, Japan, a bustling metropolis known for its rich culture, technological advancements, and vibrant lifestyle. The campus offers state-of-the-art facilities and is easily accessible by public transportation.
@@ -14,10 +12,12 @@ Chuo University is located in Tokyo, Japan, a bustling metropolis known for its 
 742-1 Higashinakano, Hachioji-shi, Tokyo 192-0393, Japan
 
 **Contact Information:**
+
 - **Email**: intl@tamajs.chuo-u.ac.jp
 - **Phone**: +81-42-674-2211
 
 **International Office Hours:**
+
 - **Hours**: 9:00am - 5:00pm (Monday to Friday)
 
 # Semester

@@ -4,7 +4,6 @@ https://www.fontys.nl/en/Study-at-Fontys/Exchange-programmes.htm
 
 Welcome to Fontys University of Applied Sciences! As a prospective exchange student, you are about to join one of the Netherlands' leading applied sciences universities, with campuses in Eindhoven, Tilburg, and Venlo. Fontys is known for its practical approach to education, innovative research, and diverse student body. The university offers a dynamic environment that prepares students for successful careers and global citizenship.
 
-
 # Location
 
 Fontys University of Applied Sciences has campuses in Eindhoven, Tilburg, and Venlo, offering a variety of cultural and educational experiences. The main campus is located in Eindhoven, a city known for its innovation, technology, and vibrant community.
@@ -13,10 +12,12 @@ Fontys University of Applied Sciences has campuses in Eindhoven, Tilburg, and Ve
 De Lismortel 25, 5612 AR Eindhoven, Netherlands
 
 **Contact Information:**
+
 - **Email**: international@fontys.nl
 - **Phone**: +31 8850 80000
 
 **International Office Hours:**
+
 - **Hours**: 9:00am - 5:00pm (Monday to Friday)
 
 # Semester

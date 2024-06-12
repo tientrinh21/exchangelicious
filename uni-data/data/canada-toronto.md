@@ -4,7 +4,6 @@ https://learningabroad.utoronto.ca/schools/sungkyunkwan-university-skku/
 
 Welcome to the University of Toronto! As a prospective exchange student, you are about to join one of the world's leading universities, located in the vibrant city of Toronto. The University of Toronto (U of T) is renowned for its academic excellence, cutting-edge research, and diverse student community. The university provides a dynamic and supportive environment that prepares students for successful careers and global citizenship.
 
-
 # Location
 
 The University of Toronto is located in Toronto, Ontario, Canada's largest city, known for its cultural diversity, world-class arts scene, and bustling urban life. The university has three campuses: St. George (downtown Toronto), Scarborough, and Mississauga.

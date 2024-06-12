@@ -36,15 +36,15 @@ At North Park, we say “Chicago is our classroom,” because our city offers en
 
 # Semester
 
--   Fall Semester (August - December)
+- Fall Semester (August - December)
 
--   Summer (June - August)
+- Summer (June - August)
 
--   Calendar Year (January - December)
+- Calendar Year (January - December)
 
--   Academic Year (August - May)
+- Academic Year (August - May)
 
--   Spring Semester (January - May)
+- Spring Semester (January - May)
 
 # Application Deadlines
 
@@ -128,11 +128,11 @@ These dates are for traditional undergraduate students living in campus housing.
 
 ### June–July
 
--   **In early June,** the Office of Residence Life and Housing will start assigning new students to on-campus housing. The Office of Residence Life will continue to assign them every 2-3 weeks until the start of the semester.
--   New Students: Complete and submit your housing application as soon as possible in order to get your assignment as early as possible.
--   Must be registered full time
--   Must submit a housing application
--   Must have paid $250 housing deposit
+- **In early June,** the Office of Residence Life and Housing will start assigning new students to on-campus housing. The Office of Residence Life will continue to assign them every 2-3 weeks until the start of the semester.
+- New Students: Complete and submit your housing application as soon as possible in order to get your assignment as early as possible.
+- Must be registered full time
+- Must submit a housing application
+- Must have paid $250 housing deposit
 
 ### August
 
@@ -202,17 +202,17 @@ Proficiency in the English language is required for success as a student at Nort
 
 <table class="table table-striped table-bordered"><tbody><tr><td></td><td style="width: 120px;"><strong>TOEFL Internet-Based Test (iBT)</strong></td><td style="width: 120px;"><strong>IELTS</strong></td></tr><tr><td><strong>Bachelor’s Level Programs</strong></td><td>68 or above</td><td>6.0</td></tr><tr><td><strong>Select Master’s Level Programs:</strong><p></p><ul><li><a href="http://www.northpark.edu/Academics/School-of-Business-and-Nonprofit-Management/Graduate-Programs/Master-of-Business-Administration">Master of Business Administration (MBA)</a></li><li><a href="http://www.northpark.edu/Academics/School-of-Business-and-Nonprofit-Management/Graduate-Programs/Master-of-Nonprofit-Administration">Master of Nonprofit Administration (MNA)</a></li><li><a href="http://www.northpark.edu/Academics/School-of-Business-and-Nonprofit-Management/Graduate-Programs/Master-of-Human-Resource-Management">Master of Human Resource Management (MHRM)</a></li></ul></td><td>80</td><td>6.5</td></tr><tr><td><strong>General Master’s Level Programs</strong></td><td>90</td><td>6.5</td></tr><tr><td><strong>Doctoral Level Programs</strong></td><td>100</td><td>7.0</td></tr></tbody></table>
 
--   **TOEFL sub-scores, bachelor’s level:** Bachelor’s-level students must score 15 or above on each of the four sub-score areas, and must have a minimum score of 17 in at least two of the sub-areas.
--   **TOEFL sub-scores, master’s and doctoral level:** For all master’s-level students, sub-scores in the areas of reading, listening, speaking, and writing will be examined; any low scores in these areas will be considered during the admissions process and may require further proof of proficiency.
--   **IELTS:** No score band on your full test may be below 5.0.
--   Students with a lower score on one of these tests may be admitted with a requirement for further intensive language training (ESL or other language intensive).
+- **TOEFL sub-scores, bachelor’s level:** Bachelor’s-level students must score 15 or above on each of the four sub-score areas, and must have a minimum score of 17 in at least two of the sub-areas.
+- **TOEFL sub-scores, master’s and doctoral level:** For all master’s-level students, sub-scores in the areas of reading, listening, speaking, and writing will be examined; any low scores in these areas will be considered during the admissions process and may require further proof of proficiency.
+- **IELTS:** No score band on your full test may be below 5.0.
+- Students with a lower score on one of these tests may be admitted with a requirement for further intensive language training (ESL or other language intensive).
 
 **German Exchange Students:** North Park accepts the DAAD (Deutscher Akademischer Austausch Dienst – German Academic Exchange Service) verification of English competency.
 
 #### Test results must be:
 
--   Current; testing date must be within two (2) years of applying for admission to North Park.
--   Sent directly to the North Park Office of Admission by the testing agency; **the North Park TOEFL code is 1556**.
+- Current; testing date must be within two (2) years of applying for admission to North Park.
+- Sent directly to the North Park Office of Admission by the testing agency; **the North Park TOEFL code is 1556**.
 
 ### Validation of Proficiency
 
@@ -228,21 +228,21 @@ International students in certain categories do not need to submit a test score 
 
 #### Undergraduate Program Exceptions
 
--   Canadian students
--   Students who earned high school degrees taught in English (minimum of 2 semesters):
-    -   From the United Kingdom, British West Indies, Ireland, Australia, or New Zealand
-    -   At an International Baccalaureate (IB) accredited school
-    -   At a school where instruction is in English (International High Schools) and is accredited by an American accreditation agency
--   Students who have earned at least 60 hours of transferable credit from a U.S. accredited college or university
-    -   Including a minimum grade of “C” in Composition 1 and Composition 2 (or the equivalent to WRIT 1000 and First Year Seminar at North Park)
--   Students from Scandinavian countries (Sweden, Norway, Finland, Iceland, and Denmark); transfer students from Scandinavian countries should review [additional details](http://www.northpark.edu/Admissions/Undergraduate-Admissions/International/Scandinavian-Transfer)
+- Canadian students
+- Students who earned high school degrees taught in English (minimum of 2 semesters):
+  - From the United Kingdom, British West Indies, Ireland, Australia, or New Zealand
+  - At an International Baccalaureate (IB) accredited school
+  - At a school where instruction is in English (International High Schools) and is accredited by an American accreditation agency
+- Students who have earned at least 60 hours of transferable credit from a U.S. accredited college or university
+  - Including a minimum grade of “C” in Composition 1 and Composition 2 (or the equivalent to WRIT 1000 and First Year Seminar at North Park)
+- Students from Scandinavian countries (Sweden, Norway, Finland, Iceland, and Denmark); transfer students from Scandinavian countries should review [additional details](http://www.northpark.edu/Admissions/Undergraduate-Admissions/International/Scandinavian-Transfer)
 
 #### Seminary and Other Graduate Program Exceptions
 
--   Canadian students
--   Students who have earned a bachelor’s degree taught in English in a country where English is the primary language (United Kingdom, British West Indies, Ireland, Australia, or New Zealand)
--   Students who have earned a bachelor’s or master’s degree, or have at least 30 hours of master’s degree-level credit, with a “C” average, at a U.S. accredited college or university
--   Students from Scandinavian countries (Sweden, Norway, Finland, Iceland, and Denmark) must submit a TOEFL or IELTS test score only when applying for a DMin degree program
+- Canadian students
+- Students who have earned a bachelor’s degree taught in English in a country where English is the primary language (United Kingdom, British West Indies, Ireland, Australia, or New Zealand)
+- Students who have earned a bachelor’s or master’s degree, or have at least 30 hours of master’s degree-level credit, with a “C” average, at a U.S. accredited college or university
+- Students from Scandinavian countries (Sweden, Norway, Finland, Iceland, and Denmark) must submit a TOEFL or IELTS test score only when applying for a DMin degree program
 
 ### Additional Requirements
 
@@ -256,8 +256,8 @@ A local [Education USA](http://www.educationusa.info) advising center can provid
 
 Your application will not be complete until we have received the required supplemental documentation:
 
--   Official University Transcript
--   [Proof of English Proficiency](https://www.northpark.edu/admissions-aid/undergraduate-admissions/international-students/english-language-proficiency-requirement/)
--   Copy of Passport Identification Page
--   Bank Statement
--   Financial Affidavit of Support
+- Official University Transcript
+- [Proof of English Proficiency](https://www.northpark.edu/admissions-aid/undergraduate-admissions/international-students/english-language-proficiency-requirement/)
+- Copy of Passport Identification Page
+- Bank Statement
+- Financial Affidavit of Support

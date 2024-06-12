@@ -12,10 +12,12 @@ The University of Bern is located in Bern, Switzerland, a city known for its ric
 Hochschulstrasse 6, 3012 Bern, Switzerland
 
 **Contact Information:**
+
 - **Email**: mobility@unibe.ch
 - **Phone**: +41 31 631 31 21
 
 **International Office Hours:**
+
 - **Hours**: 9:00am - 5:00pm (Monday to Friday)
 
 # Semester

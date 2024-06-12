@@ -4,8 +4,6 @@ https://vu.nl/en/education/exchange
 
 Welcome to Vrije Universiteit Amsterdam! As a prospective exchange student, you are about to join one of the Netherlands' leading research universities, located in the vibrant city of Amsterdam. VU Amsterdam is known for its academic excellence, innovative research, and diverse student body. The university offers a dynamic environment that prepares students for successful careers and global citizenship.
 
-
-
 # Location
 
 Vrije Universiteit Amsterdam is located in Amsterdam, Netherlands, a city known for its rich history, cultural diversity, and vibrant lifestyle. The campus offers state-of-the-art facilities and is easily accessible by public transportation.
@@ -14,10 +12,12 @@ Vrije Universiteit Amsterdam is located in Amsterdam, Netherlands, a city known 
 De Boelelaan 1105, 1081 HV Amsterdam, Netherlands
 
 **Contact Information:**
+
 - **Email**: incoming@vu.nl
 - **Phone**: +31 20 598 9898
 
 **International Office Hours:**
+
 - **Hours**: 9:00am - 5:00pm (Monday to Friday)
 
 # Semester

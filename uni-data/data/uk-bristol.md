@@ -4,7 +4,6 @@ https://www.bristol.ac.uk/global-opportunities/at-bristol/study-abroad/
 
 Welcome to the University of Bristol! As a prospective exchange student, you are about to join one of the United Kingdom's leading research universities, known for its strong focus on research, academic excellence, and vibrant student life. The University of Bristol offers a dynamic environment that prepares students for successful careers and global citizenship.
 
-
 # Location
 
 The University of Bristol is located in Bristol, United Kingdom, a city known for its rich maritime history, cultural diversity, and vibrant community. The university's modern campus offers state-of-the-art facilities and a welcoming atmosphere.
@@ -13,10 +12,12 @@ The University of Bristol is located in Bristol, United Kingdom, a city known fo
 Senate House, Tyndall Ave, Bristol BS8 1TH, United Kingdom
 
 **Contact Information:**
+
 - **Email**: global-opportunities@bristol.ac.uk
 - **Phone**: +44 117 928 9000
 
 **International Office Hours:**
+
 - **Hours**: 9:00am - 5:00pm (Monday to Friday)
 
 # Semester

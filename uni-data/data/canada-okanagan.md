@@ -12,10 +12,12 @@ Okanagan College is located in the Okanagan Valley, British Columbia, known for 
 1000 KLO Rd, Kelowna, BC V1Y 4X8, Canada
 
 **Contact Information:**
+
 - **Email**: international@okanagan.bc.ca
 - **Phone**: +1 250-862-5419
 
 **International Office Hours:**
+
 - **Hours**: 8:30am - 4:30pm (Monday to Friday)
 
 # Semester

@@ -72,12 +72,12 @@ All interested students must attend a [Learning Abroad 101](http://www.uh.edu/le
 
 Before applying with the host institution, students must be officially nominated by UH Learning Abroad. Your application for nomination will include:
 
--   Minimum of one approved [Course Equivalency Form](https://uh.edu/learningabroad/find-a-program/exchange-programs//../../policies/fillable-cef-updated-july-2022.pdf#https://uh.edu/learningabroad/policies/fillable-cef-updated-july-2022.pdf)
--   Two personal statements that should address the following prompts:
-    -   Please describe your personal, professional, and academic goals. How will the selected program help you reach these goals? Is there anything else that you hope to gain from this program? (250 word limit)
-    -   Please share why you think you will be a successful exchange student in this program and how you will handle academic and/or personal struggles while you are abroad. This essay should address your level of independence, comfort with ambiguity, and the personal skills that you will use to navigate a new country and culture. (250 word limit)
--   One letter of recommendation from a UH faculty or staff member. The letter of recommendation should include the following information: why the recommender believes the applicant will be successful on the selected REEP program and an evaluation of the applicant’s strengths. This may include areas such as academic preparation, cultural awareness, independence, communication skills, adaptability, and/or teamwork.
--   Unofficial transcripts from all colleges/universities attended.
+- Minimum of one approved [Course Equivalency Form](https://uh.edu/learningabroad/find-a-program/exchange-programs//../../policies/fillable-cef-updated-july-2022.pdf#https://uh.edu/learningabroad/policies/fillable-cef-updated-july-2022.pdf)
+- Two personal statements that should address the following prompts:
+  - Please describe your personal, professional, and academic goals. How will the selected program help you reach these goals? Is there anything else that you hope to gain from this program? (250 word limit)
+  - Please share why you think you will be a successful exchange student in this program and how you will handle academic and/or personal struggles while you are abroad. This essay should address your level of independence, comfort with ambiguity, and the personal skills that you will use to navigate a new country and culture. (250 word limit)
+- One letter of recommendation from a UH faculty or staff member. The letter of recommendation should include the following information: why the recommender believes the applicant will be successful on the selected REEP program and an evaluation of the applicant’s strengths. This may include areas such as academic preparation, cultural awareness, independence, communication skills, adaptability, and/or teamwork.
+- Unofficial transcripts from all colleges/universities attended.
 
 All applications for nomination (including the personal statements and letter of recommendation) must be submitted by the listed deadline. Nomination decisions will be based on program capacity as well as the quality of the completed applications.
 
@@ -105,19 +105,19 @@ tuition/fees to their home university, except for required host university fees.
 
 All Incoming REEP students are responsible for the following fees:
 
--   **Health Insurance:** details and costs listed [here](https://www.uh.edu/healthcenter/international/index)
--   **International Student and Scholar Services Orientation Fee:** $100
--   **Exchange Fee:** $75
--   **International Student orientation Fee:** $75
--   **UH Recreation and Wellness Center, Student Center, and Student Services fees**
+- **Health Insurance:** details and costs listed [here](https://www.uh.edu/healthcenter/international/index)
+- **International Student and Scholar Services Orientation Fee:** $100
+- **Exchange Fee:** $75
+- **International Student orientation Fee:** $75
+- **UH Recreation and Wellness Center, Student Center, and Student Services fees**
 
 Undergraduate UH Application Fee:
 
--   **$90** paid online while applying for admission via  [Applytexas.org](https://www.applytexas.org/adappc/gen/c_start.WBX)
+- **$90** paid online while applying for admission via  [Applytexas.org](https://www.applytexas.org/adappc/gen/c_start.WBX)
 
 Graduate UH Application Fee:
 
--   Varies by UH [College/Department,](http://www.uh.edu/graduate-school/prospective-students/programs/) paid online via [ApplyWeb](https://www.applyweb.com/uhouston/index.ftl).
+- Varies by UH [College/Department,](http://www.uh.edu/graduate-school/prospective-students/programs/) paid online via [ApplyWeb](https://www.applyweb.com/uhouston/index.ftl).
 
 # Housing
 
@@ -144,9 +144,9 @@ University of Houston will e-mail your I-20 directly to you unless otherwise spe
 
 At the time of application students must have:
 
--   Cumulative GPA of 2.5 (2.8 required for Swansea University)
--   Completed at least 12 UH credit hours
--   At least one semester left at UH after return from program
+- Cumulative GPA of 2.5 (2.8 required for Swansea University)
+- Completed at least 12 UH credit hours
+- At least one semester left at UH after return from program
 
 All incoming exchange students are required fulfill the English Language Requirement. For more
 information regarding University of Houston’s English language proficiency requirement, click [here](https://uh.edu/undergraduate-admissions/apply/international/english-language-requirements/).

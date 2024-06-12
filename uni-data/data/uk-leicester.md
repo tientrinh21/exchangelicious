@@ -4,7 +4,6 @@ https://le.ac.uk/cite/study-abroad-unit/incoming
 
 Welcome to the University of Leicester! As a prospective exchange student, you are about to join one of the United Kingdom's leading universities, known for its strong focus on research, academic excellence, and vibrant student life. The University of Leicester offers a dynamic environment that prepares students for successful careers and global citizenship.
 
-
 # Location
 
 The University of Leicester is located in Leicester, United Kingdom, a city known for its rich history, cultural diversity, and vibrant community. The university's modern campus offers state-of-the-art facilities and a welcoming atmosphere.
@@ -13,10 +12,12 @@ The University of Leicester is located in Leicester, United Kingdom, a city know
 University Road, Leicester, LE1 7RH, United Kingdom
 
 **Contact Information:**
+
 - **Email**: studyabroad@le.ac.uk
 - **Phone**: +44 116 252 2296
 
 **International Office Hours:**
+
 - **Hours**: 9:00am - 5:00pm (Monday to Friday)
 
 # Semester

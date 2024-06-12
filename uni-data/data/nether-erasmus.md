@@ -4,7 +4,6 @@ https://www.eur.nl/en/ese/exchange/visiting-students
 
 Welcome to Erasmus University Rotterdam! As a prospective exchange student, you are about to join one of the Netherlands' leading research universities, located in the vibrant city of Rotterdam. Erasmus University is known for its strong focus on business, economics, and social sciences, innovative research, and diverse student body. The university offers a dynamic environment that prepares students for successful careers and global citizenship.
 
-
 # Location
 
 Erasmus University Rotterdam is located in Rotterdam, Netherlands, a city known for its modern architecture, cultural diversity, and vibrant community. The campus offers state-of-the-art facilities and a welcoming atmosphere.
@@ -13,10 +12,12 @@ Erasmus University Rotterdam is located in Rotterdam, Netherlands, a city known 
 Burgemeester Oudlaan 50, 3062 PA Rotterdam, Netherlands
 
 **Contact Information:**
+
 - **Email**: exchange@eur.nl
 - **Phone**: +31 10 408 1111
 
 **International Office Hours:**
+
 - **Hours**: 9:00am - 5:00pm (Monday to Friday)
 
 # Semester

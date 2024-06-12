@@ -4,8 +4,6 @@ https://www.polimi.it/en/exchange-students-incoming
 
 Welcome to the Polytechnic University of Milan (Polimi)! As a prospective exchange student, you are about to join one of Italy's most prestigious technical universities, located in the vibrant city of Milan. Polimi is known for its academic excellence, innovative research, and strong industry connections. The university provides a dynamic and supportive environment that prepares students for successful careers in engineering, architecture, and design.
 
-
-
 # Location
 
 The Polytechnic University of Milan is located in Milan, Italy, a global fashion and design capital known for its rich history, cultural heritage, and economic significance. The university has several campuses in Milan, each offering state-of-the-art facilities and a vibrant academic atmosphere.
@@ -14,10 +12,12 @@ The Polytechnic University of Milan is located in Milan, Italy, a global fashion
 Piazza Leonardo da Vinci, 32, 20133 Milan, Italy
 
 **Contact Information:**
+
 - **Email**: internationalexchange@polimi.it
 - **Phone**: +39 02 2399 9700
 
 **International Office Hours:**
+
 - **Hours**: 9:00am - 5:00pm (Monday to Friday)
 
 # Semester

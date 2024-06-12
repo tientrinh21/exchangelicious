@@ -4,7 +4,6 @@ https://www.ru.nl/en/education/more-education-and-training/exchange-students
 
 Welcome to Radboud University! As a prospective exchange student, you are about to join one of the Netherlands' leading research universities, located in the historic city of Nijmegen. Radboud University is known for its strong focus on research, innovative education, and vibrant international community. The university offers a dynamic environment that prepares students for successful careers and global citizenship.
 
-
 # Location
 
 Radboud University is located in Nijmegen, Netherlands, a city known for its rich history, cultural diversity, and vibrant community. The campus offers state-of-the-art facilities and a welcoming atmosphere.
@@ -13,10 +12,12 @@ Radboud University is located in Nijmegen, Netherlands, a city known for its ric
 Comeniuslaan 4, 6525 HP Nijmegen, Netherlands
 
 **Contact Information:**
+
 - **Email**: studentexchange@ru.nl
 - **Phone**: +31 24 361 6060
 
 **International Office Hours:**
+
 - **Hours**: 9:00am - 5:00pm (Monday to Friday)
 
 # Semester

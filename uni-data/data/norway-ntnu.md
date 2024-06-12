@@ -33,8 +33,8 @@ NTNU in Ålesund is situated about [four kilometres east of the city centre of �
 
 # Semester
 
--   **Spring Semester**: Starts in early January and ends in mid-June.
--   **Fall Semester**: Starts in mid-August and ends in late December.
+- **Spring Semester**: Starts in early January and ends in mid-June.
+- **Fall Semester**: Starts in mid-August and ends in late December.
 
 [Academic Calendar](https://i.ntnu.no/en/studiekalender)
 
@@ -44,12 +44,13 @@ NTNU in Ålesund is situated about [four kilometres east of the city centre of �
 
 You must be nominated by your home university before you can apply. The deadlines for your home university to nominate you are:
 
--   **Starting Autumn semester:**
-    -   15 March (non-EU/EEA citizens)
-    -   15 April (EU/EEA citizens)  
+- **Starting Autumn semester:**
 
--   **Starting spring semester:**
-    -   15 September (Everyone)
+  - 15 March (non-EU/EEA citizens)
+  - 15 April (EU/EEA citizens)
+
+- **Starting spring semester:**
+  - 15 September (Everyone)
 
 # Courses
 
@@ -70,36 +71,39 @@ Read "Choosing and changing courses" below before you begin.
 
 All of NTNU's courses can be found using the online course catalog**.** Please read the following before using the catalog.
 
--   When searching for courses, the box _Taught in English_ must be checked, and your campus city must be selected under _Teaching location_.
-    -   If the language of instruction on the course page is listed as _English / Norwegian_, check with the course coordinator (listed on the course page) whether the course will be taught partly or fully in English.  
+- When searching for courses, the box _Taught in English_ must be checked, and your campus city must be selected under _Teaching location_.
 
--   You can only choose courses in the city you will be studying in during your exchange.  
+  - If the language of instruction on the course page is listed as _English / Norwegian_, check with the course coordinator (listed on the course page) whether the course will be taught partly or fully in English.
 
--   Make sure you have chosen the correct semester (autumn/spring) under "Course start". Most courses are taught only in one of the two semesters, but is usually taught every year.  
+- You can only choose courses in the city you will be studying in during your exchange.
 
--   Make sure you are **eligible** for the course. Check if the course requires _previous knowledge_ and is taught in English. You can choose courses at any faculty or department, as long as you are qualified and eligible for it:
+- Make sure you have chosen the correct semester (autumn/spring) under "Course start". Most courses are taught only in one of the two semesters, but is usually taught every year.
 
-    -   If a course has *<u>recommended</u> previous knowledge,* the course is generally open to exchange students, but it is the students' responsibility to ensure they are academically equipped able to understand/follow the course content.  
+- Make sure you are **eligible** for the course. Check if the course requires _previous knowledge_ and is taught in English. You can choose courses at any faculty or department, as long as you are qualified and eligible for it:
 
-    -   If a course has *<u>required</u> previous knowledge*, the student must have documented academic experience equivalent to the 'required courses' listed on the course page.  
+  - If a course has *<u>recommended</u> previous knowledge,* the course is generally open to exchange students, but it is the students' responsibility to ensure they are academically equipped able to understand/follow the course content.
 
--   Specific conditions:
-    -   If a course page states that admission to a particular programme of study is required, it is generally reserved for students attending the relevant programme. However, exceptions are possible. Contact the course coordinator to inquire about admission.  
+  - If a course has *<u>required</u> previous knowledge*, the student must have documented academic experience equivalent to the 'required courses' listed on the course page.
 
--   PhD level courses are usually reserved for PhD candidates and require special admission. All courses where the number in the course code starts with **8** are PhD level.  
+- Specific conditions:
 
--   Different course levels may be shown by different names:
-    -   **Bachelor's level** courses may be called  "Foundation", "Intermediate" or "Third-year"
-    -   **Master's level** courses may be called "Second degree level"
-    -   **PhD level** courses may be called "Doctoral degree level"  
+  - If a course page states that admission to a particular programme of study is required, it is generally reserved for students attending the relevant programme. However, exceptions are possible. Contact the course coordinator to inquire about admission.
 
--   You are *not guaranteed* entry to any course. The faculty/department decides whether you get admission to their course.  
+- PhD level courses are usually reserved for PhD candidates and require special admission. All courses where the number in the course code starts with **8** are PhD level.
 
--   **Overlapping courses?** You will not get double credits for courses with overlapping contents. Each course page lists what other courses its content overlaps with, under _Credit reductions_.  
+- Different course levels may be shown by different names:
 
--   If a course is project-based, it can normally be supervised in English, even though the language of instruction is Norwegian.  
+  - **Bachelor's level** courses may be called  "Foundation", "Intermediate" or "Third-year"
+  - **Master's level** courses may be called "Second degree level"
+  - **PhD level** courses may be called "Doctoral degree level"
 
--   You can freely change your study plan/course selection at NTNU until 15 september (autumn) or 1 February (spring).
+- You are *not guaranteed* entry to any course. The faculty/department decides whether you get admission to their course.
+
+- **Overlapping courses?** You will not get double credits for courses with overlapping contents. Each course page lists what other courses its content overlaps with, under _Credit reductions_.
+
+- If a course is project-based, it can normally be supervised in English, even though the language of instruction is Norwegian.
+
+- You can freely change your study plan/course selection at NTNU until 15 september (autumn) or 1 February (spring).
 
 ## Exchange courses
 
@@ -114,8 +118,6 @@ Using this button, you will be shown courses *taught in English* in *Trondhei
 **[NTNU Course Catalog - Trondheim](https://www.ntnu.edu/studies/coursesearch#alesund=false&gjovik=false&trondheim=true&english=true)**
 
 The Online Course Catalog is updated yearly in July. Students coming in the autumn semester must therefore use the course catalog for the previous academic year. Course contents and things such as language of instruction may therefore change by the time the semester starts. If so, do not worry: you will be able to change your course selection until September 15th.
-
-
 
 ### Norwegian language courses
 
@@ -133,38 +135,38 @@ Using this button, you will be shown courses *taught in English* in *Gjøvik*
 
 ### Bachelor's level courses in Gjøvik
 
--   [Computer Science](https://www.ntnu.edu/studies/exchange/media_computer_science)
--   [Design](https://www.ntnu.edu/studies/exchange/graphic_design)
--   [Manufacturing and Civil Engineering](https://www.ntnu.edu/studies/exchange/manufacturing-and-civil-engineering)
--   [Norwegian for foreigners](https://www.ntnu.edu/studies/exchange/norwegian_culture_language)
--   [Bachelor thesis/projects](https://www.ntnu.edu/studies/exchange/bachelor_thesis)
+- [Computer Science](https://www.ntnu.edu/studies/exchange/media_computer_science)
+- [Design](https://www.ntnu.edu/studies/exchange/graphic_design)
+- [Manufacturing and Civil Engineering](https://www.ntnu.edu/studies/exchange/manufacturing-and-civil-engineering)
+- [Norwegian for foreigners](https://www.ntnu.edu/studies/exchange/norwegian_culture_language)
+- [Bachelor thesis/projects](https://www.ntnu.edu/studies/exchange/bachelor_thesis)
 
 ### Master's level courses in Gjøvik
 
 Degree programmes taught in English at NTNU in Gjøvik are listed below. Please check the programme pages for more information about the courses:
 
--   [MSc Applied Computer Science](https://www.ntnu.edu/studies/macs)
--   [MSc Information Security](https://www.ntnu.edu/studies/mis)
--   [MSc Interaction Design](https://www.ntnu.edu/studies/mixd)
+- [MSc Applied Computer Science](https://www.ntnu.edu/studies/macs)
+- [MSc Information Security](https://www.ntnu.edu/studies/mis)
+- [MSc Interaction Design](https://www.ntnu.edu/studies/mixd)
 
 Master's level courses in English at the Department of Manufacturing and Civil Engineering:
 
--   [TTM4285 - Lifecycle Performance of Aluminum Products (7,5 ECTS)](https://www.ntnu.edu/studies/courses/TMM4285/#tab=omEmnet)
--   [TØL4010 - Sustainability Assessment (7,5 ECTS)](https://www.ntnu.edu/studies/courses/T%c3%98L4010/#tab=omEmnet)
--   [TØL4015 - Project Work (7,5 ECTS)](https://www.ntnu.edu/studies/courses/T%c3%98L4015/#tab=omEmnet)
--   [TØL4016 - Industrial Communications and Sensor Technology (7,5 ECTS)](https://www.ntnu.edu/studies/courses/T%c3%98L4016/#tab=omEmnet)
--   [TØL4018 - Renewable Energy Technology (7,5 ECTS)](https://www.ntnu.edu/studies/courses/T%c3%98L4018/#tab=omEmnet)
--   [TØL4020 - Introduction to Modelling and Simulation for Sustainable Manufacturing (7,5 ECTS)](https://www.ntnu.edu/studies/courses/T%c3%98L4020/2023#tab=omEmnet)
--   [TØL4023 - Energy System Analysis Project Course (7,5 ECTS)](https://www.ntnu.edu/studies/courses/T%C3%98L4023#tab=omEmnet)
--   [TØL4204 - Flexible Automation and Artificial Intelligence (7,5 ECTS)](https://www.ntnu.edu/studies/courses/T%c3%98L4204/#tab=omEmnet)
--   [TØL4205 - Polymer Materials and Processes (7,5 ECTS)](https://www.ntnu.edu/studies/courses/T%c3%98L4205/#tab=omEmnet)
+- [TTM4285 - Lifecycle Performance of Aluminum Products (7,5 ECTS)](https://www.ntnu.edu/studies/courses/TMM4285/#tab=omEmnet)
+- [TØL4010 - Sustainability Assessment (7,5 ECTS)](https://www.ntnu.edu/studies/courses/T%c3%98L4010/#tab=omEmnet)
+- [TØL4015 - Project Work (7,5 ECTS)](https://www.ntnu.edu/studies/courses/T%c3%98L4015/#tab=omEmnet)
+- [TØL4016 - Industrial Communications and Sensor Technology (7,5 ECTS)](https://www.ntnu.edu/studies/courses/T%c3%98L4016/#tab=omEmnet)
+- [TØL4018 - Renewable Energy Technology (7,5 ECTS)](https://www.ntnu.edu/studies/courses/T%c3%98L4018/#tab=omEmnet)
+- [TØL4020 - Introduction to Modelling and Simulation for Sustainable Manufacturing (7,5 ECTS)](https://www.ntnu.edu/studies/courses/T%c3%98L4020/2023#tab=omEmnet)
+- [TØL4023 - Energy System Analysis Project Course (7,5 ECTS)](https://www.ntnu.edu/studies/courses/T%C3%98L4023#tab=omEmnet)
+- [TØL4204 - Flexible Automation and Artificial Intelligence (7,5 ECTS)](https://www.ntnu.edu/studies/courses/T%c3%98L4204/#tab=omEmnet)
+- [TØL4205 - Polymer Materials and Processes (7,5 ECTS)](https://www.ntnu.edu/studies/courses/T%c3%98L4205/#tab=omEmnet)
 
 Master's thesis / Project work:
 
--   [IMT4461 - Project work for exchange master's students (30 ECTS credits)](https://www.ntnu.edu/studies/courses/IMT4461#tab=omEmnet) Department of Computer Science
--   [IDIG4001 - Project work for exchange master's students (22,5 ECTS credits)](https://www.ntnu.edu/studies/courses/IDIG4001#tab=omEmnet) Department of Computer Science
--   [TØL4082 - Project Work for Exchange Students (30 ECTS)](https://www.ntnu.edu/studies/courses/T%C3%98L4082/2023/1#tab=omEmnet) Department of Manufacturing and Civil Engineering
--   [TØL4083 - Project Work for Exchange Students (15 ECTS)](https://www.ntnu.edu/studies/courses/T%C3%98L4083/2023/1#tab=omEmnet) Department of Manufacturing and Civil Engineering
+- [IMT4461 - Project work for exchange master's students (30 ECTS credits)](https://www.ntnu.edu/studies/courses/IMT4461#tab=omEmnet) Department of Computer Science
+- [IDIG4001 - Project work for exchange master's students (22,5 ECTS credits)](https://www.ntnu.edu/studies/courses/IDIG4001#tab=omEmnet) Department of Computer Science
+- [TØL4082 - Project Work for Exchange Students (30 ECTS)](https://www.ntnu.edu/studies/courses/T%C3%98L4082/2023/1#tab=omEmnet) Department of Manufacturing and Civil Engineering
+- [TØL4083 - Project Work for Exchange Students (15 ECTS)](https://www.ntnu.edu/studies/courses/T%C3%98L4083/2023/1#tab=omEmnet) Department of Manufacturing and Civil Engineering
 
 **Note that for IMT4461, IDIG4001, as well as for bachelor thesis and project work, you will need to contact and make an appointment with a supervisor at NTNU in Gjøvik prior to application**.
 
@@ -182,20 +184,20 @@ Using this button, you will be shown courses *taught in English* in *Ålesund
 
 ### Bachelor's level courses in Ålesund
 
--   [ICT and Automation](https://www.ntnu.edu/studies/exchange/ict-and-automation)
--   [Business and Marketing](https://www.ntnu.edu/studies/exchange/business-and-marketing)
--   [Life Sciences](https://www.ntnu.edu/studies/exchange/life-sciences)
--   [Nursing](https://www.ntnu.edu/studies/exchange/nursing)
--   [Norwegian language course for exchange students](https://www.ntnu.edu/studies/courses/NFUT0030#tab=omEmnet)
+- [ICT and Automation](https://www.ntnu.edu/studies/exchange/ict-and-automation)
+- [Business and Marketing](https://www.ntnu.edu/studies/exchange/business-and-marketing)
+- [Life Sciences](https://www.ntnu.edu/studies/exchange/life-sciences)
+- [Nursing](https://www.ntnu.edu/studies/exchange/nursing)
+- [Norwegian language course for exchange students](https://www.ntnu.edu/studies/courses/NFUT0030#tab=omEmnet)
 
 ### Master's level courses in Ålesund
 
 Degree programmes taught in English at NTNU Ålesund are listed below. Please check the programme pages for more information about the courses:
 
--   [MSc in International Business and Marketing](https://www.ntnu.edu/studies/860mib)
--   [MSc in Product and System Design](https://www.ntnu.edu/studies/840md)
--   [MSc in Ship Design](https://www.ntnu.edu/studies/850md)
--   [MSc in Simulation and Visualisation](https://www.ntnu.edu/studies/880mvs)
+- [MSc in International Business and Marketing](https://www.ntnu.edu/studies/860mib)
+- [MSc in Product and System Design](https://www.ntnu.edu/studies/840md)
+- [MSc in Ship Design](https://www.ntnu.edu/studies/850md)
+- [MSc in Simulation and Visualisation](https://www.ntnu.edu/studies/880mvs)
 
 ## How to Apply: Apply online and upload required documentation
 
@@ -263,14 +265,14 @@ Always check [UDI's home page](http://www.udi.no/Norwegian-Directorate-of-Immig
 
 ### Quick links
 
--   [Directorate of Immigration (UDI)](http://www.udi.no/templates/Tema.aspx?id=9352)
--   [Application Portal Norway](https://selfservice.udi.no/en-gb/)
--   [Norwegian embassies listing](http://www.norway.info/)
--   [Visa applications non EU/EEA countries](http://www.udi.no/templates/PageURL.aspx?id=7526)
--   [Visa applications EU/EEA countries](https://www.udi.no/en/want-to-apply/residence-under-the-eueeu-regulations/)
--   [Trondheim Police Station/UDI location](http://maps.google.com/maps?q=Gryta+4,+7010+Trondheim&sll=61.143235,9.09668&ie=UTF8&hq=&hnear=Gryta+4,+7010+Trondheim,+S%C3%B8r-Tr%C3%B8ndelag,+Norway&gl=us&z=15)
--   [Study in Norway website](https://studyinnorway.no/)
--   [New in Norway (for non-Norwegian workers)](https://www.imdi.no/nyinorge)
+- [Directorate of Immigration (UDI)](http://www.udi.no/templates/Tema.aspx?id=9352)
+- [Application Portal Norway](https://selfservice.udi.no/en-gb/)
+- [Norwegian embassies listing](http://www.norway.info/)
+- [Visa applications non EU/EEA countries](http://www.udi.no/templates/PageURL.aspx?id=7526)
+- [Visa applications EU/EEA countries](https://www.udi.no/en/want-to-apply/residence-under-the-eueeu-regulations/)
+- [Trondheim Police Station/UDI location](http://maps.google.com/maps?q=Gryta+4,+7010+Trondheim&sll=61.143235,9.09668&ie=UTF8&hq=&hnear=Gryta+4,+7010+Trondheim,+S%C3%B8r-Tr%C3%B8ndelag,+Norway&gl=us&z=15)
+- [Study in Norway website](https://studyinnorway.no/)
+- [New in Norway (for non-Norwegian workers)](https://www.imdi.no/nyinorge)
 
 # Eligibility
 
@@ -286,8 +288,8 @@ Students exchanging to NTNU via the Erasmus+ programme do **<u>not</u>** need 
 
 Non-EU/EEA students are required to document their English proficiency by one of these means:
 
--   [**TOEFL**](http://www.toefl.org/) (Test of English as a Foreign Language) with a minimum score of 90 points on the internet based test
--   [**IELTS**](http://www.ielts.org/) (International English Language Testing Service) with a minimum overall band score of 6.5
+- [**TOEFL**](http://www.toefl.org/) (Test of English as a Foreign Language) with a minimum score of 90 points on the internet based test
+- [**IELTS**](http://www.ielts.org/) (International English Language Testing Service) with a minimum overall band score of 6.5
 
 Students exchanging to NTNU via the Erasmus+ programme do **<u>not</u>** need to document English proficiency
 
@@ -342,25 +344,26 @@ You may **not** send the Learning Agreement before you have received an offer 
 
 Before submitting your LA/OLA to NTNU, for your own convenience, please ensure that your home university has pre-approved your selection of courses.
 
--   Please note that OLAs containing the course **(“Norwegian for Foreigners”) cannot be approved until mid-August**. If you plan to take one of these courses during your stay, you must therefore wait with submitting your OLA. Otherwise, it will be rejected.
+- Please note that OLAs containing the course **(“Norwegian for Foreigners”) cannot be approved until mid-August**. If you plan to take one of these courses during your stay, you must therefore wait with submitting your OLA. Otherwise, it will be rejected.
 
 **If you have not had all the courses approved by NTNU yet, we strongly recommend that you wait to submit your LA/OLA until after your arrival in Norway or after 15 September.**
 
--   Online Learning Agreements (OLAs) can <u>only</u> be signed if:
-    1.  All your planned courses have been pre-approved during the admission process.  
-        **OR**
-    2.  You have sent the approval of your newly chosen courses from the relevant department/faculty to **[exchange@st.ntnu.no](mailto:exchange@st.ntnu.no)**  
+- Online Learning Agreements (OLAs) can <u>only</u> be signed if:
 
--   If your courses have not been approved by NTNU yet, but your home institution requires a preliminary LA before you arrive in Norway, **please send us your LA as a pdf-file per email** (find the correct address below). This enables us to sign the document as a preliminary LA with certain reservations.
+  1.  All your planned courses have been pre-approved during the admission process.  
+      **OR**
+  2.  You have sent the approval of your newly chosen courses from the relevant department/faculty to **[exchange@st.ntnu.no](mailto:exchange@st.ntnu.no)**
+
+- If your courses have not been approved by NTNU yet, but your home institution requires a preliminary LA before you arrive in Norway, **please send us your LA as a pdf-file per email** (find the correct address below). This enables us to sign the document as a preliminary LA with certain reservations.
 
 ### How to send the Agreement
 
--   Send your Learning Agreement in a **single pdf file** to the correct address below, depending on where you will be studying:
-    -   **NTNU Trondheim:** [exchange@st.ntnu.no](mailto:exchange@st.ntnu.no)
-    -   **NTNU Gjøvik:** [international@gjovik.ntnu.no](mailto:international@gjovik.ntnu.no)
-    -   **NTNU Ålesund:** [au@ntnu.no](mailto:au@ntnu.no)
--   The _Responsible person at the receiving institution_ is the person you received your offer of admission from.
--   NTNU's Erasmus+ code is **N TRONDHE 01.**
+- Send your Learning Agreement in a **single pdf file** to the correct address below, depending on where you will be studying:
+  - **NTNU Trondheim:** [exchange@st.ntnu.no](mailto:exchange@st.ntnu.no)
+  - **NTNU Gjøvik:** [international@gjovik.ntnu.no](mailto:international@gjovik.ntnu.no)
+  - **NTNU Ålesund:** [au@ntnu.no](mailto:au@ntnu.no)
+- The _Responsible person at the receiving institution_ is the person you received your offer of admission from.
+- NTNU's Erasmus+ code is **N TRONDHE 01.**
 
 ### Making changes to the LA
 
@@ -368,8 +371,8 @@ If you need to make changes to your signed LA, you can do so by submitting the *
 
 Changes will be signed, on the following conditions:
 
--   Any new courses with restricted access require approval from the course coordinator or relevant department administration
--   The "During the mobility" part of the LA will **only** be signed **after** the semester deadline:
-    -   15 September (autumn semester)
-    -   1 February (spring semester)
--   The "During the mobility" part will only be signed **once**, so you should send it only when your course selection is final
+- Any new courses with restricted access require approval from the course coordinator or relevant department administration
+- The "During the mobility" part of the LA will **only** be signed **after** the semester deadline:
+  - 15 September (autumn semester)
+  - 1 February (spring semester)
+- The "During the mobility" part will only be signed **once**, so you should send it only when your course selection is final

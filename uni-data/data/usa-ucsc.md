@@ -63,15 +63,15 @@ Application timeline by quarter.
 
 Exchange and visiting students have the opportunity to enroll in their courses before arrival on the UC Santa Cruz campus. Students are encouraged to work with their home university advisors beforehand to explore course options at UC Santa Cruz and develop a study plan that allows for flexibility in case first choices are not available.
 
--   Visit the [**General Catalog**](https://registrar.ucsc.edu/catalog/index.html) to see all courses offered at UC Santa Cruz, along with brief course descriptions, and an indication of which quarter(s) each course will be taught.  
-    _Note: courses are subject to change._
--   Visit the [**Class Schedule**](https://pisa.ucsc.edu/class_search/) tool to search for courses and see the actual course schedule for each quarter.
+- Visit the [**General Catalog**](https://registrar.ucsc.edu/catalog/index.html) to see all courses offered at UC Santa Cruz, along with brief course descriptions, and an indication of which quarter(s) each course will be taught.  
+  _Note: courses are subject to change._
+- Visit the [**Class Schedule**](https://pisa.ucsc.edu/class_search/) tool to search for courses and see the actual course schedule for each quarter.
 
 You can search for classes using the [class search database](http://pisa.ucsc.edu/class_search). Classes for the upcoming quarter are typically posted according to the schedule below, at which time you can begin planning your classes.
 
--   Fall classes, posted by early May
--   Winter classes, posted by mid-November
--   Spring classes, posted by mid-February
+- Fall classes, posted by early May
+- Winter classes, posted by mid-November
+- Spring classes, posted by mid-February
 
 *All students at UCSC are given an enrollment appointment – a designated time to sign up for classes. You can view your appointment time and enroll in classes through the* [_MyUCSC system (student portal)_](https://my.ucsc.edu/)_._
 
@@ -81,15 +81,15 @@ If you are unable to register for the course you want through MyUCSC due to prer
 
 _Note: You can use the following templates to help explain you have the background to succeed in the class:_
 
--   [_UCSC Exchange Program template_](https://docs.google.com/document/d/1BxCyqvXNA8OTcmdNOPUAJ_6kkKUiF46wIkQesoodpXo/edit?usp=sharing)
--   [_UCEAP Reciprocity template_](https://reciprocity.uceap.universityofcalifornia.edu/sites/default/files/docs/prerequisite_clearance.pdf)
+- [_UCSC Exchange Program template_](https://docs.google.com/document/d/1BxCyqvXNA8OTcmdNOPUAJ_6kkKUiF46wIkQesoodpXo/edit?usp=sharing)
+- [_UCEAP Reciprocity template_](https://reciprocity.uceap.universityofcalifornia.edu/sites/default/files/docs/prerequisite_clearance.pdf)
 
 ### **Department-specific Requirements:**
 
--   **School of Engineering:** Look for an email directly from ISSP with instructions about getting permission codes for Engineering classes with prerequisites.
--   **Economics:** The Economics Department will receive your transcripts and post any applicable prerequisites to your MyUCSC account based on the coursework you’ve already taken.
--   **Math:** Complete the Math Department’s [online Enrollment Request and Permission Code form](https://www.math.ucsc.edu/undergraduate/advising-resources-tools-forms/enrollment-request-form1.html).
--   **Physics:** Email [physicsadvising@ucsc.edu](mailto:physicsadvising@ucsc.edu) with detailed information (syllabus, textbook title, class outline, etc) that demonstrates you have the background for the class. Physics will post any applicable prerequisites to your MyUCSC account.
+- **School of Engineering:** Look for an email directly from ISSP with instructions about getting permission codes for Engineering classes with prerequisites.
+- **Economics:** The Economics Department will receive your transcripts and post any applicable prerequisites to your MyUCSC account based on the coursework you’ve already taken.
+- **Math:** Complete the Math Department’s [online Enrollment Request and Permission Code form](https://www.math.ucsc.edu/undergraduate/advising-resources-tools-forms/enrollment-request-form1.html).
+- **Physics:** Email [physicsadvising@ucsc.edu](mailto:physicsadvising@ucsc.edu) with detailed information (syllabus, textbook title, class outline, etc) that demonstrates you have the background for the class. Physics will post any applicable prerequisites to your MyUCSC account.
 
 # Tuition
 
@@ -109,8 +109,8 @@ Fall-starting exchange students who will live on campus can only move in the Thu
 
 Once you have been accepted as an exchange student and accepted your offer, ISSP will contact you and provide information on the next steps. Upon submission of the required paperwork, ISSP will issue your DS-2019 (J-1 status) or, I-20 (F-1 status). You will need your DS-2019/I-20 to apply for an F-1/J-1 visa stamp at the US Consulate/Embassy.
 
--   **UCSC Exchange Student Program** students will submit documents to ISSP.
--   **UCEAP Reciprocity** students will submit documents to both UCEAP Systemwide and to ISSP once placed at UCSC.
+- **UCSC Exchange Student Program** students will submit documents to ISSP.
+- **UCEAP Reciprocity** students will submit documents to both UCEAP Systemwide and to ISSP once placed at UCSC.
 
 In either case, see the [Request I-20/DS 2019 page](https://issp.ucsc.edu/students/new/requesting-i-ds/) for more information.
 
@@ -118,12 +118,12 @@ In either case, see the [Request I-20/DS 2019 page](https://issp.ucsc.edu/stude
 
 The following are minimum eligibility requirements established by UC Santa Cruz. Partner universities may elect to enforce additional requirements on their students as part of their nomination process.
 
--   Currently enrolled and successfully completed at least one (1) academic year of coursework in a recognized degree-granting program at home institution.
--   Minimum of 2.5 GPA on a 4-point scale (or equivalent)
--   English language proficiency (if applicable):
-    -   TOEFL: iBT 80 / pBT 550 minimum overall score -or-
-    -   IELTS (Academic): Overall band score of 6.5 or higher -or-
-    -   Additional tests recognized by the UC Santa Cruz Office of Admissions may also be considered for demonstrating English proficiency. A full list can be seen [here](https://admissions.ucsc.edu/apply/international-students/english-proficiency.html).
+- Currently enrolled and successfully completed at least one (1) academic year of coursework in a recognized degree-granting program at home institution.
+- Minimum of 2.5 GPA on a 4-point scale (or equivalent)
+- English language proficiency (if applicable):
+  - TOEFL: iBT 80 / pBT 550 minimum overall score -or-
+  - IELTS (Academic): Overall band score of 6.5 or higher -or-
+  - Additional tests recognized by the UC Santa Cruz Office of Admissions may also be considered for demonstrating English proficiency. A full list can be seen [here](https://admissions.ucsc.edu/apply/international-students/english-proficiency.html).
 
 # Requirements
 

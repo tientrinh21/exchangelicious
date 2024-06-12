@@ -4,7 +4,6 @@ http://www.upv.es/entidades/OPII/infoweb/pi/info/818854normali.html
 
 Welcome to the Polytechnic University of Valencia (UPV)! As a prospective exchange student, you are about to join one of Spain's leading technical universities, known for its strong focus on engineering, science, and technology. UPV offers a vibrant and dynamic environment that prepares students for successful careers and global citizenship.
 
-
 # Location
 
 UPV is located in Valencia, Spain, a city known for its rich history, cultural diversity, and beautiful Mediterranean coastline. The university's modern campus offers state-of-the-art facilities and a welcoming atmosphere.
@@ -13,10 +12,12 @@ UPV is located in Valencia, Spain, a city known for its rich history, cultural d
 Camino de Vera, s/n, 46022 Valencia, Spain
 
 **Contact Information:**
+
 - **Email**: movilidad@upv.es
 - **Phone**: +34 96 387 70 00
 
 **International Office Hours:**
+
 - **Hours**: 9:00am - 2:00pm (Monday to Friday)
 
 # Semester

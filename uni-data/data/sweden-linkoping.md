@@ -4,7 +4,6 @@ https://liu.se/en/education/exchange-studies
 
 Welcome to Linköping University (LiU)! As a prospective exchange student, you are about to join one of Sweden's leading universities, known for its innovative research, interdisciplinary programs, and strong international focus. LiU offers a dynamic environment that prepares students for successful careers and global citizenship.
 
-
 # Location
 
 Linköping University is located in Linköping, Sweden, a city known for its rich history, cultural diversity, and vibrant community. The university's modern campuses offer state-of-the-art facilities and a welcoming atmosphere.
@@ -13,10 +12,12 @@ Linköping University is located in Linköping, Sweden, a city known for its ric
 Campus Valla, 581 83 Linköping, Sweden
 
 **Contact Information:**
+
 - **Email**: exchange@liu.se
 - **Phone**: +46 13 28 10 00
 
 **International Office Hours:**
+
 - **Hours**: 9:00am - 4:30pm (Monday to Friday)
 
 # Semester

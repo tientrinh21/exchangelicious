@@ -4,8 +4,6 @@ mobilita.studenti@iuav.it
 
 Welcome to Iuav University of Venice! As a prospective exchange student, you are about to join one of Italy's premier universities for architecture, urban planning, and design, located in the historic city of Venice. Iuav University offers a rich academic environment with a focus on innovative design and planning education. The university provides a unique opportunity to study in a city renowned for its artistic and architectural heritage.
 
-
-
 # Location
 
 Iuav University of Venice is located in Venice, Italy, a city known for its canals, historic architecture, and vibrant cultural scene. The campus is situated in the heart of Venice, providing an inspiring backdrop for your studies.
@@ -14,10 +12,12 @@ Iuav University of Venice is located in Venice, Italy, a city known for its cana
 Santa Croce 191, 30135 Venice, Italy
 
 **Contact Information:**
+
 - **Email**: mobilita.studenti@iuav.it
 - **Phone**: +39 041 257 1511
 
 **International Office Hours:**
+
 - **Hours**: 9:00am - 5:00pm (Monday to Friday)
 
 # Semester

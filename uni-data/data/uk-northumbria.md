@@ -4,7 +4,6 @@ https://www.northumbria.ac.uk/international/international-mobility/incoming-stud
 
 Welcome to Northumbria University! As a prospective exchange student, you are about to join one of the United Kingdom's leading universities, known for its strong focus on research, academic excellence, and vibrant student life. Northumbria University offers a dynamic environment that prepares students for successful careers and global citizenship.
 
-
 # Location
 
 Northumbria University is located in Newcastle upon Tyne, United Kingdom, a city known for its rich history, cultural diversity, and vibrant nightlife. The university's modern campus offers state-of-the-art facilities and a welcoming atmosphere.
@@ -13,10 +12,12 @@ Northumbria University is located in Newcastle upon Tyne, United Kingdom, a city
 Ellison Place, Newcastle upon Tyne, NE1 8ST, United Kingdom
 
 **Contact Information:**
+
 - **Email**: er.study-abroad@northumbria.ac.uk
 - **Phone**: +44 191 232 6002
 
 **International Office Hours:**
+
 - **Hours**: 9:00am - 5:00pm (Monday to Friday)
 
 # Semester

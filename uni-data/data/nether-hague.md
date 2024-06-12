@@ -4,8 +4,6 @@ https://www.thuas.com/programmes/exchange-programmes-other-courses/exchange-prog
 
 Welcome to The Hague University of Applied Sciences! As a prospective exchange student, you are about to join one of the Netherlands' leading applied sciences universities, located in the vibrant city of The Hague. The Hague University is known for its practical approach to education, innovative research, and diverse student body. The university offers a dynamic environment that prepares students for successful careers and global citizenship.
 
-
-
 # Location
 
 The Hague University of Applied Sciences is located in The Hague, Netherlands, a city known for its rich history, international institutions, and vibrant community. The campus offers state-of-the-art facilities and a welcoming atmosphere.
@@ -14,10 +12,12 @@ The Hague University of Applied Sciences is located in The Hague, Netherlands, a
 Johanna Westerdijkplein 75, 2521 EN The Hague, Netherlands
 
 **Contact Information:**
+
 - **Email**: exchange@hhs.nl
 - **Phone**: +31 70 445 8888
 
 **International Office Hours:**
+
 - **Hours**: 9:00am - 5:00pm (Monday to Friday)
 
 # Semester

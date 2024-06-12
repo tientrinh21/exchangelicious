@@ -4,7 +4,6 @@ https://www.ub.edu/economiaempresa-internacional/web/en/international-exchange-s
 
 Welcome to the University of Barcelona (UB)! As a prospective exchange student, you are about to join one of Spain's most prestigious universities, known for its strong focus on research and academic excellence. UB offers a vibrant and dynamic environment that prepares students for successful careers and global citizenship.
 
-
 # Location
 
 The University of Barcelona is located in Barcelona, Spain, a city known for its rich history, cultural diversity, and beautiful Mediterranean coastline. The university's historic and modern campuses offer state-of-the-art facilities and a welcoming atmosphere.
@@ -13,10 +12,12 @@ The University of Barcelona is located in Barcelona, Spain, a city known for its
 Gran Via de les Corts Catalanes, 585, 08007 Barcelona, Spain
 
 **Contact Information:**
+
 - **Email**: international.economics@ub.edu
 - **Phone**: +34 93 403 50 00
 
 **International Office Hours:**
+
 - **Hours**: 9:00am - 2:00pm (Monday to Friday)
 
 # Semester

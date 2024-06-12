@@ -4,7 +4,6 @@ https://www.uwe.ac.uk/study/international-study-exchange
 
 Welcome to the University of the West of England (UWE Bristol)! As a prospective exchange student, you are about to join one of the United Kingdom's leading modern universities, known for its strong focus on practical education, innovative research, and vibrant student life. UWE Bristol offers a dynamic environment that prepares students for successful careers and global citizenship.
 
-
 # Location
 
 UWE Bristol is located in Bristol, United Kingdom, a city known for its rich maritime history, cultural diversity, and vibrant community. The university's modern campus offers state-of-the-art facilities and a welcoming atmosphere.
@@ -13,10 +12,12 @@ UWE Bristol is located in Bristol, United Kingdom, a city known for its rich mar
 Frenchay Campus, Coldharbour Lane, Bristol, BS16 1QY, United Kingdom
 
 **Contact Information:**
+
 - **Email**: studyabroad@uwe.ac.uk
 - **Phone**: +44 117 965 6261
 
 **International Office Hours:**
+
 - **Hours**: 9:00am - 5:00pm (Monday to Friday)
 
 # Semester

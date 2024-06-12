@@ -8,8 +8,8 @@ https://www.unf.edu/coggin/international-business/exchange-students.html
 
 Visit the following links to learn more about the University of North Florida and the Incoming Exchange Students Program in the Coggin College of Business.
 
--   [About Coggin College of Business](https://www.unf.edu/coggin/about/index.html 'About Coggin College of Business ')
--   [Virtual Campus Tour](https://tour.unf.edu/ 'Virtual Campus Tour')
+- [About Coggin College of Business](https://www.unf.edu/coggin/about/index.html "About Coggin College of Business ")
+- [Virtual Campus Tour](https://tour.unf.edu/ "Virtual Campus Tour")
 
 ## Get a better look at UNF and Jacksonville through this video! 
 
@@ -37,26 +37,26 @@ Exchange students are first nominated to the Coggin College of Business by their
 
 1.  Nominations are due to [coggin.abroad@unf.edu](mailto:coggin.abroad@unf.edu) by February 1 for fall term / September 1 for spring term)
 2.  Complete the UNF **online application** for admission (due February 15 for fall term / September 15 for spring term).
-    -   The link to this application will be sent to nominated students; undergraduate and graduate students complete different applications.
-    -   The deadline is earlier than in the past so students have a better chance of receiving on-campus housing placements.
-    -   Exchange students must upload the following items into their application.
-        1.  Scan of your valid **passport**
-        2.  Academic **transcripts** showing <u>all</u> coursework completed at the university level
-        3.  English **language skills** statement of support
+    - The link to this application will be sent to nominated students; undergraduate and graduate students complete different applications.
+    - The deadline is earlier than in the past so students have a better chance of receiving on-campus housing placements.
+    - Exchange students must upload the following items into their application.
+      1.  Scan of your valid **passport**
+      2.  Academic **transcripts** showing <u>all</u> coursework completed at the university level
+      3.  English **language skills** statement of support
 3.  Submit your **housing contract** if you would like to live on campus (due March 1 for fall term / October 1 for spring term).
-    -   To submit a housing contract to live on campus, visit the [myHousing](https://starrez.unf.edu/StarRezPortalX/D3744E27/1/1/Home-Home 'myHousing') web portal and log-in with your UNF myWings credentials.
-    -   Take a look at UNF's [residence halls options](https://www.unf.edu/housing/halls/index.html 'residence halls options') before completing a contract.  Students attending UNF for the fall term only should select the year-long contract; the spring portion can be canceled later on. UNF residence halls fill up quickly, so complete this a soon as possible after being accepted to UNF.  *There is no guarantee that exchange students will be placed in on-campus housing.*  You can view alternative housing options on the [Dean of Students page](https://www.unf.edu/deanofstudents/care-services/off-campus-housing.html).
+    - To submit a housing contract to live on campus, visit the [myHousing](https://starrez.unf.edu/StarRezPortalX/D3744E27/1/1/Home-Home "myHousing") web portal and log-in with your UNF myWings credentials.
+    - Take a look at UNF's [residence halls options](https://www.unf.edu/housing/halls/index.html "residence halls options") before completing a contract.  Students attending UNF for the fall term only should select the year-long contract; the spring portion can be canceled later on. UNF residence halls fill up quickly, so complete this a soon as possible after being accepted to UNF.  *There is no guarantee that exchange students will be placed in on-campus housing.*  You can view alternative housing options on the [Dean of Students page](https://www.unf.edu/deanofstudents/care-services/off-campus-housing.html).
 4.  Submit the following application documents via email to [coggin.abroad@unf.edu](mailto:coggin.abroad@unf.edu) (due March 15 for fall term / October 15 for spring term).
     1.  Affidavit of **financial** support
-        -   The amount to enter for 2023/2024 is **$9,500** per semester. Students are not required to actually pay this amount, but they must show that they have access to this money if necessary in order to receive the DS-2019 for their J1 visa.  A student may list their own name as "sponsor" if they are using their own bank information.  Students spending more than one semester at UNF must multiply $9,500 by the number of semester at UNF as their full affidavit amount, e.g., a student staying for two years (four semesters), would enter $38,000.
+        - The amount to enter for 2023/2024 is **$9,500** per semester. Students are not required to actually pay this amount, but they must show that they have access to this money if necessary in order to receive the DS-2019 for their J1 visa.  A student may list their own name as "sponsor" if they are using their own bank information.  Students spending more than one semester at UNF must multiply $9,500 by the number of semester at UNF as their full affidavit amount, e.g., a student staying for two years (four semesters), would enter $38,000.
     2.  **Immunization** form
-        -   Find information and answers about completing this form at the UNF Student Health Services [immunizations and insurance webpage](https://www.unf.edu/brooks/shs/immunizations.html).
-    3.  [International student **insurance** agreement form](https://www.unf.edu/coggin/international-business/exchange-students.html../_files/ccb/abroad_ib_files/Certified.rf.UNF-INTERNATIONAL-STUDENT-INSURANCE-AGREEMENT.docx 'International student insurance agreement form')
-        -   Find information and answers about completing this form at the UNF Student Health Services [immunizations and insurance webpage](https://www.unf.edu/brooks/shs/immunizations.html 'immunizations and insurance webpage').
+        - Find information and answers about completing this form at the UNF Student Health Services [immunizations and insurance webpage](https://www.unf.edu/brooks/shs/immunizations.html).
+    3.  [International student **insurance** agreement form](https://www.unf.edu/coggin/international-business/exchange-students.html../_files/ccb/abroad_ib_files/Certified.rf.UNF-INTERNATIONAL-STUDENT-INSURANCE-AGREEMENT.docx "International student insurance agreement form")
+        - Find information and answers about completing this form at the UNF Student Health Services [immunizations and insurance webpage](https://www.unf.edu/brooks/shs/immunizations.html "immunizations and insurance webpage").
     4.  International **insurance** compliance form
-        -   This form is only required if students select their own insurance plan on the "International student insurance agreement form" above.  Find information and answers about completing this form at the UNF Student Health Services [immunizations and insurance webpage](https://www.unf.edu/brooks/shs/immunizations.html 'immunizations and insurance webpage').
+        - This form is only required if students select their own insurance plan on the "International student insurance agreement form" above.  Find information and answers about completing this form at the UNF Student Health Services [immunizations and insurance webpage](https://www.unf.edu/brooks/shs/immunizations.html "immunizations and insurance webpage").
     5.  UNF **course selection** form (document will be sent to you via email)
-5.  Consider an optional [dining membership](https://dineoncampus.com/unf/ 'meal membership') (not required).
+5.  Consider an optional [dining membership](https://dineoncampus.com/unf/ "meal membership") (not required).
 
 Any questions about this process should be directed to [coggin.abroad@unf.edu](mailto:coggin.abroad@unf.edu).  We look forward to working with you!
 
@@ -112,12 +112,12 @@ Keep up your grades. It is understood that you are adjusting to a new environmen
 
 ## Get Involved on UNF's Campus
 
--   Enjoy life at the University of North Florida by getting involved and making new friends!
--   Join one of the Coggin College of Business [student clubs and organizations](https://www.unf.edu/coggin/international-business/exchange-students.html../students/organizations.html)
--   Get involved with one of the [187 recognized clubs and groups](https://unf.campuslabs.com/engage/organizations '187 recognized clubs and groups') at UNF
--   Attend [lectures, programs and other events](https://www.unf.edu/calendar) on UNF's campus designed for students.
--   Show your Osprey Pride by attending a variety of [athletic events](http://www.unfospreys.com/).
--   Enjoy UNF facilities including the [Student Union](https://www.unf.edu/studentunion/ 'Student Union'), [Student Wellness Complex](https://www.unf.edu/recwell/swc/ 'Student Wellness Complex'), [Outdoor Tennis Courts](https://unfospreys.com/facilities/unf-tennis-complex/7 'Outdoor Tennis Courts'), [Osprey Cliff](https://www.unf.edu/recwell/swc/ospreycliff.html 'Osprey Cliff'), [Eco Adventure](https://www.unf.edu/recwell/eco/ 'Eco Adventure'), and more.
+- Enjoy life at the University of North Florida by getting involved and making new friends!
+- Join one of the Coggin College of Business [student clubs and organizations](https://www.unf.edu/coggin/international-business/exchange-students.html../students/organizations.html)
+- Get involved with one of the [187 recognized clubs and groups](https://unf.campuslabs.com/engage/organizations "187 recognized clubs and groups") at UNF
+- Attend [lectures, programs and other events](https://www.unf.edu/calendar) on UNF's campus designed for students.
+- Show your Osprey Pride by attending a variety of [athletic events](http://www.unfospreys.com/).
+- Enjoy UNF facilities including the [Student Union](https://www.unf.edu/studentunion/ "Student Union"), [Student Wellness Complex](https://www.unf.edu/recwell/swc/ "Student Wellness Complex"), [Outdoor Tennis Courts](https://unfospreys.com/facilities/unf-tennis-complex/7 "Outdoor Tennis Courts"), [Osprey Cliff](https://www.unf.edu/recwell/swc/ospreycliff.html "Osprey Cliff"), [Eco Adventure](https://www.unf.edu/recwell/eco/ "Eco Adventure"), and more.
 
 ### Enjoy the Jacksonville Community
 
@@ -187,4 +187,4 @@ All Coggin exchange students must be in Jacksonville by the *evening prior to o
 
 **How to Get to Jacksonville**
 
-Students should fly into the [Jacksonville International Airport](http://www.flyjacksonville.com/Home.aspx 'Jacksonville International Airport') (airport code: JAX).  There are several cities called Jacksonville in the United States, so be sure you choose the right one!  We recommend that you not travel to Jacksonville via bus or train, as these depots tend to be located in less secure areas of town.  If you choose to come to Jacksonville by bus or train, make sure you arrive during the daytime and that you have plans for traveling from the bus/train depot to UNF.  For suggestions on ground transportation from the airport to UNF, what to bring for your first night in on campus, and other arrival information, visit the UNF International Center's [arrival and orientation](https://www.unf.edu/intlctr/international-students/orientation.html 'UNF International Center') page.
+Students should fly into the [Jacksonville International Airport](http://www.flyjacksonville.com/Home.aspx "Jacksonville International Airport") (airport code: JAX).  There are several cities called Jacksonville in the United States, so be sure you choose the right one!  We recommend that you not travel to Jacksonville via bus or train, as these depots tend to be located in less secure areas of town.  If you choose to come to Jacksonville by bus or train, make sure you arrive during the daytime and that you have plans for traveling from the bus/train depot to UNF.  For suggestions on ground transportation from the airport to UNF, what to bring for your first night in on campus, and other arrival information, visit the UNF International Center's [arrival and orientation](https://www.unf.edu/intlctr/international-students/orientation.html "UNF International Center") page.
