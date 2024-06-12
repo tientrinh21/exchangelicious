@@ -42,6 +42,192 @@
             "description": "ID not found"
           }
         }
+      },
+      "post": {
+        "tags": ["University"],
+        "summary": "Create an university",
+        "parameters": [
+          {
+            "name": "country_code",
+            "in": "query",
+            "description": "country code of university to create",
+            "required": false,
+            "schema": {
+              "type": "string",
+              "maxLength": 3
+            }
+          },
+          {
+            "name": "region",
+            "in": "query",
+            "description": "Region of university to create",
+            "required": false,
+            "schema": {
+              "type": "string",
+              "maxLength": 40
+            }
+          },
+          {
+            "name": "long_name",
+            "in": "query",
+            "description": "Full name of university to create",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "maxLength": 255
+            }
+          },
+          {
+            "name": "campus",
+            "in": "query",
+            "description": "Campus of the university to create",
+            "required": false,
+            "schema": {
+              "type": "string",
+              "maxLength": 255
+            }
+          },
+          {
+            "name": "housing",
+            "in": "query",
+            "description": "Housing of the university to create",
+            "required": false,
+            "schema": {
+              "type": "integer"
+            }
+          },
+          {
+            "name": "info_page_id",
+            "in": "query",
+            "description": "Information of the university to create",
+            "required": false,
+            "schema": {
+              "type": "string",
+              "maxLength": 36
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Creation of user",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/UniversityMeta"
+                  }
+                }
+              }
+            }
+          }
+        }
+      },
+      "patch": {
+        "tags": ["University"],
+        "summary": "Update an university",
+        "parameters": [
+          {
+            "name": "university_id",
+            "in": "query",
+            "description": "ID of University to update",
+            "required": false,
+            "schema": {
+              "type": "string",
+              "maxLength": 36
+            }
+          },
+          {
+            "name": "country_code",
+            "in": "query",
+            "description": "country code of university to create",
+            "required": false,
+            "schema": {
+              "type": "string",
+              "maxLength": 3
+            }
+          },
+          {
+            "name": "region",
+            "in": "query",
+            "description": "Region of university to create",
+            "required": false,
+            "schema": {
+              "type": "string",
+              "maxLength": 40
+            }
+          },
+          {
+            "name": "long_name",
+            "in": "query",
+            "description": "Full name of university to create",
+            "required": false,
+            "schema": {
+              "type": "string",
+              "maxLength": 255
+            }
+          },
+          {
+            "name": "campus",
+            "in": "query",
+            "description": "Campus of the university to create",
+            "required": false,
+            "schema": {
+              "type": "string",
+              "maxLength": 255
+            }
+          },
+          {
+            "name": "housing",
+            "in": "query",
+            "description": "Housing of the university to create",
+            "required": false,
+            "schema": {
+              "type": "integer"
+            }
+          },
+          {
+            "name": "info_page_id",
+            "in": "query",
+            "description": "Information of the university to create",
+            "required": false,
+            "schema": {
+              "type": "string",
+              "maxLength": 36
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "successful operation",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/UniversityMeta"
+                  }
+                }
+              }
+            }
+          }
+        }
+      },
+      "delete":{
+        "tags": ["University"],
+        "summary": "Delete university by ID",
+        "description": "Deletes a single university",
+        "parameters": [
+          {
+            "name": "university_id",
+            "in": "query",
+            "description": "ID to delete an university",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ]
       }
     },
     "/api/universities/{university_id}": {
@@ -78,7 +264,7 @@
         }
       }
     },
-    "/api/universities/{university_id}/info": {
+    "/api/universities/info": {
       "get": {
         "tags": ["University"],
         "summary": "Find university by ID with info page",
@@ -86,7 +272,7 @@
         "parameters": [
           {
             "name": "university_id",
-            "in": "path",
+            "in": "query",
             "description": "ID of University to return",
             "required": true,
             "schema": {
@@ -108,6 +294,264 @@
           },
           "404": {
             "description": "ID not found"
+          }
+        }
+      },
+      "post": {
+        "tags": ["University"],
+        "summary": "Create an information",
+        "parameters": [
+          {
+            "name": "university_id",
+            "in": "query",
+            "description": "university id",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "webpage",
+            "in": "query",
+            "description": "Webpage to create",
+            "required": false,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "introduction",
+            "in": "query",
+            "description": "introduction to create",
+            "required": false,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "location",
+            "in": "query",
+            "description": "location to create",
+            "required": false,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "semester",
+            "in": "query",
+            "description": "semester to create",
+            "required": false,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "application_deadline",
+            "in": "query",
+            "description": "application deadline to create",
+            "required": false,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "courses",
+            "in": "query",
+            "description": "courses to create",
+            "required": false,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "housing",
+            "in": "query",
+            "description": "housing to create",
+            "required": false,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "tuition",
+            "in": "query",
+            "description": "tuition to create",
+            "required": false,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "visa",
+            "in": "query",
+            "description": "visa to create",
+            "required": false,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "eligibility",
+            "in": "query",
+            "description": "eligibility to create",
+            "required": false,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "requirements",
+            "in": "query",
+            "description": "requirements to create",
+            "required": false,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Creation of user",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/UniversityMeta"
+                  }
+                }
+              }
+            }
+          }
+        }
+      },
+      "patch": {
+        "tags": ["University"],
+        "summary": "Update an university",
+        "parameters": [
+          {
+            "name": "info_page_id",
+            "in": "query",
+            "description": "Info page id of information to create",
+            "required": false,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "webpage",
+            "in": "query",
+            "description": "Webpage to create",
+            "required": false,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "introduction",
+            "in": "query",
+            "description": "introduction to create",
+            "required": false,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "location",
+            "in": "query",
+            "description": "location to create",
+            "required": false,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "semester",
+            "in": "query",
+            "description": "semester to create",
+            "required": false,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "application_deadline",
+            "in": "query",
+            "description": "application deadline to create",
+            "required": false,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "courses",
+            "in": "query",
+            "description": "courses to create",
+            "required": false,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "housing",
+            "in": "query",
+            "description": "housing to create",
+            "required": false,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "tuition",
+            "in": "query",
+            "description": "tuition to create",
+            "required": false,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "visa",
+            "in": "query",
+            "description": "visa to create",
+            "required": false,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "eligibility",
+            "in": "query",
+            "description": "eligibility to create",
+            "required": false,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "requirements",
+            "in": "query",
+            "description": "requirements to create",
+            "required": false,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "successful operation",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/UniversityMeta"
+                  }
+                }
+              }
+            }
           }
         }
       }
@@ -184,7 +628,7 @@
           }
         }
       },
-      "put": {
+      "post": {
         "tags": ["User"],
         "summary": "Create a user",
         "description": "Create user with details provided including username, password, nationality, and home_university. User_id is automatically generated.\n",
@@ -983,7 +1427,7 @@
             "type": "string",
             "example": "From January to December"
           },
-          "application_deadlines": {
+          "application_deadline": {
             "type": "string",
             "example": "June 16th"
           },

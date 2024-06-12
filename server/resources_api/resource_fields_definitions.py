@@ -31,6 +31,7 @@ university_meta_table_resource_fields = {
 }
 
 university_with_info_resource_fields = {
+    "info_page_id": fields.String,
     "webpage": fields.String,
     "introduction": fields.String,
     "location": fields.String,
