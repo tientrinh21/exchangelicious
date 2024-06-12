@@ -1,7 +1,7 @@
 {
   "openapi": "3.0.3",
   "info": {
-    "title": "EduVenture API Documentation",
+    "title": "Exchangelicious API Documentation",
     "description": "Some useful links:\n- [Swagger Editor](https://editor.swagger.io/)\n- [Swagger Documentation](https://swagger.io/docs/specification/data-models/)",
     "version": "1.0.0"
   },
@@ -13,6 +13,10 @@
     {
       "name": "User",
       "description": "Operations about user"
+    },
+    {
+      "name": "Review Section",
+      "description": "All about reviews, upvotes and downvotes"
     }
   ],
   "paths": {
@@ -38,6 +42,192 @@
             "description": "ID not found"
           }
         }
+      },
+      "post": {
+        "tags": ["University"],
+        "summary": "Create an university",
+        "parameters": [
+          {
+            "name": "country_code",
+            "in": "query",
+            "description": "country code of university to create",
+            "required": false,
+            "schema": {
+              "type": "string",
+              "maxLength": 3
+            }
+          },
+          {
+            "name": "region",
+            "in": "query",
+            "description": "Region of university to create",
+            "required": false,
+            "schema": {
+              "type": "string",
+              "maxLength": 40
+            }
+          },
+          {
+            "name": "long_name",
+            "in": "query",
+            "description": "Full name of university to create",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "maxLength": 255
+            }
+          },
+          {
+            "name": "campus",
+            "in": "query",
+            "description": "Campus of the university to create",
+            "required": false,
+            "schema": {
+              "type": "string",
+              "maxLength": 255
+            }
+          },
+          {
+            "name": "housing",
+            "in": "query",
+            "description": "Housing of the university to create",
+            "required": false,
+            "schema": {
+              "type": "integer"
+            }
+          },
+          {
+            "name": "info_page_id",
+            "in": "query",
+            "description": "Information of the university to create",
+            "required": false,
+            "schema": {
+              "type": "string",
+              "maxLength": 36
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Creation of user",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/UniversityMeta"
+                  }
+                }
+              }
+            }
+          }
+        }
+      },
+      "patch": {
+        "tags": ["University"],
+        "summary": "Update an university",
+        "parameters": [
+          {
+            "name": "university_id",
+            "in": "query",
+            "description": "ID of University to update",
+            "required": false,
+            "schema": {
+              "type": "string",
+              "maxLength": 36
+            }
+          },
+          {
+            "name": "country_code",
+            "in": "query",
+            "description": "country code of university to create",
+            "required": false,
+            "schema": {
+              "type": "string",
+              "maxLength": 3
+            }
+          },
+          {
+            "name": "region",
+            "in": "query",
+            "description": "Region of university to create",
+            "required": false,
+            "schema": {
+              "type": "string",
+              "maxLength": 40
+            }
+          },
+          {
+            "name": "long_name",
+            "in": "query",
+            "description": "Full name of university to create",
+            "required": false,
+            "schema": {
+              "type": "string",
+              "maxLength": 255
+            }
+          },
+          {
+            "name": "campus",
+            "in": "query",
+            "description": "Campus of the university to create",
+            "required": false,
+            "schema": {
+              "type": "string",
+              "maxLength": 255
+            }
+          },
+          {
+            "name": "housing",
+            "in": "query",
+            "description": "Housing of the university to create",
+            "required": false,
+            "schema": {
+              "type": "integer"
+            }
+          },
+          {
+            "name": "info_page_id",
+            "in": "query",
+            "description": "Information of the university to create",
+            "required": false,
+            "schema": {
+              "type": "string",
+              "maxLength": 36
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "successful operation",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/UniversityMeta"
+                  }
+                }
+              }
+            }
+          }
+        }
+      },
+      "delete":{
+        "tags": ["University"],
+        "summary": "Delete university by ID",
+        "description": "Deletes a single university",
+        "parameters": [
+          {
+            "name": "university_id",
+            "in": "query",
+            "description": "ID to delete an university",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ]
       }
     },
     "/api/universities/{university_id}": {
@@ -74,7 +264,7 @@
         }
       }
     },
-    "/api/universities/{university_id}/info": {
+    "/api/universities/info": {
       "get": {
         "tags": ["University"],
         "summary": "Find university by ID with info page",
@@ -82,7 +272,7 @@
         "parameters": [
           {
             "name": "university_id",
-            "in": "path",
+            "in": "query",
             "description": "ID of University to return",
             "required": true,
             "schema": {
@@ -104,6 +294,264 @@
           },
           "404": {
             "description": "ID not found"
+          }
+        }
+      },
+      "post": {
+        "tags": ["University"],
+        "summary": "Create an information",
+        "parameters": [
+          {
+            "name": "university_id",
+            "in": "query",
+            "description": "university id",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "webpage",
+            "in": "query",
+            "description": "Webpage to create",
+            "required": false,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "introduction",
+            "in": "query",
+            "description": "introduction to create",
+            "required": false,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "location",
+            "in": "query",
+            "description": "location to create",
+            "required": false,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "semester",
+            "in": "query",
+            "description": "semester to create",
+            "required": false,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "application_deadline",
+            "in": "query",
+            "description": "application deadline to create",
+            "required": false,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "courses",
+            "in": "query",
+            "description": "courses to create",
+            "required": false,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "housing",
+            "in": "query",
+            "description": "housing to create",
+            "required": false,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "tuition",
+            "in": "query",
+            "description": "tuition to create",
+            "required": false,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "visa",
+            "in": "query",
+            "description": "visa to create",
+            "required": false,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "eligibility",
+            "in": "query",
+            "description": "eligibility to create",
+            "required": false,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "requirements",
+            "in": "query",
+            "description": "requirements to create",
+            "required": false,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Creation of user",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/UniversityMeta"
+                  }
+                }
+              }
+            }
+          }
+        }
+      },
+      "patch": {
+        "tags": ["University"],
+        "summary": "Update an university",
+        "parameters": [
+          {
+            "name": "info_page_id",
+            "in": "query",
+            "description": "Info page id of information to create",
+            "required": false,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "webpage",
+            "in": "query",
+            "description": "Webpage to create",
+            "required": false,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "introduction",
+            "in": "query",
+            "description": "introduction to create",
+            "required": false,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "location",
+            "in": "query",
+            "description": "location to create",
+            "required": false,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "semester",
+            "in": "query",
+            "description": "semester to create",
+            "required": false,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "application_deadline",
+            "in": "query",
+            "description": "application deadline to create",
+            "required": false,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "courses",
+            "in": "query",
+            "description": "courses to create",
+            "required": false,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "housing",
+            "in": "query",
+            "description": "housing to create",
+            "required": false,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "tuition",
+            "in": "query",
+            "description": "tuition to create",
+            "required": false,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "visa",
+            "in": "query",
+            "description": "visa to create",
+            "required": false,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "eligibility",
+            "in": "query",
+            "description": "eligibility to create",
+            "required": false,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "requirements",
+            "in": "query",
+            "description": "requirements to create",
+            "required": false,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "successful operation",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/UniversityMeta"
+                  }
+                }
+              }
+            }
           }
         }
       }
@@ -452,6 +900,427 @@
           }
         }
       }
+    },
+    "/api/review": {
+      "get": {
+        "tags": ["Review Section"],
+        "summary": "Get a review by ID",
+        "description": "Retrieves a review by its unique identifier.",
+        "parameters": [
+          {
+            "in": "query",
+            "name": "review_id",
+            "required": true,
+            "description": "ID of the review",
+            "schema": {
+              "type": "string",
+              "format": "uuid"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "The review with the provided ID",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Review"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "No review found with the provided ID"
+          }
+        }
+      },
+      "post": {
+        "tags": ["Review Section"],
+        "summary": "Create a new review",
+        "description": "Creates a new review entry in the database.",
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "university_id": {
+                    "type": "string",
+                    "description": "Identifier for the university associated with the review"
+                  },
+                  "user_id": {
+                    "type": "string",
+                    "format": "uuid",
+                    "description": "Identifier for the user who submitted the review"
+                  },
+                  "title": {
+                    "type": "string",
+                    "description": "Title of the review",
+                    "maxLength": 100
+                  },
+                  "content": {
+                    "type": "string",
+                    "description": "Content of the review"
+                  },
+                  "mood_score": {
+                    "type": "string",
+                    "description": "Mood score of the review",
+                    "enum": ["very bad", "bad", "neutral", "good", "very good"]
+                  }
+                },
+                "required": [
+                  "university_id",
+                  "user_id",
+                  "title",
+                  "content",
+                  "mood_score"
+                ]
+              }
+            }
+          }
+        },
+        "responses": {
+          "201": {
+            "description": "Review created successfully",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Review"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Bad request, review object is invalid"
+          },
+          "404": {
+            "description": "Review with the specified ID not found"
+          }
+        }
+      },
+      "patch": {
+        "tags": ["Review Section"],
+        "summary": "Edit a old review",
+        "description": "Updates a review entry in the database.",
+        "parameters": [
+          {
+            "in": "query",
+            "name": "review_id",
+            "required": true,
+            "description": "ID of the review",
+            "schema": {
+              "type": "string",
+              "format": "uuid"
+            }
+          }
+        ],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "title": {
+                    "type": "string",
+                    "description": "Title of the review",
+                    "maxLength": 100
+                  },
+                  "content": {
+                    "type": "string",
+                    "description": "Content of the review"
+                  },
+                  "mood_score": {
+                    "type": "string",
+                    "description": "Mood score of the review",
+                    "enum": ["very bad", "bad", "neutral", "good", "very good"]
+                  }
+                }
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Review updated successfully",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Review"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Bad request, review object is invalid"
+          },
+          "404": {
+            "description": "Review with the specified ID not found"
+          }
+        }
+      },
+      "delete": {
+        "tags": ["Review Section"],
+        "summary": "Delete a review",
+        "description": "Deletes a review with the provided ID.",
+        "parameters": [
+          {
+            "in": "query",
+            "name": "review_id",
+            "required": true,
+            "description": "ID of the review to delete",
+            "schema": {
+              "type": "string",
+              "format": "uuid"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Review deleted successfully",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "message": {
+                      "type": "string",
+                      "description": "A message indicating the success of the operation"
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/reviews/paginate": {
+      "get": {
+        "tags": ["Review Section"],
+        "summary": "Get paginated reviews for a university with ordering",
+        "parameters": [
+          {
+            "name": "university_id",
+            "in": "query",
+            "description": "ID of the university to get reviews for",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "page_number",
+            "in": "query",
+            "description": "Page number",
+            "required": true,
+            "schema": {
+              "type": "integer"
+            }
+          },
+          {
+            "name": "order_by",
+            "description": "Options: \"new\", \"old\", or leave blank for default ordering",
+            "in": "query",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "user_id",
+            "description": "The user_id of the logged in user",
+            "in": "query",
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful operation",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ReviewPaginateResponse"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/review/upvote": {
+      "post": {
+        "tags": ["Review Section"],
+        "summary": "Upvote a review (and remove old downvote)",
+        "parameters": [
+          {
+            "name": "review_id",
+            "in": "query",
+            "required": true,
+            "description": "ID of the review to upvote",
+            "schema": {
+              "type": "string",
+              "format": "uuid"
+            }
+          },
+          {
+            "name": "user_id",
+            "in": "query",
+            "required": true,
+            "description": "ID of the user upvoting the review",
+            "schema": {
+              "type": "string",
+              "format": "uuid"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Upvote successful",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/UpvoteRow"
+                }
+              }
+            }
+          }
+        }
+      },
+      "delete": {
+        "tags": ["Review Section"],
+        "summary": "Delete an upvote",
+        "parameters": [
+          {
+            "name": "review_id",
+            "in": "query",
+            "required": true,
+            "description": "ID of the review to delete the upvote from",
+            "schema": {
+              "type": "string",
+              "format": "uuid"
+            }
+          },
+          {
+            "name": "user_id",
+            "in": "query",
+            "required": true,
+            "description": "ID of the user who upvoted the review",
+            "schema": {
+              "type": "string",
+              "format": "uuid"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Upvote deleted successfully",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "message": {
+                      "type": "string"
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Error deleting upvote"
+          }
+        }
+      }
+    },
+    "/api/review/downvote": {
+      "post": {
+        "tags": ["Review Section"],
+        "summary": "downvote a review (and remove old upvote)",
+        "parameters": [
+          {
+            "name": "review_id",
+            "in": "query",
+            "required": true,
+            "description": "ID of the review to downvote",
+            "schema": {
+              "type": "string",
+              "format": "uuid"
+            }
+          },
+          {
+            "name": "user_id",
+            "in": "query",
+            "required": true,
+            "description": "ID of the user downvoting the review",
+            "schema": {
+              "type": "string",
+              "format": "uuid"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "downvote successful",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/DownvoteRow"
+                }
+              }
+            }
+          }
+        }
+      },
+      "delete": {
+        "tags": ["Review Section"],
+        "summary": "Delete an downvote",
+        "parameters": [
+          {
+            "name": "review_id",
+            "in": "query",
+            "required": true,
+            "description": "ID of the review to delete the downvote from",
+            "schema": {
+              "type": "string",
+              "format": "uuid"
+            }
+          },
+          {
+            "name": "user_id",
+            "in": "query",
+            "required": true,
+            "description": "ID of the user who downvoted the review",
+            "schema": {
+              "type": "string",
+              "format": "uuid"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Downvote deleted successfully",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "message": {
+                      "type": "string"
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Error deleting downvote"
+          }
+        }
+      }
     }
   },
   "components": {
@@ -558,7 +1427,7 @@
             "type": "string",
             "example": "From January to December"
           },
-          "application_deadlines": {
+          "application_deadline": {
             "type": "string",
             "example": "June 16th"
           },
@@ -624,6 +1493,120 @@
             "$ref": "#/components/schemas/University"
           }
         ]
+      },
+      "Review": {
+        "type": "object",
+        "properties": {
+          "review_id": {
+            "type": "string",
+            "format": "uuid",
+            "description": "Unique identifier for the review"
+          },
+          "university_id": {
+            "type": "string",
+            "description": "Identifier for the university associated with the review"
+          },
+          "user_id": {
+            "type": "string",
+            "format": "uuid",
+            "description": "Identifier for the user who submitted the review"
+          },
+          "title": {
+            "type": "string",
+            "maxLength": 100,
+            "description": "Title of the review"
+          },
+          "content": {
+            "type": "string",
+            "description": "Content of the review"
+          },
+          "submit_datetime": {
+            "type": "string",
+            "format": "date-time",
+            "description": "Date and time when the review was submitted"
+          },
+          "last_edit_datetime": {
+            "type": "string",
+            "format": "date-time",
+            "description": "Date and time when the review was last edited"
+          },
+          "mood_score": {
+            "type": "string",
+            "enum": ["very bad", "bad", "neutral", "good", "very good"],
+            "description": "Mood score of the review"
+          },
+          "upvote": {
+            "type": "integer",
+            "description": "Number of up votes for the review"
+          },
+          "downvote": {
+            "type": "integer",
+            "description": "Number of down votes for the review"
+          }
+        }
+      },
+      "ReviewPaginateResponse": {
+        "type": "object",
+        "properties": {
+          "hasMore": {
+            "type": "boolean"
+          },
+          "items": {
+            "type": "array",
+            "items": {
+              "allOf": [
+                {
+                  "$ref": "#/components/schemas/Review"
+                },
+                {
+                  "type": "object",
+                  "properties": {
+                    "has_upvoted": {
+                      "type": "boolean"
+                    },
+                    "has_downvoted": {
+                      "type": "boolean"
+                    }
+                  }
+                }
+              ]
+            }
+          }
+        }
+      },
+      "UpvoteRow": {
+        "type": "object",
+        "properties": {
+          "upvote_id": {
+            "type": "string",
+            "format": "uuid"
+          },
+          "user_id": {
+            "type": "string",
+            "format": "uuid"
+          },
+          "review_id": {
+            "type": "string",
+            "format": "uuid"
+          }
+        }
+      },
+      "DownvoteRow": {
+        "type": "object",
+        "properties": {
+          "downvote_id": {
+            "type": "string",
+            "format": "uuid"
+          },
+          "user_id": {
+            "type": "string",
+            "format": "uuid"
+          },
+          "review_id": {
+            "type": "string",
+            "format": "uuid"
+          }
+        }
       }
     }
   }

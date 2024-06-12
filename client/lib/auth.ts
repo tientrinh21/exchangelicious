@@ -6,7 +6,12 @@ import axios from 'axios'
 
 export const authAtom = atom(false)
 
-function isAuthenticated() {
+export const frequentlyCountries = [{ name: 'South Korea', code: 'KOR' }]
+export const frequentlyUniversities = [
+  { long_name: 'Sungkyunkwan University', university_id: 'skku' },
+]
+
+export function isAuthenticated() {
   return localStorage.hasOwnProperty('user')
 }
 
@@ -15,7 +20,7 @@ export function useAuth(): boolean {
 
   useEffect(() => {
     setIsAuth(isAuthenticated())
-  }, [typeof window !== 'undefined' && localStorage.getItem('user')])
+  }, [typeof window !== 'undefined'])
 
   return isAuth
 }
@@ -29,9 +34,9 @@ export function useUniversities() {
   const [universities, setUniversities] = useState<University[]>()
 
   useEffect(() => {
-    const base_url = process.env.base_url || 'http://localhost:8080/api'
+    const BASE_URL = process.env.BASE_URL || 'http://localhost:8080/api'
     axios
-      .get<University[]>(`${base_url}/universities`)
+      .get<University[]>(`${BASE_URL}/universities`)
       .then((r) => setUniversities(r.data))
   }, [])
 
