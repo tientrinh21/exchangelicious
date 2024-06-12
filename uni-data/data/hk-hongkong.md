@@ -4,9 +4,6 @@ https://www.cb.cityu.edu.hk/exchange/international_student/information/schedule
 
 Welcome to City University of Hong Kong (CityU)! As a prospective exchange student, you are about to join one of Asia's leading universities, located in the vibrant city of Hong Kong. CityU is renowned for its academic excellence, innovative research, and diverse student body. The university provides a dynamic and supportive environment that prepares students for successful careers and global citizenship.
 
-# Supported Major
-
-Business Major only
 
 # Location
 

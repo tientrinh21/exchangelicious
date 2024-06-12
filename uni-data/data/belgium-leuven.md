@@ -4,9 +4,19 @@ https://feb.kuleuven.be/eng/international/coming-to-feb-ku-leuven/coming-to-feb-
 
 Welcome to KU Leuven! As a prospective exchange student, you are about to join one of Europe’s most renowned research universities, situated in the heart of Belgium. KU Leuven offers a rich academic tradition and a vibrant international community to enhance your educational experience. Known for its cutting-edge research and high-quality education, KU Leuven provides an intellectually stimulating environment that prepares students for global challenges. With a commitment to excellence and innovation, KU Leuven is the perfect place to advance your academic career.
 
-# Supported Major
+The Faculty of Economics and Business of the KU Leuven has international exchange agreements with over 60 universities in North & South America, Asia, Africa and Australia and Erasmus partnership agreements with over 135 universtities throughout Europe.
 
-Business Major only
+To check whether your university has an agreement with FEB KU Leuven, please contact the Erasmus/International Office at your home university. Your home university will be able to confirm if they have an agreement with FEB and if you are eligible to apply for exchange at FEB KU Leuven.
+
+Please read our [**factsheet 2024-2025**](https://feb.kuleuven.be/eng/international/coming-on-exchange/factsheet-exchange-ku-leuven-2024-2025-compressed.pdf)
+
+### Testimonials & brochure
+
+Find out why students choose to come on exchange to FEB KU Leuven.
+
+-   [Watch students talk about their exchange at FEB KU Leuven](https://feb.kuleuven.be/eng/international/coming-on-exchange/video-testimonials). Check what Charlotte, Jiri, Luciano and Xiaowei had to say about their time at FEB KU Leuven. 
+-   [Go to exchange students **testimonials**](https://feb.kuleuven.be/eng/international/coming-on-exchange/testimonials). Read what Alessio, Lais, Yue, Milosz, Rodrigo, Ekaterina, Loukia and Kleopatra had to say about Belgium and KU Leuven.
+-   [Read our **info brochure** for incoming exchange students](https://feb.kuleuven.be/eng/international/docs/find-your-home-at-feb-kuleuven-2021-def.pdf) and find out more about accommodation, cost of living, the different FEB campuses, etc.
 
 # Location
 
@@ -42,18 +52,48 @@ Refer to the [KU Leuven academic calendar](https://www.kuleuven.be/english/educa
 
 # Application Deadlines
 
-Exchange students should adhere to the following application deadlines:
+Students should be nominated directly to the Inbound Student Mobility Advisor of their home university.
 
-- **Fall Semester**: May 1
-- **Spring Semester**: November 1
+Once the student is nominated he/she will receive instructions via e-mail on how to complete the application.
 
-Ensure all required documents are submitted by these dates to secure your spot at KU Leuven. For more details, visit [KU Leuven Admissions](https://www.kuleuven.be/english/education/admission).
+-   **Semester 1**
+    -   Nomination deadline: 15 April
+    -   Application deadline: 1 May (including Learning agreement)
+-   **Semester 2**
+    -   Nomination deadline: 1 October
+    -   Application deadline: 1 October (including Learning agreement)
+
+More **[details on the application procedure](https://www.kuleuven.be/english/admissions/exchange/applicationprocedure)** can be found here.
+
+**Required documents for the application:**
+
+-   Photo
+-   Copy identity card/passport
+-   A Transcript of Records (ToR) in English of all the previous courses/years showing the number of credits you obtained so far. A min. of 60 ECTS credits need to be obtained before July.
+-   Learning agreement
+-   non-native English speakers: one of the documents listed below as proof of B2 (bachelor) or C1 (master) proficiency in English:
+    -   result of official test (TOEFL, IELTS, etc.)
+    -   proof by your university that you are registered for an English-taught programme
+    -   certificate from your university stating your level in English
 
 # Courses
 
-KU Leuven offers a wide range of courses taught in English across various disciplines including engineering, social sciences, humanities, and natural sciences. Detailed course lists and descriptions will be provided after your acceptance. Students are encouraged to select courses early as availability can be limited.
+## Course description, course list and guidelines
 
-Visit [KU Leuven Courses](https://www.kuleuven.be/english/education/courses) for more information.
+-   **Full list of courses** open to bachelor/undergraduate exchange students and master/graduate exchange students on all FEB campuses:
+
+    [courses Antwerp](https://onderwijsaanbod.kuleuven.be/2024/opleidingen/e/SC_55035778.htm) [courses Brussels](https://onderwijsaanbod.kuleuven.be/2024/opleidingen/e/SC_55037747.htm) [courses Leuven](https://onderwijsaanbod.kuleuven.be/2024/opleidingen/e/SC_55035973.htm)
+
+-   **Campus Brussels:** available [courses of the **faculty of Arts**](https://www.arts.kuleuven.be/english/education/brussels/files/CourseCatalogue_2024-2025) that may be relevant
+-   **Campus Antwerp**: available [courses of the **faculty of Arts**](https://feb.kuleuven.be/eng/international/information-package/courses-faculty-of-arts-antwerp.pdf) that may be relevant
+-   Some course **descriptions** will only be available from **mid July** onwards.
+-   Each professor has the right to **update** his/her course description just until the start of the academic year.
+-   While choosing your courses, **select the appropriate campus** (Antwerp, Brussels, Leuven) based on the degree programme of your home university. You can follow a maximum of 6 credits at a different campus of your main campus enrollment.
+-   The faculty has the right to **organise a course in another semester than originally planned**. Although FEB has the authority to make last minute alterations, this is rarely the case.
+-   Be aware that choosing courses of different programmes/programme phases might result in a time schedule overlap. **Courses are semester based or entire year**:
+    -   ![First term](https://onderwijsaanbod.kuleuven.be/resources/images/icons/icon-semester-1.png) =First term= Autumn 
+    -   ![Second term](https://onderwijsaanbod.kuleuven.be/resources/images/icons/icon-semester-2.png)\=Second term= Spring
+    -   ![Both terms](https://onderwijsaanbod.kuleuven.be/resources/images/icons/icon-semester-3.png)\=Both terms= all year course
 
 # Tuition
 
@@ -63,7 +103,7 @@ As an exchange student, you typically do not pay tuition fees to KU Leuven, prov
 
 KU Leuven offers several housing options for international students, including university residences and private accommodations. It is recommended to apply for housing as early as possible due to high demand.
 
-For housing assistance, visit [KU Leuven Housing](https://www.kuleuven.be/english/studentservices/housing).
+For housing assistance, visit [KU Leuven Housing](https://www.kuleuven.be/english/stuvo/studentswithadisability/living-on-your-campus/housing).
 
 # Visa
 
@@ -93,4 +133,7 @@ Students must provide:
 
 These documents should be submitted via the application portal by the specified deadlines. Delays in submission may affect your acceptance and course registration.
 
-For more information, visit [KU Leuven Admissions Requirements](https://www.kuleuven.be/english/education/admission).
+### Studying abroad with a disability & Green Erasmus
+
+-   Visit the [Inclusive Mobility](https://inclusivemobility.eu/) platform for more info on going on exchange with a disability.
+-   Travelling green? Extra grant money can help you on your way! [Read all about Sustainable Travel Tips for Students](https://www.kuleuven.be/global/going-abroad/green-erasmus)

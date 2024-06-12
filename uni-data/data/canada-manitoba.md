@@ -4,9 +4,6 @@ https://umanitoba.ca/asper/student-experience/asper-exchange-program#inbound-stu
 
 Welcome to the University of Manitoba! As a prospective exchange student, you are about to join one of Canada's top research universities, located in Winnipeg. The University of Manitoba (U of M) offers a diverse and inclusive community with a strong commitment to academic excellence, innovation, and student success. With a rich history and a vibrant campus life, U of M provides an ideal environment for students to achieve their academic and personal goals.
 
-# Supported Major
-
-Business Major only
 
 # Location
 

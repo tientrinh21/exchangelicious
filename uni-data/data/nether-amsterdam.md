@@ -1,20 +1,21 @@
-https://www.tilburguniversity.edu/education/exchange-programs
+https://vu.nl/en/education/exchange
 
 # University
 
-Welcome to Tilburg University! As a prospective exchange student, you are about to join one of the Netherlands' leading universities, located in the vibrant city of Tilburg. Tilburg University is known for its strong focus on social sciences, law, business, economics, humanities, and digital sciences. The university offers a dynamic environment that prepares students for successful careers and global citizenship.
+Welcome to Vrije Universiteit Amsterdam! As a prospective exchange student, you are about to join one of the Netherlands' leading research universities, located in the vibrant city of Amsterdam. VU Amsterdam is known for its academic excellence, innovative research, and diverse student body. The university offers a dynamic environment that prepares students for successful careers and global citizenship.
+
 
 
 # Location
 
-Tilburg University is located in Tilburg, Netherlands, a city known for its cultural diversity, vibrant arts scene, and welcoming community. The campus offers state-of-the-art facilities and a picturesque setting.
+Vrije Universiteit Amsterdam is located in Amsterdam, Netherlands, a city known for its rich history, cultural diversity, and vibrant lifestyle. The campus offers state-of-the-art facilities and is easily accessible by public transportation.
 
 **Campus Address:**
-Warandelaan 2, 5037 AB Tilburg, Netherlands
+De Boelelaan 1105, 1081 HV Amsterdam, Netherlands
 
 **Contact Information:**
-- **Email**: exchange@tilburguniversity.edu
-- **Phone**: +31 13 466 9111
+- **Email**: incoming@vu.nl
+- **Phone**: +31 20 598 9898
 
 **International Office Hours:**
 - **Hours**: 9:00am - 5:00pm (Monday to Friday)
@@ -33,24 +34,24 @@ Warandelaan 2, 5037 AB Tilburg, Netherlands
 
 Exchange students should adhere to the following application deadlines:
 
-- **Fall Semester**: April 15
-- **Spring Semester**: October 15
+- **Fall Semester**: April 1
+- **Spring Semester**: October 1
 
 ### Application Process
 
 1. **Nomination**: Your home university must first nominate you for the exchange program.
-2. **Application Submission**: Complete and submit the online application form through the Tilburg University application portal.
+2. **Application Submission**: Complete and submit the online application form through the VU Amsterdam application portal.
 3. **Required Documents**: Provide all necessary documents including transcripts, proof of language proficiency, and financial documentation.
 4. **Acceptance**: Once your application is reviewed, you will receive an acceptance letter if you meet all requirements.
 5. **Pre-Arrival**: Prepare for your arrival by arranging housing, applying for a visa, and attending any pre-departure orientations offered by your home university.
 
 # Courses
 
-Tilburg University offers a wide range of courses across various disciplines including humanities, social sciences, science, and business. Detailed course lists and descriptions will be provided after your acceptance. Students are encouraged to select courses early as availability can be limited.
+VU Amsterdam offers a wide range of courses across various disciplines including humanities, social sciences, science, and business. Detailed course lists and descriptions will be provided after your acceptance. Students are encouraged to select courses early as availability can be limited.
 
 # Tuition
 
-As an exchange student, you typically do not pay tuition fees to Tilburg University, provided there is a bilateral agreement with your home institution. However, you are responsible for other fees and living expenses.
+As an exchange student, you typically do not pay tuition fees to VU Amsterdam, provided there is a bilateral agreement with your home institution. However, you are responsible for other fees and living expenses.
 
 ### Accommodation Costs
 
@@ -59,7 +60,7 @@ As an exchange student, you typically do not pay tuition fees to Tilburg Univers
 
 # Housing
 
-Tilburg University offers several housing options for international students, including on-campus residences and off-campus accommodations.
+VU Amsterdam offers several housing options for international students, including on-campus residences and off-campus accommodations.
 
 ### On-Campus Housing
 
@@ -77,11 +78,11 @@ Tilburg University offers several housing options for international students, in
 
 # Visa
 
-Non-EU students must obtain a student visa to study in the Netherlands. The visa process involves several steps and can take several weeks, so it is crucial to apply as soon as you receive your acceptance letter from Tilburg University.
+Non-EU students must obtain a student visa to study in the Netherlands. The visa process involves several steps and can take several weeks, so it is crucial to apply as soon as you receive your acceptance letter from VU Amsterdam.
 
 ### Visa Process
 
-1. **Acceptance Letter**: Obtain your official acceptance letter from Tilburg University.
+1. **Acceptance Letter**: Obtain your official acceptance letter from VU Amsterdam.
 2. **Student Visa Application**: Apply for a student visa through the Dutch Immigration and Naturalisation Service (IND).
 3. **Required Documents**: Submit necessary documents including the acceptance letter, financial proof, and travel documents.
 4. **Visa Approval**: Receive your student visa approval and make travel arrangements.
@@ -90,7 +91,7 @@ For more detailed information, visit the [Dutch Immigration and Naturalisation S
 
 # Eligibility
 
-To be eligible for exchange at Tilburg University, students must:
+To be eligible for exchange at VU Amsterdam, students must:
 
 - Be nominated by their home institution.
 - Have completed at least one year of undergraduate studies in a relevant field.
@@ -104,7 +105,7 @@ Students must provide:
 
 - Official transcripts from their home university.
 - Proof of language proficiency (if required).
-- Financial support documentation to demonstrate sufficient funds for living expenses in Tilburg.
+- Financial support documentation to demonstrate sufficient funds for living expenses in Amsterdam.
 
 ### Additional Requirements
 

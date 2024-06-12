@@ -4,9 +4,6 @@ https://www.mun.ca/goabroad/visiting-students-inbound/
 
 Welcome to Memorial University of Newfoundland! As a prospective exchange student, you are about to join one of Canada's most distinguished universities, located in the historic city of St. John's. Memorial University offers a diverse and inclusive community with a strong focus on research, innovation, and academic excellence. The university provides an enriching environment that prepares students for successful careers and lifelong learning.
 
-# Supported Major
-
-All Major supported
 
 # Location
 

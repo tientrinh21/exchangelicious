@@ -4,10 +4,6 @@ https://www.okanagan.bc.ca/international/mobility/inbound-mobility
 
 Welcome to Okanagan College! As a prospective exchange student, you are about to join one of Canada's leading colleges, located in the beautiful Okanagan Valley. Okanagan College offers a diverse and inclusive community with a strong emphasis on practical education, student success, and community engagement. The college provides an enriching environment that prepares students for successful careers and lifelong learning.
 
-# Supported Major
-
-All Major supported
-
 # Location
 
 Okanagan College is located in the Okanagan Valley, British Columbia, known for its stunning landscapes, warm climate, and vibrant communities. The college has several campuses, including Kelowna, Penticton, Vernon, and Salmon Arm.

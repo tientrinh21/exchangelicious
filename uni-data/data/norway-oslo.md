@@ -6,9 +6,6 @@ The University of Oslo (UiO) is Norway's largest and oldest institution of highe
 
 As an exchange student at UiO, you will have the opportunity to study in the vibrant city of Oslo, surrounded by rich cultural experiences, beautiful nature, and a dynamic urban environment.
 
-# Supported Major
-
-All Major supported
 
 # Location
 

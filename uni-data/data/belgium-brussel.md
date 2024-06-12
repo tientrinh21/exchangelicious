@@ -6,9 +6,6 @@ Welcome to ICHEC Brussels Management School! As a prospective exchange student, 
 
 [Exchange Program Fact Sheet](https://www.ichec.be/sites/default/files/uploads/International/Documents%2024-25/Fact%20Sheet%202024-2025.pdf)
 
-# Supported Major
-
-Business Major only
 
 # Location
 
