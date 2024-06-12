@@ -146,9 +146,9 @@ def insert_summary_uni(filepath):
 # Main script
 if __name__ == "__main__":
     # Run this first
-    # run("uni-data/data")
+    run("./uni-data/data")
     # Run this after the above succeeded completely 
-    insert_summary_uni("university_table.csv")
+    insert_summary_uni("./uni-data/university_table.csv")
     # print(config)
     # url, headings = extract_info(markdown_file_path)
     # if url and headings:

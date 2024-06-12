@@ -24,7 +24,7 @@ export default function InfoPage() {
     .replace('/exchange/', '')
 
   const { data, error, isLoading } = useSWR<UniversityInfo, Error>(
-    `${BASE_URL}/universities/${uniName}/info`,
+    `${BASE_URL}/universities/info?university_id=${uniName}`,
     fetcher,
   )
 

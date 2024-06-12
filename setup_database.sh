@@ -34,5 +34,6 @@ execute_sql_file() {
 execute_sql_file ./server/database_schemas/countries.sql
 source ./uni-data/.venv/Scripts/activate
 python ./uni-data/ranking/rank.py
-deactive
 execute_sql_file ./server/database_schemas/schema.sql
+python ./uni-data/parse_md_to_db.py
+deactive
