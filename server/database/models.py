@@ -1,8 +1,7 @@
 import os
-
-from database.database_setup import db, get_database_uri
 from dotenv import load_dotenv
 from sqlalchemy import create_engine
+from database.database_setup import db, get_database_uri
 
 # loads the variables in the .env file so we can access them
 load_dotenv()
@@ -38,12 +37,6 @@ class UniversityTable(db.Model):
         return f"<University {self.university_id} + {self.long_name}>"
 
 
-class PartnerUniversitiesTable(db.Model):
-    """deal with an existing table"""
-
-    __table__ = db.Model.metadata.tables[f"{DB_NAME}.partner_universities_table"]
-
-
 class UserTable(db.Model):
     """deal with an existing table"""
 
@@ -51,12 +44,6 @@ class UserTable(db.Model):
 
     def __repr__(self):
         return f"<User {self.username}>"
-
-
-class ExchangeUniversityTable(db.Model):
-    """deal with an existing table"""
-
-    __table__ = db.Model.metadata.tables[f"{DB_NAME}.exchange_university_table"]
 
 
 class ReviewTable(db.Model):

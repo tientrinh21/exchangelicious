@@ -71,6 +71,7 @@ export default function UniInfoForm({ data }: { data: UniversityInfo }) {
         className="flex w-full flex-col lg:order-1"
       >
         {Object.entries(data).map(([key, _], index) => {
+          if (key == 'info_page_id') return
           if (key === 'webpage')
             return (
               <FormField

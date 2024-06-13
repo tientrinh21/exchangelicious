@@ -3,6 +3,7 @@ from flask_cors import CORS
 from flask_restful import Api
 
 from database.database_setup import db, get_database_uri
+from swagger_setup import swaggerui_blueprint
 from resources_api.routes import initialize_routes
 from swagger_setup import swaggerui_blueprint
 

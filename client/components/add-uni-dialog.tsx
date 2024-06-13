@@ -89,7 +89,6 @@ export function AddUniDialog() {
     }
   }
 
-  // TODO: Align input fields
   return (
     <Dialog>
       <DialogTrigger asChild>
@@ -124,7 +123,7 @@ export function AddUniDialog() {
                   <FormControl>
                     <Input
                       placeholder="University name"
-                      className="h-9 text-base font-semibold placeholder:text-muted sm:text-lg md:h-12 md:text-xl lg:text-2xl"
+                      className="h-10 text-base font-semibold placeholder:text-muted sm:text-lg md:h-12 md:text-xl lg:text-2xl"
                       {...field}
                     />
                   </FormControl>
@@ -140,7 +139,7 @@ export function AddUniDialog() {
                   <FormControl>
                     <Input
                       placeholder="Campus"
-                      className="h-7 max-w-[20.25rem] text-xs font-medium leading-5  placeholder:text-muted sm:max-w-[26.75rem] sm:text-sm sm:leading-6 md:max-w-[28.25rem] md:text-base md:leading-7"
+                      className="h-7 max-w-80 text-xs font-medium leading-5  placeholder:text-muted sm:text-sm sm:leading-6 md:text-base md:leading-7"
                       {...field}
                     />
                   </FormControl>
@@ -157,7 +156,8 @@ export function AddUniDialog() {
                     <FormControl>
                       <Input
                         placeholder="Region"
-                        className="h-7 text-xs font-medium leading-5  placeholder:text-muted sm:text-sm sm:leading-6 md:text-base md:leading-7"
+                        // className="h-7 text-xs font-medium leading-5  placeholder:text-muted sm:text-sm sm:leading-6 md:text-base md:leading-7"
+                        className="h-7 max-w-52 text-xs font-medium leading-5 placeholder:text-muted sm:text-sm sm:leading-6 md:text-base md:leading-7"
                         {...field}
                       />
                     </FormControl>
@@ -245,7 +245,7 @@ export function AddUniDialog() {
                 <FormItem>
                   <FormControl>
                     <div className="flex items-center">
-                      <span className="mr-1 min-w-20 text-sm font-medium  sm:text-sm md:min-w-24 md:text-base">
+                      <span className="ml-1 min-w-16 text-sm font-medium sm:text-sm md:min-w-24 md:text-base">
                         Housing:
                       </span>
                       <Popover open={housingOpen} onOpenChange={setHousingOpen}>
