@@ -19,8 +19,6 @@ config = {
     'database': os.getenv('DB_NAME')
 }
 
-# print(config)
-
 # Define the path to your Markdown file
 markdown_file_path = 'usa-houston.md'
 
@@ -40,19 +38,15 @@ def extract_info(file_path):
 
     # Extract texts under each Heading 1
     heading1_indices = [i for i, line in enumerate(lines) if line.startswith('# ')]
-    # ignore this for now
-    if "Supported Major" in [str(head).strip() for head in heading1_indices]:
-        heading1_indices.remove("Supported Major")
-        print("Removed supported major")
-    else:
-        print("No heading to remove")
     headings = []
     for i in range(len(heading1_indices)):
         start = heading1_indices[i] + 1  # Start after the heading
         end = heading1_indices[i + 1] if i + 1 < len(heading1_indices) else len(lines)
         heading_text = ''.join(lines[start:end]).strip()
-        # print(heading_text)
-        headings.append(heading_text)
+        # ignore certain headings
+        heading = ''.join(lines[heading1_indices[i]: heading1_indices[i]+1])
+        if str(heading).replace(" ", "").replace("#", "").lower().strip() != "supportedmajor":
+            headings.append(heading_text)
 
     return url, headings
 
@@ -149,9 +143,3 @@ if __name__ == "__main__":
     run("./uni-data/data")
     # Run this after the above succeeded completely 
     insert_summary_uni("./uni-data/university_table.csv")
-    # print(config)
-    # url, headings = extract_info(markdown_file_path)
-    # if url and headings:
-    #     insert_info_into_mysql(url, headings)
-    # else:
-    #     print("Failed to extract URL or headings from the Markdown file.")

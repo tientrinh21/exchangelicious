@@ -1,6 +1,19 @@
 // Data fetching
 // https://www.youtube.com/watch?v=00lxm_doFYw
 
+export enum Campus {
+  single = 'single',
+  multiple = 'multiple',
+  nan = 'N/A',
+}
+
+export enum Housing {
+  onCampus = 'On-campus',
+  offCampus = 'Off-campus',
+  noHousing = 'No housing',
+  housingAvailable = 'Available',
+  nan = 'N/A',
+}
 
 export interface University {
   university_id: string
@@ -9,8 +22,8 @@ export interface University {
   region: string
   long_name: string
   ranking: string
-  housing: boolean;
-  campus: string
+  housing: Housing
+  campus: Campus
   info_page_id: string
 }
 

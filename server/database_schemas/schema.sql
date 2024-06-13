@@ -38,9 +38,9 @@ create table university_table (
   region varchar(40), -- Is this the correct way to do this?
   long_name varchar(255),
   info_page_id varchar(36),
-  ranking varchar(10),
-  housing enum('On-campus', 'Off-campus', 'housing available' ,'No housing', 'N/A') not null default 'N/A',
-  campus varchar(255),
+  ranking varchar(10) default '1500+',
+  housing enum('On-campus', 'Off-campus', 'Available' ,'No housing', 'N/A') not null default 'N/A',
+  campus ENUM('single', 'multiple', 'N/A') not null default 'N/A',
   constraint country_code_fk_con
     foreign key (country_code) references country_table (country_code)
     on delete set null on update cascade,
@@ -54,7 +54,7 @@ CREATE TRIGGER before_uni_insert
 BEFORE INSERT ON university_table
 FOR EACH ROW
 BEGIN
-    DECLARE var varchar(10);
+    DECLARE var varchar(10) ;
     SELECT uni_rank INTO var
     FROM uni_ranking_table
     WHERE uni_name LIKE CONCAT('%', NEW.long_name, '%')
@@ -67,7 +67,7 @@ CREATE TRIGGER before_uni_update
 BEFORE UPDATE ON university_table
 FOR EACH ROW
 BEGIN
-    DECLARE var varchar(10);
+    DECLARE var varchar(10) ;
     SELECT uni_rank INTO var
     FROM uni_ranking_table
     WHERE uni_name LIKE CONCAT('%', NEW.long_name, '%')

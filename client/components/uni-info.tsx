@@ -23,6 +23,8 @@ function UniInfoContent(props: { data: UniversityInfo | undefined }) {
   return (
     <div className="lg:order-1">
       {Object.entries(props.data!).map(([key, value], index) => {
+        if (key === 'info_page_id') return
+
         if (key === 'webpage')
           return (
             <div
