@@ -18,11 +18,16 @@ export function EditDeleteReview({ review }: { review: Review }) {
         user && user!.user_id === review.user_id && 'flex',
       )}
     >
-      <Button size="icon" variant="ghost">
+      <Button size="icon" className="hover:bg-primary/10" variant="ghost">
         <Pencil1Icon className="h-4 w-4 text-primary" />
         <span className="sr-only">Edit review</span>
       </Button>
-      <Button size="icon" variant="ghost" onClick={handleDeleteReview}>
+      <Button
+        size="icon"
+        variant="ghost"
+        className="hover:bg-destructive/10"
+        onClick={handleDeleteReview}
+      >
         <TrashIcon className="h-4 w-4 text-destructive" />
         <span className="sr-only">Delete review</span>
       </Button>
