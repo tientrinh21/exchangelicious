@@ -33,6 +33,7 @@ export default function UniInfoForm({ data }: { data: UniversityInfo }) {
       semester: data.semester ?? '',
       application_deadlines: data.application_deadlines ?? '',
       courses: data.courses ?? '',
+      housing: data.housing ?? '',
       tuition: data.tuition ?? '',
       visa: data.visa ?? '',
       eligibility: data.eligibility ?? '',
@@ -73,6 +74,7 @@ export default function UniInfoForm({ data }: { data: UniversityInfo }) {
         className="flex w-full flex-col lg:order-1"
       >
         {Object.entries(data).map(([key, _], index) => {
+          if (key == 'info_page_id') return
           if (key === 'webpage')
             return (
               <FormField
