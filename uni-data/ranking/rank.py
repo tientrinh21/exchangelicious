@@ -50,7 +50,7 @@ for index, row in ranking_data.iterrows():
     uni_name = row[1]
     url = row[2]
 
-    if rank == "Reporter" or rank == "1501":
+    if rank == "Reporter" or rank == "1501+":
         rank = "1500+"
 
     uni_info = {"uni_name": uni_name, "uni_rank": rank, "uni_url": url}
@@ -71,6 +71,7 @@ uni_ranking_table = Table(
 with engine.begin() as connection:
     try:
         for dt in rank_data:
+            print("Adding", dt["uni_name"])
             connection.execute(insert(uni_ranking_table), dt)
         print("Data inserted successfully!")
     except Exception as e:

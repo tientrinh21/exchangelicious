@@ -11,7 +11,7 @@ else
 fi
 
 # Check if required environment variables are set
-if [ -z "$DB_USERNAME" ] || [ -z "$DB_PASSWORD" ]; then
+if [ -z "$DB_USERNAME" ] || [ -z "$DB_PASSWORD" ] || [ -z "$DB_SERVER" ] || [ -z "$DB_NAME" ] || [ -z "$DB_PORT" ]; then
 	echo "One or more required environment variables are missing!"
 	exit 1
 fi
@@ -20,7 +20,7 @@ fi
 execute_sql_file() {
 	local sql_file=$1
 	echo "Executing $sql_file..."
-	mysql -u$DB_USERNAME -p$DB_PASSWORD <$sql_file
+	mysql -u$DB_USERNAME -p$DB_PASSWORD -h$DB_SERVER --port $DB_PORT $DB_NAME <$sql_file
 
 	if [ $? -eq 0 ]; then
 		echo "SQL script $sql_file executed successfully!"
