@@ -388,7 +388,7 @@ You can read more about the process and apply on The Norwegian Directorate of Im
   ""
   ),
   (
-  "utdallas_page",
+  "ut_dallas_page",
   "https://ie.utdallas.edu/education-abroad/incoming-exchange",
   "Created by bold visionaries and tech pioneers, UT Dallas has nurtured generations of innovators in its first 50 years. Our roots go back to the 1960s when the three founders of Texas Instruments — Eugene McDermott, Erik Jonsson and Cecil Green — established the Graduate Research Center of the Southwest as a source of advanced research and trained scientists to benefit the state and the nation. Our creativity and enterprising spirit has been — and will continue to be — UT Dallas' guiding light.
 
@@ -465,7 +465,7 @@ insert into university_table(university_id, long_name, country_code, region, inf
   ('ntnu', 'Norwegian University of Science and Technology', 'NOR', 'Trondheim, Gjøvik, Ålesund', 'ntnu_page', "Ålesund Campus", "No housing", "None"),
   ('uio', 'University of Oslo', 'NOR', 'Oslo', 'uio_page', "Oslo Campus", "No housing", "None"),
   ('uib', 'University of Bergen', 'NOR', 'Bergen', 'uib_page', "Bergen Campus", "No housing", "None"),
-  ('ut_dallas', 'University of Texas at Dallas', 'USA', 'Richardson, Texas', 'skku_page', "Dallas Campus", "Off-campus", "None"),
+  ('ut_dallas', 'University of Texas at Dallas', 'USA', 'Richardson, Texas', 'ut_dallas_page', "Dallas Campus", "Off-campus", "None"),
   ('umass_boston', 'University of Massachusetts Boston', 'USA', 'Boston, Massachusetts', 'skku_page', "Boston Campus", "Off-campus", "None"),
   ('umanitoba', 'University of Manitoba', 'CAN', 'Winnipeg, Manitoba', 'skku_page', "Winnipeg Campus", "N/A", "None"),
   ('utoronto', 'University of Toronto', 'CAN', 'Toronto, Ontarion', 'skku_page', "Toronto Campus", "N/A", "None"),
