@@ -93,7 +93,7 @@ export default function UniHeaderForm({ data }: { data: University }) {
               <FormControl>
                 <Input
                   placeholder="University name"
-                  className="h-9 text-base font-bold text-primary-foreground placeholder:text-muted sm:mb-2 sm:text-lg md:mb-3 md:h-12 md:text-xl lg:mb-4 lg:text-2xl"
+                  className="h-9 text-base font-bold text-primary-foreground placeholder:text-muted sm:text-lg md:h-12 md:text-xl lg:text-2xl"
                   {...field}
                 />
               </FormControl>
@@ -109,7 +109,7 @@ export default function UniHeaderForm({ data }: { data: University }) {
               <FormControl>
                 <Input
                   placeholder="Campus"
-                  className="h-7 max-w-[20.25rem] text-xs font-medium leading-5 text-primary-foreground placeholder:text-muted sm:max-w-[26.75rem] sm:text-sm sm:leading-6 md:max-w-[28.25rem] md:text-base md:leading-7"
+                  className="h-7 max-w-[22rem] text-xs font-medium leading-5 text-primary-foreground placeholder:text-muted sm:text-sm sm:leading-6 md:text-base md:leading-7"
                   {...field}
                 />
               </FormControl>
@@ -126,7 +126,7 @@ export default function UniHeaderForm({ data }: { data: University }) {
                 <FormControl>
                   <Input
                     placeholder="Region"
-                    className="h-7 text-xs font-medium leading-5 text-primary-foreground placeholder:text-muted sm:text-sm sm:leading-6 md:text-base md:leading-7"
+                    className="h-7 min-w-52 text-xs font-medium leading-5 text-primary-foreground placeholder:text-muted sm:min-w-[22rem] sm:text-sm sm:leading-6 md:text-base md:leading-7"
                     {...field}
                   />
                 </FormControl>
@@ -134,11 +134,11 @@ export default function UniHeaderForm({ data }: { data: University }) {
               </FormItem>
             )}
           />
-          <span className="mx-1 text-primary-foreground">-</span>
+          <span className="mx-2 text-primary-foreground">-</span>
           <FormField
             control={form.control}
             name="country_code"
-            render={({ field }) => (
+            render={() => (
               <FormItem className="flex flex-col">
                 <Popover open={countryOpen} onOpenChange={setCountryOpen}>
                   <PopoverTrigger asChild>
@@ -216,12 +216,13 @@ export default function UniHeaderForm({ data }: { data: University }) {
             <FormItem>
               <FormControl>
                 <div className="flex items-center">
-                  <span className="mr-1 min-w-20 text-sm font-medium text-primary-foreground sm:text-sm md:min-w-24 md:text-base">
+                  <span className="min-w-24 text-sm font-medium text-primary-foreground sm:text-sm md:text-base">
                     World Rank:
                   </span>
                   <Input
                     placeholder="Ranking"
-                    className="h-7 max-w-[15rem] text-xs font-medium leading-5 text-primary-foreground placeholder:text-muted sm:max-w-[21.5rem] sm:text-sm sm:leading-6 md:max-w-[21.75rem] md:text-base md:leading-7"
+                    className="h-7 max-w-64 text-xs font-medium leading-5 text-primary-foreground placeholder:text-muted sm:text-sm sm:leading-6 md:text-base md:leading-7"
+                    disabled
                     {...field}
                   />
                 </div>
@@ -233,11 +234,11 @@ export default function UniHeaderForm({ data }: { data: University }) {
         <FormField
           control={form.control}
           name="housing"
-          render={({ field }) => (
+          render={() => (
             <FormItem>
               <FormControl>
                 <div className="flex items-center">
-                  <span className="mr-1 min-w-20 text-sm font-medium text-primary-foreground sm:text-sm md:min-w-24 md:text-base">
+                  <span className="min-w-24 text-sm font-medium text-primary-foreground sm:text-sm md:text-base">
                     Housing:
                   </span>
                   <Popover open={housingOpen} onOpenChange={setHousingOpen}>

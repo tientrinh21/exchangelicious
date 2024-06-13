@@ -33,11 +33,11 @@ import {
 } from '@/components/ui/popover'
 import { ScrollArea } from '@/components/ui/scroll-area'
 import countries from '@/lib/countries.json'
-import { createUniversity, updateUniversity } from '@/lib/request'
+import { createUniversity } from '@/lib/request'
 import { uniHeaderFormSchema, type UniHeaderFormSchema } from '@/types/schema'
-import { Housing, type University } from '@/types/university'
+import { Housing } from '@/types/university'
 import { zodResolver } from '@hookform/resolvers/zod'
-import { CaretSortIcon, UpdateIcon, CheckIcon } from '@radix-ui/react-icons'
+import { CaretSortIcon, CheckIcon } from '@radix-ui/react-icons'
 import { CommandList } from 'cmdk'
 import { useState } from 'react'
 import { useForm } from 'react-hook-form'
@@ -65,7 +65,6 @@ export function AddUniDialog() {
       country_code: '',
       region: '',
       campus: '',
-      ranking: '',
       housing: Housing['N/A'],
     },
   })
@@ -94,7 +93,6 @@ export function AddUniDialog() {
     }
   }
 
-  // TODO: Align input fields
   return (
     <Dialog>
       <DialogTrigger asChild>
@@ -129,7 +127,7 @@ export function AddUniDialog() {
                   <FormControl>
                     <Input
                       placeholder="University name"
-                      className="h-9 text-base font-semibold placeholder:text-muted sm:text-lg md:h-12 md:text-xl lg:text-2xl"
+                      className="h-10 text-base font-semibold placeholder:text-muted sm:text-lg md:h-12 md:text-xl lg:text-2xl"
                       {...field}
                     />
                   </FormControl>
@@ -145,7 +143,7 @@ export function AddUniDialog() {
                   <FormControl>
                     <Input
                       placeholder="Campus"
-                      className="h-7 max-w-[20.25rem] text-xs font-medium leading-5  placeholder:text-muted sm:max-w-[26.75rem] sm:text-sm sm:leading-6 md:max-w-[28.25rem] md:text-base md:leading-7"
+                      className="h-7 max-w-80 text-xs font-medium leading-5  placeholder:text-muted sm:text-sm sm:leading-6 md:text-base md:leading-7"
                       {...field}
                     />
                   </FormControl>
@@ -162,7 +160,8 @@ export function AddUniDialog() {
                     <FormControl>
                       <Input
                         placeholder="Region"
-                        className="h-7 text-xs font-medium leading-5  placeholder:text-muted sm:text-sm sm:leading-6 md:text-base md:leading-7"
+                        // className="h-7 text-xs font-medium leading-5  placeholder:text-muted sm:text-sm sm:leading-6 md:text-base md:leading-7"
+                        className="h-7 max-w-52 text-xs font-medium leading-5 placeholder:text-muted sm:text-sm sm:leading-6 md:text-base md:leading-7"
                         {...field}
                       />
                     </FormControl>
@@ -174,7 +173,7 @@ export function AddUniDialog() {
               <FormField
                 control={form.control}
                 name="country_code"
-                render={({ field }) => (
+                render={() => (
                   <FormItem className="flex flex-col">
                     <Popover open={countryOpen} onOpenChange={setCountryOpen}>
                       <PopoverTrigger asChild>
@@ -245,33 +244,12 @@ export function AddUniDialog() {
             </div>
             <FormField
               control={form.control}
-              name="ranking"
-              render={({ field }) => (
-                <FormItem>
-                  <FormControl>
-                    <div className="flex items-center">
-                      <span className="mr-1 min-w-20 text-sm font-medium  sm:text-sm md:min-w-24 md:text-base">
-                        World Rank:
-                      </span>
-                      <Input
-                        placeholder="Ranking"
-                        className="h-7 max-w-[15rem] text-xs font-medium leading-5  placeholder:text-muted sm:max-w-[21.5rem] sm:text-sm sm:leading-6 md:max-w-[21.75rem] md:text-base md:leading-7"
-                        {...field}
-                      />
-                    </div>
-                  </FormControl>
-                  <FormMessage />
-                </FormItem>
-              )}
-            />
-            <FormField
-              control={form.control}
               name="housing"
-              render={({ field }) => (
+              render={() => (
                 <FormItem>
                   <FormControl>
                     <div className="flex items-center">
-                      <span className="mr-1 min-w-20 text-sm font-medium  sm:text-sm md:min-w-24 md:text-base">
+                      <span className="ml-1 min-w-16 text-sm font-medium sm:text-sm md:min-w-24 md:text-base">
                         Housing:
                       </span>
                       <Popover open={housingOpen} onOpenChange={setHousingOpen}>
