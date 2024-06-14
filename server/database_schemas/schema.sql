@@ -54,7 +54,7 @@ CREATE TRIGGER before_uni_insert
 BEFORE INSERT ON university_table
 FOR EACH ROW
 BEGIN
-    DECLARE var varchar(10) ;
+    DECLARE var varchar(10) default '1500+';
     SELECT uni_rank INTO var
     FROM uni_ranking_table
     WHERE uni_name LIKE CONCAT('%', NEW.long_name, '%')
@@ -67,7 +67,7 @@ CREATE TRIGGER before_uni_update
 BEFORE UPDATE ON university_table
 FOR EACH ROW
 BEGIN
-    DECLARE var varchar(10) ;
+    DECLARE var varchar(10) default '1500+';
     SELECT uni_rank INTO var
     FROM uni_ranking_table
     WHERE uni_name LIKE CONCAT('%', NEW.long_name, '%')
