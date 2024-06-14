@@ -47,7 +47,7 @@ export function DownvoteButton({ review }: { review: Review }) {
       // Not logged in user pressed downvote
       if (String(error).includes('Unexpected end of JSON input'))
         toast.error('You need to log in first')
-      else console.log(error)
+      else console.error(error)
     }
   }
   return (

@@ -38,7 +38,7 @@ import { Housing } from '@/types/university'
 import { zodResolver } from '@hookform/resolvers/zod'
 import { CaretSortIcon, CheckIcon, PlusIcon } from '@radix-ui/react-icons'
 import { CommandList } from 'cmdk'
-import { usePathname, useRouter } from 'next/navigation'
+import { useRouter } from 'next/navigation'
 import { useState } from 'react'
 import { useForm } from 'react-hook-form'
 import { toast } from 'sonner'
@@ -48,7 +48,6 @@ const housingOptions = Object.values(Housing)
 export function AddUniDialog() {
   const isAuth = useAuthAtom()
   const router = useRouter()
-  const pathname = usePathname()
 
   const [countryOpen, setCountryOpen] = useState(false)
   const [countryValue, setCountryValue] = useState('')
@@ -74,9 +73,8 @@ export function AddUniDialog() {
 
     try {
       const newData = await createUniversity(values)
-      console.log(newData)
       toast.success('Created successfully!', { id: toastId })
-      router.push(`${pathname}/${newData.university_id}/edit`)
+      router.push(`/exchange/${newData.university_id}/edit`)
     } catch (error: any) {
       const errMsg: string = error.response.data.message
       console.error(errMsg)

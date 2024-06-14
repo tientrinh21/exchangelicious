@@ -34,7 +34,7 @@ export default function ExchangePage() {
         setIsLoading(false)
       })
       .catch((err) => {
-        console.log(err)
+        console.error(err)
         setIsLoading(false)
       })
   }, [query])
@@ -59,7 +59,7 @@ export default function ExchangePage() {
         setIsLoading(false)
       })
       .catch((err) => {
-        console.log(err)
+        console.error(err)
         setIsLoading(false)
       })
   }
@@ -73,7 +73,7 @@ export default function ExchangePage() {
   return (
     <>
       <div className="container mx-auto max-w-screen-xl px-4 sm:px-8">
-        <div className="py-5 md:py-8 text-center">
+        <div className="py-5 text-center md:py-8">
           <h1 className="text-xl-plus font-bold text-secondary-foreground">
             More than <span className="text-primary">70</span> universities are
             connected
@@ -84,21 +84,18 @@ export default function ExchangePage() {
           <div className="flex w-full flex-col">
             <div className="w-full">
               <form className="mx-auto max-w-full">
-                <label
-                  htmlFor="default-search"
-                  className="sr-only"
-                >
+                <label htmlFor="default-search" className="sr-only">
                   Search
                 </label>
-                <div className="relative mb-5 mx-2">
+                <div className="relative mx-2 mb-5">
                   <div className="pointer-events-none absolute inset-y-0 start-0 flex items-center px-2">
                     <MagnifyingGlassIcon className="h-5 w-5 text-placeholder" />
                   </div>
                   <input
                     type="search"
                     id="default-search"
-                    className="focus:border-b-3 block w-full rounded-t-lg border-b-2 border-secondary bg-background p-2 pl-10 sm:pl-12 text-lg font-medium text-secondary-foreground placeholder:text-placeholder focus:border-primary focus:outline-none focus:ring-0"
-                    placeholder="Search universities by name, region, country, etc :)"
+                    className="focus:border-b-3 block w-full rounded-t-lg border-b-2 border-secondary bg-background p-2 pl-10 text-lg font-medium text-secondary-foreground placeholder:text-placeholder focus:border-primary focus:outline-none focus:ring-0 sm:pl-12"
+                    placeholder="Search universities by name, region, country, etc."
                     value={query}
                     onChange={handleSearch}
                     style={{ textOverflow: 'ellipsis' }}

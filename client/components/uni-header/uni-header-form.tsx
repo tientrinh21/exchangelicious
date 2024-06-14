@@ -61,8 +61,7 @@ export default function UniHeaderForm({ data }: { data: University }) {
     const toastId = toast.loading('Updating university header...')
 
     try {
-      const newData = await updateUniversity({ id: data.university_id, values })
-      console.log(newData)
+      await updateUniversity({ id: data.university_id, values })
       toast.success('Updated successfully!', { id: toastId })
     } catch (error: any) {
       const errMsg: string = error.response.data.message

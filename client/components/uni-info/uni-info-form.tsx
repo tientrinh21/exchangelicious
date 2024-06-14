@@ -52,11 +52,10 @@ export default function UniInfoForm({
     const toastId = toast.loading('Saving university information...')
 
     try {
-      const newData = await updateUniversityInfo({
+      await updateUniversityInfo({
         id: data.info_page_id,
         values,
       })
-      console.log(newData)
       toast.success('Saved!', { id: toastId })
       router.push(`/exchange/${uniId}`)
       router.refresh()

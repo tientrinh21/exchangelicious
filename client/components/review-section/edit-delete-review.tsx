@@ -17,7 +17,7 @@ export function EditDeleteReview({ review }: { review: Review }) {
       await deleteReview({ review_id: review.review_id })
       toast.success('Review deleted!')
       setReloadReviews(true)
-    } catch (error) {
+    } catch (error: any) {
       console.error(error)
       toast.error('Something went wrong!')
     }

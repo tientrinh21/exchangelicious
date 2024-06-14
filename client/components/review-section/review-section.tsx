@@ -42,7 +42,7 @@ export default function ReviewSection(props: { uniId: string }) {
         setIsLoading(false)
       })
       .catch((err) => {
-        console.log(err)
+        console.error(err)
         setIsLoading(false)
       })
 
@@ -75,7 +75,7 @@ export default function ReviewSection(props: { uniId: string }) {
         setIsLoading(false)
       })
       .catch((err) => {
-        console.log(err)
+        console.error(err)
         setIsLoading(false)
       })
   }
