@@ -21,16 +21,15 @@ import {
   PopoverContent,
   PopoverTrigger,
 } from '@/components/ui/popover'
-import { getUserData, isAuthenticated, useUser } from '@/lib/auth'
+import { useUser } from '@/lib/auth'
 import { createReview } from '@/lib/request'
 import { cn, displayMood, moods } from '@/lib/utils'
 import { MoodScore } from '@/types/review-section'
 import { reviewFormSchema, type ReviewFormSchema } from '@/types/schema'
-import type { User } from '@/types/user'
 import { zodResolver } from '@hookform/resolvers/zod'
 import { CaretSortIcon, CheckIcon } from '@radix-ui/react-icons'
 import { useSetAtom } from 'jotai'
-import { useEffect, useState } from 'react'
+import { useState } from 'react'
 import { useForm } from 'react-hook-form'
 import { toast } from 'sonner'
 import { atomReloadReviews } from './review-section'
@@ -180,6 +179,7 @@ export function CreateReviewForm({ university_id }: { university_id: string }) {
           type="submit"
           className="col-span-3 sm:col-span-1 sm:col-start-3 sm:row-start-1"
         >
+          <CheckIcon className="mr-2 h-4 w-4" />
           Done
         </Button>
       </form>
