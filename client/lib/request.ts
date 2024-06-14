@@ -107,6 +107,16 @@ export async function createReview({
     .then((r) => r.data)
 }
 
+export async function deleteReview({ review_id }: { review_id: string }) {
+  return axios
+    .delete(`${BASE_URL}/review`, {
+      params: {
+        review_id: review_id,
+      },
+    })
+    .then((r) => r.data)
+}
+
 export async function upvote({
   user_id,
   review,

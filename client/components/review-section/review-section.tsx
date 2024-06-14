@@ -46,7 +46,7 @@ export default function ReviewSection(props: { uniId: string }) {
         setIsLoading(false)
       })
 
-    // Needed when new review added
+    // Needed for with review operations
     setPageNumber(2)
     setReloadReviews(false)
   }, [reloadReviews])

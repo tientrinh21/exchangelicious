@@ -1,14 +1,26 @@
 import { Button } from '@/components/ui/button'
 import { useUser } from '@/lib/auth'
+import { deleteReview } from '@/lib/request'
 import { cn } from '@/lib/utils'
 import { Review } from '@/types/review-section'
 import { Pencil1Icon, TrashIcon } from '@radix-ui/react-icons'
+import { useSetAtom } from 'jotai'
+import { toast } from 'sonner'
+import { atomReloadReviews } from './review-section'
 
 export function EditDeleteReview({ review }: { review: Review }) {
   const user = useUser()
+  const setReloadReviews = useSetAtom(atomReloadReviews)
 
-  function handleDeleteReview() {
-    throw new Error('Function not implemented.')
+  async function handleDeleteReview({ review }: { review: Review }) {
+    try {
+      await deleteReview({ review_id: review.review_id })
+      toast.success('Review deleted!')
+      setReloadReviews(true)
+    } catch (error) {
+      console.error(error)
+      toast.error('Something went wrong!')
+    }
   }
 
   return (
@@ -26,7 +38,7 @@ export function EditDeleteReview({ review }: { review: Review }) {
         size="icon"
         variant="ghost"
         className="hover:bg-destructive/10"
-        onClick={handleDeleteReview}
+        onClick={() => handleDeleteReview({ review })}
       >
         <TrashIcon className="h-4 w-4 text-destructive" />
         <span className="sr-only">Delete review</span>
