@@ -107,6 +107,22 @@ export async function createReview({
     .then((r) => r.data)
 }
 
+export async function updateReview({
+  review_id,
+  values,
+}: {
+  review_id: string
+  values: ReviewFormSchema
+}) {
+  return axios
+    .patch<Review>(
+      `${BASE_URL}/review`,
+      { ...values },
+      { params: { review_id: review_id } },
+    )
+    .then((r) => r.data)
+}
+
 export async function deleteReview({ review_id }: { review_id: string }) {
   return axios
     .delete(`${BASE_URL}/review`, {

@@ -7,6 +7,14 @@ import { Pencil1Icon, TrashIcon } from '@radix-ui/react-icons'
 import { useSetAtom } from 'jotai'
 import { toast } from 'sonner'
 import { atomReloadReviews } from './review-section'
+import {
+  Dialog,
+  DialogContent,
+  DialogHeader,
+  DialogTitle,
+  DialogTrigger,
+} from '@/components/ui/dialog'
+import { EditReviewForm } from './edit-review-form'
 
 export function EditDeleteReview({ review }: { review: Review }) {
   const user = useUser()
@@ -30,10 +38,23 @@ export function EditDeleteReview({ review }: { review: Review }) {
         user && user!.user_id === review.user_id && 'flex',
       )}
     >
-      <Button size="icon" className="hover:bg-primary/10" variant="ghost">
-        <Pencil1Icon className="h-4 w-4 text-primary" />
-        <span className="sr-only">Edit review</span>
-      </Button>
+      <Dialog>
+        <DialogTrigger asChild>
+          <Button size="icon" className="hover:bg-primary/10" variant="ghost">
+            <Pencil1Icon className="h-4 w-4 text-primary" />
+            <span className="sr-only">Edit review</span>
+          </Button>
+        </DialogTrigger>
+
+        <DialogContent className="container max-w-[95%] rounded-lg lg:max-w-screen-lg">
+          <DialogHeader>
+            <DialogTitle className="md:text-xl">Edit Review</DialogTitle>
+          </DialogHeader>
+
+          <EditReviewForm review={review} />
+        </DialogContent>
+      </Dialog>
+
       <Button
         size="icon"
         variant="ghost"
