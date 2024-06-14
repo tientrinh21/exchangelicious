@@ -1,5 +1,5 @@
-import { UniInfoLoading } from '@/components/uni-info'
+import { LoadingSpinner } from '@/components/loading-spinner'
 
 export default function UniLoadingPage() {
-  return <UniInfoLoading />
+  return <LoadingSpinner text="Loading..." />
 }
