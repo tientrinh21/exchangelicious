@@ -13,7 +13,7 @@ const BASE_URL = 'http://127.0.0.1:8080/api'
 
 export const atomReloadReviews = atom(false)
 
-export default function ReviewSection(props: { university_id: string }) {
+export default function ReviewSection(props: { uniId: string }) {
   const [reviews, setReviews] = useState<Review[]>([])
   const [isLoading, setIsLoading] = useState(true) // to avoid blank screen when awaiting
   const [hasMore, setHasMore] = useState(true)
@@ -31,7 +31,7 @@ export default function ReviewSection(props: { university_id: string }) {
         'Content-Type': 'application/json',
       },
       params: {
-        university_id: props.university_id,
+        university_id: props.uniId,
         page_number: 1,
         user_id: isAuthenticated() ? getUserData().user_id : null,
       },
@@ -60,7 +60,7 @@ export default function ReviewSection(props: { university_id: string }) {
         'Content-Type': 'application/json',
       },
       params: {
-        university_id: props.university_id,
+        university_id: props.uniId,
         page_number: pageNumber,
         user_id: isAuthenticated() ? getUserData().user_id : null,
       },
@@ -82,7 +82,7 @@ export default function ReviewSection(props: { university_id: string }) {
 
   return (
     <div className="w-full">
-      <CreateReviewForm university_id={props.university_id} />
+      <CreateReviewForm university_id={props.uniId} />
 
       <div>
         <h1 className="mb-5 mt-10 text-center text-lg font-bold text-foreground lg:text-left">

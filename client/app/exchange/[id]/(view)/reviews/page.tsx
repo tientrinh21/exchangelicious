@@ -6,7 +6,7 @@ export default function ReviewsPage({ params }: { params: { id: string } }) {
     <>
       <InfoReviewsNav uniId={params.id} />
 
-      <ReviewSection university_id={params.id} />
+      <ReviewSection uniId={params.id} />
     </>
   )
 }

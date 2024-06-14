@@ -20,7 +20,13 @@ import { useRouter } from 'next/navigation'
 import { useForm } from 'react-hook-form'
 import { toast } from 'sonner'
 
-export default function UniInfoForm({ data }: { data: UniversityInfo }) {
+export default function UniInfoForm({
+  data,
+  uniId,
+}: {
+  data: UniversityInfo
+  uniId: string
+}) {
   const router = useRouter()
 
   // Define form
@@ -52,7 +58,7 @@ export default function UniInfoForm({ data }: { data: UniversityInfo }) {
       })
       console.log(newData)
       toast.success('Saved!', { id: toastId })
-      router.back()
+      router.push(`/exchange/${uniId}`)
       router.refresh()
     } catch (error: any) {
       const errMsg: string = error.response.data.message
