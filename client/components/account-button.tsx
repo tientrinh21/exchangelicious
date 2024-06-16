@@ -6,29 +6,34 @@ import {
   DropdownMenuItem,
   DropdownMenuTrigger,
 } from '@/components/ui/dropdown-menu'
-import { PersonIcon, FileTextIcon, ExitIcon } from '@radix-ui/react-icons'
-import Link from 'next/link'
-import { Button } from './ui/button'
-import { toast } from 'sonner'
-import { getUserData, useAuth } from '@/lib/auth'
-import { authAtom } from '@/lib/auth'
+import { authAtom, getUserData, useAuthAtom } from '@/lib/auth'
+import { ExitIcon, FileTextIcon, PersonIcon } from '@radix-ui/react-icons'
 import { useSetAtom } from 'jotai/react'
+import Link from 'next/link'
+import { useRouter } from 'next/navigation'
+import { useState } from 'react'
+import { toast } from 'sonner'
+import { Button } from './ui/button'
 
 export function AccountButton() {
-  const isAuth = useAuth()
+  const router = useRouter()
+  const [open, setOpen] = useState(false)
+
+  const isAuth = useAuthAtom()
   const setIsAuth = useSetAtom(authAtom)
   const user = isAuth ? getUserData() : undefined
 
   function handleLogout() {
     localStorage.removeItem('user')
     setIsAuth(false)
-    toast.info('Logged out', { duration: 1000 })
+    toast.info('Logged out')
+    router.push('/exchange')
   }
 
   return (
     <>
       {isAuth ? (
-        <DropdownMenu>
+        <DropdownMenu open={open} onOpenChange={setOpen}>
           <DropdownMenuTrigger asChild>
             <Button className="order-1 rounded-lg px-3 text-base md:px-5">
               <PersonIcon className="mr-1 h-3 w-3 md:mr-2 md:h-4 md:w-4" />
@@ -43,6 +48,7 @@ export function AccountButton() {
               <Link
                 href="/profile"
                 className={`flex w-full items-center justify-center text-center text-base font-medium text-accent-foreground`}
+                onClick={() => setOpen(false)}
               >
                 <Button
                   variant="link"
@@ -53,7 +59,7 @@ export function AccountButton() {
                 </Button>
               </Link>
             </DropdownMenuItem>
-            <DropdownMenuItem className="">
+            <DropdownMenuItem>
               <Button
                 variant="link"
                 className="flex w-full items-center justify-center text-center text-base font-medium text-destructive hover:no-underline"

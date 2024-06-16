@@ -4,14 +4,13 @@ import { usePathname } from 'next/navigation'
 import Link from 'next/link'
 import { cn } from '@/lib/utils'
 
-export function InfoReviewsNav() {
-  // TODO: depends on university_id
-  const uniPathname = usePathname().replace('/reviews', '')
-
+export function InfoReviewsNav({ uniId }: { uniId: string }) {
   return (
     <div className="gap flex">
-      <InfoReviewsLink href={`${uniPathname}`}>Information</InfoReviewsLink>
-      <InfoReviewsLink href={`${uniPathname}/reviews`}>Reviews</InfoReviewsLink>
+      <InfoReviewsLink href={`/exchange/${uniId}`}>Information</InfoReviewsLink>
+      <InfoReviewsLink href={`/exchange/${uniId}/reviews`}>
+        Reviews
+      </InfoReviewsLink>
     </div>
   )
 }

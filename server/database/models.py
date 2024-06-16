@@ -8,6 +8,7 @@ load_dotenv()
 
 DB_NAME = os.getenv("DB_NAME")
 
+
 # inspo: https://www.youtube.com/watch?v=GMppyAPbLYk
 # # Here we are just reflecting the database
 # # Should maybe be changed at a later date,
@@ -35,6 +36,7 @@ class UniversityTable(db.Model):
     def __repr__(self):
         return f"<University {self.university_id} + {self.long_name}>"
 
+
 class UserTable(db.Model):
     """deal with an existing table"""
 
@@ -49,6 +51,26 @@ class FavoriteTable(db.Model):
 
     __table__ = db.Model.metadata.tables[f"{DB_NAME}.favorite_table"]
 
+
+class ReviewTable(db.Model):
+    """deal with an existing table"""
+
+    __table__ = db.Model.metadata.tables[f"{DB_NAME}.review_table"]
+
+    def __repr__(self):
+        return f"<Review ({self.review_id}, {self.title}, {self.content}, {self.submit_datetime},)>"
+
     def __repr__(self):
         return f"<Favorite f_id:{self.favorite_id} user:{self.user_id} uni:{self.university_id}>"
 
+
+class UpvoteTable(db.Model):
+    """deal with an existing table"""
+
+    __table__ = db.Model.metadata.tables[f"{DB_NAME}.upvote_table"]
+
+
+class DownvoteTable(db.Model):
+    """deal with an existing table"""
+
+    __table__ = db.Model.metadata.tables[f"{DB_NAME}.downvote_table"]

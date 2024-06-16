@@ -1,5 +1,7 @@
 import { clsx, type ClassValue } from 'clsx'
 import { twMerge } from 'tailwind-merge'
+import countries from '@/lib/countries.json'
+import { MoodScore } from '@/types/review-section'
 
 export async function fetcher(...args: Parameters<typeof fetch>) {
   const res = await fetch(...args)
@@ -58,4 +60,34 @@ export function toRomanNumerals(decimalNumber: number): string {
 
 export function objKeyToText(key: string) {
   return `${key[0].toUpperCase()}${key.substring(1).replaceAll('_', ' ')}`
+}
+
+export function getCountryName(code: string) {
+  for (let country of countries) if (country.code == code) return country.name
+  return 'N/A'
+}
+
+function simpleHash(str: string) {
+  let hash = 0
+  for (let i = 0; i < str.length; i++) {
+    const char = str.charCodeAt(i)
+    hash = (hash << 5) - hash + char
+    hash |= 0 // Convert to 32bit integer
+  }
+  return hash
+}
+
+// Hash the id to a number from 1 to 99
+export function hashIDToNumber(id: string) {
+  const hashInt = simpleHash(id)
+  const result = Math.abs(hashInt % 99) + 1
+
+  return result
+}
+
+const moodIcons = ['😡', '☹️', '😐', '😁', '🥰']
+export const moods = Object.values(MoodScore)
+export const displayMood = (mood: MoodScore) => {
+  const index = moods.findIndex((m) => m === mood)
+  return `${moodIcons[index]} ${moods[index]}`
 }

@@ -1,15 +1,17 @@
+import { SiteHeader } from '@/components/site-header'
+import { SiteFooter } from '@/components/site-footer'
+import { cn } from '@/lib/utils'
+import { Provider } from 'jotai'
 import type { Metadata } from 'next'
 import { Inter } from 'next/font/google'
-import './globals.css'
-import { SiteHeader } from '@/components/site-header'
-import { cn } from '@/lib/utils'
 import { Toaster } from 'sonner'
+import './globals.css'
 
 const inter = Inter({ subsets: ['latin'] })
 
 export const metadata: Metadata = {
-  title: 'ExchanGe',
-  description: 'Make it EG for ExchanGe students',
+  title: 'Exchangelicious',
+  description: 'Savor the Flavor of Global Exchange!',
   icons: {
     icon: '/logo.png',
   },
@@ -28,11 +30,12 @@ export default function RootLayout({ children }: RootLayoutProps) {
           inter.className,
         )}
       >
-        <SiteHeader />
-        <main className="flex-1">{children}</main>
-        {/* TODO: Implement site footer */}
-        {/* <SiteFooter /> */}
-        <Toaster position="bottom-right" richColors />
+        <Provider>
+          <SiteHeader />
+          <main className="min-h-[82vh] flex-1">{children}</main>
+          <SiteFooter />
+          <Toaster position="bottom-right" richColors duration={1500} />
+        </Provider>
       </body>
     </html>
   )
