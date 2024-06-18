@@ -3,7 +3,6 @@
 import React from 'react'
 import Link from 'next/link'
 import type { Favorite } from '@/types/favorite'
-import { getCountryName } from '@/lib/utils'
 import { TrashIcon } from '@radix-ui/react-icons'
 import { useUser } from '@/lib/auth'
 import { Button } from '@/components/ui/button'
@@ -57,8 +56,9 @@ export function FavoriteCard(props: { favorite: Favorite }) {
             <span>{props.favorite.campus ?? 'N/A'}</span>
             <span className="mx-1.5 hidden sm:inline">|</span>
             <span>
-              {props.favorite.region ?? 'N/A'} -{' '}
-              {getCountryName(props.favorite.country_code)}
+              {props.favorite.region ?? 'N/A'}
+              {' - '}
+              {props.favorite.country_name}
             </span>
           </p>
         </div>

@@ -60,7 +60,8 @@ export function UniCard(props: { university: University }) {
             <span>{props.university.campus ?? 'N/A'}</span>
             <span className="mx-1.5 hidden sm:inline">|</span>
             <span>
-              {props.university.region ?? 'N/A'} -{' '}
+              {props.university.region ?? 'N/A'}
+              {' - '}
               {getCountryName(props.university.country_code)}
             </span>
           </p>
