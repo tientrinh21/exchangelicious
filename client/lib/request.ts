@@ -246,3 +246,13 @@ export async function addFavorite({
     })
     .then((r) => r.data)
 }
+
+export async function removeFavorite({ favorite_id }: { favorite_id: string }) {
+  return axios
+    .delete(`${BASE_URL}/favorites`, {
+      params: {
+        favorite_id: favorite_id,
+      },
+    })
+    .then((r) => r.data)
+}

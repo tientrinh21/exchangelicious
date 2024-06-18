@@ -1,20 +1,23 @@
 'use client'
 
-import { FavoriteCard } from '@/components/favorite-card'
+import { FavoriteCard, atomReloadFavorites } from '@/components/favorite-card'
 import { LoadingSpinner } from '@/components/loading-spinner'
 import { getUserData, isAuthenticated } from '@/lib/auth'
-import { University } from '@/types/university'
+import { Favorite } from '@/types/favorite'
 import axios from 'axios'
+import { useAtom } from 'jotai'
 import { useEffect, useState } from 'react'
 import InfiniteScroll from 'react-infinite-scroll-component'
 
 const BASE_URL = process.env.BASE_URL || 'http://localhost:8080/api'
 
-export default function ExchangePage() {
-  const [universities, setUniversities] = useState<University[]>([])
+export default function FavoritesPage() {
+  const [favorites, setFavorites] = useState<Favorite[]>([])
   const [isLoading, setIsLoading] = useState(true) // to avoid blank screen when awaiting
   const [hasMore, setHasMore] = useState(true)
   const [pageNumber, setPageNumber] = useState(2)
+
+  const [reloadFavorites, setReloadFavorites] = useAtom(atomReloadFavorites)
 
   // fetch initial data
   useEffect(() => {
@@ -32,14 +35,17 @@ export default function ExchangePage() {
     })
       .then((res) => {
         setHasMore(res.data['hasMore'])
-        setUniversities(res.data['items'])
+        setFavorites(res.data['items'])
         setIsLoading(false)
       })
       .catch((err) => {
         console.error(err)
         setIsLoading(false)
       })
-  }, [typeof window !== 'undefined'])
+
+    setPageNumber(2)
+    setReloadFavorites(false)
+  }, [typeof window !== 'undefined', reloadFavorites])
 
   const fetchMoreData = () => {
     setIsLoading(true)
@@ -56,7 +62,7 @@ export default function ExchangePage() {
     })
       .then((res) => {
         setHasMore(res.data['hasMore'])
-        setUniversities((previousUniversities) => [
+        setFavorites((previousUniversities) => [
           ...previousUniversities,
           ...res.data['items'],
         ])
@@ -85,15 +91,15 @@ export default function ExchangePage() {
               {isLoading && (
                 <LoadingSpinner className="my-10" text="Loading..." />
               )}
-              {!isLoading && universities.length == 0 && (
+              {!isLoading && favorites.length == 0 && (
                 <p className="my-10 text-center text-lg font-semibold text-secondary-foreground">
                   No matching results found.
                 </p>
               )}
 
-              {universities.length > 0 && (
+              {favorites.length > 0 && (
                 <InfiniteScroll
-                  dataLength={universities.length}
+                  dataLength={favorites.length}
                   next={fetchMoreData}
                   hasMore={hasMore}
                   loader={
@@ -106,10 +112,10 @@ export default function ExchangePage() {
                   }
                 >
                   <div className="flex flex-col gap-4">
-                    {universities.map((university) => (
+                    {favorites.map((favorite) => (
                       <FavoriteCard
-                        key={university.university_id}
-                        university={university}
+                        key={favorite.university_id}
+                        favorite={favorite}
                       />
                     ))}
                   </div>
