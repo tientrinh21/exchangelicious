@@ -14,11 +14,6 @@ drop trigger if exists update_downvotes_post;
 drop trigger if exists update_downvotes_delete;
 
 
--- uuid is 36 characters
--- TODO: Add not null or nullable to everything
-
--- This table probably needs to change
--- How to format the text?
 create table info_page_table (
   info_page_id varchar(36) default (uuid()) primary key,
   webpage TEXT,
