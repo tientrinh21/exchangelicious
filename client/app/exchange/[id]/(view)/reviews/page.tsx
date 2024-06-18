@@ -1,5 +1,5 @@
 import { InfoReviewsNav } from '@/components/info-reviews-nav'
-import { ReviewSection } from '@/components/review'
+import { ReviewSection } from '@/components/review-section'
 
 export default function ReviewsPage({ params }: { params: { id: string } }) {
   return (
