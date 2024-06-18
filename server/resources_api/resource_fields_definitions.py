@@ -139,6 +139,7 @@ favorite_university_resource_fields = {
     "ranking": fields.String,
     "campus": fields.String,
     "housing": fields.Boolean,
+    "info_page_id": fields.String,
 }
 
 favorite_paginate_resource_fields = {
