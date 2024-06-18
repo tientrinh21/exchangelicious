@@ -126,7 +126,7 @@ downvote_resource_fields = {
 favorite_table_resource_fields = {
     "favorite_id": fields.String,
     "user_id": fields.String,
-    "university_id": fields.String
+    "university_id": fields.String,
 }
 
 favorite_university_resource_fields = {
@@ -138,7 +138,7 @@ favorite_university_resource_fields = {
     "long_name": fields.String,
     "ranking": fields.String,
     "campus": fields.String,
-    "housing": fields.Boolean,
+    "housing": fields.String,
     "info_page_id": fields.String,
 }
 
