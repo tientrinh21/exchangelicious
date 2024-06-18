@@ -4,24 +4,20 @@ import React from 'react'
 import Link from 'next/link'
 import type { University } from '@/types/university'
 import { getCountryName } from '@/lib/utils'
-import { PlusIcon } from '@radix-ui/react-icons'
+import { TrashIcon } from '@radix-ui/react-icons'
 import { useUser } from '@/lib/auth'
 import { Button } from '@/components/ui/button'
-import { addFavorite } from '@/lib/request'
 import { toast } from 'sonner'
 
-export function UniCard(props: { university: University }) {
+export function FavoriteCard(props: { university: University }) {
   const user = useUser()
 
-  const handleAddFavorite = async (event: any) => {
+  const handleRemoveFavorite = async (event: any) => {
     event.preventDefault()
     const toastId = toast.loading('Adding university to Favorites...')
 
     try {
-      await addFavorite({
-        user_id: user!.user_id,
-        university_id: props.university.university_id,
-      })
+      // TODO: await
       toast.success('Successfully added to Favorites.', { id: toastId })
     } catch (error: any) {
       const errMsg: string = error.response.data.message
@@ -48,11 +44,11 @@ export function UniCard(props: { university: University }) {
             {!!user && (
               <Button
                 size="icon"
-                variant="outline"
-                className="hidden h-7 w-7 group-hover:flex"
-                onClick={handleAddFavorite}
+                variant="ghost"
+                className="hidden h-8 w-8 hover:bg-destructive/20 group-hover:flex"
+                onClick={handleRemoveFavorite}
               >
-                <PlusIcon className="h-3 w-3" />
+                <TrashIcon className="h-4 w-4 text-destructive" />
               </Button>
             )}
           </div>

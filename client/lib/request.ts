@@ -230,3 +230,19 @@ export async function deleteUser(user: User) {
     })
     .then((r) => r.data)
 }
+
+/* FAVORITES */
+export async function addFavorite({
+  user_id,
+  university_id,
+}: {
+  user_id: string
+  university_id: string
+}) {
+  return axios
+    .post(`${BASE_URL}/favorites`, {
+      user_id: user_id,
+      university_id: university_id,
+    })
+    .then((r) => r.data)
+}
