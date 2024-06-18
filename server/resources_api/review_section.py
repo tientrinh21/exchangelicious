@@ -47,7 +47,7 @@ class ReviewPerUniPaginateRes(Resource):
             select(ReviewTable)
             .where(ReviewTable.university_id == university_id)
             .order_by(order_stmt),
-            per_page=4,
+            per_page=5,
             page=page_number,
         )
 
