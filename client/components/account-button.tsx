@@ -27,7 +27,7 @@ export function AccountButton() {
     localStorage.removeItem('user')
     setIsAuth(false)
     toast.info('Logged out')
-    router.push('/exchange')
+    router.push('/')
   }
 
   return (

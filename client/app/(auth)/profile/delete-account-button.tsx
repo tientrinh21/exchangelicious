@@ -28,7 +28,7 @@ export default function DeleteAccountButton() {
       localStorage.removeItem('user')
       setIsAuth(false)
       toast.success('Account deleted! You will be logged out.', { id: toastId })
-      router.push('/exchange')
+      router.push('/')
     } catch (error: any) {
       console.error(error)
       toast.error('Something went wrong!', { id: toastId })
