@@ -1,12 +1,13 @@
 'use client'
 
-import { useEffect, useState } from 'react'
-import { UniCard } from '@/components/uni-card'
-import { MagnifyingGlassIcon } from '@radix-ui/react-icons'
-import InfiniteScroll from 'react-infinite-scroll-component'
-import axios from 'axios'
-import { University } from '@/types/university'
 import { AddUniDialog } from '@/components/add-uni-dialog'
+import { LoadingSpinner } from '@/components/loading-spinner'
+import { UniCard } from '@/components/uni-card'
+import { University } from '@/types/university'
+import { MagnifyingGlassIcon } from '@radix-ui/react-icons'
+import axios from 'axios'
+import { useEffect, useState } from 'react'
+import InfiniteScroll from 'react-infinite-scroll-component'
 
 const BASE_URL = process.env.BASE_URL || 'http://localhost:8080/api'
 
@@ -106,15 +107,22 @@ export default function ExchangePage() {
             </div>
 
             <div className="search-content mt-0 text-secondary-foreground">
+              {isLoading && (
+                <LoadingSpinner className="my-10" text="Loading..." />
+              )}
+              {!isLoading && universities.length == 0 && (
+                <p className="my-10 text-center text-lg font-semibold text-secondary-foreground">
+                  No matching results found.
+                </p>
+              )}
+
               {universities.length > 0 && (
                 <InfiniteScroll
                   dataLength={universities.length}
                   next={fetchMoreData}
                   hasMore={hasMore}
                   loader={
-                    <p className="mt-20 text-center text-lg font-semibold text-secondary-foreground">
-                      Loading...
-                    </p>
+                    <LoadingSpinner className="my-10" text="Loading..." />
                   }
                   endMessage={
                     <p className="my-10 text-center text-lg font-semibold text-secondary-foreground">
@@ -131,11 +139,6 @@ export default function ExchangePage() {
                     ))}
                   </div>
                 </InfiniteScroll>
-              )}
-              {!isLoading && universities.length == 0 && (
-                <p className="mt-20 text-center text-lg font-semibold text-secondary-foreground">
-                  No matching results found.
-                </p>
               )}
             </div>
           </div>

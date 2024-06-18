@@ -105,17 +105,12 @@ export default function ReviewSection(props: { uniId: string }) {
           </p>
         )}
 
-        {/* TODO: Make a sort by button */}
         {reviews.length > 0 && (
           <InfiniteScroll
             dataLength={reviews.length}
             next={fetchMoreData}
             hasMore={hasMore}
-            loader={
-              <p className="my-10 text-center text-lg font-semibold text-secondary-foreground">
-                Loading...
-              </p>
-            }
+            loader={<LoadingSpinner className="my-10" text="Loading..." />}
             endMessage={
               <p className="my-10 text-center text-lg font-semibold text-secondary-foreground">
                 No more reviews found.
