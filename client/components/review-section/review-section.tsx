@@ -1,7 +1,7 @@
 'use client'
 
 import { getUserData, isAuthenticated } from '@/lib/auth'
-import { Review } from '@/types/review-section'
+import { Review } from '@/types/review'
 import axios from 'axios'
 import React, { useEffect, useState } from 'react'
 import InfiniteScroll from 'react-infinite-scroll-component'
