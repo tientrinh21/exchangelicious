@@ -201,41 +201,11 @@ Proficiency in the English language is required for success as a student at Nort
 ### Testing Requirements for Admission
 
 |                                                                                                                                                          | TOEFL Internet-Based Test (iBT) | IELTS |
-|----------------------------------------------------------------------------------------------------------------------------------------------------------|---------------------------------|-------|
+| -------------------------------------------------------------------------------------------------------------------------------------------------------- | ------------------------------- | ----- |
 | Bachelor’s Level Programs                                                                                                                                | 68 or above                     | 6.0   |
 | Select Master’s Level Programs:Master of Business Administration (MBA)Master of Nonprofit Administration (MNA)Master of Human Resource Management (MHRM) | 80                              | 6.5   |
 | General Master’s Level Programs                                                                                                                          | 90                              | 6.5   |
-| Doctoral Level Programs                                                                                                                                 | 100                             | 7.0   |
-
-**TOEFL Internet-Based Test (iBT)**
-
-**IELTS**
-
-**Bachelor’s Level Programs**
-
-68 or above
-
-6.0
-
-**Select Master’s Level Programs:**
-
-- [Master of Business Administration (MBA)](http://www.northpark.edu/Academics/School-of-Business-and-Nonprofit-Management/Graduate-Programs/Master-of-Business-Administration)
-- [Master of Nonprofit Administration (MNA)](http://www.northpark.edu/Academics/School-of-Business-and-Nonprofit-Management/Graduate-Programs/Master-of-Nonprofit-Administration)
-- [Master of Human Resource Management (MHRM)](http://www.northpark.edu/Academics/School-of-Business-and-Nonprofit-Management/Graduate-Programs/Master-of-Human-Resource-Management)
-
-80
-
-6.5
-
-**General Master’s Level Programs**
-
-90
-
-6.5
-
-**Doctoral Level Programs**
-
-100
+| Doctoral Level Programs                                                                                                                                  | 100                             | 7.0   |
 
 - **TOEFL sub-scores, bachelor’s level:** Bachelor’s-level students must score 15 or above on each of the four sub-score areas, and must have a minimum score of 17 in at least two of the sub-areas.
 - **TOEFL sub-scores, master’s and doctoral level:** For all master’s-level students, sub-scores in the areas of reading, listening, speaking, and writing will be examined; any low scores in these areas will be considered during the admissions process and may require further proof of proficiency.

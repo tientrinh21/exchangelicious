@@ -19,6 +19,8 @@ import React from 'react'
 import Markdown from 'react-markdown'
 import remarkGfm from 'remark-gfm'
 import remarkIns from 'remark-ins'
+import rehypeRaw from 'rehype-raw'
+import rehypeSanitize from 'rehype-sanitize'
 
 function UniInfoContent(props: { data: UniversityInfo | undefined }) {
   return (
@@ -59,6 +61,7 @@ function UniInfoContent(props: { data: UniversityInfo | undefined }) {
             {/* </p> */}
             <Markdown
               remarkPlugins={[remarkGfm, remarkIns]}
+              rehypePlugins={[rehypeRaw, rehypeSanitize]}
               className="prose font-medium text-secondary-foreground"
               components={{
                 a: ({ node, href, ...props }) => (

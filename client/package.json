@@ -32,6 +32,8 @@
     "react-hook-form": "^7.51.4",
     "react-infinite-scroll-component": "^6.1.0",
     "react-markdown": "^9.0.1",
+    "rehype-raw": "^7.0.0",
+    "rehype-sanitize": "^6.0.0",
     "remark-gfm": "^4.0.0",
     "remark-ins": "^1.1.0",
     "sonner": "^1.4.41",
