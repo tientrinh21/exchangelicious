@@ -119,7 +119,7 @@ export default function UniHeaderForm({ data }: { data: University }) {
                         variant="outline"
                         role="combobox"
                         className={cn(
-                          'flex h-7 w-full max-w-80 justify-between rounded-lg border border-input bg-transparent px-3 py-1 text-xs text-primary-foreground shadow-sm transition-colors focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-ring sm:min-w-48 sm:text-sm md:text-base',
+                          'flex h-7 w-full max-w-[19.75rem] justify-between rounded-lg border border-input bg-transparent px-3 py-1 text-xs text-primary-foreground shadow-sm transition-colors focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-ring sm:min-w-48 sm:text-sm md:max-w-[22rem] md:text-base',
                           !campusValue && 'text-muted',
                         )}
                       >
@@ -134,7 +134,7 @@ export default function UniHeaderForm({ data }: { data: University }) {
                       </Button>
                     </FormControl>
                   </PopoverTrigger>
-                  <PopoverContent className="z-[200] w-[80vw] max-w-64 p-0">
+                  <PopoverContent className="z-[200] w-[80vw] max-w-[19.75rem] p-0 md:max-w-[22rem]">
                     <Command>
                       <CommandGroup>
                         <CommandList>
