@@ -49,7 +49,7 @@ Exchange students should adhere to the following application deadlines:
 
 The University of Leeds offers a wide range of courses across various disciplines including humanities, social sciences, science, and engineering. Detailed course lists and descriptions will be provided after your acceptance. Students are encouraged to select courses early as availability can be limited.
 
-# Tuition
+# Expenses
 
 As an exchange student, you typically do not pay tuition fees to the University of Leeds, provided there is a bilateral agreement with your home institution. However, you are responsible for other fees and living expenses.
 

@@ -39,7 +39,7 @@ export interface UniversityInfo {
   semester: string
   courses: string
   housing: string
-  tuition: string
+  expenses: string
   visa: string
   eligibility: string
   requirements: string

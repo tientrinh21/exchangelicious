@@ -91,7 +91,7 @@ _Note: You can use the following templates to help explain you have the backgro
 - **Math:** Complete the Math Department’s [online Enrollment Request and Permission Code form](https://www.math.ucsc.edu/undergraduate/advising-resources-tools-forms/enrollment-request-form1.html).
 - **Physics:** Email [physicsadvising@ucsc.edu](mailto:physicsadvising@ucsc.edu) with detailed information (syllabus, textbook title, class outline, etc) that demonstrates you have the background for the class. Physics will post any applicable prerequisites to your MyUCSC account.
 
-# Tuition
+# Expenses
 
 While exchange students are exempt from certain fees, you may need to make payments to UCSC for housing (if on-campus), health insurance, or other miscellaneous fees. Payments to UCSC are handled by the Student Business Services (SBS) office. More detailed information can be found on the [Making Payments page](https://issp.ucsc.edu/resources/livinginus/) in the Resources section of our site.
 

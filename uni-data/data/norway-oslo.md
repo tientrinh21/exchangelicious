@@ -202,7 +202,7 @@ Admitted exchange students may apply for Norwegian Language courses on foundat
 
 [Norwegian Language courses](https://www.hf.uio.no/iln/english/studies/international/courses-and-registration/)
 
-# Tuition
+# Expenses
 
 The tuition fees will not affect students admitted to a study programme prior to 2023 at UiO, or exchange students from partner universities.
 
@@ -315,7 +315,7 @@ Students from EU/EEA do not need to apply for residence permit for studies.
 
 Students with dual citizenship (EU passport and non-EU passport) must either:
 
-- Register with the police as an EU/EEA citizen and show documentation of [European Health Insurance Card](https://www.uio.no/english/studies/international-students/on-arrival/health-insurance/index.html) (or proof of other private health insurance coverage) ***or***
+- Register with the police as an EU/EEA citizen and show documentation of [European Health Insurance Card](https://www.uio.no/english/studies/international-students/on-arrival/health-insurance/index.html) (or proof of other private health insurance coverage) **_or_**
 - Apply for residence permit as a [non-EU/EEA citizen](https://www.uio.no/english/studies/international-students/before-arrival/visa/non-eu-eea/index.html) and apply for voluntary membership in the [National Insurance Scheme](https://www.uio.no/english/studies/international-students/on-arrival/health-insurance/index.html).
 
 # Eligibility

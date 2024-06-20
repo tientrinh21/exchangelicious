@@ -84,7 +84,7 @@ Idicating your intended major while on exchange. Please review the [undergraduat
 
 - Impacted majors at SJSU are Computer Science, Engineering (Computer Engineering, Electrical Engineering, Mechanical Engineering) and Graphic Design. Therefore, we cannot have nominated students in these majors.
 
-# Tuition
+# Expenses
 
 If admitted: Provide sufficient financial funding to cover educational expenses for your program's duration (i.e., one semester or one academic year).  For the 2024-2025 academic year, a minimum of USD $13,764 is required for one semester or $27,528 for an academic year.
 

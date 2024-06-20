@@ -83,7 +83,7 @@ Language course focusing on Professional French, company visits, rich and varied
 
 [Click here](https://www.hec.ca/en/international_student/international_exchange/pre-arrival_guide/course_registration/language_courses_and_french_summer_school/business_french_summer_school.html)
 
-# Tuition
+# Expenses
 
 As an exchange student, you typically do not pay tuition fees to HEC Montréal, provided there is a bilateral agreement with your home institution. However, you are responsible for other fees and living expenses.
 

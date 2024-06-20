@@ -68,7 +68,7 @@ keywords = {
     "Semester": ["fall", "spring", "summer"],
     "Application Deadlines": ["deadline", "due date", "Application", "apply"],
     "Courses": ["course", "curriculum", "enrollment", "catalog", "academics"],
-    "Tuition": ["fees", "cost"],
+    "Expenses": ["fees", "cost"],
     "Housing": ["accommodation", "living"],
     "Visa": ["visa requirement", "immigration"],
     "Eligibility": ["eligibility", "requirement", "proficiency"],

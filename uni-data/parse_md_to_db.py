@@ -62,7 +62,7 @@ def insert_info_into_mysql(filename, url, headings):
         cursor = cnx.cursor()
 
         # Insert the ID, URL and headings into info_page_table
-        add_info = ("INSERT INTO info_page_table (info_page_id, webpage, introduction, location, semester, application_deadline, courses, housing, tuition, visa, eligibility, requirements) VALUES (%s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s)")
+        add_info = ("INSERT INTO info_page_table (info_page_id, webpage, introduction, location, semester, application_deadline, courses, housing, expenses, visa, eligibility, requirements) VALUES (%s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s)")
         cursor.execute(add_info, (filename, url, headings[0], headings[1], headings[2], headings[3], headings[4], headings[5], headings[6], headings[7], headings[8], headings[9]))
 
         # Commit the transaction

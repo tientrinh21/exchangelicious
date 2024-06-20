@@ -90,7 +90,7 @@ If a course is 3 credit hours, the class meets in a classroom for three hours ea
 
 At the University of North Florida, letter grades are assigned on a scale from "A" to "F." An "F" or "WF" grade is assigned to students who fail/do not pass a course. In this situation, no credit is awarded for the course. A student will earn credit for a "D" grade. However, in the Coggin College of Business, a "D" grade is not accepted as satisfactory completion of a course. Refer to UNF's [official grade scale](https://www.unf.edu/catalog/policies/Grades.html) for more information.
 
-# Tuition
+# Expenses
 
 Exchange students will receive a tuition waiver and will only be responsible for paying tuition to their home institution.
 

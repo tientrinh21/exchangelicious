@@ -26,7 +26,7 @@ create table info_page_table (
   application_deadline TEXT,
   courses TEXT,
   housing TEXT,
-  tuition TEXT,
+  expenses TEXT,
   visa TEXT,
   eligibility TEXT,
   requirements TEXT

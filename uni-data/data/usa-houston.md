@@ -98,7 +98,7 @@ Please see the [Undergraduate Student Checklist](https://uh.edu/learningabroad/f
 
 The undergraduate catalog found [here](https://publications.uh.edu/index.php). Exchange students may be limited to certain disciplines.
 
-# Tuition
+# Expenses
 
 According to Reciprocal Educational Exchange Program (REEP) agreements, students pay all
 tuition/fees to their home university, except for required host university fees.

@@ -4,7 +4,6 @@ https://www.toyo.ac.jp/academics/international-exchange/prospective/exchange_pro
 
 Welcome to Toyo University! As a prospective exchange student, you are about to join one of Japan's leading private universities, located in the vibrant city of Tokyo. Toyo University is known for its academic excellence, innovative research, and vibrant international community. The university offers a dynamic environment that prepares students for successful careers and global citizenship.
 
-
 # Location
 
 Toyo University is located in Tokyo, Japan, a bustling metropolis known for its rich culture, technological advancements, and vibrant lifestyle. The campus offers state-of-the-art facilities and is easily accessible by public transportation.
@@ -13,10 +12,12 @@ Toyo University is located in Tokyo, Japan, a bustling metropolis known for its 
 5-28-20 Hakusan, Bunkyo-ku, Tokyo 112-8606, Japan
 
 **Contact Information:**
+
 - **Email**: ml-sie@toyo.jp
 - **Phone**: +81-3-3945-7224
 
 **International Office Hours:**
+
 - **Hours**: 9:00am - 5:00pm (Monday to Friday)
 
 # Semester
@@ -48,7 +49,7 @@ Exchange students should adhere to the following application deadlines:
 
 Toyo University offers a wide range of courses across various disciplines including humanities, social sciences, science, and business. Detailed course lists and descriptions will be provided after your acceptance. Students are encouraged to select courses early as availability can be limited.
 
-# Tuition
+# Expenses
 
 As an exchange student, you typically do not pay tuition fees to Toyo University, provided there is a bilateral agreement with your home institution. However, you are responsible for other fees and living expenses.
 

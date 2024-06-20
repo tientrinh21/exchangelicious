@@ -44,7 +44,7 @@ Once you’ve applied,  forward your application confirmation email to [Andrea
 
 After you submit your application, Kelley International Programs will contact you with information on available Business courses during your exchange term. Please submit your course choices to our office as instructed and include as many options as possible because many Kelley courses fill up quickly. You must enroll in at least 12 credits each semester and can take a maximum of 18.
 
-# Tuition
+# Expenses
 
 ### Estimate your out-of-pocket expenses
 

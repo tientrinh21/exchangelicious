@@ -74,7 +74,7 @@ class UniversityWithInfoRes(Resource):
             "housing", type=str, location="args", help="housing to create info"
         )
         self.post_args.add_argument(
-            "tuition", type=str, location="args", help="tuition to create info"
+            "expenses", type=str, location="args", help="expenses to create info"
         )
         self.post_args.add_argument(
             "visa", type=str, location="args", help="visa to create info"
@@ -119,7 +119,7 @@ class UniversityWithInfoRes(Resource):
             "housing", type=str, location="args", help="housing to create info"
         )
         self.patch_args.add_argument(
-            "tuition", type=str, location="args", help="tuition to create info"
+            "expenses", type=str, location="args", help="expenses to create info"
         )
         self.patch_args.add_argument(
             "visa", type=str, location="args", help="visa to create info"
@@ -175,7 +175,7 @@ class UniversityWithInfoRes(Resource):
                 application_deadline=args["application_deadline"],
                 courses=args["courses"],
                 housing=args["housing"],
-                tuition=args["tuition"],
+                expenses=args["expenses"],
                 visa=args["visa"],
                 eligibility=args["eligibility"],
                 requirements=args["requirements"],
@@ -220,8 +220,8 @@ class UniversityWithInfoRes(Resource):
                 info_page.courses = args["courses"]
             if "housing" in args and args["housing"] is not None:
                 info_page.housing = args["housing"]
-            if "tuition" in args and args["tuition"] is not None:
-                info_page.tuition = args["tuition"]
+            if "expenses" in args and args["expenses"] is not None:
+                info_page.expenses = args["expenses"]
             if "visa" in args and args["visa"] is not None:
                 info_page.visa = args["visa"]
             if "eligibility" in args and args["eligibility"] is not None:

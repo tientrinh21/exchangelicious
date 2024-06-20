@@ -224,7 +224,7 @@ Once you have been formally nominated, you will receive an e-mail with complet
 7.  [English language proficiency documentation](https://www.ntnu.edu/studies/langcourses/languagerequirements) (for non-Erasmus+ students)
 8.  Before completing your application, please make sure you have entered your complete home address (in your home city), including street name & number, zip code and city.
 
-# Tuition
+# Expenses
 
 ### How much are the tuition and fees at NTNU?
 

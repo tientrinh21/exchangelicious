@@ -80,7 +80,7 @@ The residences will close by the morning after the last final exam. However, it 
 - [Guest Catalog](https://mycu-g.clarkson.edu/psp/guest/EMPLOYEE/SA/c/SA_LEARNER_SERVICES.SSS_BROWSE_CATLG_P.GBL?)
 - [Incoming Exchange Student Guide to Selecting Classes](https://drive.google.com/file/d/1jfJo0QdLVGFTcrhUT-FHqaZN9hgNR_kg/view)
 
-# Tuition
+# Expenses
 
 Exchange students do not pay tuition. You pay for your living expenses (housing and food) as well as other entertainment types (travel, books, incidental, health insurance) of expenses.
 

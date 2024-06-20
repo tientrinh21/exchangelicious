@@ -74,7 +74,7 @@ demand (especially courses in the school of Engineering and Computer Science). W
 recommend students have flexibility and consider additional courses in case their first
 options are not available.
 
-# Tuition
+# Expenses
 
 Generally, exchange students must pay the following fees:
 

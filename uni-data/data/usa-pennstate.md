@@ -136,7 +136,7 @@ If you are interested in courses that are restricted or full, please list them o
 
 Official academic transcripts will be sent to partners within six weeks of the program ending (from last day of finals). Students are able to order copies of their [Penn State Official Academic Transcript](https://registrar.psu.edu/transcripts/official-transcripts.cfm) for their records through the Registrar’s Office for an additional fee. Please note that your transcript may be withheld if there are balances or holds on your Penn State Bursar account.
 
-# Tuition
+# Expenses
 
 &nbsp;**Estimated Expenses for 2024 / 2025 Academic Year**
 

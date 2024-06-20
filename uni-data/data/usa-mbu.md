@@ -56,7 +56,7 @@ If you would like to take courses within the College of Management, the departme
 ​
 Restricted Courses: As an exchange student, you can take courses in all majors at your degree level as long as you meet the required pre-requisite courses. Exchange students are _**not eligible**_ to take courses in the College of Nursing, all courses designated first-year or intermediate seminar (courses with a "G" next to the course number), ESL, or internship & capstone courses.
 
-# Tuition
+# Expenses
 
 Although your tuition and academic fees are waived there are other fees that you are held responsible for. **These _mandatory_ student fees are generally between $700-$800.00 per semester**. Your fees could be slightly higher if your curriculum requires lab fees. These fees are not waivable and non-negotiable. Your student account will be put on hold if you do not pay your fees during your semester/year at UMass Boston, which will also put a hold on your ability to obtain transcript from your studies at UMass Boston.
 

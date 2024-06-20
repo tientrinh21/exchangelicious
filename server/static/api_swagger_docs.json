@@ -374,9 +374,9 @@
             }
           },
           {
-            "name": "tuition",
+            "name": "expenses",
             "in": "query",
-            "description": "tuition to create",
+            "description": "expenses to create",
             "required": false,
             "schema": {
               "type": "string"
@@ -503,9 +503,9 @@
             }
           },
           {
-            "name": "tuition",
+            "name": "expenses",
             "in": "query",
-            "description": "tuition to create",
+            "description": "expenses to create",
             "required": false,
             "schema": {
               "type": "string"
@@ -1435,7 +1435,7 @@
             "type": "string",
             "example": "Courses from this university are super super fun ^^"
           },
-          "tuition": {
+          "expenses": {
             "type": "string",
             "example": "$1000"
           },

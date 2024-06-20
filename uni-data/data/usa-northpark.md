@@ -66,7 +66,7 @@ North Park cannot guarantee you will be placed in all the courses you’ve reque
 
 Please be checking your North Park email for the course registration form.
 
-# Tuition
+# Expenses
 
 No data provided on website
 

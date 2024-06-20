@@ -4,7 +4,6 @@ https://www.etsmtl.ca/en/studies/study-in-quebec/student-exchange
 
 Welcome to École de technologie supérieure (ÉTS)! As a prospective exchange student, you are about to join one of Canada's leading engineering schools, located in vibrant Montreal. ÉTS is renowned for its practical, industry-focused education and strong ties with the business community. With state-of-the-art facilities and a dynamic academic environment, ÉTS prepares students to tackle real-world engineering challenges and fosters innovation and entrepreneurship.
 
-
 # Location
 
 École de technologie supérieure (ÉTS) is located in Montreal, Quebec, a diverse and culturally rich city known for its vibrant arts scene, festivals, and high quality of life. The campus is situated near downtown Montreal, providing easy access to public transportation, cultural attractions, and various amenities.
@@ -13,10 +12,12 @@ Welcome to École de technologie supérieure (ÉTS)! As a prospective exchange s
 1100 Notre-Dame St W, Montreal, QC H3C 1K3, Canada
 
 **Contact Information:**
+
 - **Email**: international@etsmtl.ca
 - **Phone**: +1 514-396-8800
 
 **International Office Hours:**
+
 - **Hours**: 8:30am - 4:30pm (Monday to Friday)
 
 For more information, visit [ÉTS International](https://www.etsmtl.ca/en/international).
@@ -48,7 +49,7 @@ Ensure all required documents are submitted by these dates to secure your spot a
 
 Visit [ÉTS Courses](https://www.etsmtl.ca/en/Studies/Courses) for more information.
 
-# Tuition
+# Expenses
 
 As an exchange student, you typically do not pay tuition fees to ÉTS, provided there is a bilateral agreement with your home institution. However, other fees related to student services or specific course materials may apply. Check with your home university's exchange program office for details.
 

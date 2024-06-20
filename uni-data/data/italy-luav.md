@@ -49,7 +49,7 @@ Exchange students should adhere to the following application deadlines:
 
 Iuav University offers a wide range of courses in architecture, urban planning, design, and visual arts. Detailed course lists and descriptions will be provided after your acceptance. Students are encouraged to select courses early as availability can be limited.
 
-# Tuition
+# Expenses
 
 As an exchange student, you typically do not pay tuition fees to Iuav University, provided there is a bilateral agreement with your home institution. However, you are responsible for other fees and living expenses.
 
