@@ -45,9 +45,9 @@ ranking_data = pd.read_csv('./uni-data/ranking/ranking.csv', usecols=[0, 1, 16],
 rank_data = []
 
 for index, row in ranking_data.iterrows():
-    rank = row[0]
-    uni_name = row[1]
-    url = row[2]
+    rank = row.iloc[0]
+    uni_name = row.iloc[1]
+    url = row.iloc[2]
 
     if rank == "Reporter" or rank == "1501":
         rank = "1500+"

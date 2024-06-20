@@ -103,9 +103,6 @@ def insert_summary_uni(filepath):
     df = pd.read_csv(abs_path, header="infer", sep=",", keep_default_na=False, na_values=['_'], encoding='utf8')
     df = df.reset_index()  # make sure indexes pair with number of rows
 
-    print(df.iloc[0])
-    print(df.columns)
-
     try:
         # Connect to MySQL database
         cnx = mysql.connector.connect(**config)
@@ -140,6 +137,8 @@ def insert_summary_uni(filepath):
 # Main script
 if __name__ == "__main__":
     # Run this first
+    print("\n\n***inserting information into info_page_table***\n")
     run("./uni-data/data")
-    # Run this after the above succeeded completely 
+    # Run this after the above succeeded completely
+    print("\n\n***inserting information into university_table***\n") 
     insert_summary_uni("./uni-data/university_table.csv")
