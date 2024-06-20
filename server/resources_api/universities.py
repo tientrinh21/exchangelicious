@@ -3,10 +3,6 @@ from uuid import uuid4
 from database.database_setup import db
 from database.models import CountryTable, InfoPageTable, UniversityTable
 from flask_restful import Resource, abort, marshal_with, reqparse
-from sqlalchemy import select, exc
-
-import uuid
-
 from resources_api.resource_fields_definitions import (
     search_universities_resource_fields,
     university_meta_table_resource_fields,
@@ -21,7 +17,8 @@ class UniversityRes(Resource):
         stmt = (
             select(UniversityTable, CountryTable)
             .join(
-                CountryTable, UniversityTable.country_code == CountryTable.country_code
+                CountryTable,
+                UniversityTable.country_code == CountryTable.country_code,
             )
             .where(UniversityTable.university_id == university_id)
         )
@@ -62,10 +59,10 @@ class UniversityWithInfoRes(Resource):
             "semester", type=str, location="args", help="semester to create info"
         )
         self.post_args.add_argument(
-            "application_deadline",
+            "application_deadlines",
             type=str,
             location="args",
-            help="Application deadline to create info",
+            help="Application deadlines to create info",
         )
         self.post_args.add_argument(
             "courses", type=str, location="args", help="courses to create info"
@@ -107,10 +104,10 @@ class UniversityWithInfoRes(Resource):
             "semester", type=str, location="args", help="semester to create info"
         )
         self.patch_args.add_argument(
-            "application_deadline",
+            "application_deadlines",
             type=str,
             location="args",
-            help="Application deadline to create info",
+            help="Application deadlines to create info",
         )
         self.patch_args.add_argument(
             "courses", type=str, location="args", help="courses to create info"
@@ -172,7 +169,7 @@ class UniversityWithInfoRes(Resource):
                 introduction=args["introduction"],
                 location=args["location"],
                 semester=args["semester"],
-                application_deadline=args["application_deadline"],
+                application_deadlines=args["application_deadlines"],
                 courses=args["courses"],
                 housing=args["housing"],
                 tuition=args["tuition"],
@@ -212,10 +209,10 @@ class UniversityWithInfoRes(Resource):
             if "semester" in args and args["semester"] is not None:
                 info_page.semester = args["semester"]
             if (
-                "application_deadline" in args
-                and args["application_deadline"] is not None
+                "application_deadlines" in args
+                and args["application_deadlines"] is not None
             ):
-                info_page.application_deadline = args["application_deadline"]
+                info_page.application_deadlines = args["application_deadlines"]
             if "courses" in args and args["courses"] is not None:
                 info_page.courses = args["courses"]
             if "housing" in args and args["housing"] is not None:
@@ -313,14 +310,23 @@ class UniversityAllRes(Resource):
             new_uni = UniversityTable(
                 university_id=str(uuid4()),
                 country_code=args["country_code"],
-                region=args["region"],
+                region=args["region"] if args["region"] != "" else None,
                 long_name=args["long_name"],
-                ranking=args["ranking"],
+                ranking=args["ranking"] if args["ranking"] != "" else None,
                 info_page_id=args["info_page_id"],
-                campus=args["campus"],
+                campus=args["campus"] if args["campus"] != "" else None,
                 housing=args["housing"],
             )
+
+            new_info = InfoPageTable(
+                info_page_id=str(uuid4()),
+                webpage="https://example.com/",
+            )
+
+            new_uni.info_page_id = new_info.info_page_id
+
             db.session.add(new_uni)
+            db.session.add(new_info)
             db.session.commit()
             return new_uni, 200
         except exc.SQLAlchemyError as e:
@@ -335,22 +341,26 @@ class UniversityAllRes(Resource):
             uni = (
                 db.session.query(UniversityTable).filter_by(university_id=uniid).first()
             )
-            # if 'university_id' in args and args['university_id'] is not None:
-            #     uni.university_id = args['university_id']
+
             if "country_code" in args and args["country_code"] is not None:
-                uni.country_code = args["country_code"]
+                uni.country_code = (
+                    args["country_code"] if args["country_code"] != "" else None
+                )
             if "region" in args and args["region"] is not None:
-                uni.region = args["region"]
+                uni.region = args["region"] if args["region"] else None
             if "long_name" in args and args["long_name"] is not None:
-                uni.long_name = args["long_name"]
+                uni.long_name = args["long_name"] if args["long_name"] else None
             if "ranking" in args and args["ranking"] is not None:
-                uni.ranking = args["ranking"]
+                uni.ranking = args["ranking"] if args["ranking"] else None
             if "info_page_id" in args and args["info_page_id"] is not None:
-                uni.info_page_id = args["info_page_id"]
+                uni.info_page_id = (
+                    args["info_page_id"] if args["info_page_id"] else None
+                )
             if "campus" in args and args["campus"] is not None:
-                uni.campus = args["campus"]
+                uni.campus = args["campus"] if args["campus"] else None
             if "housing" in args and args["housing"] is not None:
-                uni.housing = args["housing"]
+                uni.housing = args["housing"] if args["housing"] else "N/A"
+
             db.session.commit()
 
             return uni, 200

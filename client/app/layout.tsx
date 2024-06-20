@@ -9,8 +9,8 @@ import './globals.css'
 const inter = Inter({ subsets: ['latin'] })
 
 export const metadata: Metadata = {
-  title: 'ExchanGe',
-  description: 'Make it EG for ExchanGe students',
+  title: 'Exchangelicious',
+  description: 'Savor the Flavor of Global Exchange!',
   icons: {
     icon: '/logo.png',
   },

@@ -1,12 +1,77 @@
-import { type LoginFormSchema, type RegisterFormSchema } from '@/types/schema'
-import { type University } from '@/types/university'
-import { type User } from '@/types/user'
+import type {
+  LoginFormSchema,
+  ProfileFormSchema,
+  RegisterFormSchema,
+  UniHeaderFormSchema,
+  UniInfoFormSchema,
+} from '@/types/schema'
+import type { University, UniversityInfo } from '@/types/university'
+import type { User } from '@/types/user'
 import axios from 'axios'
 
 const BASE_URL = process.env.BASE_URL || 'http://localhost:8080/api'
 
 export async function fetchUniversities() {
   return axios.get<University[]>(`${BASE_URL}/universities`).then((r) => r.data)
+}
+
+export async function fetchUniversity(id: string) {
+  return axios
+    .get<University>(`${BASE_URL}/universities/${id}`)
+    .then((r) => r.data)
+    .catch((error) => error)
+}
+
+export async function fetchUniversityInfo(id: string) {
+  return axios
+    .get<UniversityInfo>(`${BASE_URL}/universities/info`, {
+      params: {
+        university_id: id,
+      },
+    })
+    .then((r) => r.data)
+}
+
+export async function createUniversity(values: UniHeaderFormSchema) {
+  return axios
+    .post<University>(`${BASE_URL}/universities`, null, {
+      params: values,
+    })
+    .then((r) => r.data)
+}
+
+export async function updateUniversity({
+  id,
+  values,
+}: {
+  id: string
+  values: UniHeaderFormSchema
+}) {
+  return axios
+    .patch<University>(`${BASE_URL}/universities`, null, {
+      params: {
+        university_id: id,
+        ...values,
+      },
+    })
+    .then((r) => r.data)
+}
+
+export async function updateUniversityInfo({
+  id,
+  values,
+}: {
+  id: string
+  values: UniInfoFormSchema
+}) {
+  return axios
+    .patch<University>(`${BASE_URL}/universities/info`, null, {
+      params: {
+        info_page_id: id,
+        ...values,
+      },
+    })
+    .then((r) => r.data)
 }
 
 export async function fetchUser({ username, password }: LoginFormSchema) {
@@ -40,7 +105,7 @@ export async function createUser({
 
 export async function updateUser(
   user: User,
-  { password, nationality, home_university }: RegisterFormSchema,
+  { password, nationality, home_university }: ProfileFormSchema,
 ) {
   return axios
     .patch<User>(`${BASE_URL}/users`, null, {

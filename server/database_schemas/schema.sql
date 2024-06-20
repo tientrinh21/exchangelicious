@@ -24,7 +24,7 @@ create table info_page_table (
   introduction TEXT,
   location TEXT,
   semester TEXT,
-  application_deadline TEXT,
+  application_deadlines TEXT,
   courses TEXT,
   housing TEXT,
   tuition TEXT,
@@ -36,11 +36,11 @@ create table info_page_table (
 create table university_table (
   university_id varchar(36) default (uuid()) primary key,
   country_code char(3),
-  region varchar(40), -- Is this the correct way to do this?
-  long_name varchar(255),
+  region varchar(40),
+  long_name varchar(255) unique,
   info_page_id varchar(36),
-  ranking varchar(10),
-  housing boolean,
+  ranking varchar(10) default 'N/A',
+  housing enum('On-campus', 'Off-campus', 'No housing', 'N/A') not null default 'N/A',
   campus varchar(255),
   constraint country_code_fk_con
     foreign key (country_code) references country_table (country_code)
@@ -186,7 +186,7 @@ END;
 //
 delimiter ;
 
-insert into info_page_table(info_page_id, webpage, introduction, location, semester, application_deadline, courses, housing, tuition, visa, eligibility, requirements) values
+insert into info_page_table(info_page_id, webpage, introduction, location, semester, application_deadlines, courses, housing, tuition, visa, eligibility, requirements) values
   (
   "skku_page",
   "https://www.skku.edu/eng/",
@@ -388,7 +388,7 @@ You can read more about the process and apply on The Norwegian Directorate of Im
   ""
   ),
   (
-  "utdallas_page",
+  "ut_dallas_page",
   "https://ie.utdallas.edu/education-abroad/incoming-exchange",
   "Created by bold visionaries and tech pioneers, UT Dallas has nurtured generations of innovators in its first 50 years. Our roots go back to the 1960s when the three founders of Texas Instruments — Eugene McDermott, Erik Jonsson and Cecil Green — established the Graduate Research Center of the Southwest as a source of advanced research and trained scientists to benefit the state and the nation. Our creativity and enterprising spirit has been — and will continue to be — UT Dallas' guiding light.
 
@@ -461,17 +461,17 @@ Source: [https://utdallas.box.com/s/aa0wbsjdkpm7kuvrm5pxybhsg00svgi4](https://ut
   );
 
 insert into university_table(university_id, long_name, country_code, region, info_page_id, campus, housing, ranking) values
-  ('skku', 'Sungkyunkwan University', 'KOR', 'Seoul, Suwon', 'skku_page', "Suwon Campus" , 1, "None"),
-  ('ntnu', 'Norwegian University of Science and Technology', 'NOR', 'Trondheim, Gjøvik, Ålesund', 'ntnu_page', "Ålesund Campus", 0, "None"),
-  ('uio', 'University of Oslo', 'NOR', 'Oslo', 'uio_page', "Oslo Campus", 0, "None"),
-  ('uib', 'University of Bergen', 'NOR', 'Bergen', 'uib_page', "Bergen Campus", 0, "None"),
-  ('ut_dallas', 'University of Texas at Dallas', 'USA', 'Richardson, Texas', 'skku_page', "Dallas Campus", 1, "None"),
-  ('umass_boston', 'University of Massachusetts Boston', 'USA', 'Boston, Massachusetts', 'skku_page', "Boston Campus", 1, "None"),
-  ('umanitoba', 'University of Manitoba', 'CAN', 'Winnipeg, Manitoba', 'skku_page', "Winnipeg Campus", 0, "None"),
-  ('utoronto', 'University of Toronto', 'CAN', 'Toronto, Ontarion', 'skku_page', "Toronto Campus", 0, "None"),
-  ('usask', 'University of Saskatchewan', 'CAN', 'Saskatoon, Saskatchewan', 'skku_page', "Saskatoon Campus", 1, "None"),
-  ('ets', 'Ecole de technolgie superieure', 'CAN', 'Montreal, Quebec', 'skku_page', "Montreal Campus", 1, "None"),
-  ('ntu', 'Nanyang Technological University', 'SGP', 'Nanyang Ave', 'skku_page', "Singapore Campus", 1, "None");
+  ('skku', 'Sungkyunkwan University', 'KOR', 'Seoul, Suwon', 'skku_page', "Suwon Campus" , "On-campus", "None"),
+  ('ntnu', 'Norwegian University of Science and Technology', 'NOR', 'Trondheim, Gjøvik, Ålesund', 'ntnu_page', "Ålesund Campus", "No housing", "None"),
+  ('uio', 'University of Oslo', 'NOR', 'Oslo', 'uio_page', "Oslo Campus", "No housing", "None"),
+  ('uib', 'University of Bergen', 'NOR', 'Bergen', 'uib_page', "Bergen Campus", "No housing", "None"),
+  ('ut_dallas', 'University of Texas at Dallas', 'USA', 'Richardson, Texas', 'ut_dallas_page', "Dallas Campus", "Off-campus", "None"),
+  ('umass_boston', 'University of Massachusetts Boston', 'USA', 'Boston, Massachusetts', 'skku_page', "Boston Campus", "Off-campus", "None"),
+  ('umanitoba', 'University of Manitoba', 'CAN', 'Winnipeg, Manitoba', 'skku_page', "Winnipeg Campus", "N/A", "None"),
+  ('utoronto', 'University of Toronto', 'CAN', 'Toronto, Ontarion', 'skku_page', "Toronto Campus", "N/A", "None"),
+  ('usask', 'University of Saskatchewan', 'CAN', 'Saskatoon, Saskatchewan', 'skku_page', "Saskatoon Campus", "On-campus", "None"),
+  ('ets', 'Ecole de technolgie superieure', 'CAN', 'Montreal, Quebec', 'skku_page', "Montreal Campus", "On-campus", "None"),
+  ('ntu', 'Nanyang Technological University', 'SGP', 'Nanyang Ave', 'skku_page', "Singapore Campus", "On-campus", "None");
 
 # Note: the user dont have a password here, so you cant log in with them
 insert into user_table(user_id, username) values

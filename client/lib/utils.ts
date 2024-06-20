@@ -1,5 +1,6 @@
 import { clsx, type ClassValue } from 'clsx'
 import { twMerge } from 'tailwind-merge'
+import countries from '@/lib/countries.json'
 
 export async function fetcher(...args: Parameters<typeof fetch>) {
   const res = await fetch(...args)
@@ -58,4 +59,9 @@ export function toRomanNumerals(decimalNumber: number): string {
 
 export function objKeyToText(key: string) {
   return `${key[0].toUpperCase()}${key.substring(1).replaceAll('_', ' ')}`
+}
+
+export function getCountryName(code: string) {
+  for (let country of countries) if (country.code == code) return country.name
+  return 'N/A'
 }
