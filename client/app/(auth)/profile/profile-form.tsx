@@ -149,6 +149,35 @@ export default function ProfileForm() {
                     />
                     <ScrollArea className="h-[200px]">
                       <CommandEmpty>No country found.</CommandEmpty>
+                      <CommandGroup heading="Frequently">
+                        <CommandList>
+                          {frequentlyCountries.map((country) => (
+                            <CommandItem
+                              key={country.code}
+                              value={country.name}
+                              onSelect={() => {
+                                const val =
+                                  country.code === nationalityValue
+                                    ? ''
+                                    : country.code
+                                form.setValue('nationality', val)
+                                setNationalityValue(val)
+                                setNationalityOpen(false)
+                              }}
+                            >
+                              {country.name}
+                              <CheckIcon
+                                className={cn(
+                                  'ml-auto h-4 w-4',
+                                  nationalityValue == country.code
+                                    ? 'opacity-100'
+                                    : 'opacity-0',
+                                )}
+                              />
+                            </CommandItem>
+                          ))}
+                        </CommandList>
+                      </CommandGroup>
                       <CommandGroup heading="All countries">
                         <CommandList>
                           {countries.map((country) => (
@@ -226,35 +255,6 @@ export default function ProfileForm() {
                     />
                     <ScrollArea className="h-[200px]">
                       <CommandEmpty>No university found.</CommandEmpty>
-                      <CommandGroup heading="Frequently">
-                        <CommandList>
-                          {frequentlyUniversities?.map((uni) => (
-                            <CommandItem
-                              key={uni.university_id}
-                              value={uni.long_name}
-                              onSelect={() => {
-                                const val =
-                                  uni.university_id === uniValue
-                                    ? ''
-                                    : uni.university_id
-                                form.setValue('home_university', val)
-                                setUniValue(val)
-                                setUniOpen(false)
-                              }}
-                            >
-                              {uni.long_name}
-                              <CheckIcon
-                                className={cn(
-                                  'ml-auto h-4 w-4',
-                                  uniValue == uni.university_id
-                                    ? 'opacity-100'
-                                    : 'opacity-0',
-                                )}
-                              />
-                            </CommandItem>
-                          ))}
-                        </CommandList>
-                      </CommandGroup>
                       <CommandGroup heading="All universities">
                         <CommandList>
                           {universities?.map((uni) => (
