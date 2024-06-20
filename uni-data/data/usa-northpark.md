@@ -200,7 +200,12 @@ Proficiency in the English language is required for success as a student at Nort
 
 ### Testing Requirements for Admission
 
-<table class="table table-striped table-bordered"><tbody><tr><td></td><td style="width: 120px;"><strong>TOEFL Internet-Based Test (iBT)</strong></td><td style="width: 120px;"><strong>IELTS</strong></td></tr><tr><td><strong>Bachelor’s Level Programs</strong></td><td>68 or above</td><td>6.0</td></tr><tr><td><strong>Select Master’s Level Programs:</strong><p></p><ul><li><a href="http://www.northpark.edu/Academics/School-of-Business-and-Nonprofit-Management/Graduate-Programs/Master-of-Business-Administration">Master of Business Administration (MBA)</a></li><li><a href="http://www.northpark.edu/Academics/School-of-Business-and-Nonprofit-Management/Graduate-Programs/Master-of-Nonprofit-Administration">Master of Nonprofit Administration (MNA)</a></li><li><a href="http://www.northpark.edu/Academics/School-of-Business-and-Nonprofit-Management/Graduate-Programs/Master-of-Human-Resource-Management">Master of Human Resource Management (MHRM)</a></li></ul></td><td>80</td><td>6.5</td></tr><tr><td><strong>General Master’s Level Programs</strong></td><td>90</td><td>6.5</td></tr><tr><td><strong>Doctoral Level Programs</strong></td><td>100</td><td>7.0</td></tr></tbody></table>
+|                                                                                                                                                          | TOEFL Internet-Based Test (iBT) | IELTS |
+|----------------------------------------------------------------------------------------------------------------------------------------------------------|---------------------------------|-------|
+| Bachelor’s Level Programs                                                                                                                                | 68 or above                     | 6.0   |
+| Select Master’s Level Programs:Master of Business Administration (MBA)Master of Nonprofit Administration (MNA)Master of Human Resource Management (MHRM) | 80                              | 6.5   |
+| General Master’s Level Programs                                                                                                                          | 90                              | 6.5   |
+| Doctoral Level Programs                                                                                                                                 | 100                             | 7.0   |
 
 **TOEFL Internet-Based Test (iBT)**
 
