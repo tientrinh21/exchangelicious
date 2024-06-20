@@ -40,7 +40,10 @@ NTNU in Ålesund is situated about [four kilometres east of the city centre of �
 
 # Application Deadlines
 
-<table><tbody><tr><td><strong>Starting spring semester</strong></td><td><strong>Starting autumn semester</strong></td></tr><tr><td><strong>1 October&nbsp;</strong>(for everyone)</td><td><p>Non-EU/EEA students:<strong>&nbsp;1 April</strong><br>EU/EEA and Swiss students: <strong>1&nbsp;May</strong></p></td></tr></tbody></table>
+| **Starting spring semester** | **Starting autumn semester**         |
+| ---------------------------- | ------------------------------------ |
+| **1 October** (for everyone) | Non-EU/EEA students: **1 April**     |
+|                              | EU/EEA and Swiss students: **1 May** |
 
 You must be nominated by your home university before you can apply. The deadlines for your home university to nominate you are:
 
@@ -67,9 +70,7 @@ Read "Choosing and changing courses" below before you begin.
 
 ## Choosing and changing courses
 
-##### Choosing and changing courses
-
-All of NTNU's courses can be found using the online course catalog**.** Please read the following before using the catalog.
+All of NTNU's courses can be found using the [online course catalog](https://www.ntnu.edu/studies/courses#semester=2024&gjovik=false&trondheim=false&alesund=false&faculty=-1&institute=-1&multimedia=false&english=true&phd=false&open=false&courseAutumn=false&courseSpring=false&courseSummer=false&pageNo=1&season=autumn&sortOrder=ascTitle). Please read the following before using the catalog.
 
 - When searching for courses, the box _Taught in English_ must be checked, and your campus city must be selected under _Teaching location_.
 
@@ -81,9 +82,9 @@ All of NTNU's courses can be found using the online course catalog**.** Please r
 
 - Make sure you are **eligible** for the course. Check if the course requires _previous knowledge_ and is taught in English. You can choose courses at any faculty or department, as long as you are qualified and eligible for it:
 
-  - If a course has *<u>recommended</u> previous knowledge,* the course is generally open to exchange students, but it is the students' responsibility to ensure they are academically equipped able to understand/follow the course content.
+  - If a course has *++recommended++ previous knowledge,* the course is generally open to exchange students, but it is the students' responsibility to ensure they are academically equipped able to understand/follow the course content.
 
-  - If a course has *<u>required</u> previous knowledge*, the student must have documented academic experience equivalent to the 'required courses' listed on the course page.
+  - If a course has *++required++ previous knowledge*, the student must have documented academic experience equivalent to the 'required courses' listed on the course page.
 
 - Specific conditions:
 
@@ -105,15 +106,13 @@ All of NTNU's courses can be found using the online course catalog**.** Please r
 
 - You can freely change your study plan/course selection at NTNU until 15 september (autumn) or 1 February (spring).
 
-## Exchange courses
-
-##### Courses in Trondheim
+## Courses in Trondheim
 
 Almost all of NTNU's courses are listed in [](https://www.ntnu.edu/studies/coursesearch#semester)the Online course catalog.
 
 Using this button, you will be shown courses *taught in English* in *Trondheim*, but remember to also choose the correct semester (spring/autumn).
 
-**Make sure you have read *C\_\_hoosing and changing courses* above before browsing the catalog.**
+**Make sure you have read *Choosing and changing courses* above before browsing the catalog.**
 
 **[NTNU Course Catalog - Trondheim](https://www.ntnu.edu/studies/coursesearch#alesund=false&gjovik=false&trondheim=true&english=true)**
 
@@ -123,13 +122,13 @@ The Online Course Catalog is updated yearly in July. Students coming in the autu
 
 [Courses to learn Norwegian as a second language](https://www.ntnu.edu/studies/international/norwegian-requirements-and-courses)
 
-##### Courses in Gjøvik
+## Courses in Gjøvik
 
 You can find courses taught in English in Gjøvik by using the online course catalog.
 
 Using this button, you will be shown courses *taught in English* in *Gjøvik*, but remember to also choose the correct semester (spring/autumn).
 
-**Make sure you have read *C\_\_hoosing and changing courses* above before browsing the catalog.**
+**Make sure you have read *Choosing and changing courses* above before browsing the catalog.**
 
 **[NTNU Course Catalog - Gjøvik](https://www.ntnu.edu/studies/coursesearch#alesund=false&gjovik=true&trondheim=false&english=true)**
 
@@ -172,13 +171,13 @@ Master's thesis / Project work:
 
 The first and third semesters are autumn semesters (A); the second and fourth semesters are spring semesters (S). Some courses are only available one semester each year.
 
-##### Courses in Ålesund
+## Courses in Ålesund
 
 You can find courses taught in English in Ålesund by using the online course catalogue below.
 
 Using this button, you will be shown courses *taught in English* in *Ålesund*, but remember to also choose the correct semester (spring/autumn).
 
-**Make sure you have read *C\_\_hoosing and changing courses* above before browsing the catalog.**
+**Make sure you have read *Choosing and changing courses* above before browsing the catalog.**
 
 **[NTNU Course Catalog - Ålesund](https://www.ntnu.edu/studies/coursesearch#alesund=true&gjovik=false&trondheim=false&english=true)**
 
@@ -207,7 +206,7 @@ Only applications that are complete within the deadline will be considered.
 
 ##### Instructions for how to apply
 
-To be able to apply for exchange studies at NTNU you must be <u>nominated by your home institution</u>. Your coordinator at your home institution will make sure you are nominated.
+To be able to apply for exchange studies at NTNU you must be ++nominated by your home institution++. Your coordinator at your home institution will make sure you are nominated.
 
 Once you have been formally nominated, you will receive an e-mail with complete instructions on how to apply. Follow the instructions in the e-mail carefully.
 
@@ -280,9 +279,9 @@ NTNU requires all international students to have a good command of English at an
 
 ### Exchange students **from the EU/EAA**
 
-There are no formal language requirements for students from EU/EEA countries, and these students do **<u>not</u>** need to document English proficiency. However, NTNU expects students to command the English language at a minimum of **B2,** preferably **C1,** level using the Common European Framework of Reference for Languages scale.
+There are no formal language requirements for students from EU/EEA countries, and these students do **++not++** need to document English proficiency. However, NTNU expects students to command the English language at a minimum of **B2,** preferably **C1,** level using the Common European Framework of Reference for Languages scale.
 
-Students exchanging to NTNU via the Erasmus+ programme do **<u>not</u>** need to document English proficiency.
+Students exchanging to NTNU via the Erasmus+ programme do **++not++** need to document English proficiency.
 
 ### Exchange students from **outside the EU/EEA**
 
@@ -291,7 +290,7 @@ Non-EU/EEA students are required to document their English proficiency by one o
 - [**TOEFL**](http://www.toefl.org/) (Test of English as a Foreign Language) with a minimum score of 90 points on the internet based test
 - [**IELTS**](http://www.ielts.org/) (International English Language Testing Service) with a minimum overall band score of 6.5
 
-Students exchanging to NTNU via the Erasmus+ programme do **<u>not</u>** need to document English proficiency
+Students exchanging to NTNU via the Erasmus+ programme do **++not++** need to document English proficiency
 
 # Requirements
 
@@ -309,7 +308,19 @@ O-week is *expected* to be held in week 33 (August 12-16).
 
 ## Useful links and documents for new students
 
-<table border="1" cellpadding="1" cellspacing="1" class="tbl-headrow-light2" style="width:100%;"><tbody><tr><td><a href="https://www.ntnu.edu/documents/1265574775/1269651764/Checklist+for+new+international+students.pdf/c7e9bd9e-f742-e370-4750-210fb744dd56?t=1691056476594">Checklist for International Students</a></td><td>Essential information and step-by-step instructions for new international students in Trondheim</td></tr><tr><td><a href="https://www.ntnu.edu/documents/1265574775/1269651764/Trondheim_in_your_pocket.pdf/17870090-36dc-d8a6-4a31-83d277b1e869?t=1699445027526">Trondheim in your pocket</a></td><td>A quick guide to the city of Trondheim</td></tr><tr><td><a href="https://www.trondheim.esn.no/">Erasmus Student Network</a></td><td>Organization for all international students</td></tr><tr><td><a href="https://i.ntnu.no/en/ny-student">How to get started as a student at NTNU</a></td><td>A nine-step overview to get started</td></tr><tr><td><a href="https://www.ntnu.edu/studies/academiccalendar">NTNU's academic Calendar</a></td><td>Overview of important semester dates, holidays, start and end of exam period etc.</td></tr><tr><td><a href="https://www.ntnu.edu/ub">Library services for NTNU students</a>&nbsp;</td><td>Get help with academic writing, find sources and learn to cite them correctly</td></tr><tr><td><a href="https://www.ntnu.edu/studies/courses ">Course timetables</a></td><td>Set up your own timetable to structure your weeks</td></tr><tr><td><a href="https://rethinkrestore.no/">REstore</a></td><td>Get used and upcycled furniture and utilities for free, and trade in what you don't need</td></tr><tr><td><a href="https://ntnui.no/bumerang/en/welcome/">NTNUI Bumerang</a></td><td>Free rental of sports equipment for students, located at Moholt studentby</td></tr><tr><td><a href="https://www.ntnu.edu/documents/1265574775/1269651764/Koiene_H2019_Online.pdf/b4d79f00-82f2-4c78-b982-c91b7e5555f7">"Koiene" (Student cabins</a>)</td><td>How to book and spend time at the student cabins in the forests and mountains&nbsp;</td></tr><tr><td><a href="https://www.ntnu.edu/documents/1265574775/1269651764/NF-brosjyre-ENGELSK-160117.pdf/28644a59-d5b6-40ff-911a-97c6605e6e73">"Going for a walk"</a></td><td>An introduction to Norwegian hiking culture</td></tr></tbody></table>
+|                                                                                              Link                                                                                              |                                           Explanation                                           |
+| :--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------: | :---------------------------------------------------------------------------------------------: |
+| [Checklist for International Students](https://www.ntnu.edu/documents/1265574775/1269651764/Checklist+for+new+international+students.pdf/c7e9bd9e-f742-e370-4750-210fb744dd56?t=1691056476594) | Essential information and step-by-step instructions for new international students in Trondheim |
+|               [Trondheim in your pocket](https://www.ntnu.edu/documents/1265574775/1269651764/Trondheim_in_your_pocket.pdf/17870090-36dc-d8a6-4a31-83d277b1e869?t=1699445027526)               |                             A quick guide to the city of Trondheim                              |
+|                                                                    [Erasmus Student Network](https://www.trondheim.esn.no/)                                                                    |                           Organization for all international students                           |
+|                                                           [How to get started as a student at NTNU](https://i.ntnu.no/en/ny-student)                                                           |                               A nine-step overview to get started                               |
+|                                                           [NTNU's academic Calendar](https://www.ntnu.edu/studies/academiccalendar)                                                            |        Overview of important semester dates, holidays, start and end of exam period etc.        |
+|                                                                 [Library services for NTNU students](https://www.ntnu.edu/ub)                                                                  |          Get help with academic writing, find sources and learn to cite them correctly          |
+|                                                                   [Course timetables](https://www.ntnu.edu/studies/courses)                                                                    |                        Set up your own timetable to structure your weeks                        |
+|                                                                             [REstore](https://rethinkrestore.no/)                                                                              |    Get used and upcycled furniture and utilities for free, and trade in what you don't need     |
+|                                                                    [NTNUI Bumerang](https://ntnui.no/bumerang/en/welcome/)                                                                     |            Free rental of sports equipment for students, located at Moholt studentby            |
+|                         ["Koiene" (Student cabins)](https://www.ntnu.edu/documents/1265574775/1269651764/Koiene_H2019_Online.pdf/b4d79f00-82f2-4c78-b982-c91b7e5555f7)                         |          How to book and spend time at the student cabins in the forests and mountains          |
+|                         ["Going for a walk"](https://www.ntnu.edu/documents/1265574775/1269651764/NF-brosjyre-ENGELSK-160117.pdf/28644a59-d5b6-40ff-911a-97c6605e6e73)                         |                           An introduction to Norwegian hiking culture                           |
 
 ## Learning Agreements
 
@@ -340,7 +351,7 @@ If you will be submitting an OLA, see specific instructions below.
 
 In your application to NTNU, you have chosen a number of courses. Changes can be made later, but no changes or additional courses will be processed until the semester begins.
 
-You may **not** send the Learning Agreement before you have received an offer of admission to NTNU by e-mail. NTNU strives to sign Learning Agreements as soon as possible, but we <u>cannot</u> guarantee accommodation of internal deadlines at your home institution.
+You may **not** send the Learning Agreement before you have received an offer of admission to NTNU by e-mail. NTNU strives to sign Learning Agreements as soon as possible, but we ++cannot++ guarantee accommodation of internal deadlines at your home institution.
 
 Before submitting your LA/OLA to NTNU, for your own convenience, please ensure that your home university has pre-approved your selection of courses.
 
@@ -348,7 +359,7 @@ Before submitting your LA/OLA to NTNU, for your own convenience, please ensure t
 
 **If you have not had all the courses approved by NTNU yet, we strongly recommend that you wait to submit your LA/OLA until after your arrival in Norway or after 15 September.**
 
-- Online Learning Agreements (OLAs) can <u>only</u> be signed if:
+- Online Learning Agreements (OLAs) can ++only++ be signed if:
 
   1.  All your planned courses have been pre-approved during the admission process.  
       **OR**

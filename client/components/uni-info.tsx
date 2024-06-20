@@ -18,6 +18,7 @@ import Link from 'next/link'
 import React from 'react'
 import Markdown from 'react-markdown'
 import remarkGfm from 'remark-gfm'
+import remarkIns from 'remark-ins'
 
 function UniInfoContent(props: { data: UniversityInfo | undefined }) {
   return (
@@ -57,7 +58,7 @@ function UniInfoContent(props: { data: UniversityInfo | undefined }) {
             {/*   {value} */}
             {/* </p> */}
             <Markdown
-              remarkPlugins={[remarkGfm]}
+              remarkPlugins={[remarkGfm, remarkIns]}
               className="prose font-medium text-secondary-foreground"
               components={{
                 a: ({ node, href, ...props }) => (
@@ -84,7 +85,7 @@ function UniInfoNav(props: { data: UniversityInfo | undefined }) {
     <div className="hidden w-[30%] min-w-44 lg:order-2 lg:block lg:min-w-52">
       <div className="sticky top-20 z-40">
         {Object.entries(props.data!).map(([key, _], index) => {
-          if (key === 'webpage') return
+          if (key === 'webpage' || key === 'info_page_id') return
           return (
             <div
               key={index}

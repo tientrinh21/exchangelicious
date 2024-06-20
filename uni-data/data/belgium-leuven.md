@@ -84,7 +84,9 @@ More **[details on the application procedure](https://www.kuleuven.be/english/ad
 
 - **Full list of courses** open to bachelor/undergraduate exchange students and master/graduate exchange students on all FEB campuses:
 
-[courses Antwerp](https://onderwijsaanbod.kuleuven.be/2024/opleidingen/e/SC_55035778.htm) [courses Brussels](https://onderwijsaanbod.kuleuven.be/2024/opleidingen/e/SC_55037747.htm) [courses Leuven](https://onderwijsaanbod.kuleuven.be/2024/opleidingen/e/SC_55035973.htm)
+  - [courses Antwerp](https://onderwijsaanbod.kuleuven.be/2024/opleidingen/e/SC_55035778.htm)
+  - [courses Brussels](https://onderwijsaanbod.kuleuven.be/2024/opleidingen/e/SC_55037747.htm)
+  - [courses Leuven](https://onderwijsaanbod.kuleuven.be/2024/opleidingen/e/SC_55035973.htm)
 
 - **Campus Brussels:** available [courses of the **faculty of Arts**](https://www.arts.kuleuven.be/english/education/brussels/files/CourseCatalogue_2024-2025) that may be relevant
 - **Campus Antwerp**: available [courses of the **faculty of Arts**](https://feb.kuleuven.be/eng/international/information-package/courses-faculty-of-arts-antwerp.pdf) that may be relevant
@@ -92,10 +94,7 @@ More **[details on the application procedure](https://www.kuleuven.be/english/ad
 - Each professor has the right to **update** his/her course description just until the start of the academic year.
 - While choosing your courses, **select the appropriate campus** (Antwerp, Brussels, Leuven) based on the degree programme of your home university. You can follow a maximum of 6 credits at a different campus of your main campus enrollment.
 - The faculty has the right to **organise a course in another semester than originally planned**. Although FEB has the authority to make last minute alterations, this is rarely the case.
-- Be aware that choosing courses of different programmes/programme phases might result in a time schedule overlap. **Courses are semester based or entire year**:
-  - ![First term](https://onderwijsaanbod.kuleuven.be/resources/images/icons/icon-semester-1.png) =First term= Autumn
-  - ![Second term](https://onderwijsaanbod.kuleuven.be/resources/images/icons/icon-semester-2.png)\=Second term= Spring
-  - ![Both terms](https://onderwijsaanbod.kuleuven.be/resources/images/icons/icon-semester-3.png)\=Both terms= all year course
+- Be aware that choosing courses of different programmes/programme phases might result in a time schedule overlap. **Courses are semester based or entire year**.
 
 # Expenses
 

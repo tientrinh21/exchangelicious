@@ -153,9 +153,9 @@ HEC Montréal offers several housing options for international students, includi
 
 It can be challenging to find an apartment for a short period (4 - 5 months) since leases are usually signed for a period of 12 months. That is the reason why the School offers the following options to HEC Montréal exchange students.
 
-[Off-Campus Housing for Exchange Students](https://www.hec.ca/en/international_student/international_exchange/pre-arrival_guide/housing/index.html#B – Exclusive Offer for Exchange Students)
+[Off-Campus Housing for Exchange Students](https://www.hec.ca/en/international_student/international_exchange/pre-arrival_guide/housing/index.html#B "Exclusive Offer for Exchange Students")
 
-[Searching for an apartment on Your Own](https://www.hec.ca/en/international_student/international_exchange/pre-arrival_guide/housing/index.html#C- Looking for an Accommodation on Your Own)
+[Searching for an apartment on Your Own](https://www.hec.ca/en/international_student/international_exchange/pre-arrival_guide/housing/index.html#C "Looking for an Accommodation on Your Own")
 
 Please note that the Student Services (SAE) and at the International Activities and Student Mobility can help you in your housing search.
 
@@ -177,7 +177,9 @@ Visit the following websites to discover the various offers, read about the re
 
 Booking system opens:
 
-<table width="100%" border="1" cellspacing="0" cellpadding="0"><tbody><tr style="height: 35px;"><td width="50%" style="height: 35px;"><p align="center"><b>Fall 2024</b></p></td><td width="50%" style="height: 35px;"><p align="center"><b>Winter 2025</b></p></td></tr><tr style="height: 35px;"><td width="50%" style="height: 35px;"><p align="center"><span><span class="ui-provider caq car c d e f g h i j k l m n o p q r s t cas cat w x y z ab ac ae af ag ah ai aj ak" dir="ltr">May 22, 2024, 12 p.m.</span></span></p></td><td width="50%" style="height: 35px;"><p align="center">To be confirmed</p></td></tr></tbody></table>
+|     **Fall 2024**     | **Winter 2025** |
+| :-------------------: | :-------------: |
+| May 22, 2024, 12 p.m. | To be confirmed |
 
 **Booking:**
 

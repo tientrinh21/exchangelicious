@@ -31,18 +31,18 @@ university_meta_table_resource_fields = {
 }
 
 university_with_info_resource_fields = {
-    "info_page_id": fields.String,
     "webpage": fields.String,
     "introduction": fields.String,
     "location": fields.String,
     "semester": fields.String,
     "application_deadline": fields.String,
     "courses": fields.String,
-    "housing": fields.String,
     "expenses": fields.String,
+    "housing": fields.String,
     "visa": fields.String,
     "eligibility": fields.String,
     "requirements": fields.String,
+    "info_page_id": fields.String,
 }
 
 search_universities_resource_fields = {

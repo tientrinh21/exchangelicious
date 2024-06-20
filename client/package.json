@@ -33,6 +33,7 @@
     "react-infinite-scroll-component": "^6.1.0",
     "react-markdown": "^9.0.1",
     "remark-gfm": "^4.0.0",
+    "remark-ins": "^1.1.0",
     "sonner": "^1.4.41",
     "swr": "^2.2.5",
     "tailwind-merge": "^2.2.2",
