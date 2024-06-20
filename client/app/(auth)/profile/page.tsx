@@ -7,7 +7,6 @@ import {
   CardHeader,
   CardTitle,
 } from '@/components/ui/card'
-import { Separator } from '@/components/ui/separator'
 import DeleteAccountButton from './delete-account-button'
 import ProfileForm from './profile-form'
 
@@ -22,7 +21,6 @@ export default function ProfilePage() {
             university.
           </CardDescription>
         </div>
-        <Separator />
       </CardHeader>
       <CardContent className="space-y-2">
         <ProfileForm />
