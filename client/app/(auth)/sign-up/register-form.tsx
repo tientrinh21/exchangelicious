@@ -24,11 +24,7 @@ import {
   PopoverTrigger,
 } from '@/components/ui/popover'
 import { ScrollArea } from '@/components/ui/scroll-area'
-import {
-  frequentlyCountries,
-  frequentlyUniversities,
-  useUniversities,
-} from '@/lib/auth'
+import { frequentlyCountries, useUniversities } from '@/lib/auth'
 import countries from '@/lib/countries.json'
 import { createUser } from '@/lib/request'
 import { cn } from '@/lib/utils'
@@ -259,34 +255,6 @@ export function RegisterForm() {
                     />
                     <ScrollArea className="h-[200px]">
                       <CommandEmpty>No university found.</CommandEmpty>
-                      <CommandGroup heading="Frequently">
-                        <CommandList>
-                          {frequentlyUniversities?.map((uni) => (
-                            <CommandItem
-                              key={uni.university_id}
-                              value={uni.long_name}
-                              onSelect={() => {
-                                const val =
-                                  uni.university_id === uniValue
-                                    ? ''
-                                    : uni.university_id
-                                form.setValue('home_university', val)
-                                setUniValue(val)
-                              }}
-                            >
-                              {uni.long_name}
-                              <CheckIcon
-                                className={cn(
-                                  'ml-auto h-4 w-4',
-                                  uniValue == uni.university_id
-                                    ? 'opacity-100'
-                                    : 'opacity-0',
-                                )}
-                              />
-                            </CommandItem>
-                          ))}
-                        </CommandList>
-                      </CommandGroup>
                       <CommandGroup heading="All universities">
                         <CommandList>
                           {universities?.map((uni) => (

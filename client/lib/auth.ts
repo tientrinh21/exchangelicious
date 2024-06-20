@@ -7,9 +7,6 @@ import axios from 'axios'
 export const authAtom = atom(false)
 
 export const frequentlyCountries = [{ name: 'South Korea', code: 'KOR' }]
-export const frequentlyUniversities = [
-  { long_name: 'Sungkyunkwan University', university_id: 'skku' },
-]
 
 export function isAuthenticated() {
   return localStorage.hasOwnProperty('user')

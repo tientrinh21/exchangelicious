@@ -23,12 +23,7 @@ import {
   PopoverTrigger,
 } from '@/components/ui/popover'
 import { ScrollArea } from '@/components/ui/scroll-area'
-import {
-  frequentlyCountries,
-  frequentlyUniversities,
-  getUserData,
-  useUniversities,
-} from '@/lib/auth'
+import { frequentlyCountries, getUserData, useUniversities } from '@/lib/auth'
 import countries from '@/lib/countries.json'
 import { updateUser } from '@/lib/request'
 import { cn } from '@/lib/utils'
@@ -154,35 +149,6 @@ export default function ProfileForm() {
                     />
                     <ScrollArea className="h-[200px]">
                       <CommandEmpty>No country found.</CommandEmpty>
-                      <CommandGroup heading="Frequently">
-                        <CommandList>
-                          {frequentlyCountries.map((country) => (
-                            <CommandItem
-                              key={country.code}
-                              value={country.name}
-                              onSelect={() => {
-                                const val =
-                                  country.code === nationalityValue
-                                    ? ''
-                                    : country.code
-                                form.setValue('nationality', val)
-                                setNationalityValue(val)
-                                setNationalityOpen(false)
-                              }}
-                            >
-                              {country.name}
-                              <CheckIcon
-                                className={cn(
-                                  'ml-auto h-4 w-4',
-                                  nationalityValue == country.code
-                                    ? 'opacity-100'
-                                    : 'opacity-0',
-                                )}
-                              />
-                            </CommandItem>
-                          ))}
-                        </CommandList>
-                      </CommandGroup>
                       <CommandGroup heading="All countries">
                         <CommandList>
                           {countries.map((country) => (
