@@ -18,7 +18,7 @@ export default async function ExchangeLayout({
 
   return (
     <div className="flex flex-col gap-4 md:gap-8">
-      <UniHeaderImgWrapper imgSrc={`/${data.university_id}.jpg`}>
+      <UniHeaderImgWrapper universityId={data.university_id}>
         <UniHeaderContainer>
           <UniHeaderName name={data.long_name} />
           <UniHeaderMeta meta={data.campus ?? 'N/A'} />

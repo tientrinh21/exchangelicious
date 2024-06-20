@@ -21,7 +21,7 @@ export default async function InfoEditPage({
 
   return (
     <div className="flex flex-col gap-4 md:gap-8">
-      <UniHeaderImgWrapper imgSrc={`/${uniData.university_id}.jpg`}>
+      <UniHeaderImgWrapper universityId={uniData.university_id}>
         <UniHeaderContainer>
           <UniHeaderForm data={uniData} />
         </UniHeaderContainer>
