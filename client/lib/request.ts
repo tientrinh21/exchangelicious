@@ -1,7 +1,9 @@
+import type { Review } from '@/types/review-section'
 import type {
   LoginFormSchema,
   ProfileFormSchema,
   RegisterFormSchema,
+  ReviewFormSchema,
   UniHeaderFormSchema,
   UniInfoFormSchema,
 } from '@/types/schema'
@@ -11,6 +13,7 @@ import axios from 'axios'
 
 const BASE_URL = process.env.BASE_URL || 'http://localhost:8080/api'
 
+/* UNIVERSITY */
 export async function fetchUniversities() {
   return axios.get<University[]>(`${BASE_URL}/universities`).then((r) => r.data)
 }
@@ -85,6 +88,105 @@ export async function fetchUser({ username, password }: LoginFormSchema) {
     .then((r) => r.data)
 }
 
+/* REVIEW */
+export async function createReview({
+  user_id,
+  university_id,
+  values,
+}: {
+  user_id: string
+  university_id: string
+  values: ReviewFormSchema
+}) {
+  return axios
+    .post<Review>(`${BASE_URL}/review`, {
+      user_id,
+      university_id,
+      ...values,
+    })
+    .then((r) => r.data)
+}
+
+export async function updateReview({
+  review_id,
+  values,
+}: {
+  review_id: string
+  values: ReviewFormSchema
+}) {
+  return axios
+    .patch<Review>(
+      `${BASE_URL}/review`,
+      { ...values },
+      { params: { review_id: review_id } },
+    )
+    .then((r) => r.data)
+}
+
+export async function deleteReview({ review_id }: { review_id: string }) {
+  return axios
+    .delete(`${BASE_URL}/review`, {
+      params: {
+        review_id: review_id,
+      },
+    })
+    .then((r) => r.data)
+}
+
+export async function upvote({
+  user_id,
+  review,
+}: {
+  user_id: string
+  review: Review
+}) {
+  if (review.has_upvoted)
+    return axios
+      .delete(`${BASE_URL}/review/upvote`, {
+        params: {
+          user_id: user_id,
+          review_id: review.review_id,
+        },
+      })
+      .then((r) => r.data)
+
+  return axios
+    .post(`${BASE_URL}/review/upvote`, null, {
+      params: {
+        user_id: user_id,
+        review_id: review.review_id,
+      },
+    })
+    .then((r) => r.data)
+}
+
+export async function downvote({
+  user_id,
+  review,
+}: {
+  user_id: string
+  review: Review
+}) {
+  if (review.has_downvoted)
+    return axios
+      .delete(`${BASE_URL}/review/downvote`, {
+        params: {
+          user_id: user_id,
+          review_id: review.review_id,
+        },
+      })
+      .then((r) => r.data)
+
+  return axios
+    .post(`${BASE_URL}/review/downvote`, null, {
+      params: {
+        user_id: user_id,
+        review_id: review.review_id,
+      },
+    })
+    .then((r) => r.data)
+}
+/* USER */
 export async function createUser({
   username,
   password,

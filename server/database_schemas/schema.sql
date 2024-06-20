@@ -146,6 +146,7 @@ create table downvote_table (
 );
 
 delimiter //
+
 CREATE TRIGGER update_upvotes_post
 AFTER INSERT ON upvote_table
 FOR EACH ROW
@@ -154,7 +155,8 @@ BEGIN
     SET upvotes = upvotes + 1
     WHERE review_id = NEW.review_id;
 END;
-// 
+
+//
 
 CREATE TRIGGER update_upvotes_delete
 AFTER DELETE ON upvote_table
@@ -164,7 +166,9 @@ BEGIN
     SET upvotes = upvotes - 1
     WHERE review_id = OLD.review_id;
 END;
+
 //
+
 CREATE TRIGGER update_downvotes_post
 AFTER INSERT ON downvote_table
 FOR EACH ROW
@@ -173,7 +177,8 @@ BEGIN
     SET downvotes = downvotes + 1
     WHERE review_id = NEW.review_id;
 END;
-// 
+
+//
 
 CREATE TRIGGER update_downvotes_delete
 AFTER DELETE ON downvote_table
@@ -183,6 +188,7 @@ BEGIN
     SET downvotes = downvotes - 1
     WHERE review_id = OLD.review_id;
 END;
+
 //
 delimiter ;
 

@@ -1,4 +1,5 @@
 import { SiteHeader } from '@/components/site-header'
+import { SiteFooter } from '@/components/site-footer'
 import { cn } from '@/lib/utils'
 import { Provider } from 'jotai'
 import type { Metadata } from 'next'
@@ -31,10 +32,9 @@ export default function RootLayout({ children }: RootLayoutProps) {
       >
         <Provider>
           <SiteHeader />
-          <main className="flex-1">{children}</main>
-          {/* TODO: Implement site footer */}
-          {/* <SiteFooter /> */}
-          <Toaster position="bottom-right" richColors />
+          <main className="min-h-[82vh] flex-1">{children}</main>
+          <SiteFooter />
+          <Toaster position="bottom-right" richColors duration={1500} />
         </Provider>
       </body>
     </html>

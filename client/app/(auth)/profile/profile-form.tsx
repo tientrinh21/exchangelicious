@@ -8,7 +8,6 @@ import {
   CommandInput,
   CommandItem,
 } from '@/components/ui/command'
-import { CommandList } from 'cmdk'
 import {
   Form,
   FormControl,
@@ -34,12 +33,13 @@ import countries from '@/lib/countries.json'
 import { updateUser } from '@/lib/request'
 import { cn } from '@/lib/utils'
 import { profileFormSchema, type ProfileFormSchema } from '@/types/schema'
+import { type User } from '@/types/user'
 import { zodResolver } from '@hookform/resolvers/zod'
 import { CaretSortIcon, CheckIcon } from '@radix-ui/react-icons'
+import { CommandList } from 'cmdk'
 import { useEffect, useState } from 'react'
 import { useForm } from 'react-hook-form'
 import { toast } from 'sonner'
-import { type User } from '@/types/user'
 
 export default function ProfileForm() {
   const [user, setUser] = useState<User>()
@@ -50,16 +50,6 @@ export default function ProfileForm() {
   const universities = useUniversities()
   const [uniOpen, setUniOpen] = useState(false)
   const [uniValue, setUniValue] = useState('')
-
-  // Define form
-  const form = useForm<ProfileFormSchema>({
-    resolver: zodResolver(profileFormSchema),
-    defaultValues: {
-      password: '',
-      nationality: '',
-      home_university: '',
-    },
-  })
 
   // Load data from localStorage
   useEffect(() => {
@@ -73,6 +63,16 @@ export default function ProfileForm() {
     setUniValue(user.home_university ?? '')
   }, [typeof window !== 'undefined'])
 
+  // Define form
+  const form = useForm<ProfileFormSchema>({
+    resolver: zodResolver(profileFormSchema),
+    defaultValues: {
+      password: '',
+      nationality: '',
+      home_university: '',
+    },
+  })
+
   // Submit handler
   async function onSubmit(values: ProfileFormSchema) {
     const toastId = toast.loading('Updating your account...')
@@ -81,7 +81,6 @@ export default function ProfileForm() {
       const updatedUser = await updateUser(user as User, values)
       localStorage.setItem('user', btoa(JSON.stringify(updatedUser)))
       setUser(updatedUser)
-      console.log(updatedUser)
 
       form.setValue('password', '') // clean input on successful update
       toast.success('Updated successfullly!', { id: toastId })
@@ -95,10 +94,7 @@ export default function ProfileForm() {
       else if (errMsg.includes('FOREIGN KEY (`home_university`)'))
         toastMsg = 'The input university does not exist'
 
-      toast.error(toastMsg, {
-        id: toastId,
-        duration: 2000,
-      })
+      toast.error(toastMsg, { id: toastId })
     }
   }
 
@@ -121,7 +117,7 @@ export default function ProfileForm() {
         <FormField
           control={form.control}
           name="nationality"
-          render={({ field }) => (
+          render={() => (
             <FormItem className="flex flex-col">
               <FormLabel>
                 Nationality
@@ -228,7 +224,7 @@ export default function ProfileForm() {
         <FormField
           control={form.control}
           name="home_university"
-          render={({ field }) => (
+          render={() => (
             <FormItem>
               <FormLabel>
                 Home University

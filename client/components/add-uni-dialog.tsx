@@ -1,15 +1,5 @@
 'use client'
 
-import {
-  Dialog,
-  DialogContent,
-  DialogHeader,
-  DialogTitle,
-  DialogTrigger,
-} from '@/components/ui/dialog'
-import { useAuth } from '@/lib/auth'
-import { cn } from '@/lib/utils'
-import { PlusIcon } from '@radix-ui/react-icons'
 import { Button } from '@/components/ui/button'
 import {
   Command,
@@ -18,6 +8,13 @@ import {
   CommandInput,
   CommandItem,
 } from '@/components/ui/command'
+import {
+  Dialog,
+  DialogContent,
+  DialogHeader,
+  DialogTitle,
+  DialogTrigger,
+} from '@/components/ui/dialog'
 import {
   Form,
   FormControl,
@@ -32,24 +29,25 @@ import {
   PopoverTrigger,
 } from '@/components/ui/popover'
 import { ScrollArea } from '@/components/ui/scroll-area'
+import { useAuthAtom } from '@/lib/auth'
 import countries from '@/lib/countries.json'
 import { createUniversity } from '@/lib/request'
+import { cn } from '@/lib/utils'
 import { uniHeaderFormSchema, type UniHeaderFormSchema } from '@/types/schema'
 import { Housing } from '@/types/university'
 import { zodResolver } from '@hookform/resolvers/zod'
-import { CaretSortIcon, CheckIcon } from '@radix-ui/react-icons'
+import { CaretSortIcon, CheckIcon, PlusIcon } from '@radix-ui/react-icons'
 import { CommandList } from 'cmdk'
+import { useRouter } from 'next/navigation'
 import { useState } from 'react'
 import { useForm } from 'react-hook-form'
 import { toast } from 'sonner'
-import { usePathname, useRouter } from 'next/navigation'
 
 const housingOptions = Object.values(Housing)
 
 export function AddUniDialog() {
-  const isAuth = useAuth()
+  const isAuth = useAuthAtom()
   const router = useRouter()
-  const pathname = usePathname()
 
   const [countryOpen, setCountryOpen] = useState(false)
   const [countryValue, setCountryValue] = useState('')
@@ -75,9 +73,8 @@ export function AddUniDialog() {
 
     try {
       const newData = await createUniversity(values)
-      console.log(newData)
       toast.success('Created successfully!', { id: toastId })
-      router.push(`${pathname}/${newData.university_id}/edit`)
+      router.push(`/exchange/${newData.university_id}/edit`)
     } catch (error: any) {
       const errMsg: string = error.response.data.message
       console.error(errMsg)
@@ -86,10 +83,7 @@ export function AddUniDialog() {
       if (errMsg.includes('FOREIGN KEY (`country_code`)'))
         toastMsg = 'The input country does not exist'
 
-      toast.error(toastMsg, {
-        id: toastId,
-        duration: 2000,
-      })
+      toast.error(toastMsg, { id: toastId })
     }
   }
 

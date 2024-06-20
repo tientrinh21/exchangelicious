@@ -28,7 +28,7 @@ import { cn } from '@/lib/utils'
 import { uniHeaderFormSchema, type UniHeaderFormSchema } from '@/types/schema'
 import { Housing, type University } from '@/types/university'
 import { zodResolver } from '@hookform/resolvers/zod'
-import { CaretSortIcon, UpdateIcon, CheckIcon } from '@radix-ui/react-icons'
+import { CaretSortIcon, CheckIcon, UpdateIcon } from '@radix-ui/react-icons'
 import { CommandList } from 'cmdk'
 import { useState } from 'react'
 import { useForm } from 'react-hook-form'
@@ -61,8 +61,7 @@ export default function UniHeaderForm({ data }: { data: University }) {
     const toastId = toast.loading('Updating university header...')
 
     try {
-      const newData = await updateUniversity({ id: data.university_id, values })
-      console.log(newData)
+      await updateUniversity({ id: data.university_id, values })
       toast.success('Updated successfully!', { id: toastId })
     } catch (error: any) {
       const errMsg: string = error.response.data.message
@@ -72,10 +71,7 @@ export default function UniHeaderForm({ data }: { data: University }) {
       if (errMsg.includes('FOREIGN KEY (`country_code`)'))
         toastMsg = 'The input country does not exist'
 
-      toast.error(toastMsg, {
-        id: toastId,
-        duration: 2000,
-      })
+      toast.error(toastMsg, { id: toastId })
     }
   }
 
@@ -258,7 +254,7 @@ export default function UniHeaderForm({ data }: { data: University }) {
                             ? housingOptions.find(
                                 (option) => option === housingValue,
                               )
-                            : 'Select your country'}
+                            : 'Select housing option'}
                           <CaretSortIcon className="ml-2 h-4 w-4 shrink-0 opacity-50" />
                         </Button>
                       </FormControl>

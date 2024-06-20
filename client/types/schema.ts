@@ -30,6 +30,16 @@ export const uniInfoFormSchema = z.object({
 
 export type UniInfoFormSchema = z.infer<typeof uniInfoFormSchema>
 
+// REVIEW
+
+export const reviewFormSchema = z.object({
+  title: z.string().min(1, "Title should not be empty"),
+  content: z.string().min(1, "Help other students by writing a bit about your experience"),
+  mood_score: z.string().min(1, "How satisfied were you?"),
+})
+
+export type ReviewFormSchema = z.infer<typeof reviewFormSchema>
+
 /* USER */
 // LOGIN
 export const loginFormSchema = z.object({

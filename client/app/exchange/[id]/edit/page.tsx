@@ -31,7 +31,7 @@ export default async function InfoEditPage({
         <div className="flex w-full flex-col gap-3 lg:flex-row lg:gap-14">
           <UniInfoNav data={infoData} />
           <UniInfoMobileMenu data={infoData} />
-          <UniInfoForm data={infoData} />
+          <UniInfoForm data={infoData} uniId={params.id} />
         </div>
       </div>
     </div>

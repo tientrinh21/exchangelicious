@@ -22,21 +22,22 @@ import {
   PopoverTrigger,
 } from '@/components/ui/popover'
 import { useUser } from '@/lib/auth'
-import { createReview } from '@/lib/request'
+import { updateReview } from '@/lib/request'
 import { cn, displayMood, moods } from '@/lib/utils'
-import { MoodScore } from '@/types/review-section'
+import { MoodScore, Review } from '@/types/review-section'
 import { reviewFormSchema, type ReviewFormSchema } from '@/types/schema'
 import { zodResolver } from '@hookform/resolvers/zod'
-import { CaretSortIcon, CheckIcon } from '@radix-ui/react-icons'
+import { CaretSortIcon, CheckIcon, UpdateIcon } from '@radix-ui/react-icons'
 import { useSetAtom } from 'jotai'
 import { useState } from 'react'
 import { useForm } from 'react-hook-form'
 import { toast } from 'sonner'
 import { atomReloadReviews } from './review-section'
+import { DialogClose } from '../ui/dialog'
 
-export function CreateReviewForm({ university_id }: { university_id: string }) {
+export function EditReviewForm({ review }: { review: Review }) {
   const [moodOpen, setMoodOpen] = useState(false)
-  const [moodValue, setMoodValue] = useState('')
+  const [moodValue, setMoodValue] = useState(String(review.mood_score))
 
   const setReloadReviews = useSetAtom(atomReloadReviews)
 
@@ -46,25 +47,24 @@ export function CreateReviewForm({ university_id }: { university_id: string }) {
   const form = useForm<ReviewFormSchema>({
     resolver: zodResolver(reviewFormSchema),
     defaultValues: {
-      title: '',
-      content: '',
-      mood_score: '',
+      title: review.title,
+      content: review.content,
+      mood_score: review.mood_score,
     },
   })
 
   // Submit handler
   async function onSubmit(values: ReviewFormSchema) {
-    const toastId = toast.loading('Creating review...')
+    const toastId = toast.loading('Updating review...')
 
     try {
-      await createReview({
-        user_id: user!.user_id,
-        university_id,
+      await updateReview({
+        review_id: review.review_id,
         values,
       })
-      toast.success('Created successfully!', { id: toastId })
+      toast.success('Updated successfully!', { id: toastId })
       setReloadReviews(true)
-      form.reset()
+      window.blur()
     } catch (error: any) {
       const errMsg: string = error.response.data.message
       console.error(errMsg)
@@ -175,13 +175,15 @@ export function CreateReviewForm({ university_id }: { university_id: string }) {
             </FormItem>
           )}
         />
-        <Button
-          type="submit"
-          className="col-span-3 sm:col-span-1 sm:col-start-3 sm:row-start-1"
-        >
-          <CheckIcon className="mr-2 h-4 w-4" />
-          Done
-        </Button>
+        <DialogClose asChild>
+          <Button
+            type="submit"
+            className="col-span-3 sm:col-span-1 sm:col-start-3 sm:row-start-1"
+          >
+            <UpdateIcon className="mr-2 h-4 w-4" />
+            Update
+          </Button>
+        </DialogClose>
       </form>
     </Form>
   )
