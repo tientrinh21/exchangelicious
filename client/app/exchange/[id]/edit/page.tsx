@@ -3,11 +3,8 @@ import {
   UniHeaderForm,
   UniHeaderImgWrapper,
 } from '@/components/uni-header'
-import {
-  UniInfoForm,
-  UniInfoMobileMenu,
-  UniInfoNav,
-} from '@/components/uni-info'
+import { UniInfoMobileMenu, UniInfoNav } from '@/components/uni-info'
+import UniInfoForm from '@/components/uni-info/uni-info-form'
 import { fetchUniversity, fetchUniversityInfo } from '@/lib/request'
 import type { University, UniversityInfo } from '@/types/university'
 
