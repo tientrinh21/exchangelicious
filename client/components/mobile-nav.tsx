@@ -24,7 +24,7 @@ export function MobileNav() {
       </DropdownMenuTrigger>
       <DropdownMenuContent
         align="end"
-        className="mt-1 space-y-2 rounded-lg px-2 py-4 shadow-xl"
+        className="mt-1 space-y-2 rounded-lg px-2 py-4 shadow-xl md:hidden"
       >
         <DropdownMenuItem>
           <Link
@@ -54,14 +54,14 @@ export function MobileNav() {
         </DropdownMenuItem>
         <DropdownMenuItem>
           <Link
-            href="/my-page"
-            className={`w-full text-center text-base font-medium ${pathname === '/my-page' ? 'opacity-100' : 'opacity-40'}`}
+            href="/favorites"
+            className={`w-full text-center text-base font-medium ${pathname === '/favorites' ? 'opacity-100' : 'opacity-40'}`}
           >
             <Button
               variant="link"
               className="text-accent-foreground hover:no-underline"
             >
-              My Page
+              Favorites
             </Button>
           </Link>
         </DropdownMenuItem>

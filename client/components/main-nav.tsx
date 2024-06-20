@@ -21,10 +21,10 @@ export function MainNav() {
         Exchange
       </Link>
       <Link
-        href="/my-page"
-        className={`rounded-md px-4 py-2 font-medium hover:bg-secondary ${pathname === '/my-page' ? 'text-accent-foreground' : 'text-accent-foreground/40'}`}
+        href="/favorites"
+        className={`rounded-md px-4 py-2 font-medium hover:bg-secondary ${pathname === '/favorites' ? 'text-accent-foreground' : 'text-accent-foreground/40'}`}
       >
-        My Page
+        Favorites
       </Link>
     </nav>
   )

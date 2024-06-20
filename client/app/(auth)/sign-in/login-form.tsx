@@ -52,10 +52,7 @@ export function LoginForm() {
       else if (errMsg === 'Invalid credentials')
         toastMsg = 'The password is not correct!'
 
-      toast.error(toastMsg, {
-        id: toastId,
-        duration: 2000,
-      })
+      toast.error(toastMsg, { id: toastId })
     }
   }
 

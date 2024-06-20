@@ -28,15 +28,12 @@ export interface University {
 }
 
 export interface UniversityInfo {
-  // university_id: string
-  // country_code: string
-  // region: string
-  // long_name: string
-  // info_page_id: string
+  info_page_id: string
   webpage: string
   introduction: string
   location: string
   semester: string
+  application_deadlines: string
   courses: string
   housing: string
   expenses: string

@@ -16,6 +16,16 @@ export function isAuthenticated() {
 }
 
 export function useAuth(): boolean {
+  const [isAuth, setIsAuth] = useState(false)
+
+  useEffect(() => {
+    setIsAuth(isAuthenticated())
+  }, [typeof window !== 'undefined'])
+
+  return isAuth
+}
+
+export function useAuthAtom(): boolean {
   const [isAuth, setIsAuth] = useAtom(authAtom)
 
   useEffect(() => {
@@ -23,6 +33,18 @@ export function useAuth(): boolean {
   }, [typeof window !== 'undefined'])
 
   return isAuth
+}
+
+export function useUser(): User | undefined {
+  const [user, setUser] = useState<User>()
+  useEffect(() => {
+    if (isAuthenticated()) {
+      const user = getUserData()
+      setUser(user)
+    }
+  }, [typeof window !== 'undefined'])
+
+  return user
 }
 
 export function getUserData(): User {
