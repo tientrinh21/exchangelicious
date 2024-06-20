@@ -1,0 +1,73 @@
+filename,university_id,country_code,region,long_name,info_page_id,ranking,housing,campus
+uni-data\data\belgium-brussel.md,iche,BEL,"Brussels","ICHEC Brussels Management School","belgium-brussel",nothing,"Available",single
+uni-data\data\belgium-leuven.md,ku_leuven,BEL,"Leuven, Brussel","KU Leuven","belgium-leuven",nothing,"Available",multiple
+uni-data\data\canada-ecole.md,new_ets,CAN,"Montreal, Quebec","Ecole de technolgie superieure","canada-ecole",nothing,"Available",single
+uni-data\data\canada-hec.md,hec_monteral,CAN,"Montreal","HEC Montréal","canada-hec",nothing,"Available",single
+uni-data\data\canada-manitoba.md,uni_manitoba,CAN,"Winnipeg, Manitoba","University of Manitoba","canada-manitoba",nothing,"Available",single
+uni-data\data\canada-newfoundland.md,uni_newfoundland,CAN,"St. John's, Newfoundland",Memorial University of Newfoundland,"canada-newfoundland",nothing,"Available",single
+uni-data\data\canada-okanagan.md,okanagan_collage,CAN,"Okanagan Valley, British Columbia",Okanagan College,"canada-okanagan",nothing,"Available",single
+uni-data\data\canada-saska.md,uni_saskatchewan,CAN,"Saskatoon, Saskatchewan",University of Saskatchewan,"canada-saska",nothing,"Available",single
+uni-data\data\canada-toronto.md,uni_toronto,CAN,"Toronto, Ontario",University of Toronto,"canada-toronto",nothing,"Available",single
+uni-data\data\hk-baptist.md,hkbu,HKG,"Kowloon Tong, Hong Kong",Hong Kong Baptist University,"hk-baptist",nothing,"Available",single
+uni-data\data\hk-hongkong.md,cityu,HKG,"Kowloon, Hong Kong",City University of Hong Kong,"hk-hongkong",nothing,"Available",single
+uni-data\data\hk-polytech.md,polyu,HKG,"Hung Hom, Kowloon, Hong Kong",Hong Kong Polytechnic University,"hk-polytech",nothing,"Available",single
+uni-data\data\italy-foscari.md,unive,ITA,"Venice","Ca' Foscari University of Venice","italy-foscari",nothing,"Available",single
+uni-data\data\italy-polytech.md,polimi,ITA,"Milan",Politecnico di Milano,italy-polytech,nothing,Available,single
+uni-data\data\italy-verona.md,univr,ITA,"Verona",University of Verona,italy-verona,nothing,Available,single
+uni-data\data\italy-luav.md,uni_venice,ITA,"Venice",Iuav University of Venice,"italy-luav",nothing,"Available",single
+uni-data\data\japan-aoyoma.md,aoyama,JPN,"Tokyo",Aoyama Gakuin University,japan-aoyoma,nothing,Available,single
+uni-data\data\japan-chuo.md,chuo,JPN,"Tokyo",Chuo University,japan-chuo,nothing,Available,single
+uni-data\data\japan-daito.md,daito,JPN,"Tokyo",Daito Bunka University,japan-daito,nothing,Available,single
+uni-data\data\japan-hitot.md,hito,JPN,"Tokyo",Hitotsubashi University,japan-hitot,nothing,Available,single
+uni-data\data\japan-kyoto.md,kyoto_uni,JPN,"Kyoto",Kyoto University,japan-kyoto,nothing,Available,single
+uni-data\data\japan-kyushu.md,kyushu,JPN,"Fukuoka",Kyushu University,japan-kyushu,nothing,Available,single
+uni-data\data\japan-nagasaki.md,nagasaki,JPN,"Nagasaki","Nagasaki University",japan-nagasaki,nothing,Available,single
+uni-data\data\japan-nagoya.md,nagoya,JPN,"Nagoya",Nagoya University,japan-nagoya,nothing,Available,single
+uni-data\data\japan-nishoga.md,nishogakusha,JPN,"Tokyo",Nishogakusha University,japan-nishoga,nothing,Available,single
+uni-data\data\japan-okayama.md,okayama,JPN,"Okayama",Okayama University,japan-okayama,nothing,Available,single
+uni-data\data\japan-ritsumeikan.md,ritsumei,JPN,"Kyoto",Ritsumeikan University,japan-ritsumeikan,nothing,Available,single
+uni-data\data\japan-soka.md,soka,JPN,"Tokyo",Soka University,japan-soka,nothing,Available,single
+uni-data\data\japan-toyo.md,toyo,JPN,"Tokyo",Toyo University,japan-toyo,nothing,Available,single
+uni-data\data\japan-waseda.md,waseda_uni,JPN,"Tokyo",Waseda University,"japan-waseda",nothing,"Available",multiple
+uni-data\data\nether-amsterdam.md,vunl,NLD,"Amsterdam",Vrije Universiteit Amsterdam,"nether-amsterdam",nothing,Available,single
+uni-data\data\nether-erasmus.md,eurnl,NLD,"Rotterdam",Erasmus University Rotterdam,"nether-erasmus",nothing,Available,single
+uni-data\data\nether-fontys.md,fontys,NLD,"Eindhoven",Fontys University of Applied Sciences,"nether-fontys",nothing,Available,single
+uni-data\data\nether-hague.md,thuas,NLD,"The Hague",The Hague University of Applied Sciences,"nether-hague",nothing,Available,single
+uni-data\data\nether-hanze.md,hanze,NLD,"Groningen",Hanze University of Applied Sciences Groningen,"nether-hanze",nothing,Available,single
+uni-data\data\nether-hu.md,internationalhu,NLD,"Utrecht",HU University of Applied Sciences Utrecht,"nether-hu",nothing,Available,single
+uni-data\data\nether-maastri.md,maastrichtuniversity,NLD,"Maastricht",Maastricht University,"nether-maastri",nothing,Available,single
+uni-data\data\nether-nhl.md,nhlstenden,NLD,"Leeuwarden","NHL Stenden University of Applied Sciences","nether-nhl",nothing,Available,single
+uni-data\data\nether-radboud.md,runl,NLD,"Nijmegen",Radboud University,"nether-radboud",nothing,Available,single
+uni-data\data\nether-tilburg.md,tilburguniversity,NLD,"Tilburg",Tilburg University,"nether-tilburg",nothing,Available,single
+uni-data\data\norway-ntnu.md,new_ntnu,NOR,"Trondheim, Gjøvik, Ålesund","Norwegian University of Science and Technology","norway-ntnu",nothing,"Available",multiple
+uni-data\data\norway-oslo.md,new_uio,NOR,"Oslo",University of Oslo,"norway-oslo",nothing,"off-campus",single
+uni-data\data\singapore-nanyang.md,ntusg,SGP,"Singapore",Nanyang Technological University,"singapore-nanyang",nothing,Available,single
+uni-data\data\singapore-tech.md,sutdsg,SGP,"Singapore",Singapore University of Technology and Design,"singapore-tech",nothing,Available,single
+uni-data\data\spain-alicante.md,uni_alicante,ESP,"Alicante",University of Alicante,"spain-alicante",nothing,Available,single
+uni-data\data\spain-barcelona.md,uni_barcelona,ESP,"Barcelona",University of Barcelona,"spain-barcelona",nothing,Available,single
+uni-data\data\spain-madrid.md,uni_madrid,ESP,"Madrid",Autonomous University of Madrid,"spain-madrid",nothing,Available,single
+uni-data\data\spain-polytech.md,upv,ESP,"Valencia",Polytechnic University of Valencia,"spain-polytech",nothing,Available,single
+uni-data\data\sweden-linkoping.md,liuse,SWE,"Linköping","Linköping University","sweden-linkoping",nothing,Available,single
+uni-data\data\sweden-umea.md,umuse,SWE,"Umeå","Umeå University","sweden-umea",nothing,Available,single
+uni-data\data\switz-applied.md,fhnw,CHE,"Olten","University of Applied Sciences and Arts Northwestern Switzerland","switz-applied",nothing,Available,single
+uni-data\data\switz-bern.md,unibe,CHE,"Bern","University of Bern","switz-bern",nothing,Available,single
+uni-data\data\uk-bristol.md,bristol,GBR,"Bristol","University of Bristol","uk-bristol",nothing,Available,single
+uni-data\data\uk-hertfordshire.md,herts,GBR,"Hertfordshire","University of Hertfordshire","uk-hertfordshire",nothing,Available,single
+uni-data\data\uk-lancashire.md,uclan,GBR,"Preston","University of Central Lancashire","uk-lancashire",nothing,Available,single
+uni-data\data\uk-leeds.md,leeds,GBR,"Leeds","University of Leeds","uk-leeds",nothing,Available,single
+uni-data\data\uk-leicester.md,leacuk,GBR,"Leicester","University of Leicester","uk-leicester",nothing,Available,single
+uni-data\data\uk-northumbria.md,northumbria,GBR,"Newcastle upon Tyne","Northumbria University","uk-northumbria",nothing,Available,single
+uni-data\data\uk-reading.md,reading,GBR,"Reading","University of Reading","uk-reading",nothing,Available,single
+uni-data\data\uk-sheffield.md,Sheffield,GBR,"Sheffield","University of Sheffield","uk-sheffield",nothing,Available,single
+uni-data\data\uk-westeng.md,uweuk,GBR,"Bristol","University of the West of England","uk-westeng",nothing,Available,single
+uni-data\data\uk-york.md,yorksj,GBR,"York","York St John University","uk-york",nothing,Available,single
+uni-data\data\usa-clarkson.md,clarkson_uni,USA,"Potsdam",Clarkson University,"usa-clarkson",nothing,"on-campus",single
+uni-data\data\usa-houston.md,houston_reep,USA,"Houston",University of Houston,"usa-houston",nothing,"on-campus",single
+uni-data\data\usa-kelly.md,kelly,USA,Indiana,"Indiana University Bloomington","usa-kelly",nothing,"Available",single
+uni-data\data\usa-mbu.md,umass,USA,"Boston, Massachusetts",UMass Boston,"usa-mbu",nothing,"off-campus",single
+uni-data\data\usa-northpark.md,northpark,USA,Chicago,North Park University,"usa-northpark",nothing,"Available",single
+uni-data\data\usa-pennstate.md,pennsate,USA,"Penn state, Germany",Penn State University,"usa-pennstate",nothing,"on-campus",multiple
+uni-data\data\usa-sjsu.md,san_jose,USA,"San Jose, California",San Jose State University,"usa-sjsu",nothing,"N/A",single
+uni-data\data\usa-ucsc.md,ucsc,USA,"California",UC Santa Cruz,"usa-ucsc",nothing,"on-campus",single
+uni-data\data\usa-unf.md,unf,USA,"Jacksonville, Florida",University of North Florida,"usa-unf",nothing,"on-campus",single
+uni-data\data\usa-utdallas.md,new_ut_dallas,USA,"Richardson, Texas","University of Texas at Dallas","usa-utdallas",nothing,"on-campus",single

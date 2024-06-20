@@ -1,11 +1,24 @@
 // Data fetching
 // https://www.youtube.com/watch?v=00lxm_doFYw
 
+export enum Campus {
+  single = 'single',
+  multiple = 'multiple',
+  nan = 'N/A',
+}
+
 export enum Housing {
-  'On-campus' = 'On-campus',
-  'Off-campus' = 'Off-campus',
-  'No housing' = 'No housing',
-  'N/A' = 'N/A',
+  onCampus = 'On-campus',
+  offCampus = 'Off-campus',
+  noHousing = 'No housing',
+  housingAvailable = 'Available',
+  nan = 'N/A',
+}
+
+export const campusText = {
+  single: 'Single City Campus',
+  multiple: 'Campuses across Mulitple cities',
+  'N/A': 'N/A',
 }
 
 export interface University {
@@ -16,15 +29,11 @@ export interface University {
   long_name: string
   ranking: string
   housing: Housing
-  campus: string
+  campus: Campus
   info_page_id: string
 }
 
 export interface UniversityInfo {
-  // university_id: string
-  // country_code: string
-  // region: string
-  // long_name: string
   info_page_id: string
   webpage: string
   introduction: string
@@ -33,8 +42,9 @@ export interface UniversityInfo {
   application_deadlines: string
   courses: string
   housing: string
-  tuition: string
+  expenses: string
   visa: string
   eligibility: string
   requirements: string
+  additional_information: string
 }

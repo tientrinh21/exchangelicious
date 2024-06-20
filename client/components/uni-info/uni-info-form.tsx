@@ -40,10 +40,11 @@ export default function UniInfoForm({
       application_deadlines: data.application_deadlines ?? '',
       courses: data.courses ?? '',
       housing: data.housing ?? '',
-      tuition: data.tuition ?? '',
+      expenses: data.expenses ?? '',
       visa: data.visa ?? '',
       eligibility: data.eligibility ?? '',
       requirements: data.requirements ?? '',
+      additional_information: data.additional_information ?? '',
     },
   })
 

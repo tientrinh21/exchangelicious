@@ -40,11 +40,12 @@ university_with_info_resource_fields = {
     "semester": fields.String,
     "application_deadlines": fields.String,
     "courses": fields.String,
+    "expenses": fields.String,
     "housing": fields.String,
-    "tuition": fields.String,
     "visa": fields.String,
     "eligibility": fields.String,
     "requirements": fields.String,
+    "additional_information": fields.String,
     "info_page_id": fields.String,
 }
 

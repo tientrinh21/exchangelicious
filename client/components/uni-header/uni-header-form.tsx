@@ -26,7 +26,12 @@ import countries from '@/lib/countries.json'
 import { updateUniversity } from '@/lib/request'
 import { cn } from '@/lib/utils'
 import { uniHeaderFormSchema, type UniHeaderFormSchema } from '@/types/schema'
-import { Housing, type University } from '@/types/university'
+import {
+  Campus,
+  Housing,
+  campusText,
+  type University,
+} from '@/types/university'
 import { zodResolver } from '@hookform/resolvers/zod'
 import { CaretSortIcon, CheckIcon, UpdateIcon } from '@radix-ui/react-icons'
 import { CommandList } from 'cmdk'
@@ -35,6 +40,7 @@ import { useForm } from 'react-hook-form'
 import { toast } from 'sonner'
 
 const housingOptions = Object.values(Housing)
+const campusOptions = Object.values(Campus)
 
 export default function UniHeaderForm({ data }: { data: University }) {
   const [countryOpen, setCountryOpen] = useState(false)
@@ -43,6 +49,9 @@ export default function UniHeaderForm({ data }: { data: University }) {
   const [housingOpen, setHousingOpen] = useState(false)
   const [housingValue, setHousingValue] = useState(data.housing)
 
+  const [campusOpen, setCampusOpen] = useState(false)
+  const [campusValue, setCampusValue] = useState(data.campus)
+
   // Define form
   const form = useForm<UniHeaderFormSchema>({
     resolver: zodResolver(uniHeaderFormSchema),
@@ -50,7 +59,7 @@ export default function UniHeaderForm({ data }: { data: University }) {
       long_name: data.long_name ?? '',
       country_code: data.country_code ?? '',
       region: data.region ?? '',
-      campus: data.campus ?? '',
+      campus: data.campus,
       ranking: data.ranking ?? '',
       housing: data.housing,
     },
@@ -100,14 +109,64 @@ export default function UniHeaderForm({ data }: { data: University }) {
         <FormField
           control={form.control}
           name="campus"
-          render={({ field }) => (
+          render={() => (
             <FormItem>
               <FormControl>
-                <Input
-                  placeholder="Campus"
-                  className="h-7 max-w-[22rem] text-xs font-medium leading-5 text-primary-foreground placeholder:text-muted sm:text-sm sm:leading-6 md:text-base md:leading-7"
-                  {...field}
-                />
+                <Popover open={campusOpen} onOpenChange={setCampusOpen}>
+                  <PopoverTrigger asChild>
+                    <FormControl>
+                      <Button
+                        variant="outline"
+                        role="combobox"
+                        className={cn(
+                          'flex h-7 w-full max-w-[19.75rem] justify-between rounded-lg border border-input bg-transparent px-3 py-1 text-xs shadow-sm transition-colors focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-ring sm:min-w-48 sm:text-sm md:max-w-[22rem] md:text-base',
+                          campusValue !== Campus.nan
+                            ? 'text-primary-foreground'
+                            : 'text-muted',
+                        )}
+                      >
+                        {campusValue
+                          ? campusText[
+                              campusOptions.find(
+                                (option) => option === campusValue,
+                              )!
+                            ]
+                          : 'Select campus option'}
+                        <CaretSortIcon className="ml-2 h-4 w-4 shrink-0 opacity-50" />
+                      </Button>
+                    </FormControl>
+                  </PopoverTrigger>
+                  <PopoverContent className="z-[200] w-[80vw] max-w-[19.75rem] p-0 md:max-w-[22rem]">
+                    <Command>
+                      <CommandGroup>
+                        <CommandList>
+                          {campusOptions.map((option) => (
+                            <CommandItem
+                              key={option}
+                              value={option}
+                              onSelect={() => {
+                                const val = option
+                                form.setValue('campus', val)
+                                setCampusValue(val)
+                                setCampusOpen(false)
+                              }}
+                            >
+                              {campusText[option]}
+                              <CheckIcon
+                                className={cn(
+                                  'ml-auto h-4 w-4',
+                                  campusValue === option
+                                    ? 'opacity-100'
+                                    : 'opacity-0',
+                                )}
+                              />
+                            </CommandItem>
+                          ))}
+                        </CommandList>
+                      </CommandGroup>
+                    </Command>
+                  </PopoverContent>
+                </Popover>
               </FormControl>
               <FormMessage />
             </FormItem>
@@ -186,7 +245,7 @@ export default function UniHeaderForm({ data }: { data: University }) {
                                 <CheckIcon
                                   className={cn(
                                     'ml-auto h-4 w-4',
-                                    countryValue == country.code
+                                    countryValue === country.code
                                       ? 'opacity-100'
                                       : 'opacity-0',
                                   )}
@@ -245,7 +304,7 @@ export default function UniHeaderForm({ data }: { data: University }) {
                           role="combobox"
                           className={cn(
                             'flex h-7 w-full max-w-64 justify-between rounded-lg border border-input bg-transparent px-3 py-1 text-xs shadow-sm transition-colors focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-ring sm:min-w-48 sm:text-sm md:text-base',
-                            housingValue !== Housing['N/A']
+                            housingValue !== Housing.nan
                               ? 'text-primary-foreground'
                               : 'text-muted',
                           )}
@@ -278,7 +337,7 @@ export default function UniHeaderForm({ data }: { data: University }) {
                                 <CheckIcon
                                   className={cn(
                                     'ml-auto h-4 w-4',
-                                    housingValue == option
+                                    housingValue === option
                                       ? 'opacity-100'
                                       : 'opacity-0',
                                   )}

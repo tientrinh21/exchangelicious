@@ -2,13 +2,13 @@
 
 import React from 'react'
 import Link from 'next/link'
-import type { University } from '@/types/university'
 import { getCountryName } from '@/lib/utils'
 import { PlusIcon } from '@radix-ui/react-icons'
 import { useUser } from '@/lib/auth'
 import { Button } from '@/components/ui/button'
 import { addFavorite } from '@/lib/request'
 import { toast } from 'sonner'
+import { campusText, type University } from '@/types/university'
 
 export function UniCard(props: { university: University }) {
   const user = useUser()
@@ -57,7 +57,7 @@ export function UniCard(props: { university: University }) {
             )}
           </div>
           <p className="flex flex-col font-medium text-muted sm:flex-row">
-            <span>{props.university.campus ?? 'N/A'}</span>
+            <span>{campusText[props.university.campus] ?? 'N/A'}</span>
             <span className="mx-1.5 hidden sm:inline">|</span>
             <span>
               {props.university.region ?? 'N/A'}

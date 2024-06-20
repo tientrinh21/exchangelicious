@@ -34,7 +34,7 @@ import countries from '@/lib/countries.json'
 import { createUniversity } from '@/lib/request'
 import { cn } from '@/lib/utils'
 import { uniHeaderFormSchema, type UniHeaderFormSchema } from '@/types/schema'
-import { Housing } from '@/types/university'
+import { Campus, Housing, campusText } from '@/types/university'
 import { zodResolver } from '@hookform/resolvers/zod'
 import { CaretSortIcon, CheckIcon, PlusIcon } from '@radix-ui/react-icons'
 import { CommandList } from 'cmdk'
@@ -44,6 +44,7 @@ import { useForm } from 'react-hook-form'
 import { toast } from 'sonner'
 
 const housingOptions = Object.values(Housing)
+const campusOptions = Object.values(Campus)
 
 export function AddUniDialog() {
   const isAuth = useAuthAtom()
@@ -53,7 +54,10 @@ export function AddUniDialog() {
   const [countryValue, setCountryValue] = useState('')
 
   const [housingOpen, setHousingOpen] = useState(false)
-  const [housingValue, setHousingValue] = useState(Housing['N/A'])
+  const [housingValue, setHousingValue] = useState(Housing.nan)
+
+  const [campusOpen, setCampusOpen] = useState(false)
+  const [campusValue, setCampusValue] = useState(Campus.nan)
 
   // Define form
   const form = useForm<UniHeaderFormSchema>({
@@ -62,8 +66,8 @@ export function AddUniDialog() {
       long_name: '',
       country_code: '',
       region: '',
-      campus: '',
-      housing: Housing['N/A'],
+      campus: Campus.nan,
+      housing: Housing.nan,
     },
   })
 
@@ -132,14 +136,64 @@ export function AddUniDialog() {
             <FormField
               control={form.control}
               name="campus"
-              render={({ field }) => (
+              render={() => (
                 <FormItem>
                   <FormControl>
-                    <Input
-                      placeholder="Campus"
-                      className="h-7 max-w-80 text-xs font-medium leading-5  placeholder:text-muted sm:text-sm sm:leading-6 md:text-base md:leading-7"
-                      {...field}
-                    />
+                    <Popover open={campusOpen} onOpenChange={setCampusOpen}>
+                      <PopoverTrigger asChild>
+                        <FormControl>
+                          <Button
+                            variant="outline"
+                            role="combobox"
+                            className={cn(
+                              'flex h-7 w-full max-w-[19.75rem] justify-between rounded-lg border border-input bg-transparent px-3 py-1 text-xs shadow-sm transition-colors focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-ring sm:min-w-48 sm:text-sm md:max-w-[22rem] md:text-base',
+                              campusValue !== Campus.nan
+                                ? 'text-secondary-foreground'
+                                : 'text-muted',
+                            )}
+                          >
+                            {campusValue
+                              ? campusText[
+                                  campusOptions.find(
+                                    (option) => option === campusValue,
+                                  )!
+                                ]
+                              : 'Select campus option'}
+                            <CaretSortIcon className="ml-2 h-4 w-4 shrink-0 opacity-50" />
+                          </Button>
+                        </FormControl>
+                      </PopoverTrigger>
+                      <PopoverContent className="z-[200] w-[80vw] max-w-[19.75rem] p-0 md:max-w-[22rem]">
+                        <Command>
+                          <CommandGroup>
+                            <CommandList>
+                              {campusOptions.map((option) => (
+                                <CommandItem
+                                  key={option}
+                                  value={option}
+                                  onSelect={() => {
+                                    const val = option
+                                    form.setValue('campus', val)
+                                    setCampusValue(val)
+                                    setCampusOpen(false)
+                                  }}
+                                >
+                                  {campusText[option]}
+                                  <CheckIcon
+                                    className={cn(
+                                      'ml-auto h-4 w-4',
+                                      campusValue === option
+                                        ? 'opacity-100'
+                                        : 'opacity-0',
+                                    )}
+                                  />
+                                </CommandItem>
+                              ))}
+                            </CommandList>
+                          </CommandGroup>
+                        </Command>
+                      </PopoverContent>
+                    </Popover>
                   </FormControl>
                   <FormMessage />
                 </FormItem>
@@ -254,7 +308,7 @@ export function AddUniDialog() {
                               role="combobox"
                               className={cn(
                                 'flex h-7 w-full max-w-64 justify-between rounded-lg border border-input bg-transparent px-3 py-1 text-xs shadow-sm transition-colors focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-ring sm:min-w-48 sm:text-sm md:text-base',
-                                housingValue !== Housing['N/A']
+                                housingValue !== Housing.nan
                                   ? ''
                                   : 'text-muted',
                               )}

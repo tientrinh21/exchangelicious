@@ -5,7 +5,7 @@ import {
   UniHeaderName,
 } from '@/components/uni-header'
 import { fetchUniversity } from '@/lib/request'
-import type { University } from '@/types/university'
+import { campusText, type University } from '@/types/university'
 
 export default async function ExchangeLayout({
   children,
@@ -21,7 +21,7 @@ export default async function ExchangeLayout({
       <UniHeaderImgWrapper universityId={data.university_id}>
         <UniHeaderContainer>
           <UniHeaderName name={data.long_name} />
-          <UniHeaderMeta meta={data.campus ?? 'N/A'} />
+          <UniHeaderMeta meta={campusText[data.campus]} />
           <UniHeaderMeta
             meta={`${data.region ?? 'N/A'} - ${data.country_name}`}
           />

@@ -22,10 +22,11 @@ export const uniInfoFormSchema = z.object({
   application_deadlines: z.string().optional(),
   courses: z.string().optional(),
   housing: z.string().optional(),
-  tuition: z.string().optional(),
+  expenses: z.string().optional(),
   visa: z.string().optional(),
   eligibility: z.string().optional(),
   requirements: z.string().optional(),
+  additional_information: z.string().optional(),
 })
 
 export type UniInfoFormSchema = z.infer<typeof uniInfoFormSchema>
@@ -33,9 +34,11 @@ export type UniInfoFormSchema = z.infer<typeof uniInfoFormSchema>
 // REVIEW
 
 export const reviewFormSchema = z.object({
-  title: z.string().min(1, "Title should not be empty"),
-  content: z.string().min(1, "Help other students by writing a bit about your experience"),
-  mood_score: z.string().min(1, "How satisfied were you?"),
+  title: z.string().min(1, 'Title should not be empty'),
+  content: z
+    .string()
+    .min(1, 'Help other students by writing a bit about your experience'),
+  mood_score: z.string().min(1, 'How satisfied were you?'),
 })
 
 export type ReviewFormSchema = z.infer<typeof reviewFormSchema>
