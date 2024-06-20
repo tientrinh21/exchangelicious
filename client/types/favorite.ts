@@ -1,4 +1,4 @@
-import { Housing } from './university'
+import { Campus, Housing } from './university'
 
 export interface Favorite {
   favorite_id: string
@@ -9,6 +9,6 @@ export interface Favorite {
   long_name: string
   ranking: string
   housing: Housing
-  campus: string
+  campus: Campus
   info_page_id: string
 }

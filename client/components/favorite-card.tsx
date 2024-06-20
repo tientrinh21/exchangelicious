@@ -9,6 +9,7 @@ import { Button } from '@/components/ui/button'
 import { toast } from 'sonner'
 import { atom, useSetAtom } from 'jotai'
 import { removeFavorite } from '@/lib/request'
+import { campusText } from '@/types/university'
 
 export const atomReloadFavorites = atom(false)
 
@@ -53,7 +54,7 @@ export function FavoriteCard(props: { favorite: Favorite }) {
             )}
           </div>
           <p className="flex flex-col font-medium text-muted sm:flex-row">
-            <span>{props.favorite.campus ?? 'N/A'}</span>
+            <span>{campusText[props.favorite.campus] ?? 'N/A'}</span>
             <span className="mx-1.5 hidden sm:inline">|</span>
             <span>
               {props.favorite.region ?? 'N/A'}
