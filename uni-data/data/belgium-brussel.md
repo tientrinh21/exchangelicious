@@ -45,7 +45,7 @@ Once confirmation of your selection is sent to us, you'll be asked to send us yo
 
 **Your enrolment file must be sent to the International Office at the latest by:**
 
-- **June 1 for the 1<sup>st</sup> semester (September to January) and for the full academic year (September to June)**
+- **June 1 for the 1st semester (September to January) and for the full academic year (September to June)**
 - **November 15 for the second semester (February to June).**
 
 # Courses

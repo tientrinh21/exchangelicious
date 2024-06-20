@@ -103,7 +103,7 @@ Please make sure to enter your complete home address (and not address of your un
 
 - Address Line 1: Register your **street address and house number** correctly.
 - Postal Code - City: Enter **both postal code / zip code AND name of city.** Please also enter **state/province** if applicable.
-- Country: Choose **your country** from the list**.**
+- Country: Choose **your country** from the list.
 - Mobile: Register **mobile phone number** with country code.
 
 Click on "Save" to continue. You will then be directed to the application page.
