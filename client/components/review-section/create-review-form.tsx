@@ -24,7 +24,7 @@ import {
 import { useUser } from '@/lib/auth'
 import { createReview } from '@/lib/request'
 import { cn, displayMood, moods } from '@/lib/utils'
-import { MoodScore } from '@/types/review-section'
+import { MoodScore } from '@/types/review'
 import { reviewFormSchema, type ReviewFormSchema } from '@/types/schema'
 import { zodResolver } from '@hookform/resolvers/zod'
 import { CaretSortIcon, CheckIcon } from '@radix-ui/react-icons'

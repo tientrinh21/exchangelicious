@@ -122,3 +122,27 @@ downvote_resource_fields = {
     "user_id": fields.String,
     "review_id": fields.String,
 }
+
+favorite_table_resource_fields = {
+    "favorite_id": fields.String,
+    "user_id": fields.String,
+    "university_id": fields.String,
+}
+
+favorite_university_resource_fields = {
+    "favorite_id": fields.String,
+    "user_id": fields.String,
+    "university_id": fields.String,
+    "country_name": fields.String,
+    "region": fields.String,
+    "long_name": fields.String,
+    "ranking": fields.String,
+    "campus": fields.String,
+    "housing": fields.String,
+    "info_page_id": fields.String,
+}
+
+favorite_paginate_resource_fields = {
+    "hasMore": fields.Boolean,
+    "items": fields.List(fields.Nested(favorite_university_resource_fields)),
+}

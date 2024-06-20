@@ -1,4 +1,4 @@
-import type { Review } from '@/types/review-section'
+import type { Review } from '@/types/review'
 import type {
   LoginFormSchema,
   ProfileFormSchema,
@@ -72,17 +72,6 @@ export async function updateUniversityInfo({
       params: {
         info_page_id: id,
         ...values,
-      },
-    })
-    .then((r) => r.data)
-}
-
-export async function fetchUser({ username, password }: LoginFormSchema) {
-  return axios
-    .get<User>(`${BASE_URL}/users/login`, {
-      params: {
-        username: username,
-        pwd: password,
       },
     })
     .then((r) => r.data)
@@ -187,6 +176,17 @@ export async function downvote({
     .then((r) => r.data)
 }
 /* USER */
+export async function fetchUser({ username, password }: LoginFormSchema) {
+  return axios
+    .get<User>(`${BASE_URL}/users/login`, {
+      params: {
+        username: username,
+        pwd: password,
+      },
+    })
+    .then((r) => r.data)
+}
+
 export async function createUser({
   username,
   password,
@@ -226,6 +226,32 @@ export async function deleteUser(user: User) {
     .delete(`${BASE_URL}/users`, {
       params: {
         user_id: user.user_id,
+      },
+    })
+    .then((r) => r.data)
+}
+
+/* FAVORITES */
+export async function addFavorite({
+  user_id,
+  university_id,
+}: {
+  user_id: string
+  university_id: string
+}) {
+  return axios
+    .post(`${BASE_URL}/favorites`, {
+      user_id: user_id,
+      university_id: university_id,
+    })
+    .then((r) => r.data)
+}
+
+export async function removeFavorite({ favorite_id }: { favorite_id: string }) {
+  return axios
+    .delete(`${BASE_URL}/favorites`, {
+      params: {
+        favorite_id: favorite_id,
       },
     })
     .then((r) => r.data)

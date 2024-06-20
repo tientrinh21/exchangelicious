@@ -11,6 +11,7 @@ from resources_api.resource_fields_definitions import (
 )
 from sqlalchemy import exc, select
 
+
 class UniversityRes(Resource):
     @marshal_with(university_resource_fields)
     def get(self, university_id):
@@ -27,10 +28,10 @@ class UniversityRes(Resource):
         # None can happens if UniversityTable.country_code is null
         if res is None:
             result = db.get_or_404(
-            UniversityTable,
-            university_id,
-            description=f"No univerisity with the ID '{university_id}'.",
-        )
+                UniversityTable,
+                university_id,
+                description=f"No univerisity with the ID '{university_id}'.",
+            )
         else:
             parent, child = res
             result = parent.__dict__
@@ -42,15 +43,22 @@ class UniversityWithInfoRes(Resource):
     def __init__(self) -> None:
         super().__init__()
         self.get_args = reqparse.RequestParser()
-        self.get_args.add_argument("university_id", type=str, location="args", required=True)
+        self.get_args.add_argument(
+            "university_id", type=str, location="args", required=True
+        )
 
         self.post_args = reqparse.RequestParser()
-        self.post_args.add_argument("university_id", type=str, location="args", required=True)
+        self.post_args.add_argument(
+            "university_id", type=str, location="args", required=True
+        )
         self.post_args.add_argument(
             "webpage", type=str, location="args", help="Webpage to create info"
         )
         self.post_args.add_argument(
-            "introduction", type=str, location="args", help="Introduction to create info"
+            "introduction",
+            type=str,
+            location="args",
+            help="Introduction to create info",
         )
         self.post_args.add_argument(
             "location", type=str, location="args", help="location to create info"
@@ -80,7 +88,10 @@ class UniversityWithInfoRes(Resource):
             "eligibility", type=str, location="args", help="eligibility to create info"
         )
         self.post_args.add_argument(
-            "requirements", type=str, location="args", help="requirements to create info"
+            "requirements",
+            type=str,
+            location="args",
+            help="requirements to create info",
         )
 
         self.patch_args = reqparse.RequestParser()
@@ -95,7 +106,10 @@ class UniversityWithInfoRes(Resource):
             "webpage", type=str, location="args", help="Webpage to create info"
         )
         self.patch_args.add_argument(
-            "introduction", type=str, location="args", help="Introduction to create info"
+            "introduction",
+            type=str,
+            location="args",
+            help="Introduction to create info",
         )
         self.patch_args.add_argument(
             "location", type=str, location="args", help="location to create info"
@@ -125,9 +139,11 @@ class UniversityWithInfoRes(Resource):
             "eligibility", type=str, location="args", help="eligibility to create info"
         )
         self.patch_args.add_argument(
-            "requirements", type=str, location="args", help="requirements to create info"
+            "requirements",
+            type=str,
+            location="args",
+            help="requirements to create info",
         )
-
 
     @marshal_with(university_with_info_resource_fields)
     def get(self):
@@ -248,7 +264,9 @@ class UniversityAllRes(Resource):
         self.put_args.add_argument(
             "country_code", type=str, location="args", help="Uni country code"
         )
-        self.put_args.add_argument("region", type=str, location="args", help="Uni region")
+        self.put_args.add_argument(
+            "region", type=str, location="args", help="Uni region"
+        )
         self.put_args.add_argument(
             "long_name", type=str, location="args", help="Full name of university"
         )
@@ -256,13 +274,19 @@ class UniversityAllRes(Resource):
             "ranking", type=str, location="args", help="Ranking of a university"
         )
         self.put_args.add_argument(
-            "info_page_id", type=str, location="args", help="Information of a university"
+            "info_page_id",
+            type=str,
+            location="args",
+            help="Information of a university",
         )
         self.put_args.add_argument(
             "campus", type=str, location="args", help="Campus of a university"
         )
         self.put_args.add_argument(
-            "housing", type=str, location="args", help="Housing availability of a university"
+            "housing",
+            type=str,
+            location="args",
+            help="Housing availability of a university",
         )
 
         self.update_args = reqparse.RequestParser()
@@ -275,7 +299,9 @@ class UniversityAllRes(Resource):
         self.update_args.add_argument(
             "country_code", type=str, location="args", help="Uni country code"
         )
-        self.update_args.add_argument("region", type=str, location="args", help="Uni region")
+        self.update_args.add_argument(
+            "region", type=str, location="args", help="Uni region"
+        )
         self.update_args.add_argument(
             "long_name", type=str, location="args", help="Full name of university"
         )
@@ -283,19 +309,29 @@ class UniversityAllRes(Resource):
             "ranking", type=str, location="args", help="Ranking of a university"
         )
         self.update_args.add_argument(
-            "info_page_id", type=str, location="args", help="Information of a university"
+            "info_page_id",
+            type=str,
+            location="args",
+            help="Information of a university",
         )
         self.update_args.add_argument(
             "campus", type=str, location="args", help="Campus of a university"
         )
         self.update_args.add_argument(
-            "housing", type=str, location="args", help="Housing availability of a university"
+            "housing",
+            type=str,
+            location="args",
+            help="Housing availability of a university",
         )
 
         self.delete_args = reqparse.RequestParser()
         self.delete_args.add_argument(
-            "university_id", type=str, location="args", help="Uni ID to delete university"
+            "university_id",
+            type=str,
+            location="args",
+            help="Uni ID to delete university",
         )
+
     @marshal_with(university_meta_table_resource_fields)
     def get(self):
         unis = UniversityTable.query.order_by(UniversityTable.long_name).all()
@@ -407,8 +443,6 @@ class UniversityPagination(Resource):
         page_number = args["page_number"]
         search_word = args["search_word"]
 
-        # TODO: Change per_page=3 to a higher number when we have more entries in our database
-        # In both res = db.paginate.... queries
         if search_word == "":
             res = db.paginate(select(UniversityTable), per_page=5, page=page_number)
         else:
@@ -420,4 +454,3 @@ class UniversityPagination(Resource):
                 page=page_number,
             )
         return {"hasMore": res.has_next, "items": [r for r in res]}, 200
-

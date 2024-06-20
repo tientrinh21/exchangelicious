@@ -1,7 +1,7 @@
 import { clsx, type ClassValue } from 'clsx'
 import { twMerge } from 'tailwind-merge'
 import countries from '@/lib/countries.json'
-import { MoodScore } from '@/types/review-section'
+import { MoodScore } from '@/types/review'
 
 export async function fetcher(...args: Parameters<typeof fetch>) {
   const res = await fetch(...args)

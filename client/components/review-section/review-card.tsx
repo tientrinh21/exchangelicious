@@ -1,6 +1,6 @@
 import { Avatar, AvatarFallback, AvatarImage } from '@/components/ui/avatar'
 import { displayMood, hashIDToNumber } from '@/lib/utils'
-import { Review } from '@/types/review-section'
+import { Review } from '@/types/review'
 import { Provider, atom } from 'jotai'
 import { useHydrateAtoms } from 'jotai/utils'
 import { Url } from 'next/dist/shared/lib/router/router'

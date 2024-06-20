@@ -6,18 +6,14 @@ drop table if exists review_table;
 drop table if exists user_table;
 drop table if exists university_table;
 drop table if exists info_page_table;
-drop table if exists favorites_table;
+drop table if exists review_table;
+drop table if exists favorite_table;
 drop trigger if exists update_upvotes_post;
 drop trigger if exists update_upvotes_delete;
 drop trigger if exists update_downvotes_post;
 drop trigger if exists update_downvotes_delete;
 
 
--- uuid is 36 characters
--- TODO: Add not null or nullable to everything
-
--- This table probably needs to change
--- How to format the text?
 create table info_page_table (
   info_page_id varchar(36) default (uuid()) primary key,
   webpage TEXT,
@@ -97,6 +93,22 @@ CREATE TABLE user_table
     on delete set null on update cascade
     -- FOREIGN KEY (exchangeUniversity) REFERENCES University(UniversityID), 
     -- FOREIGN KEY (nationality) REFERENCES Country(countryCode)
+);
+
+-- Many-to-Many
+-- https://dba.stackexchange.com/questions/74627/difference-between-on-delete-cascade-on-update-cascade-in-mysql
+-- ^ ON DELETE CASCADE ON UPDATE CASCADE
+CREATE TABLE favorite_table (
+	favorite_id varchar(36) default (uuid()) PRIMARY KEY,
+    user_id varchar(36) not null,
+    university_id varchar(36) not null,
+	constraint user_id_fk_con_favorite
+		foreign key (user_id) references user_table (user_id)
+		on delete cascade on update cascade,
+	constraint university_id_fk_con_favorite
+		foreign key (university_id) references university_table (university_id)
+		on delete cascade on update cascade,
+	unique key only_one_favorite_connection (user_id, university_id)
 );
 
 create table review_table (

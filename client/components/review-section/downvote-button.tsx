@@ -7,7 +7,7 @@ import {
 import { Button } from '@/components/ui/button'
 import { getUserData } from '@/lib/auth'
 import { downvote } from '@/lib/request'
-import { Review } from '@/types/review-section'
+import { Review } from '@/types/review'
 import { useAtom } from 'jotai'
 import { toast } from 'sonner'
 import {

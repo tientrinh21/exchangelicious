@@ -1,7 +1,7 @@
 'use client'
 
 import { getUserData, isAuthenticated } from '@/lib/auth'
-import { Review } from '@/types/review-section'
+import { Review } from '@/types/review'
 import axios from 'axios'
 import React, { useEffect, useState } from 'react'
 import InfiniteScroll from 'react-infinite-scroll-component'
@@ -105,17 +105,12 @@ export default function ReviewSection(props: { uniId: string }) {
           </p>
         )}
 
-        {/* TODO: Make a sort by button */}
         {reviews.length > 0 && (
           <InfiniteScroll
             dataLength={reviews.length}
             next={fetchMoreData}
             hasMore={hasMore}
-            loader={
-              <p className="my-10 text-center text-lg font-semibold text-secondary-foreground">
-                Loading...
-              </p>
-            }
+            loader={<LoadingSpinner className="my-10" text="Loading..." />}
             endMessage={
               <p className="my-10 text-center text-lg font-semibold text-secondary-foreground">
                 No more reviews found.

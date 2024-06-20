@@ -46,6 +46,12 @@ class UserTable(db.Model):
         return f"<User {self.username}>"
 
 
+class FavoriteTable(db.Model):
+    """deal with an existing table"""
+
+    __table__ = db.Model.metadata.tables[f"{DB_NAME}.favorite_table"]
+
+
 class ReviewTable(db.Model):
     """deal with an existing table"""
 
@@ -53,6 +59,9 @@ class ReviewTable(db.Model):
 
     def __repr__(self):
         return f"<Review ({self.review_id}, {self.title}, {self.content}, {self.submit_datetime},)>"
+
+    def __repr__(self):
+        return f"<Favorite f_id:{self.favorite_id} user:{self.user_id} uni:{self.university_id}>"
 
 
 class UpvoteTable(db.Model):
