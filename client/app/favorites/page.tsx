@@ -86,64 +86,66 @@ export default function FavoritesPage() {
         <div className="py-5 text-center md:py-8">
           <h1 className="text-xl-plus font-bold text-secondary-foreground">
             Your <span className="text-primary">personal space</span> to keep
-            univerties you would like to do exchange
+            your potential unversities
           </h1>
         </div>
 
-        <div className="flex flex-col items-start justify-between lg:flex-row">
-          <div className="flex w-full flex-col">
-            <div className="search-content mt-0 text-secondary-foreground">
-              {!isAuth && (
-                <div className="my-10 flex w-full flex-col items-center justify-center text-center md:top-2/3">
-                  <h2 className="text-xl font-bold text-destructive">
-                    You need to login first
-                  </h2>
-                  <div className="flex gap-1">
-                    <Link href="/sign-in" className="mt-5">
-                      <Button>Sign in</Button>
-                    </Link>
-                    <Link href="/sign-up" className="mt-5">
-                      <Button variant="secondary">Sign up</Button>
-                    </Link>
-                  </div>
-                </div>
-              )}
-              {isAuth && isLoading && (
-                <LoadingSpinner className="my-10" text="Loading..." />
-              )}
-              {isAuth && !isLoading && favorites.length == 0 && (
-                <p className="my-10 text-center text-lg font-semibold text-secondary-foreground">
-                  No matching results found.
-                </p>
-              )}
-
-              {isAuth && favorites.length > 0 && (
-                <InfiniteScroll
-                  dataLength={favorites.length}
-                  next={fetchMoreData}
-                  hasMore={hasMore}
-                  loader={
-                    <LoadingSpinner className="my-10" text="Loading..." />
-                  }
-                  endMessage={
-                    <p className="my-10 text-center text-lg font-semibold text-secondary-foreground">
-                      No more results found.
-                    </p>
-                  }
-                >
-                  <div className="flex flex-col gap-4">
-                    {favorites.map((favorite) => (
-                      <FavoriteCard
-                        key={favorite.university_id}
-                        favorite={favorite}
-                      />
-                    ))}
-                  </div>
-                </InfiniteScroll>
-              )}
+        {!isAuth && (
+          <div className="mt-52 flex w-full flex-col items-center justify-center text-center md:top-2/3">
+            <h2 className="text-xl font-bold text-destructive">
+              You need to login first
+            </h2>
+            <div className="flex gap-1">
+              <Link href="/sign-in" className="mt-5">
+                <Button>Sign in</Button>
+              </Link>
+              <Link href="/sign-up" className="mt-5">
+                <Button variant="secondary">Sign up</Button>
+              </Link>
             </div>
           </div>
-        </div>
+        )}
+        {isAuth && (
+          <div className="flex flex-col items-start justify-between lg:flex-row">
+            <div className="flex w-full flex-col">
+              <div className="search-content mt-0 text-secondary-foreground">
+                {isLoading && (
+                  <LoadingSpinner className="my-10" text="Loading..." />
+                )}
+                {!isLoading && favorites.length == 0 && (
+                  <p className="my-10 text-center text-lg font-semibold text-secondary-foreground">
+                    No matching results found.
+                  </p>
+                )}
+
+                {favorites.length > 0 && (
+                  <InfiniteScroll
+                    dataLength={favorites.length}
+                    next={fetchMoreData}
+                    hasMore={hasMore}
+                    loader={
+                      <LoadingSpinner className="my-10" text="Loading..." />
+                    }
+                    endMessage={
+                      <p className="my-10 text-center text-lg font-semibold text-secondary-foreground">
+                        No more results found.
+                      </p>
+                    }
+                  >
+                    <div className="flex flex-col gap-4">
+                      {favorites.map((favorite) => (
+                        <FavoriteCard
+                          key={favorite.university_id}
+                          favorite={favorite}
+                        />
+                      ))}
+                    </div>
+                  </InfiniteScroll>
+                )}
+              </div>
+            </div>
+          </div>
+        )}
       </div>
     </>
   )
