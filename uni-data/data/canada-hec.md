@@ -234,7 +234,7 @@ In the BBA Program , the curriculum is in French but there is a wide selection o
 
 Acceptance to HEC Montréal is not conditional upon passing a language proficiency test.
 
-The following scores are desirable and are given **as an indication only\*\***:\*\*
+The following scores are desirable and are given **as an indication only**
 
 **⇒ English:  TOEFL:  72 - 94  (Internet version – iBT), IELTS: 5.5 - 6.5**
 
