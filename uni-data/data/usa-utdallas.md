@@ -11,7 +11,7 @@ Please keep in mind that exchange mobility is available to students whose home i
 The University of Texas at Dallas  
 Office of International Education  
 [EducationAbroad@utdallas.edu](mailto:EducationAbroad@utdallas.edu)  
-Phone: [972-883-4715](tel:+1972-883-4715)
+Phone: +1972-883-4715
 
 # Supported Major
 

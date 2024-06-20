@@ -46,15 +46,11 @@ Academic Year (August - May)
 
 ### Nomination and Application Deadlines
 
-| Academic Term | Nomination Due Date | Apply By Date |
-| ------------- | ------------------- | ------------- |
-
-| Fall Semester  
-(August - December)/  
-Academic Year  
-(August - May) | February 15 | March 15 |
-| Spring Semester  
-(January - May) | September 15 | September 30 |
+| Academic Term                     | Nomination Due Date | Apply By Date |
+| --------------------------------- | ------------------- | ------------- |
+| Fall Semester (August - December) |                     |               |
+| Academic Year (August - May)      | February 15         | March 15      |
+| Spring Semester (January - May)   | September 15        | September 30  |
 
 Please contact your home institution about being nominated. After the nomination deadline for each term, ISSS will contact your home institution with application information, which can be accessed and submitted via our web-based application portal.
 
