@@ -11,7 +11,7 @@ export default function UniInfoContent(props: {
   return (
     <div className="w-full lg:order-1">
       {Object.entries(props.data!).map(([key, value], index) => {
-        if (key == 'info_page_id') return
+        if (key === 'info_page_id') return
         if (key === 'webpage')
           return (
             <div

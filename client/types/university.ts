@@ -15,6 +15,12 @@ export enum Housing {
   nan = 'N/A',
 }
 
+export const campusText = {
+  single: 'Single City Campus',
+  multiple: 'Campuses across Mulitple cities',
+  'N/A': 'N/A',
+}
+
 export interface University {
   university_id: string
   country_name: string

@@ -8,19 +8,9 @@ import { useUser } from '@/lib/auth'
 import { Button } from '@/components/ui/button'
 import { addFavorite } from '@/lib/request'
 import { toast } from 'sonner'
-import { Campus, Housing, type University } from '@/types/university'
+import { campusText, type University } from '@/types/university'
 
 export function UniCard(props: { university: University }) {
-  // decide how to display the text for the different campus options
-  let campusText
-  if (props.university.campus == Campus.single) {
-    campusText = 'Single city campus'
-  } else if (props.university.campus == Campus.multiple) {
-    campusText = 'Campuses across multiple cities'
-  } else {
-    campusText = 'N/A'
-  }
-
   const user = useUser()
 
   const handleAddFavorite = async (event: any) => {
@@ -67,7 +57,7 @@ export function UniCard(props: { university: University }) {
             )}
           </div>
           <p className="flex flex-col font-medium text-muted sm:flex-row">
-            <span>{campusText ?? 'N/A'}</span>
+            <span>{campusText[props.university.campus] ?? 'N/A'}</span>
             <span className="mx-1.5 hidden sm:inline">|</span>
             <span>
               {props.university.region ?? 'N/A'}
