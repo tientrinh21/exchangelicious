@@ -5,7 +5,7 @@ import { AccountButton } from './account-button'
 
 export function SiteHeader() {
   return (
-    <header className="sticky top-0 z-[999] w-full bg-background">
+    <header className="sticky top-0 z-[999] w-full border-b border-border/60 bg-background">
       <div className="container flex h-16 max-w-screen-xl items-center justify-between px-4 md:px-6 lg:px-8">
         <SiteLogo />
 
