@@ -1,6 +1,6 @@
 #!/bin/bash
 
-ENV_FILE_PATH="server/.env"
+ENV_FILE_PATH="uni-data/.env"
 
 # Load environment variables from the .env file
 if [ -f "$ENV_FILE_PATH" ]; then
