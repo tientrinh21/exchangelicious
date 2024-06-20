@@ -146,8 +146,10 @@ export function AddUniDialog() {
                             variant="outline"
                             role="combobox"
                             className={cn(
-                              'flex h-7 w-full max-w-[19.75rem] justify-between rounded-lg border border-input bg-transparent px-3 py-1 text-xs text-secondary-foreground shadow-sm transition-colors focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-ring sm:min-w-48 sm:text-sm md:max-w-[22rem] md:text-base',
-                              !campusValue && 'text-muted',
+                              'flex h-7 w-full max-w-[19.75rem] justify-between rounded-lg border border-input bg-transparent px-3 py-1 text-xs shadow-sm transition-colors focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-ring sm:min-w-48 sm:text-sm md:max-w-[22rem] md:text-base',
+                              campusValue !== Campus.nan
+                                ? 'text-secondary-foreground'
+                                : 'text-muted',
                             )}
                           >
                             {campusValue
