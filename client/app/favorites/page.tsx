@@ -2,10 +2,12 @@
 
 import { FavoriteCard, atomReloadFavorites } from '@/components/favorite-card'
 import { LoadingSpinner } from '@/components/loading-spinner'
+import { Button } from '@/components/ui/button'
 import { getUserData, isAuthenticated, useAuth } from '@/lib/auth'
 import { Favorite } from '@/types/favorite'
 import axios from 'axios'
 import { useAtom } from 'jotai'
+import Link from 'next/link'
 import { useEffect, useState } from 'react'
 import InfiniteScroll from 'react-infinite-scroll-component'
 import { toast } from 'sonner'
@@ -21,10 +23,6 @@ export default function FavoritesPage() {
   const [reloadFavorites, setReloadFavorites] = useAtom(atomReloadFavorites)
 
   const isAuth = useAuth()
-
-  useEffect(() => {
-    !isAuth && toast.error('You need to login first!', { id: 0 })
-  }, [isAuth])
 
   // fetch initial data
   useEffect(() => {
@@ -95,16 +93,31 @@ export default function FavoritesPage() {
         <div className="flex flex-col items-start justify-between lg:flex-row">
           <div className="flex w-full flex-col">
             <div className="search-content mt-0 text-secondary-foreground">
-              {isLoading && (
+              {!isAuth && (
+                <div className="my-10 flex w-full flex-col items-center justify-center text-center md:top-2/3">
+                  <h2 className="text-xl font-bold text-destructive">
+                    You need to login first
+                  </h2>
+                  <div className="flex gap-1">
+                    <Link href="/sign-in" className="mt-5">
+                      <Button>Sign in</Button>
+                    </Link>
+                    <Link href="/sign-up" className="mt-5">
+                      <Button variant="secondary">Sign up</Button>
+                    </Link>
+                  </div>
+                </div>
+              )}
+              {isAuth && isLoading && (
                 <LoadingSpinner className="my-10" text="Loading..." />
               )}
-              {!isLoading && favorites.length == 0 && (
+              {isAuth && !isLoading && favorites.length == 0 && (
                 <p className="my-10 text-center text-lg font-semibold text-secondary-foreground">
                   No matching results found.
                 </p>
               )}
 
-              {favorites.length > 0 && (
+              {isAuth && favorites.length > 0 && (
                 <InfiniteScroll
                   dataLength={favorites.length}
                   next={fetchMoreData}

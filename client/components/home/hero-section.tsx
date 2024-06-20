@@ -10,7 +10,7 @@ export default function HeroSection() {
         <h1 className="text-center text-3xl font-bold text-foreground md:text-4xl lg:text-5xl">
           {siteConfig.slogan}
         </h1>
-        <div className="z-10 space-x-2">
+        <div className="z-10 space-x-1">
           <Link href="/sign-in">
             <Button className="md:h-10 md:w-32 md:text-xl">Sign in</Button>
           </Link>
