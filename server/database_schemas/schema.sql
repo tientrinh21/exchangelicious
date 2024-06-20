@@ -1,5 +1,6 @@
 use exchangeDB;
 -- reset the tables metioned in this file
+drop table if exists favorite_table;
 drop table if exists upvote_table;
 drop table if exists downvote_table;
 drop table if exists review_table;
@@ -7,7 +8,6 @@ drop table if exists user_table;
 drop table if exists university_table;
 drop table if exists info_page_table;
 drop table if exists review_table;
-drop table if exists favorite_table;
 drop trigger if exists update_upvotes_post;
 drop trigger if exists update_upvotes_delete;
 drop trigger if exists update_downvotes_post;
