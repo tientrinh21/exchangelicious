@@ -85,6 +85,9 @@ class UniversityWithInfoRes(Resource):
         self.post_args.add_argument(
             "requirements", type=str, location="args", help="requirements to create info"
         )
+        self.post_args.add_argument(
+            "additional_information", type=str, location="args"
+        )
 
         self.patch_args = reqparse.RequestParser()
         self.patch_args.add_argument(
@@ -129,6 +132,9 @@ class UniversityWithInfoRes(Resource):
         )
         self.patch_args.add_argument(
             "requirements", type=str, location="args", help="requirements to create info"
+        )
+        self.patch_args.add_argument(
+            "additional_information", type=str, location="args"
         )
 
 
@@ -179,6 +185,7 @@ class UniversityWithInfoRes(Resource):
                 visa=args["visa"],
                 eligibility=args["eligibility"],
                 requirements=args["requirements"],
+                additional_information=args["additional_information"],
             )
 
             db.session.add(new)
@@ -228,6 +235,8 @@ class UniversityWithInfoRes(Resource):
                 info_page.eligibility = args["eligibility"]
             if "requirements" in args and args["requirements"] is not None:
                 info_page.requirements = args["requirements"]
+            if "additional_information" in args and args["additional_information"] is not None:
+                info_page.additional_information = args["additional_information"]
 
             db.session.commit()
 

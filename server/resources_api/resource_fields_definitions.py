@@ -42,6 +42,7 @@ university_with_info_resource_fields = {
     "visa": fields.String,
     "eligibility": fields.String,
     "requirements": fields.String,
+    "additional_information": fields.String,
     "info_page_id": fields.String,
 }
 

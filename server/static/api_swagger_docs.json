@@ -408,6 +408,15 @@
             "schema": {
               "type": "string"
             }
+          },
+          {
+            "name": "additional_information",
+            "in": "query",
+            "description": "additional_information to create",
+            "required": false,
+            "schema": {
+              "type": "string"
+            }
           }
         ],
         "responses": {
@@ -533,6 +542,15 @@
             "name": "requirements",
             "in": "query",
             "description": "requirements to create",
+            "required": false,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "additional_information",
+            "in": "query",
+            "description": "additional_information to create",
             "required": false,
             "schema": {
               "type": "string"

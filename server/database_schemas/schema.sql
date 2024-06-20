@@ -29,7 +29,8 @@ create table info_page_table (
   housing TEXT,
   visa TEXT,
   eligibility TEXT,
-  requirements TEXT
+  requirements TEXT,
+  additional_information TEXT
 );
 
 create table university_table (

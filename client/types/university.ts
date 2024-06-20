@@ -43,4 +43,5 @@ export interface UniversityInfo {
   visa: string
   eligibility: string
   requirements: string
+  additional_information: string
 }
