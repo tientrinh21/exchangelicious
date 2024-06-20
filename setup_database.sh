@@ -31,9 +31,18 @@ execute_sql_file() {
 }
 
 # Run the setup - the paths may be different on a different computer
+
+UNAME=$(uname)
+
+if [[ "$UNAME" == "Linux" || "$UNAME" == "Darwin" ]] ; then
+	source ./uni-data/.venv/bin/activate
+elif [[ "$UNAME" == CYGWIN* || "$UNAME" == MINGW* ]] ; then
+	source ./uni-data/.venv/Scripts/activate
+fi
+
 execute_sql_file ./server/database_schemas/countries.sql
-source ./uni-data/.venv/Scripts/activate
 python ./uni-data/ranking/rank.py
 execute_sql_file ./server/database_schemas/schema.sql
 python ./uni-data/parse_md_to_db.py
-deactive
+
+deactivate
