@@ -6,9 +6,9 @@ import { getUserData, isAuthenticated, useAuth } from '@/lib/auth'
 import { Favorite } from '@/types/favorite'
 import axios from 'axios'
 import { useAtom } from 'jotai'
-import { useRouter } from 'next/navigation'
 import { useEffect, useState } from 'react'
 import InfiniteScroll from 'react-infinite-scroll-component'
+import { toast } from 'sonner'
 
 const BASE_URL = process.env.BASE_URL || 'http://localhost:8080/api'
 
@@ -20,13 +20,10 @@ export default function FavoritesPage() {
 
   const [reloadFavorites, setReloadFavorites] = useAtom(atomReloadFavorites)
 
-  const router = useRouter()
   const isAuth = useAuth()
 
   useEffect(() => {
-    if (!isAuth) {
-      router.replace('/sign-in')
-    }
+    !isAuth && toast.error('You need to login first!', { id: 0 })
   }, [isAuth])
 
   // fetch initial data
