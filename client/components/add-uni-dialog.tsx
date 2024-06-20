@@ -53,7 +53,7 @@ export function AddUniDialog() {
   const [countryValue, setCountryValue] = useState('')
 
   const [housingOpen, setHousingOpen] = useState(false)
-  const [housingValue, setHousingValue] = useState(Housing['N/A'])
+  const [housingValue, setHousingValue] = useState(Housing.nan)
 
   // Define form
   const form = useForm<UniHeaderFormSchema>({
@@ -63,7 +63,7 @@ export function AddUniDialog() {
       country_code: '',
       region: '',
       campus: '',
-      housing: Housing['N/A'],
+      housing: Housing.nan,
     },
   })
 
@@ -254,7 +254,7 @@ export function AddUniDialog() {
                               role="combobox"
                               className={cn(
                                 'flex h-7 w-full max-w-64 justify-between rounded-lg border border-input bg-transparent px-3 py-1 text-xs shadow-sm transition-colors focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-ring sm:min-w-48 sm:text-sm md:text-base',
-                                housingValue !== Housing['N/A']
+                                housingValue !== Housing.nan
                                   ? ''
                                   : 'text-muted',
                               )}
