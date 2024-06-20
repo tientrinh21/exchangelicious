@@ -9,7 +9,6 @@ import { useAtom } from 'jotai'
 import { useRouter } from 'next/navigation'
 import { useEffect, useState } from 'react'
 import InfiniteScroll from 'react-infinite-scroll-component'
-import { toast } from 'sonner'
 
 const BASE_URL = process.env.BASE_URL || 'http://localhost:8080/api'
 
@@ -26,7 +25,6 @@ export default function FavoritesPage() {
 
   useEffect(() => {
     if (!isAuth) {
-      toast.error('You need to log in first!', { id: 0 })
       router.replace('/sign-in')
     }
   }, [isAuth])
