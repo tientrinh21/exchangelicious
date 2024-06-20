@@ -96,7 +96,7 @@ export default function ExchangePage() {
                     type="search"
                     id="default-search"
                     className="focus:border-b-3 block w-full rounded-t-lg border-b-2 border-secondary bg-background p-2 pl-10 text-lg font-medium text-secondary-foreground placeholder:text-placeholder focus:border-primary focus:outline-none focus:ring-0 sm:pl-12"
-                    placeholder="Search universities by name, region, country, etc."
+                    placeholder="Search universities by name"
                     value={query}
                     onChange={handleSearch}
                     style={{ textOverflow: 'ellipsis' }}

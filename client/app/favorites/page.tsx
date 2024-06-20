@@ -2,12 +2,14 @@
 
 import { FavoriteCard, atomReloadFavorites } from '@/components/favorite-card'
 import { LoadingSpinner } from '@/components/loading-spinner'
-import { getUserData, isAuthenticated } from '@/lib/auth'
+import { getUserData, isAuthenticated, useAuth } from '@/lib/auth'
 import { Favorite } from '@/types/favorite'
 import axios from 'axios'
 import { useAtom } from 'jotai'
+import { useRouter } from 'next/navigation'
 import { useEffect, useState } from 'react'
 import InfiniteScroll from 'react-infinite-scroll-component'
+import { toast } from 'sonner'
 
 const BASE_URL = process.env.BASE_URL || 'http://localhost:8080/api'
 
@@ -18,6 +20,16 @@ export default function FavoritesPage() {
   const [pageNumber, setPageNumber] = useState(2)
 
   const [reloadFavorites, setReloadFavorites] = useAtom(atomReloadFavorites)
+
+  const router = useRouter()
+  const isAuth = useAuth()
+
+  useEffect(() => {
+    if (!isAuth) {
+      toast.error('You need to log in first!', { id: 0 })
+      router.replace('/sign-in')
+    }
+  }, [isAuth])
 
   // fetch initial data
   useEffect(() => {
