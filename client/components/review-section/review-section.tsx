@@ -11,7 +11,7 @@ import { atom, useAtom, useAtomValue } from 'jotai'
 import { SortingButton } from './sorting-button'
 import { LoadingSpinner } from '@/components/loading-spinner'
 
-const BASE_URL = 'http://127.0.0.1:8080/api'
+const BASE_URL = process.env.BASE_URL || 'http://localhost:8080/api'
 
 export const atomReloadReviews = atom(false)
 export const atomSortOption = atom('default')
