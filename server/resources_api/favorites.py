@@ -42,7 +42,7 @@ class FavoriteRes(Resource):
         # Paginate over the favorite table
         pagination_results = db.paginate(
             select(FavoriteTable).where(FavoriteTable.user_id == user_id),
-            per_page=5,
+            per_page=10,
             page=page_number,
         )
 

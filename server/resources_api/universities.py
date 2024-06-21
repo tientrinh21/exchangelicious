@@ -93,9 +93,7 @@ class UniversityWithInfoRes(Resource):
             location="args",
             help="requirements to create info",
         )
-        self.post_args.add_argument(
-            "additional_information", type=str, location="args"
-        )
+        self.post_args.add_argument("additional_information", type=str, location="args")
 
         self.patch_args = reqparse.RequestParser()
         self.patch_args.add_argument(
@@ -248,7 +246,10 @@ class UniversityWithInfoRes(Resource):
                 info_page.eligibility = args["eligibility"]
             if "requirements" in args and args["requirements"] is not None:
                 info_page.requirements = args["requirements"]
-            if "additional_information" in args and args["additional_information"] is not None:
+            if (
+                "additional_information" in args
+                and args["additional_information"] is not None
+            ):
                 info_page.additional_information = args["additional_information"]
 
             db.session.commit()
@@ -453,13 +454,13 @@ class UniversityPagination(Resource):
         search_word = args["search_word"]
 
         if search_word == "":
-            res = db.paginate(select(UniversityTable), per_page=5, page=page_number)
+            res = db.paginate(select(UniversityTable), per_page=10, page=page_number)
         else:
             res = db.paginate(
                 select(UniversityTable).where(
                     UniversityTable.long_name.contains(search_word)
                 ),
-                per_page=5,
+                per_page=10,
                 page=page_number,
             )
         return {"hasMore": res.has_next, "items": [r for r in res]}, 200
