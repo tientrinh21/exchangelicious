@@ -3,7 +3,10 @@ import type { UniversityInfo } from '@/types/university'
 import { Url } from 'next/dist/shared/lib/router/router'
 import Link from 'next/link'
 import Markdown from 'react-markdown'
+import rehypeRaw from 'rehype-raw'
+import rehypeSanitize from 'rehype-sanitize'
 import remarkGfm from 'remark-gfm'
+import remarkIns from 'remark-ins'
 
 export default function UniInfoContent(props: {
   data: UniversityInfo | undefined
@@ -41,7 +44,8 @@ export default function UniInfoContent(props: {
               {`${toRomanNumerals(index)}. ${objKeyToText(key)}`}
             </h2>
             <Markdown
-              remarkPlugins={[remarkGfm]}
+              remarkPlugins={[remarkGfm, remarkIns]}
+              rehypePlugins={[rehypeRaw, rehypeSanitize]}
               className="prose max-w-none font-medium text-secondary-foreground"
               components={{
                 a: ({ node, href, ...props }) => (

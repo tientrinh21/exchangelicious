@@ -9,18 +9,18 @@ import { objKeyToText, toRomanNumerals } from '@/lib/utils'
 import type { Error } from '@/types/error'
 import type { UniversityInfo } from '@/types/university'
 import {
+  ArrowUpIcon,
   DotsHorizontalIcon,
   SymbolIcon,
-  ArrowUpIcon,
 } from '@radix-ui/react-icons'
 import { Url } from 'next/dist/shared/lib/router/router'
 import Link from 'next/link'
 import React from 'react'
 import Markdown from 'react-markdown'
-import remarkGfm from 'remark-gfm'
-import remarkIns from 'remark-ins'
 import rehypeRaw from 'rehype-raw'
 import rehypeSanitize from 'rehype-sanitize'
+import remarkGfm from 'remark-gfm'
+import remarkIns from 'remark-ins'
 
 function UniInfoContent(props: { data: UniversityInfo | undefined }) {
   return (
@@ -56,9 +56,6 @@ function UniInfoContent(props: { data: UniversityInfo | undefined }) {
             <h2 className="text-xl font-bold text-foreground md:text-2xl">
               {`${toRomanNumerals(index)}. ${objKeyToText(key)}`}
             </h2>
-            {/* <p className="whitespace-pre-line font-medium text-secondary-foreground"> */}
-            {/*   {value} */}
-            {/* </p> */}
             <Markdown
               remarkPlugins={[remarkGfm, remarkIns]}
               rehypePlugins={[rehypeRaw, rehypeSanitize]}

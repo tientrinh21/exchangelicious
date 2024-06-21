@@ -7,10 +7,13 @@ import { Url } from 'next/dist/shared/lib/router/router'
 import Link from 'next/link'
 import type { ReactNode } from 'react'
 import Markdown from 'react-markdown'
+import rehypeRaw from 'rehype-raw'
+import rehypeSanitize from 'rehype-sanitize'
 import remarkGfm from 'remark-gfm'
+import remarkIns from 'remark-ins'
 import { DownvoteButton } from './downvote-button'
-import { UpvoteButton } from './upvote-button'
 import { EditDeleteReview } from './edit-delete-review'
+import { UpvoteButton } from './upvote-button'
 
 export const atomHasUpvoted = atom(false)
 export const atomUpvotes = atom(0)
@@ -62,7 +65,8 @@ export function ReviewCard({ review }: { review: Review }) {
           {review.title}
         </h2>
         <Markdown
-          remarkPlugins={[remarkGfm]}
+          remarkPlugins={[remarkGfm, remarkIns]}
+          rehypePlugins={[rehypeRaw, rehypeSanitize]}
           className="prose max-w-none font-medium text-secondary-foreground prose-h1:mb-1 prose-h1:text-2xl prose-h2:text-lg prose-h3:text-base"
           components={{
             a: ({ node, href, ...props }) => (

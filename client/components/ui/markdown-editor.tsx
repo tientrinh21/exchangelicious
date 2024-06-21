@@ -1,16 +1,19 @@
 'use client'
 
-import React from 'react'
-import { Tabs, TabsContent, TabsList, TabsTrigger } from '@/components/ui/tabs'
 import {
-  AutosizeTextarea,
   AutosizeTextAreaRef,
+  AutosizeTextarea,
 } from '@/components/ui/autosize-textarea'
-import Markdown from 'react-markdown'
-import remarkGfm from 'remark-gfm'
-import Link from 'next/link'
-import { Url } from 'next/dist/shared/lib/router/router'
+import { Tabs, TabsContent, TabsList, TabsTrigger } from '@/components/ui/tabs'
 import { cn } from '@/lib/utils'
+import { Url } from 'next/dist/shared/lib/router/router'
+import Link from 'next/link'
+import React from 'react'
+import Markdown from 'react-markdown'
+import rehypeRaw from 'rehype-raw'
+import rehypeSanitize from 'rehype-sanitize'
+import remarkGfm from 'remark-gfm'
+import remarkIns from 'remark-ins'
 
 type UniInfoEditorProps = {
   index?: number
@@ -45,7 +48,8 @@ export const MarkdownEditor = React.forwardRef<
       </TabsContent>
       <TabsContent value="preview">
         <Markdown
-          remarkPlugins={[remarkGfm]}
+          remarkPlugins={[remarkGfm, remarkIns]}
+          rehypePlugins={[rehypeRaw, rehypeSanitize]}
           className="prose max-w-none rounded-md border border-input px-5 pb-4 pt-6 font-medium text-secondary-foreground"
           components={{
             a: ({ node, href, ...props }) => (
